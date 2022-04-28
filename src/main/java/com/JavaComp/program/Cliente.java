@@ -6,9 +6,9 @@ public class Cliente {
     private String clave;
     private Direccion direccion;
     private TarjetaCredito tarjeta;
-    private String telefono;
+    private int telefono;
 
-    public Cliente(String nombre, String correo, String clave, Direccion direccion, TarjetaCredito tarjeta, String telefono) {
+    public Cliente(String nombre, String correo, String clave, Direccion direccion, TarjetaCredito tarjeta, int telefono) {
         this.nombre = nombre;
         this.correo = correo;
         this.clave = clave;
@@ -57,11 +57,11 @@ public class Cliente {
         this.tarjeta = tarjeta;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 }
