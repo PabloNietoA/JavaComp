@@ -16,6 +16,10 @@ public class Cliente {
         this.tarjeta = tarjeta;
         this.telefono = telefono;
     }
+    // !! NO ESTÁ ACABADO
+    public String clientToString(){
+        return nombre;
+    }
 
     public String getNombre() {
         return nombre;

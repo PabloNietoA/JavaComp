@@ -4,6 +4,8 @@
  */
 package com.JavaComp.interf;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Slend
@@ -31,6 +33,8 @@ public class MainMenu extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
+        setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel1.setText("Tienda JavaComp");
@@ -76,6 +80,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        new SignIn().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
