@@ -4,6 +4,8 @@
  */
 package com.JavaComp.interf;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Slend
@@ -36,6 +38,8 @@ public class SignIn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
+        setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
 
         jScrollPane2.setViewportView(correo);
 
