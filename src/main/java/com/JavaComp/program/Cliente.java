@@ -66,6 +66,7 @@ public class Cliente {
     }
 
     public void setTelefono(int telefono) {
-        this.telefono = telefono;
+        
     }
+   
 }
