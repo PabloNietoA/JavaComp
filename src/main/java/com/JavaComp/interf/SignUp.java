@@ -5,6 +5,8 @@
 package com.JavaComp.interf;
 
 import javax.swing.ImageIcon;
+import com.JavaComp.program.*;
+import java.awt.Dialog;
 
 /**
  *
@@ -53,13 +55,12 @@ public class SignUp extends javax.swing.JFrame {
         direccionField = new javax.swing.JTextField();
         Telefono = new javax.swing.JLabel();
         TarjetaButton = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        telefonoField = new javax.swing.JFormattedTextField();
         confirmar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
-        setMaximumSize(new java.awt.Dimension(988, 433));
         setResizable(false);
 
         toggleEmpresa.setOpaque(false);
@@ -105,6 +106,11 @@ public class SignUp extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        dniField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dniFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout toggleParticularLayout = new javax.swing.GroupLayout(toggleParticular);
         toggleParticular.setLayout(toggleParticularLayout);
@@ -112,9 +118,9 @@ public class SignUp extends javax.swing.JFrame {
             toggleParticularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toggleParticularLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-                .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DNI)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         toggleParticularLayout.setVerticalGroup(
@@ -181,9 +187,14 @@ public class SignUp extends javax.swing.JFrame {
         Telefono.setText("Teléfono:");
 
         TarjetaButton.setText("Tarjeta de Crédito");
+        TarjetaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TarjetaButtonActionPerformed(evt);
+            }
+        });
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+            telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -203,7 +214,7 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(Correo)
                             .addComponent(Nombre)
                             .addComponent(Particular))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
@@ -212,7 +223,7 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(correoField)
                             .addComponent(direccionField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(contrasenaField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(jFormattedTextField1)))
+                            .addComponent(telefonoField)))
                     .addComponent(TarjetaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
             .addComponent(toggle, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -238,20 +249,25 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(contrasenaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(direccionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Direccion))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefono)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TarjetaButton)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         confirmar.setText("Confirmar");
+        confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarActionPerformed(evt);
+            }
+        });
 
         cancelar.setText("Cancelar");
 
@@ -300,6 +316,33 @@ public class SignUp extends javax.swing.JFrame {
         toggleParticular.setVisible(true);
     }//GEN-LAST:event_ParticularActionPerformed
 
+    private void dniFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dniFieldActionPerformed
+
+    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+        if (Empresa.isSelected()){
+            Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
+                    contrasenaField.getText(), new Direccion("as","asd","asdf","asdf"), interfaz.tarjeta,
+                    telefonoField.getText(), cifField.getText(), webField.getText());
+            MainClass.clientes.add(empresa);
+        } else{
+            Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
+                    contrasenaField.getText(), new Direccion("","","",""), interfaz.tarjeta,
+                    telefonoField.getText(), dniField.getText());
+            MainClass.clientes.add(particular);
+        }
+        
+        
+    }//GEN-LAST:event_confirmarActionPerformed
+
+    private void TarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarjetaButtonActionPerformed
+        // TODO add your handling code here
+        interfaz = new TarjetaInterfaz();
+        interfaz.setModal(true);
+        interfaz.setVisible(true);
+    }//GEN-LAST:event_TarjetaButtonActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -335,7 +378,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
-
+    private TarjetaInterfaz interfaz;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
     private javax.swing.JLabel CIF;
@@ -356,9 +399,9 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextField correoField;
     private javax.swing.JTextField direccionField;
     private javax.swing.JFormattedTextField dniField;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreField;
+    private javax.swing.JFormattedTextField telefonoField;
     private javax.swing.JLayeredPane toggle;
     private javax.swing.JPanel toggleEmpresa;
     private javax.swing.JPanel toggleParticular;
