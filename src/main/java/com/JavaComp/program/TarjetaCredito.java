@@ -1,13 +1,12 @@
 package com.JavaComp.program;
 
-import java.time.LocalDate;
 
 public class TarjetaCredito {
     private String titular;
     private String codigo;
-    private LocalDate caducidad;
+    private String caducidad;
 
-    public TarjetaCredito(String titular, String codigo, LocalDate caducidad) {
+    public TarjetaCredito(String titular, String codigo, String caducidad) {
         this.titular = titular;
         this.codigo = codigo;
         this.caducidad = caducidad;
@@ -29,11 +28,11 @@ public class TarjetaCredito {
         this.codigo = codigo;
     }
 
-    public LocalDate getCaducidad() {
+    public String getCaducidad() {
         return caducidad;
     }
 
-    public void setCaducidad(LocalDate caducidad) {
+    public void setCaducidad(String caducidad) {
         this.caducidad = caducidad;
     }
 }
