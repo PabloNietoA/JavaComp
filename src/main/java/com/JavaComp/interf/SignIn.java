@@ -5,6 +5,8 @@
 package com.JavaComp.interf;
 
 import javax.swing.ImageIcon;
+import com.JavaComp.program.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,6 +53,11 @@ public class SignIn extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancel");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,7 +80,7 @@ public class SignIn extends javax.swing.JFrame {
 
         jLabel1.setText("Correo:");
 
-        jLabel2.setText("ContraseÃ±a:");
+        jLabel2.setText("Contraseña:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,7 +123,24 @@ public class SignIn extends javax.swing.JFrame {
         // TODO add your handling code here:
         String corr = correo.getText();
         String cont = contrasena.getText();
+        JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos", "Error", JOptionPane.WARNING_MESSAGE); 
+
+        for(int i=0; i < MainClass.clientes.size(); i++){
+            if(MainClass.clientes.get(i).getCorreo() == corr && MainClass.clientes.get(i).getClave() == cont){
+                new InterfCliente().setVisible(true);
+                this.setVisible(false);
+            }
+            else if(i >= (MainClass.clientes.size()-1)){
+               JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos", "Error", JOptionPane.WARNING_MESSAGE); 
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new MainMenu().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

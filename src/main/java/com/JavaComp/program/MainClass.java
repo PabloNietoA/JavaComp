@@ -10,12 +10,14 @@ import java.util.ArrayList;
  *
  * @author Slend
  */
+
 public class MainClass {
     
     public static ArrayList<Cliente> clientes;
     public static void main(String[] args) {
         // TODO code application logic here
-        SaveManager.downloadSave(clientes, "save.dat");
+        SaveManager.downloadSave(clientes, "saveClientes.dat");
+        
     }
     
 }
