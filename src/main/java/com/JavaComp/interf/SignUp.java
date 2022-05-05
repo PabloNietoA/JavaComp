@@ -180,13 +180,13 @@ public class SignUp extends javax.swing.JFrame {
 
         Correo.setText("Correo:");
 
-        Contrasena.setText("Contraseña:");
+        Contrasena.setText("Contraseï¿½a:");
 
-        Direccion.setText("Dirección:");
+        Direccion.setText("Direcciï¿½n:");
 
-        Telefono.setText("Teléfono:");
+        Telefono.setText("Telï¿½fono:");
 
-        TarjetaButton.setText("Tarjeta de Crédito");
+        TarjetaButton.setText("Tarjeta de Crï¿½dito");
         TarjetaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TarjetaButtonActionPerformed(evt);
@@ -339,7 +339,7 @@ public class SignUp extends javax.swing.JFrame {
     private void TarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarjetaButtonActionPerformed
         // TODO add your handling code here
         interfaz = new TarjetaInterfaz();
-        interfaz.setModal(true);
+        //interfaz.setModal(true);
         interfaz.setVisible(true);
     }//GEN-LAST:event_TarjetaButtonActionPerformed
 
