@@ -5,6 +5,7 @@
 package com.JavaComp.program;
 
 import java.util.ArrayList;
+import com.JavaComp.interf.*;
 
 /**
  *
@@ -17,6 +18,7 @@ public class MainClass {
     public static void main(String[] args) {
         // TODO code application logic here
         SaveManager.downloadSave(clientes, "saveClientes.dat");
+        new MainMenu().setVisible(true);
         
     }
     

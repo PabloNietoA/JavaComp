@@ -60,6 +60,7 @@ public class SignUp extends javax.swing.JFrame {
         cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
         setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
         setResizable(false);
 
@@ -180,13 +181,13 @@ public class SignUp extends javax.swing.JFrame {
 
         Correo.setText("Correo:");
 
-        Contrasena.setText("Contrase�a:");
+        Contrasena.setText("Contraseña:");
 
-        Direccion.setText("Direcci�n:");
+        Direccion.setText("Dirección:");
 
-        Telefono.setText("Tel�fono:");
+        Telefono.setText("Teléfono:");
 
-        TarjetaButton.setText("Tarjeta de Cr�dito");
+        TarjetaButton.setText("Tarjeta de Crédito");
         TarjetaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TarjetaButtonActionPerformed(evt);
@@ -270,6 +271,11 @@ public class SignUp extends javax.swing.JFrame {
         });
 
         cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -338,10 +344,15 @@ public class SignUp extends javax.swing.JFrame {
 
     private void TarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarjetaButtonActionPerformed
         // TODO add your handling code here
-        interfaz = new TarjetaInterfaz();
         //interfaz.setModal(true);
         interfaz.setVisible(true);
     }//GEN-LAST:event_TarjetaButtonActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new MainMenu().setVisible(true);
+    }//GEN-LAST:event_cancelarActionPerformed
 
 
     /**
@@ -378,7 +389,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
-    private TarjetaInterfaz interfaz;
+    private TarjetaInterfaz interfaz = new TarjetaInterfaz();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
     private javax.swing.JLabel CIF;

@@ -4,11 +4,12 @@
  */
 package com.JavaComp.interf;
 import com.JavaComp.program.*;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 
 /**
  *
- * @author Karín
+ * @author Karï¿½n
  */
 public class TarjetaInterfaz extends javax.swing.JFrame {
 
@@ -37,7 +38,9 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         caducidadField = new org.jdatepicker.JDatePicker();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
+        setAlwaysOnTop(true);
+        setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -46,13 +49,19 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
         jLabel1.setText("Titular de la tarjeta:");
 
-        jLabel2.setText("Código:");
+        jLabel2.setText("CÃ³digo:");
 
         jLabel3.setText("Fecha de caducidad:");
 
         titularField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 titularFieldActionPerformed(evt);
+            }
+        });
+
+        codigoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoFieldActionPerformed(evt);
             }
         });
 
@@ -139,6 +148,10 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         this.setVisible(false);
     }//GEN-LAST:event_formWindowClosing
+
+    private void codigoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_codigoFieldActionPerformed
 
     /**
      * @param args the command line arguments
