@@ -4,8 +4,8 @@ public class Empresa extends Cliente{
         private String cif;
         private String web;
 
-    public Empresa(String nombre, String correo, String clave, Direccion direccion, TarjetaCredito tarjeta, String telefono, String cif, String web) {
-        super(nombre, correo, clave, direccion, tarjeta, telefono);
+    public Empresa(String nombre, String correo, String clave, Direccion direccion, String telefono, String cif, String web) {
+        super(nombre, correo, clave, direccion, telefono);
         this.cif = cif;
         this.web = web;
     }

@@ -4,6 +4,7 @@
  */
 package com.JavaComp.interf;
 import com.JavaComp.program.*;
+import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -14,9 +15,6 @@ import javax.swing.JOptionPane;
  */
 public class TarjetaInterfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TarjetaInterfaz
-     */
     public TarjetaInterfaz() {
         initComponents();
     }
@@ -30,15 +28,16 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Titular = new javax.swing.JLabel();
         titularField = new javax.swing.JTextField();
+        Codigo = new javax.swing.JLabel();
         codigoField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Caducidad = new javax.swing.JLabel();
         caducidadField = new org.jdatepicker.JDatePicker();
+        Cancelar = new javax.swing.JButton();
+        Finalizar = new javax.swing.JButton();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
         setAlwaysOnTop(true);
         setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
@@ -48,11 +47,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Titular de la tarjeta:");
-
-        jLabel2.setText("Código:");
-
-        jLabel3.setText("Fecha de caducidad:");
+        Titular.setText("Titular de la tarjeta:");
 
         titularField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,24 +55,28 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
 
+        Codigo.setText("CÃ³digo:");
+
         codigoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 codigoFieldActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Cancelar");
-
-        jButton2.setText("Finalizar y crear cuenta");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        Caducidad.setText("Fecha de caducidad:");
 
         caducidadField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 caducidadFieldActionPerformed(evt);
+            }
+        });
+
+        Cancelar.setText("Cancelar");
+
+        Finalizar.setText("Finalizar y crear cuenta");
+        Finalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FinalizarActionPerformed(evt);
             }
         });
 
@@ -90,19 +89,19 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jButton1)))
+                            .addComponent(Titular)
+                            .addComponent(Codigo)
+                            .addComponent(Cancelar)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Caducidad, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(caducidadField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(codigoField)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(Finalizar))
                     .addComponent(titularField))
                 .addContainerGap())
         );
@@ -111,23 +110,23 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Titular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(titularField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(Codigo, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                        .addComponent(Caducidad, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(caducidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(Cancelar)
+                    .addComponent(Finalizar))
                 .addGap(8, 8, 8))
         );
 
@@ -138,16 +137,22 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_titularFieldActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      /*  tarjeta = new TarjetaCredito(titularField.getText(), codigoField.getText(),caducidadField.getDateFormat());*/
-      
-      if(titularField.getText().isEmpty()||codigoField.getText().isEmpty()||caducidadField.getDateFormat().isEmpty()){
-          JOptionPane.showMessageDialog(this,"Asegúrese de meter todos los datos.");
-      }else{
-      //Aquí tiene que ir lo tuyo de crear el cliente
-      }
-      
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void FinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarActionPerformed
+        if(titularField.getText().isBlank()||codigoField.getText().isBlank()|| caducidadField.getModel().toString().isBlank()){
+            JOptionPane.showMessageDialog(this,"AsegÃºrese de introducir todos los datos.");
+        }
+        else{
+            //Crea el objeto de la tarjeta y lo aÃ±ade al cliente
+            System.out.printf("debug");
+            tarjeta = new TarjetaCredito(titularField.getText(), codigoField.getText(),caducidadField.getDateFormat());
+            client.setTarjeta(tarjeta);
+            InterfCliente interf = new InterfCliente();
+            interf.setLocation(this.getLocation());
+            interf.setVisible(true);
+            this.setVisible(false);
+            MainClass.clientes.add(client);
+        }
+    }//GEN-LAST:event_FinalizarActionPerformed
 
     private void caducidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caducidadFieldActionPerformed
         // TODO add your handling code here:
@@ -160,7 +165,12 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     private void codigoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_codigoFieldActionPerformed
-
+    
+    //getter del objeto tarjeta
+    public TarjetaCredito getTarjeta(){
+        return tarjeta;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -172,7 +182,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -195,15 +205,18 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
     }
-    public TarjetaCredito tarjeta;
+    
+    public Cliente client;
+    private TarjetaCredito tarjeta;
+    public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Caducidad;
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JLabel Codigo;
+    private javax.swing.JButton Finalizar;
+    private javax.swing.JLabel Titular;
     private org.jdatepicker.JDatePicker caducidadField;
     private javax.swing.JTextField codigoField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField titularField;
     // End of variables declaration//GEN-END:variables
 }

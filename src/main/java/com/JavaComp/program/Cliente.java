@@ -8,12 +8,11 @@ public class Cliente {
     private TarjetaCredito tarjeta;
     private String telefono;
 
-    public Cliente(String nombre, String correo, String clave, Direccion direccion, TarjetaCredito tarjeta, String telefono) {
+    public Cliente(String nombre, String correo, String clave, Direccion direccion, String telefono) {
         this.nombre = nombre;
         this.correo = correo;
         this.clave = clave;
         this.direccion = direccion;
-        this.tarjeta = tarjeta;
         this.telefono = telefono;
     }
     

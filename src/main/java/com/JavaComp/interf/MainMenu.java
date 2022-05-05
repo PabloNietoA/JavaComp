@@ -86,13 +86,17 @@ public class MainMenu extends javax.swing.JFrame {
     private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new SignIn().setVisible(true);
+        SignIn signIn = new SignIn();
+        signIn.setLocation(this.getLocation());
+        signIn.setVisible(true);
     }//GEN-LAST:event_SignInActionPerformed
 
     private void SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new SignUp().setVisible(true);
+        SignUp signUp = new SignUp();
+        signUp.setLocation(this.getLocation());
+        signUp.setVisible(true);
     }//GEN-LAST:event_SignUpActionPerformed
 
     /**
@@ -106,7 +110,7 @@ public class MainMenu extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

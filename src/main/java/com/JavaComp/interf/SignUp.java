@@ -9,15 +9,8 @@ import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
 import java.awt.Dialog;
 
-/**
- *
- * @author Slend
- */
 public class SignUp extends javax.swing.JFrame {
 
-    /**
-     * Creates new form SignUp
-     */
     public SignUp() {
         initComponents();
         toggleEmpresa.setVisible(false);
@@ -109,6 +102,8 @@ public class SignUp extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        dniField.setText("");
+        dniField.setToolTipText("");
         dniField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dniFieldActionPerformed(evt);
@@ -185,9 +180,9 @@ public class SignUp extends javax.swing.JFrame {
 
         Clave.setText("Clave de acceso:");
 
-        Direccion.setText("DirecciÛn:");
+        Direccion.setText("Direcci√≥n:");
 
-        Telefono.setText("TelÈfono:");
+        Telefono.setText("Tel√©fono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -253,7 +248,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        confirmar.setText("Confirmar y aÒadir la tarjeta de crÈdito");
+        confirmar.setText("Confirmar y a√±adir la tarjeta de cr√©dito");
         confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarActionPerformed(evt);
@@ -316,8 +311,11 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dniFieldActionPerformed
 
+    //confirma los datos y procede a la pesta√±a de introducir tarjeta
+    //crea un objeto cliente para m√°s tarde meterlo en la lista
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-/*        if (Empresa.isSelected()){
+        /*
+        if (Empresa.isSelected()){
             Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
                     claveField.getText(), new Direccion("as","asd","asdf","asdf"), interfaz.tarjeta,
                     telefonoField.getText(), cifField.getText(), webField.getText());
@@ -329,28 +327,51 @@ public class SignUp extends javax.swing.JFrame {
             MainClass.clientes.add(particular);
         }
         */
-    if (Empresa.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
-            &&!nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
-            &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
-            &&!telefonoField.getText().isEmpty()){
-       interfaz.setVisible(true);
-       
-    } else if (Particular.isSelected()&&!dniField.getText().isEmpty()&&
-            !nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
-            &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
-            &&!telefonoField.getText().isEmpty()){
-        interfaz.setVisible(true);
-        
-    }else{
-    JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos est·n rellenos");
-    }
-    
-    }//GEN-LAST:event_confirmarActionPerformed
 
+        //comprueba que todo est√° relleno para pasar a el siguiente panel
+        //crea un objeto cliente para a√±adir a la ArrayList
+        if (Empresa.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
+                &&!nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
+                &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
+                &&!telefonoField.getText().isEmpty()){
+            //crea un cliente de tipo empresa
+            Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
+                    claveField.getText(), new Direccion("as","asd","asdf","asdf"),
+                    telefonoField.getText(), cifField.getText(), webField.getText());
+            interfaz.client = empresa;
+            //aparece la ventana de tarjeta
+            interfaz.setLocation(this.getLocation());
+            interfaz.prevFrame = this;
+            interfaz.setVisible(true);
+            this.setVisible(false);
+        }
+        else if (Particular.isSelected()&&!dniField.getText().isEmpty()&&
+                !nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
+                &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
+                &&!telefonoField.getText().isEmpty()){
+            //crea un cliente de tipo particular
+            Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
+                    claveField.getText(), new Direccion("","","",""),
+                    telefonoField.getText(), dniField.getText());
+            interfaz.client = particular;
+            //aparece la ventana de tarjeta
+            interfaz.setLocation(this.getLocation());
+            interfaz.prevFrame = this;
+            interfaz.setVisible(true);
+            this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos est√°n rellenos");
+        }
+    }//GEN-LAST:event_confirmarActionPerformed
+    
+    //vuelve al menu principal
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
-        new MainMenu().setVisible(true);
+        MainMenu main = new MainMenu();
+        main.setLocation(this.getLocation());
+        main.setVisible(true);
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void cifFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cifFieldActionPerformed
@@ -362,7 +383,7 @@ public class SignUp extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        /* Set the Windows look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -392,6 +413,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
+    
     private TarjetaInterfaz interfaz = new TarjetaInterfaz();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
