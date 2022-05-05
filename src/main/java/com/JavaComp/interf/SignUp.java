@@ -49,8 +49,8 @@ public class SignUp extends javax.swing.JFrame {
         nombreField = new javax.swing.JTextField();
         Correo = new javax.swing.JLabel();
         correoField = new javax.swing.JTextField();
-        Contrasena = new javax.swing.JLabel();
-        contrasenaField = new javax.swing.JPasswordField();
+        Clave = new javax.swing.JLabel();
+        claveField = new javax.swing.JPasswordField();
         Direccion = new javax.swing.JLabel();
         direccionField = new javax.swing.JTextField();
         Telefono = new javax.swing.JLabel();
@@ -181,13 +181,13 @@ public class SignUp extends javax.swing.JFrame {
 
         Correo.setText("Correo:");
 
-        Contrasena.setText("Contrase√±a:");
+        Clave.setText("Clave de acceso:");
 
-        Direccion.setText("Direcci√≥n:");
+        Direccion.setText("DirecciÛn:");
 
-        Telefono.setText("Tel√©fono:");
+        Telefono.setText("TelÈfono:");
 
-        TarjetaButton.setText("Tarjeta de Cr√©dito");
+        TarjetaButton.setText("Tarjeta de CrÈdito");
         TarjetaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TarjetaButtonActionPerformed(evt);
@@ -211,7 +211,7 @@ public class SignUp extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Direccion)
                             .addComponent(Telefono)
-                            .addComponent(Contrasena)
+                            .addComponent(Clave)
                             .addComponent(Correo)
                             .addComponent(Nombre)
                             .addComponent(Particular))
@@ -223,7 +223,7 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(correoField)
                             .addComponent(direccionField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(contrasenaField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(telefonoField)))
                     .addComponent(TarjetaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -248,8 +248,8 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(Correo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contrasenaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Clave, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(claveField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(direccionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,14 +327,15 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_dniFieldActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+       
         if (Empresa.isSelected()){
             Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
-                    contrasenaField.getText(), new Direccion("as","asd","asdf","asdf"), interfaz.tarjeta,
+                    claveField.getText(), new Direccion("as","asd","asdf","asdf"), interfaz.tarjeta,
                     telefonoField.getText(), cifField.getText(), webField.getText());
             MainClass.clientes.add(empresa);
         } else{
             Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
-                    contrasenaField.getText(), new Direccion("","","",""), interfaz.tarjeta,
+                    claveField.getText(), new Direccion("","","",""), interfaz.tarjeta,
                     telefonoField.getText(), dniField.getText());
             MainClass.clientes.add(particular);
         }
@@ -393,7 +394,7 @@ public class SignUp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
     private javax.swing.JLabel CIF;
-    private javax.swing.JLabel Contrasena;
+    private javax.swing.JLabel Clave;
     private javax.swing.JLabel Correo;
     private javax.swing.JLabel DNI;
     private javax.swing.JLabel Direccion;
@@ -405,8 +406,8 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel Web;
     private javax.swing.JButton cancelar;
     private javax.swing.JTextField cifField;
+    private javax.swing.JPasswordField claveField;
     private javax.swing.JButton confirmar;
-    private javax.swing.JPasswordField contrasenaField;
     private javax.swing.JTextField correoField;
     private javax.swing.JTextField direccionField;
     private javax.swing.JFormattedTextField dniField;

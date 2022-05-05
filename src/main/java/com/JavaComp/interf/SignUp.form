@@ -74,7 +74,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="Direccion" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Telefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Contrasena" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="Clave" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Correo" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="Particular" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -88,7 +88,7 @@
                               <Component id="nombreField" pref="115" max="32767" attributes="0"/>
                               <Component id="correoField" alignment="0" max="32767" attributes="0"/>
                               <Component id="direccionField" alignment="0" pref="115" max="32767" attributes="0"/>
-                              <Component id="contrasenaField" alignment="0" pref="115" max="32767" attributes="0"/>
+                              <Component id="claveField" alignment="0" pref="115" max="32767" attributes="0"/>
                               <Component id="telefonoField" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -121,8 +121,8 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="Contrasena" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="contrasenaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Clave" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="claveField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -314,12 +314,12 @@
         </Component>
         <Component class="javax.swing.JTextField" name="correoField">
         </Component>
-        <Component class="javax.swing.JLabel" name="Contrasena">
+        <Component class="javax.swing.JLabel" name="Clave">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
+            <Property name="text" type="java.lang.String" value="Clave de acceso:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="contrasenaField">
+        <Component class="javax.swing.JPasswordField" name="claveField">
         </Component>
         <Component class="javax.swing.JLabel" name="Direccion">
           <Properties>

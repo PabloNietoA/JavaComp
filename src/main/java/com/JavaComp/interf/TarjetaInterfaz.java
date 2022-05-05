@@ -49,7 +49,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
         jLabel1.setText("Titular de la tarjeta:");
 
-        jLabel2.setText("CÃ³digo:");
+        jLabel2.setText("Código:");
 
         jLabel3.setText("Fecha de caducidad:");
 
@@ -67,7 +67,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
         jButton1.setText("Cancelar");
 
-        jButton2.setText("Confirmar");
+        jButton2.setText("Finalizar y crear cuenta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
