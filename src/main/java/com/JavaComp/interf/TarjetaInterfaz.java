@@ -6,6 +6,7 @@ package com.JavaComp.interf;
 import com.JavaComp.program.*;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -138,7 +139,14 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_titularFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        tarjeta = new TarjetaCredito(titularField.getText(), codigoField.getText(),caducidadField.getDateFormat());
+      /*  tarjeta = new TarjetaCredito(titularField.getText(), codigoField.getText(),caducidadField.getDateFormat());*/
+      
+      if(titularField.getText().isEmpty()||codigoField.getText().isEmpty()||caducidadField.getDateFormat().isEmpty()){
+          JOptionPane.showMessageDialog(this,"Asegúrese de meter todos los datos.");
+      }else{
+      //Aquí tiene que ir lo tuyo de crear el cliente
+      }
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void caducidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caducidadFieldActionPerformed

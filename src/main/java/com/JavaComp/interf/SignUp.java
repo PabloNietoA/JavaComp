@@ -5,6 +5,7 @@
 package com.JavaComp.interf;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
 import java.awt.Dialog;
 
@@ -54,7 +55,6 @@ public class SignUp extends javax.swing.JFrame {
         Direccion = new javax.swing.JLabel();
         direccionField = new javax.swing.JTextField();
         Telefono = new javax.swing.JLabel();
-        TarjetaButton = new javax.swing.JButton();
         telefonoField = new javax.swing.JFormattedTextField();
         confirmar = new javax.swing.JButton();
         cancelar = new javax.swing.JButton();
@@ -67,6 +67,12 @@ public class SignUp extends javax.swing.JFrame {
         toggleEmpresa.setOpaque(false);
 
         CIF.setText("CIF:");
+
+        cifField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cifFieldActionPerformed(evt);
+            }
+        });
 
         Web.setText("Web:");
 
@@ -183,13 +189,6 @@ public class SignUp extends javax.swing.JFrame {
 
         Telefono.setText("Teléfono:");
 
-        TarjetaButton.setText("Tarjeta de Crédito");
-        TarjetaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TarjetaButtonActionPerformed(evt);
-            }
-        });
-
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
@@ -203,25 +202,22 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Direccion)
+                    .addComponent(Telefono)
+                    .addComponent(Clave)
+                    .addComponent(Correo)
+                    .addComponent(Nombre)
+                    .addComponent(Particular))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Direccion)
-                            .addComponent(Telefono)
-                            .addComponent(Clave)
-                            .addComponent(Correo)
-                            .addComponent(Nombre)
-                            .addComponent(Particular))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(Empresa))
-                            .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(correoField)
-                            .addComponent(direccionField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(telefonoField)))
-                    .addComponent(TarjetaButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(20, 20, 20)
+                        .addComponent(Empresa))
+                    .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(correoField)
+                    .addComponent(direccionField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                    .addComponent(telefonoField))
                 .addContainerGap())
             .addComponent(toggle, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -254,12 +250,10 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefono)
                     .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TarjetaButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        confirmar.setText("Confirmar y pasar a tarjeta de crédito");
+        confirmar.setText("Confirmar y añadir la tarjeta de crédito");
         confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarActionPerformed(evt);
@@ -335,20 +329,33 @@ public class SignUp extends javax.swing.JFrame {
             MainClass.clientes.add(particular);
         }
         */
-        
-    }//GEN-LAST:event_confirmarActionPerformed
-
-    private void TarjetaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TarjetaButtonActionPerformed
-        // TODO add your handling code here
-        //interfaz.setModal(true);
+    if (Empresa.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
+            &&!nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
+            &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
+            &&!telefonoField.getText().isEmpty()){
+       interfaz.setVisible(true);
+       
+    } else if (Particular.isSelected()&&!dniField.getText().isEmpty()&&
+            !nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
+            &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
+            &&!telefonoField.getText().isEmpty()){
         interfaz.setVisible(true);
-    }//GEN-LAST:event_TarjetaButtonActionPerformed
+        
+    }else{
+    JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos están rellenos");
+    }
+    
+    }//GEN-LAST:event_confirmarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         new MainMenu().setVisible(true);
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void cifFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cifFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cifFieldActionPerformed
 
 
     /**
@@ -396,7 +403,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JRadioButton Empresa;
     private javax.swing.JLabel Nombre;
     private javax.swing.JRadioButton Particular;
-    private javax.swing.JButton TarjetaButton;
     private javax.swing.JLabel Telefono;
     private javax.swing.JLabel Web;
     private javax.swing.JButton cancelar;

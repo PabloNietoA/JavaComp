@@ -70,29 +70,24 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Direccion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Telefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Clave" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Correo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Particular" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="139" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="Empresa" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="nombreField" pref="115" max="32767" attributes="0"/>
-                              <Component id="correoField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="direccionField" alignment="0" pref="115" max="32767" attributes="0"/>
-                              <Component id="claveField" alignment="0" pref="115" max="32767" attributes="0"/>
-                              <Component id="telefonoField" max="32767" attributes="0"/>
-                          </Group>
+                      <Component id="Direccion" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Telefono" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Clave" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Correo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="Particular" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="139" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="Empresa" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="TarjetaButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="nombreField" pref="115" max="32767" attributes="0"/>
+                      <Component id="correoField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="direccionField" alignment="0" pref="115" max="32767" attributes="0"/>
+                      <Component id="claveField" alignment="0" pref="115" max="32767" attributes="0"/>
+                      <Component id="telefonoField" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -134,9 +129,7 @@
                       <Component id="Telefono" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="telefonoField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="TarjetaButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="42" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -212,6 +205,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="cifField">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cifFieldActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="Web">
                   <Properties>
@@ -327,14 +323,6 @@
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="TarjetaButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tarjeta de Cr&#xe9;dito"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TarjetaButtonActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JFormattedTextField" name="telefonoField">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
@@ -346,7 +334,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="confirmar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar y pasar a tarjeta de cr&#xe9;dito"/>
+        <Property name="text" type="java.lang.String" value="Confirmar y a&#xf1;adir la tarjeta de cr&#xe9;dito"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarActionPerformed"/>
