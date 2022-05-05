@@ -68,11 +68,7 @@ public class SignUp extends javax.swing.JFrame {
 
         CIF.setText("CIF:");
 
-        cifField.setText("jTextField3");
-
         Web.setText("Web:");
-
-        webField.setText("jTextField6");
 
         javax.swing.GroupLayout toggleEmpresaLayout = new javax.swing.GroupLayout(toggleEmpresa);
         toggleEmpresa.setLayout(toggleEmpresaLayout);
@@ -263,7 +259,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        confirmar.setText("Confirmar");
+        confirmar.setText("Confirmar y pasar a tarjeta de crédito");
         confirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarActionPerformed(evt);
@@ -327,8 +323,7 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_dniFieldActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
-       
-        if (Empresa.isSelected()){
+/*        if (Empresa.isSelected()){
             Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
                     claveField.getText(), new Direccion("as","asd","asdf","asdf"), interfaz.tarjeta,
                     telefonoField.getText(), cifField.getText(), webField.getText());
@@ -339,7 +334,7 @@ public class SignUp extends javax.swing.JFrame {
                     telefonoField.getText(), dniField.getText());
             MainClass.clientes.add(particular);
         }
-        
+        */
         
     }//GEN-LAST:event_confirmarActionPerformed
 
