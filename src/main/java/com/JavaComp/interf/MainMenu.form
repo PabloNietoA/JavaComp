@@ -34,9 +34,9 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="SignUp" min="-2" max="-2" attributes="0"/>
+              <Component id="signUpBoton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="SignIn" min="-2" max="-2" attributes="0"/>
+              <Component id="signInBoton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -46,8 +46,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="SignIn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SignUp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="signInBoton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="signUpBoton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="Title" min="-2" max="-2" attributes="0"/>
@@ -65,20 +65,20 @@
         <Property name="text" type="java.lang.String" value="Tienda JavaComp"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="SignIn">
+    <Component class="javax.swing.JButton" name="signInBoton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sign In"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SignInActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signInBotonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="SignUp">
+    <Component class="javax.swing.JButton" name="signUpBoton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sign Up"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SignUpActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signUpBotonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

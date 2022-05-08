@@ -13,6 +13,7 @@ public class SignUp extends javax.swing.JFrame {
 
     public SignUp() {
         initComponents();
+        //Se ocultan los datos ˙nicos de cada opciÛn de cliente hasta que se selecciona alguno de los radio buttons
         toggleEmpresa.setVisible(false);
         toggleParticular.setVisible(false);
     }
@@ -37,8 +38,8 @@ public class SignUp extends javax.swing.JFrame {
         toggleParticular = new javax.swing.JPanel();
         DNI = new javax.swing.JLabel();
         dniField = new javax.swing.JFormattedTextField();
-        Particular = new javax.swing.JRadioButton();
-        Empresa = new javax.swing.JRadioButton();
+        particularRadioBoton = new javax.swing.JRadioButton();
+        empresaRadioBoton = new javax.swing.JRadioButton();
         Nombre = new javax.swing.JLabel();
         nombreField = new javax.swing.JTextField();
         Correo = new javax.swing.JLabel();
@@ -49,8 +50,8 @@ public class SignUp extends javax.swing.JFrame {
         direccionField = new javax.swing.JTextField();
         Telefono = new javax.swing.JLabel();
         telefonoField = new javax.swing.JFormattedTextField();
-        confirmar = new javax.swing.JButton();
-        cancelar = new javax.swing.JButton();
+        confirmarBoton = new javax.swing.JButton();
+        cancelarBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -152,19 +153,19 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(toggleEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Buttons.add(Particular);
-        Particular.setText("Particular");
-        Particular.addActionListener(new java.awt.event.ActionListener() {
+        Buttons.add(particularRadioBoton);
+        particularRadioBoton.setText("Particular");
+        particularRadioBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ParticularActionPerformed(evt);
+                particularRadioBotonActionPerformed(evt);
             }
         });
 
-        Buttons.add(Empresa);
-        Empresa.setText("Empresa");
-        Empresa.addActionListener(new java.awt.event.ActionListener() {
+        Buttons.add(empresaRadioBoton);
+        empresaRadioBoton.setText("Empresa");
+        empresaRadioBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmpresaActionPerformed(evt);
+                empresaRadioBotonActionPerformed(evt);
             }
         });
 
@@ -180,9 +181,9 @@ public class SignUp extends javax.swing.JFrame {
 
         Clave.setText("Clave de acceso:");
 
-        Direccion.setText("Direcci√≥n:");
+        Direccion.setText("DirecciÛn:");
 
-        Telefono.setText("Tel√©fono:");
+        Telefono.setText("TelÈfono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -202,12 +203,12 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(Clave)
                     .addComponent(Correo)
                     .addComponent(Nombre)
-                    .addComponent(Particular))
+                    .addComponent(particularRadioBoton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(Empresa))
+                        .addComponent(empresaRadioBoton))
                     .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                     .addComponent(correoField)
                     .addComponent(direccionField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
@@ -221,8 +222,8 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Empresa)
-                    .addComponent(Particular))
+                    .addComponent(empresaRadioBoton)
+                    .addComponent(particularRadioBoton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(toggle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
@@ -248,17 +249,17 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
-        confirmar.setText("Confirmar y a√±adir la tarjeta de cr√©dito");
-        confirmar.addActionListener(new java.awt.event.ActionListener() {
+        confirmarBoton.setText("Confirmar y aÒadir la tarjeta de crÈdito");
+        confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmarActionPerformed(evt);
+                confirmarBotonActionPerformed(evt);
             }
         });
 
-        cancelar.setText("Cancelar");
-        cancelar.addActionListener(new java.awt.event.ActionListener() {
+        cancelarBoton.setText("Cancelar");
+        cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarActionPerformed(evt);
+                cancelarBotonActionPerformed(evt);
             }
         });
 
@@ -271,9 +272,9 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(cancelar)
+                        .addComponent(cancelarBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(confirmar)
+                        .addComponent(confirmarBoton)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -283,29 +284,29 @@ public class SignUp extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmar)
-                    .addComponent(cancelar))
+                    .addComponent(confirmarBoton)
+                    .addComponent(cancelarBoton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpresaActionPerformed
-        // TODO add your handling code here:
+    private void empresaRadioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empresaRadioBotonActionPerformed
+        // Se muestran los datos que hay que rellenar si el cliente es una empresa
         toggleEmpresa.setVisible(true);
         toggleParticular.setVisible(false);
-    }//GEN-LAST:event_EmpresaActionPerformed
+    }//GEN-LAST:event_empresaRadioBotonActionPerformed
 
     private void nombreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreFieldActionPerformed
 
-    private void ParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ParticularActionPerformed
-        // TODO add your handling code here:
+    private void particularRadioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_particularRadioBotonActionPerformed
+        // Se muestran los datos que hay que rellenar si el cliente es un particular
         toggleEmpresa.setVisible(false);
         toggleParticular.setVisible(true);
-    }//GEN-LAST:event_ParticularActionPerformed
+    }//GEN-LAST:event_particularRadioBotonActionPerformed
 
     private void dniFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniFieldActionPerformed
         // TODO add your handling code here:
@@ -313,7 +314,7 @@ public class SignUp extends javax.swing.JFrame {
 
     //confirma los datos y procede a la pesta√±a de introducir tarjeta
     //crea un objeto cliente para m√°s tarde meterlo en la lista
-    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+    private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         /*
         if (Empresa.isSelected()){
             Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
@@ -330,7 +331,7 @@ public class SignUp extends javax.swing.JFrame {
 
         //comprueba que todo est√° relleno para pasar a el siguiente panel
         //crea un objeto cliente para a√±adir a la ArrayList
-        if (Empresa.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
+        if (empresaRadioBoton.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
                 &&!nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
                 &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
                 &&!telefonoField.getText().isEmpty()){
@@ -345,7 +346,7 @@ public class SignUp extends javax.swing.JFrame {
             interfaz.setVisible(true);
             this.setVisible(false);
         }
-        else if (Particular.isSelected()&&!dniField.getText().isEmpty()&&
+        else if (particularRadioBoton.isSelected()&&!dniField.getText().isEmpty()&&
                 !nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
                 &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
                 &&!telefonoField.getText().isEmpty()){
@@ -363,16 +364,16 @@ public class SignUp extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos est√°n rellenos");
         }
-    }//GEN-LAST:event_confirmarActionPerformed
+    }//GEN-LAST:event_confirmarBotonActionPerformed
     
     //vuelve al menu principal
-    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+    private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         MainMenu main = new MainMenu();
         main.setLocation(this.getLocation());
         main.setVisible(true);
-    }//GEN-LAST:event_cancelarActionPerformed
+    }//GEN-LAST:event_cancelarBotonActionPerformed
 
     private void cifFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cifFieldActionPerformed
         // TODO add your handling code here:
@@ -422,20 +423,20 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel Correo;
     private javax.swing.JLabel DNI;
     private javax.swing.JLabel Direccion;
-    private javax.swing.JRadioButton Empresa;
     private javax.swing.JLabel Nombre;
-    private javax.swing.JRadioButton Particular;
     private javax.swing.JLabel Telefono;
     private javax.swing.JLabel Web;
-    private javax.swing.JButton cancelar;
+    private javax.swing.JButton cancelarBoton;
     private javax.swing.JTextField cifField;
     private javax.swing.JPasswordField claveField;
-    private javax.swing.JButton confirmar;
+    private javax.swing.JButton confirmarBoton;
     private javax.swing.JTextField correoField;
     private javax.swing.JTextField direccionField;
     private javax.swing.JFormattedTextField dniField;
+    private javax.swing.JRadioButton empresaRadioBoton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreField;
+    private javax.swing.JRadioButton particularRadioBoton;
     private javax.swing.JFormattedTextField telefonoField;
     private javax.swing.JLayeredPane toggle;
     private javax.swing.JPanel toggleEmpresa;

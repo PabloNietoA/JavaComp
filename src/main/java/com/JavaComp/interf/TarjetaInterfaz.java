@@ -31,11 +31,11 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
         Titular = new javax.swing.JLabel();
         titularField = new javax.swing.JTextField();
         Codigo = new javax.swing.JLabel();
-        codigoField = new javax.swing.JTextField();
         Caducidad = new javax.swing.JLabel();
         caducidadField = new org.jdatepicker.JDatePicker();
-        Cancelar = new javax.swing.JButton();
-        Finalizar = new javax.swing.JButton();
+        cancelarBoton = new javax.swing.JButton();
+        finalizarBoton = new javax.swing.JButton();
+        codigoField = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -55,13 +55,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
 
-        Codigo.setText("CÃ³digo:");
-
-        codigoField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codigoFieldActionPerformed(evt);
-            }
-        });
+        Codigo.setText("Número de la tarjeta:");
 
         Caducidad.setText("Fecha de caducidad:");
 
@@ -71,12 +65,19 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
 
-        Cancelar.setText("Cancelar");
+        cancelarBoton.setText("Cancelar");
 
-        Finalizar.setText("Finalizar y crear cuenta");
-        Finalizar.addActionListener(new java.awt.event.ActionListener() {
+        finalizarBoton.setText("Finalizar y crear cuenta");
+        finalizarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FinalizarActionPerformed(evt);
+                finalizarBotonActionPerformed(evt);
+            }
+        });
+
+        codigoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        codigoField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                codigoFieldActionPerformed(evt);
             }
         });
 
@@ -87,47 +88,47 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Titular)
-                            .addComponent(Codigo)
-                            .addComponent(Cancelar)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Caducidad, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(caducidadField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(codigoField)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Finalizar))
-                    .addComponent(titularField))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Titular, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(Codigo, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(titularField)
+                                    .addComponent(codigoField)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Caducidad, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(caducidadField, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(cancelarBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(finalizarBoton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Titular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Titular)
                     .addComponent(titularField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Codigo, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(Codigo)
                     .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Caducidad, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(caducidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Caducidad)
+                    .addComponent(caducidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Cancelar)
-                    .addComponent(Finalizar))
-                .addGap(8, 8, 8))
+                    .addComponent(cancelarBoton)
+                    .addComponent(finalizarBoton))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -137,7 +138,8 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_titularFieldActionPerformed
 
-    private void FinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FinalizarActionPerformed
+    private void finalizarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarBotonActionPerformed
+       //Se asegura de que todos los campos estén rellenos
         if(titularField.getText().isBlank()||codigoField.getText().isBlank()|| caducidadField.getModel().toString().isBlank()){
             JOptionPane.showMessageDialog(this,"AsegÃºrese de introducir todos los datos.");
         }
@@ -152,7 +154,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             this.setVisible(false);
             MainClass.clientes.add(client);
         }
-    }//GEN-LAST:event_FinalizarActionPerformed
+    }//GEN-LAST:event_finalizarBotonActionPerformed
 
     private void caducidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_caducidadFieldActionPerformed
         // TODO add your handling code here:
@@ -211,12 +213,12 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Caducidad;
-    private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Codigo;
-    private javax.swing.JButton Finalizar;
     private javax.swing.JLabel Titular;
     private org.jdatepicker.JDatePicker caducidadField;
-    private javax.swing.JTextField codigoField;
+    private javax.swing.JButton cancelarBoton;
+    private javax.swing.JFormattedTextField codigoField;
+    private javax.swing.JButton finalizarBoton;
     private javax.swing.JTextField titularField;
     // End of variables declaration//GEN-END:variables
 }

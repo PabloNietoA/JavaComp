@@ -29,8 +29,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         Title = new javax.swing.JLabel();
-        SignIn = new javax.swing.JButton();
-        SignUp = new javax.swing.JButton();
+        signInBoton = new javax.swing.JButton();
+        signUpBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -39,17 +39,17 @@ public class MainMenu extends javax.swing.JFrame {
         Title.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         Title.setText("Tienda JavaComp");
 
-        SignIn.setText("Sign In");
-        SignIn.addActionListener(new java.awt.event.ActionListener() {
+        signInBoton.setText("Sign In");
+        signInBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignInActionPerformed(evt);
+                signInBotonActionPerformed(evt);
             }
         });
 
-        SignUp.setText("Sign Up");
-        SignUp.addActionListener(new java.awt.event.ActionListener() {
+        signUpBoton.setText("Sign Up");
+        signUpBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SignUpActionPerformed(evt);
+                signUpBotonActionPerformed(evt);
             }
         });
 
@@ -63,9 +63,9 @@ public class MainMenu extends javax.swing.JFrame {
                 .addContainerGap(200, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SignUp)
+                .addComponent(signUpBoton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SignIn)
+                .addComponent(signInBoton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -73,8 +73,8 @@ public class MainMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SignIn)
-                    .addComponent(SignUp))
+                    .addComponent(signInBoton)
+                    .addComponent(signUpBoton))
                 .addGap(52, 52, 52)
                 .addComponent(Title)
                 .addContainerGap(373, Short.MAX_VALUE))
@@ -82,22 +82,22 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInActionPerformed
+    //Redirige a la ventana del "Sign in"
+    private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         SignIn signIn = new SignIn();
         signIn.setLocation(this.getLocation());
         signIn.setVisible(true);
-    }//GEN-LAST:event_SignInActionPerformed
-
-    private void SignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpActionPerformed
+    }//GEN-LAST:event_signInBotonActionPerformed
+//Redirige a la ventana del "Sign up"
+    private void signUpBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBotonActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
         SignUp signUp = new SignUp();
         signUp.setLocation(this.getLocation());
         signUp.setVisible(true);
-    }//GEN-LAST:event_SignUpActionPerformed
+    }//GEN-LAST:event_signUpBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,8 +135,8 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton SignIn;
-    private javax.swing.JButton SignUp;
     private javax.swing.JLabel Title;
+    private javax.swing.JButton signInBoton;
+    private javax.swing.JButton signUpBoton;
     // End of variables declaration//GEN-END:variables
 }
