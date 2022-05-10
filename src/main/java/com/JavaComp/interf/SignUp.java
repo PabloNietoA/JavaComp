@@ -47,9 +47,16 @@ public class SignUp extends javax.swing.JFrame {
         Clave = new javax.swing.JLabel();
         claveField = new javax.swing.JPasswordField();
         Direccion = new javax.swing.JLabel();
-        direccionField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         Telefono = new javax.swing.JLabel();
         telefonoField = new javax.swing.JFormattedTextField();
+        cpField = new javax.swing.JFormattedTextField();
+        ciudadField = new javax.swing.JTextField();
+        numeroField = new javax.swing.JTextField();
+        calleField = new javax.swing.JTextField();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
 
@@ -117,7 +124,7 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(toggleParticularLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(DNI)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -128,31 +135,6 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(toggleParticularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DNI)
                     .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
-        toggle.setLayer(toggleEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        toggle.setLayer(toggleParticular, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout toggleLayout = new javax.swing.GroupLayout(toggle);
-        toggle.setLayout(toggleLayout);
-        toggleLayout.setHorizontalGroup(
-            toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(toggleParticular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(toggleLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(toggleEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        toggleLayout.setVerticalGroup(
-            toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleLayout.createSequentialGroup()
-                .addGap(0, 46, Short.MAX_VALUE)
-                .addComponent(toggleParticular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(toggleLayout.createSequentialGroup()
-                    .addComponent(toggleEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 33, Short.MAX_VALUE)))
         );
 
         Buttons.add(particularRadioBoton);
@@ -171,6 +153,42 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
+        toggle.setLayer(toggleEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        toggle.setLayer(toggleParticular, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        toggle.setLayer(particularRadioBoton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        toggle.setLayer(empresaRadioBoton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout toggleLayout = new javax.swing.GroupLayout(toggle);
+        toggle.setLayout(toggleLayout);
+        toggleLayout.setHorizontalGroup(
+            toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(toggleParticular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(toggleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(particularRadioBoton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(empresaRadioBoton)
+                .addGap(37, 37, 37))
+            .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(toggleLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(toggleEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        toggleLayout.setVerticalGroup(
+            toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleLayout.createSequentialGroup()
+                .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(particularRadioBoton)
+                    .addComponent(empresaRadioBoton))
+                .addGap(18, 25, Short.MAX_VALUE)
+                .addComponent(toggleParticular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleLayout.createSequentialGroup()
+                    .addGap(0, 33, Short.MAX_VALUE)
+                    .addComponent(toggleEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+
         Nombre.setText("Nombre:");
 
         nombreField.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +203,14 @@ public class SignUp extends javax.swing.JFrame {
 
         Direccion.setText("Dirección:");
 
+        jLabel1.setText("Calle:");
+
+        jLabel2.setText("Número:");
+
+        jLabel3.setText("Código postal:");
+
+        jLabel4.setText("Ciudad:");
+
         Telefono.setText("Teléfono:");
 
         try {
@@ -193,62 +219,92 @@ public class SignUp extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        try {
+            cpField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(toggle, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Direccion)
-                    .addComponent(Telefono)
-                    .addComponent(Clave)
-                    .addComponent(Correo)
-                    .addComponent(Nombre)
-                    .addComponent(particularRadioBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(empresaRadioBoton))
-                    .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(correoField)
-                    .addComponent(direccionField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                    .addComponent(telefonoField))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Clave)
+                            .addComponent(Correo)
+                            .addComponent(Nombre))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(correoField)
+                            .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ciudadField)
+                            .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
+                            .addComponent(numeroField)
+                            .addComponent(calleField)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Direccion)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Telefono)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addComponent(toggle, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(empresaRadioBoton)
-                    .addComponent(particularRadioBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(20, 20, 20)
                 .addComponent(toggle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Nombre))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Correo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Clave, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(claveField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(direccionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Direccion))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Telefono)
                     .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Direccion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(calleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(numeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(ciudadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         confirmarBoton.setText("Confirmar y añadir la tarjeta de crédito");
@@ -269,26 +325,26 @@ public class SignUp extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(cancelarBoton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(confirmarBoton)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmarBoton)
-                    .addComponent(cancelarBoton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cancelarBoton)
+                    .addComponent(confirmarBoton))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -335,11 +391,12 @@ public class SignUp extends javax.swing.JFrame {
         //crea un objeto cliente para aÃ±adir a la ArrayList
         if (empresaRadioBoton.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
                 &&!nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
-                &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
-                &&!telefonoField.getText().isEmpty()){
+                &&!claveField.getText().isEmpty()&&!calleField.getText().isEmpty()
+                &&!numeroField.getText().isEmpty()&&!cpField.getText().isEmpty()
+                &&!ciudadField.getText().isEmpty()&&!telefonoField.getText().isEmpty()){
             //crea un cliente de tipo empresa
             Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), new Direccion("as","asd","asdf","asdf"),
+                    claveField.getText(), new Direccion(calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText()),
                     telefonoField.getText(), cifField.getText(), webField.getText());
             interfaz.client = empresa;
             //aparece la ventana de tarjeta
@@ -350,11 +407,12 @@ public class SignUp extends javax.swing.JFrame {
         }
         else if (particularRadioBoton.isSelected()&&!dniField.getText().isEmpty()&&
                 !nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
-                &&!claveField.getText().isEmpty()&&!direccionField.getText().isEmpty()
-                &&!telefonoField.getText().isEmpty()){
+                &&!claveField.getText().isEmpty()&&!!calleField.getText().isEmpty()
+                &&!numeroField.getText().isEmpty()&&!cpField.getText().isEmpty()
+                &&!ciudadField.getText().isEmpty()&&!telefonoField.getText().isEmpty()){
             //crea un cliente de tipo particular
             Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
-                    claveField.getText(), new Direccion("","","",""),
+                    claveField.getText(), new Direccion(calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText()),
                     telefonoField.getText(), dniField.getText());
             interfaz.client = particular;
             //aparece la ventana de tarjeta
@@ -428,16 +486,23 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel Nombre;
     private javax.swing.JLabel Telefono;
     private javax.swing.JLabel Web;
+    private javax.swing.JTextField calleField;
     private javax.swing.JButton cancelarBoton;
     private javax.swing.JTextField cifField;
+    private javax.swing.JTextField ciudadField;
     private javax.swing.JPasswordField claveField;
     private javax.swing.JButton confirmarBoton;
     private javax.swing.JTextField correoField;
-    private javax.swing.JTextField direccionField;
+    private javax.swing.JFormattedTextField cpField;
     private javax.swing.JFormattedTextField dniField;
     private javax.swing.JRadioButton empresaRadioBoton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nombreField;
+    private javax.swing.JTextField numeroField;
     private javax.swing.JRadioButton particularRadioBoton;
     private javax.swing.JFormattedTextField telefonoField;
     private javax.swing.JLayeredPane toggle;
