@@ -14,7 +14,7 @@ public class Producto {
     private LocalDate fechaEntrada;
     private ArrayList<Opinion> opiniones;
 
-    public Producto(String titulo, String caracteristicas, String categoria, double pvp, BufferedImage imagen, int stock, LocalDate fechaEntrada, ArrayList<Opinion> opiniones) {
+    public Producto(String titulo, String caracteristicas, String categoria, double pvp, BufferedImage imagen, int stock, LocalDate fechaEntrada) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
         this.categoria = categoria;
@@ -22,7 +22,6 @@ public class Producto {
         this.imagen = imagen;
         this.stock = stock;
         this.fechaEntrada = fechaEntrada;
-        this.opiniones = opiniones;
     }
 
     public String getTitulo() {
@@ -41,7 +40,7 @@ public class Producto {
         this.caracteristicas = caracteristicas;
     }
 
-    public String getCategor√≠a() {
+    public String getCategori≠a() {
         return categoria;
     }
 
@@ -63,7 +62,7 @@ public class Producto {
 
     public void setImagen(BufferedImage imagen) {
         this.imagen = imagen;
-    }
+    }  
 
     public int getStock() {
         return stock;
