@@ -1,6 +1,8 @@
 package com.JavaComp.program;
 
-public class Empresa extends Cliente{
+import java.io.Serializable;
+
+public class Empresa extends Cliente implements Serializable{
         private String cif;
         private String web;
 

@@ -1,6 +1,8 @@
 package com.JavaComp.program;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable{
     private String nombre;
     private String correo;
     private String clave;
@@ -16,8 +18,6 @@ public class Cliente {
         this.telefono = telefono;
     }
     
-    
-
     public String getNombre() {
         return nombre;
     }

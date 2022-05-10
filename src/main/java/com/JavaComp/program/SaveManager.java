@@ -28,7 +28,8 @@ public class SaveManager {
         }
         
     }
-    public static void downloadSave(ArrayList i, String saveDir){
+    public static ArrayList downloadSave(String saveDir){
+        ArrayList<Cliente> i = new ArrayList();
         try{
             FileInputStream iStream = new FileInputStream(saveDir);
             ObjectInputStream oiStream = new ObjectInputStream(iStream);
@@ -41,5 +42,6 @@ public class SaveManager {
         catch (Exception e){
             System.out.println("Error: " + e.getMessage());
         }
+        return i;
     }
 }

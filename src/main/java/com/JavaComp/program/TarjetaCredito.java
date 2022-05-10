@@ -1,7 +1,9 @@
 package com.JavaComp.program;
 
+import java.io.Serializable;
 
-public class TarjetaCredito {
+
+public class TarjetaCredito implements Serializable{
     private String titular;
     private String codigo;
     private String caducidad;

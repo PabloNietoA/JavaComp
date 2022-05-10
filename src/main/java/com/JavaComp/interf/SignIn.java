@@ -30,20 +30,17 @@ public class SignIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        correo = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         signInBoton = new javax.swing.JButton();
         cancelBoton = new javax.swing.JButton();
-        clave = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        correo = new javax.swing.JLabel();
+        correoField = new javax.swing.JTextField();
+        clave = new javax.swing.JLabel();
+        claveField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
         setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
-
-        jScrollPane2.setViewportView(correo);
 
         signInBoton.setText("Sign In");
         signInBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,15 +75,21 @@ public class SignIn extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        clave.addActionListener(new java.awt.event.ActionListener() {
+        correo.setText("Correo:");
+
+        correoField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                claveActionPerformed(evt);
+                correoFieldActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Correo:");
+        clave.setText("Clave de acceso:");
 
-        jLabel2.setText("Clave de acceso:");
+        claveField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                claveFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,28 +99,28 @@ public class SignIn extends javax.swing.JFrame {
                 .addContainerGap(132, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
+                        .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(clave)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(clave, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))))
+                            .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))))
                 .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(claveField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clave))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(49, Short.MAX_VALUE))
@@ -128,37 +131,49 @@ public class SignIn extends javax.swing.JFrame {
     //Comprueba que exista la cuenta con la que se quiera entrar: Si es de admin opciones de admin y si es de cliente opciones de cliente
     private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
         // TODO add your handling code here:
-        String corr = correo.getText();
-        String cont = clave.getText();
-        JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos", "Error", JOptionPane.WARNING_MESSAGE); 
+        String corr = correoField.getText();
+        String cont = claveField.getText();
         
         if (corr.equals("admin@javacomp.com") && cont.equals("admin")){
-        new InterfAdmin().setVisible(true);
+            InterfAdmin interf = new InterfAdmin();
+            interf.setLocation(this.getLocation());
+            interf.setVisible(true);
         }
         else{
-       
-        for(int i=0; i < MainClass.clientes.size(); i++){
-            if(MainClass.clientes.get(i).getCorreo() == corr && MainClass.clientes.get(i).getClave() == cont){
+            /*boolean found = false;
+            for(int i=0; i < MainClass.clientes.size(); i++){
+                if(corr.equals(MainClass.clientes.get(i).getCorreo())){
+                    new InterfCliente().setVisible(true);
+                    found = true;
+                    this.setVisible(false);
+                }
+            }
+            if(!found) JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);*/
+            int i = 0;
+            while (!(MainClass.clientes.get(i).getCorreo().equals(corr) && MainClass.clientes.get(i).getClave().equals(cont)) && i < (MainClass.clientes.size()-1)){
+                i++;
+            }
+            if (i < (MainClass.clientes.size()-1)){
                 new InterfCliente().setVisible(true);
                 this.setVisible(false);
             }
-            else if(i >= (MainClass.clientes.size()-1)){
-               JOptionPane.showMessageDialog(this, "Correo o contraseña incorrectos", "Error", JOptionPane.WARNING_MESSAGE); 
-            }
-           
-        }
+            else JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_signInBotonActionPerformed
-        // Regresa al menú principal
+        // Regresa al menï¿½ principal
     private void cancelBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBotonActionPerformed
 
         new MainMenu().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cancelBotonActionPerformed
 
-    private void claveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveActionPerformed
+    private void claveFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_claveActionPerformed
+    }//GEN-LAST:event_claveFieldActionPerformed
+
+    private void correoFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correoFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_correoFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,12 +212,11 @@ public class SignIn extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBoton;
-    private javax.swing.JPasswordField clave;
-    private javax.swing.JTextPane correo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel clave;
+    private javax.swing.JPasswordField claveField;
+    private javax.swing.JLabel correo;
+    private javax.swing.JTextField correoField;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton signInBoton;
     // End of variables declaration//GEN-END:variables
 }
