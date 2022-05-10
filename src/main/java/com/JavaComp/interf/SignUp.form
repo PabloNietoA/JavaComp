@@ -77,7 +77,7 @@
                       <Component id="Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="particularRadioBoton" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="139" max="32767" attributes="0"/>
+                  <EmptySpace pref="142" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="toggleParticular" alignment="0" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="toggleEmpresa" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -152,9 +152,15 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="toggleParticular" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
+                      <Component id="toggleParticular" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="toggleEmpresa" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="toggleEmpresa" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -173,10 +179,10 @@
                               <Component id="CIF" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="Web" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
+                          <EmptySpace pref="192" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="webField" alignment="0" pref="177" max="32767" attributes="0"/>
-                              <Component id="cifField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="cifField" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="webField" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -193,7 +199,6 @@
                               <Component id="Web" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="webField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="18" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -226,7 +231,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="DNI" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="208" max="32767" attributes="0"/>
                           <Component id="dniField" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -235,12 +240,11 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="DNI" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="dniField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="46" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

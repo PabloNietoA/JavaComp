@@ -29,6 +29,7 @@ public class Usuarios extends javax.swing.JFrame {
         volverBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
 
         volverBoton.setText("Volver");
         volverBoton.addActionListener(new java.awt.event.ActionListener() {

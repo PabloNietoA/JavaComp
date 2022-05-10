@@ -78,10 +78,10 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CIF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Web, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                 .addGroup(toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(webField, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                    .addComponent(cifField)))
+                    .addComponent(cifField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(webField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         toggleEmpresaLayout.setVerticalGroup(
             toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,8 +92,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Web)
-                    .addComponent(webField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(webField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         DNI.setText("DNI:");
@@ -118,18 +117,17 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(toggleParticularLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(DNI)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         toggleParticularLayout.setVerticalGroup(
             toggleParticularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(toggleParticularLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(toggleParticularLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DNI)
-                    .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                    .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         toggle.setLayer(toggleEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -141,16 +139,20 @@ public class SignUp extends javax.swing.JFrame {
             toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(toggleParticular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleLayout.createSequentialGroup()
+                .addGroup(toggleLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(toggleEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         toggleLayout.setVerticalGroup(
             toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(toggleParticular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleLayout.createSequentialGroup()
+                .addGap(0, 46, Short.MAX_VALUE)
+                .addComponent(toggleParticular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(toggleEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(toggleLayout.createSequentialGroup()
+                    .addComponent(toggleEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 33, Short.MAX_VALUE)))
         );
 
         Buttons.add(particularRadioBoton);
@@ -204,7 +206,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(Correo)
                     .addComponent(Nombre)
                     .addComponent(particularRadioBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)

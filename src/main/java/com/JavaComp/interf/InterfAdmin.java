@@ -31,6 +31,7 @@ public class InterfAdmin extends javax.swing.JFrame {
         inventarioBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
 
         usuariosBoton.setText("Consultar usuarios");
         usuariosBoton.addActionListener(new java.awt.event.ActionListener() {
