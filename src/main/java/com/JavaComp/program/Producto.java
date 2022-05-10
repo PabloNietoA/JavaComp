@@ -1,23 +1,23 @@
 package com.JavaComp.program;
 
-import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Producto {
     private String titulo;
-    private String Caracteristicas;
-    private String Categoría;
+    private String caracteristicas;
+    private String categoria;
     private double pvp;
-    private ImageIO imagen;
+    private BufferedImage imagen;
     private int stock;
     private LocalDate fechaEntrada;
     private ArrayList<Opinion> opiniones;
 
-    public Producto(String titulo, String caracteristicas, String categoría, double pvp, ImageIO imagen, int stock, LocalDate fechaEntrada, ArrayList<Opinion> opiniones) {
+    public Producto(String titulo, String caracteristicas, String categoria, double pvp, BufferedImage imagen, int stock, LocalDate fechaEntrada, ArrayList<Opinion> opiniones) {
         this.titulo = titulo;
-        Caracteristicas = caracteristicas;
-        Categoría = categoría;
+        this.caracteristicas = caracteristicas;
+        this.categoria = categoria;
         this.pvp = pvp;
         this.imagen = imagen;
         this.stock = stock;
@@ -34,19 +34,19 @@ public class Producto {
     }
 
     public String getCaracteristicas() {
-        return Caracteristicas;
+        return caracteristicas;
     }
 
     public void setCaracteristicas(String caracteristicas) {
-        Caracteristicas = caracteristicas;
+        this.caracteristicas = caracteristicas;
     }
 
     public String getCategoría() {
-        return Categoría;
+        return categoria;
     }
 
-    public void setCategoría(String categoría) {
-        Categoría = categoría;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public double getPvp() {
@@ -57,11 +57,11 @@ public class Producto {
         this.pvp = pvp;
     }
 
-    public ImageIO getImagen() {
+    public BufferedImage getImagen() {
         return imagen;
     }
 
-    public void setImagen(ImageIO imagen) {
+    public void setImagen(BufferedImage imagen) {
         this.imagen = imagen;
     }
 

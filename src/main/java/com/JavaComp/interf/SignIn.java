@@ -150,10 +150,10 @@ public class SignIn extends javax.swing.JFrame {
             }
             if(!found) JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);*/
             int i = 0;
-            while (!(MainClass.clientes.get(i).getCorreo().equals(corr) && MainClass.clientes.get(i).getClave().equals(cont)) && i < (MainClass.clientes.size()-1)){
+            while (!(MainClass.clientes.get(i).getCorreo().equals(corr) && MainClass.clientes.get(i).getClave().equals(cont)) && i <= (MainClass.clientes.size()-1)){
                 i++;
             }
-            if (i < (MainClass.clientes.size()-1)){
+            if (i <= (MainClass.clientes.size()-1)){
                 new InterfCliente().setVisible(true);
                 this.setVisible(false);
             }
