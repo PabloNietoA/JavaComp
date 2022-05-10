@@ -4,6 +4,13 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.MainClass;
+import com.JavaComp.program.Producto;
+import java.time.LocalDate;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Karín
@@ -28,19 +35,22 @@ public class CrearProducto extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        titulo = new javax.swing.JLabel();
+        tituloField = new javax.swing.JTextField();
+        caracteristicas = new javax.swing.JLabel();
+        caracteristicasPane = new javax.swing.JScrollPane();
+        caracteristicasField = new javax.swing.JTextPane();
+        categoria = new javax.swing.JLabel();
+        categoriaBox = new javax.swing.JComboBox<>();
+        pvp = new javax.swing.JLabel();
+        pvpSpinner = new javax.swing.JSpinner();
+        stock = new javax.swing.JLabel();
+        stockSpinner = new javax.swing.JSpinner();
+        imagen = new javax.swing.JLabel();
+        path = new javax.swing.JLabel();
+        fileChooser = new javax.swing.JButton();
+        volverBoton = new javax.swing.JButton();
+        confirmarBoton = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -48,31 +58,45 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Título del producto:");
+        titulo.setText("Título del producto:");
 
-        jLabel2.setText("Características:");
+        caracteristicas.setText("Características:");
 
-        jLabel3.setText("Categoría:");
+        caracteristicasPane.setViewportView(caracteristicasField);
 
-        jLabel4.setText("Precio de venta:");
+        categoria.setText("Categoría:");
 
-        jLabel6.setText("Stock");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                categoriaBoxActionPerformed(evt);
             }
         });
 
-        jScrollPane2.setViewportView(jTextPane1);
+        pvp.setText("Precio de venta:");
 
-        jButton1.setText("Volver");
+        stock.setText("Stock:");
 
-        jButton2.setText("Confirmar y añadir imagen");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        imagen.setText("Imagen:");
+
+        path.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        path.setText("<Seleccione Imagen>");
+        path.setInheritsPopupMenu(false);
+        path.setMaximumSize(new java.awt.Dimension(233, 16));
+
+        fileChooser.setText("...");
+        fileChooser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                fileChooserActionPerformed(evt);
+            }
+        });
+
+        volverBoton.setText("Volver");
+
+        confirmarBoton.setText("Crear Producto");
+        confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarBotonActionPerformed(evt);
             }
         });
 
@@ -80,70 +104,98 @@ public class CrearProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(caracteristicas, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(titulo)
+                            .addComponent(categoria, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pvp, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(stock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(120, 120, 120)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pvpSpinner, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(volverBoton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confirmarBoton))
+                            .addComponent(tituloField)
+                            .addComponent(categoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(stockSpinner)
+                            .addComponent(caracteristicasPane)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
-                    .addComponent(jTextField1)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2)
-                    .addComponent(jSpinner1)
-                    .addComponent(jScrollPane2))
-                .addContainerGap(38, Short.MAX_VALUE))
+                        .addComponent(imagen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(path, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileChooser)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(titulo)
+                    .addComponent(tituloField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(caracteristicas)
                         .addGap(89, 89, 89))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
+                        .addComponent(caracteristicasPane)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pvp)
+                    .addComponent(pvpSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(stock)
+                    .addComponent(stockSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(imagen)
+                    .addComponent(path, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(fileChooser))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmarBoton)
+                    .addComponent(volverBoton))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_categoriaBoxActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
+        if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && (int) pvpSpinner.getValue() != 0){
+            //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
+            //Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), (int) stockSpinner.getValue(), LocalDate.now());
+            MainClass.productos.add(prod);
+            System.out.print(MainClass.productos.size());
+            new InterfAdmin().setVisible(true);
+        }
+    }//GEN-LAST:event_confirmarBotonActionPerformed
+    
+    //activa el file filter para seleccionar una imagen
+    private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
+        JFileChooser elegirImagen = new JFileChooser();
+        FileFilter filter = new FileNameExtensionFilter("Image", "jpg","png","webp");
+        elegirImagen.setFileFilter(filter);
+        elegirImagen.showDialog(imagen, "Elegir Imagen");
+        path.setText(elegirImagen.getSelectedFile().getAbsolutePath());
+    }//GEN-LAST:event_fileChooserActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,20 +233,23 @@ public class CrearProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel caracteristicas;
+    private javax.swing.JTextPane caracteristicasField;
+    private javax.swing.JScrollPane caracteristicasPane;
+    private javax.swing.JLabel categoria;
+    private javax.swing.JComboBox<String> categoriaBox;
+    private javax.swing.JButton confirmarBoton;
+    private javax.swing.JButton fileChooser;
+    private javax.swing.JLabel imagen;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel path;
+    private javax.swing.JLabel pvp;
+    private javax.swing.JSpinner pvpSpinner;
+    private javax.swing.JLabel stock;
+    private javax.swing.JSpinner stockSpinner;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JTextField tituloField;
+    private javax.swing.JButton volverBoton;
     // End of variables declaration//GEN-END:variables
 }
