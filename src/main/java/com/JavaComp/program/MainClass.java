@@ -17,8 +17,8 @@ public class MainClass {
     public static ArrayList<Cliente> clientes = new ArrayList();
     public static ArrayList<Producto> productos = new ArrayList();
     public static void main(String[] args) {
-        clientes = SaveManager.downloadSave("saveClientes.dat");
-        productos = SaveManager.downloadSave("saveProductos.dat");
+        clientes = SaveManager.downloadSave("saves/saveClientes.dat");
+        productos = SaveManager.downloadSave("saves/saveProductos.dat");
         for (int i=0; i<clientes.size();i++){
             System.out.print(clientes.get(i).getCorreo() + " ; " + clientes.get(i).getClave() + "\n");
         }
@@ -27,8 +27,8 @@ public class MainClass {
         main.setVisible(true);
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                SaveManager.uploadSave(clientes, "saveClientes.dat");
-                SaveManager.uploadSave(productos, "saveClientes.dat");
+                SaveManager.uploadSave(clientes, "saves/saveClientes.dat");
+                SaveManager.uploadSave(productos, "saves/saveProductos.dat");
                 for (int i=0; i<clientes.size();i++){
                     System.out.print(clientes.get(i).getCorreo() + " : " + clientes.get(i).getClave() +"\n");
                 }

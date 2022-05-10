@@ -6,14 +6,19 @@ package com.JavaComp.interf;
 
 import com.JavaComp.program.MainClass;
 import com.JavaComp.program.Producto;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
+import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
- * @author Karín
+ * @author Karï¿½n
  */
 public class CrearProducto extends javax.swing.JFrame {
 
@@ -58,15 +63,15 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setText("Título del producto:");
+        titulo.setText("Tï¿½tulo del producto:");
 
-        caracteristicas.setText("Características:");
+        caracteristicas.setText("Caracterï¿½sticas:");
 
         caracteristicasPane.setViewportView(caracteristicasField);
 
-        categoria.setText("Categoría:");
+        categoria.setText("Categorï¿½a:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Mï¿½viles y telefonï¿½a", "TV, audio y foto", "Consola y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -179,19 +184,28 @@ public class CrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_categoriaBoxActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && (int) pvpSpinner.getValue() != 0){
+        if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && (int) pvpSpinner.getValue() != 0 && !path.getText().equals("<Seleccione Imagen>")){
+            BufferedImage image = null;
+            try {image = ImageIO.read(new File(path.getText()));}
+            catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
+            File outputImage = new File("saves/savedIcons/" + tituloField.getText() +".jpg");
+            try {ImageIO.write(image,"jpg", outputImage);}
+            catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
+            System.out.print("saves/savedIcons/" + tituloField.getText() +".jpg");
+            
             //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
-            //Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), (int) stockSpinner.getValue(), LocalDate.now());
+            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), "saves/savedIcons" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
             MainClass.productos.add(prod);
             System.out.print(MainClass.productos.size());
             new InterfAdmin().setVisible(true);
         }
+        else JOptionPane.showMessageDialog(this, "Introduzca todos los datos", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
     //activa el file filter para seleccionar una imagen
     private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
         JFileChooser elegirImagen = new JFileChooser();
-        FileFilter filter = new FileNameExtensionFilter("Image", "jpg","png","webp");
+        FileFilter filter = new FileNameExtensionFilter("PNG", "jpg");
         elegirImagen.setFileFilter(filter);
         elegirImagen.showDialog(imagen, "Elegir Imagen");
         path.setText(elegirImagen.getSelectedFile().getAbsolutePath());

@@ -6,7 +6,7 @@ package com.JavaComp.interf;
 
 /**
  *
- * @author Karín
+ * @author Karï¿½n
  */
 public class Inventario extends javax.swing.JFrame {
 
@@ -27,7 +27,7 @@ public class Inventario extends javax.swing.JFrame {
     private void initComponents() {
 
         volverBoton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        agregarBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -39,7 +39,12 @@ public class Inventario extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Agregar Producto");
+        agregarBoton.setText("Agregar Producto");
+        agregarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -52,7 +57,7 @@ public class Inventario extends javax.swing.JFrame {
                         .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(agregarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(131, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -61,7 +66,7 @@ public class Inventario extends javax.swing.JFrame {
                 .addGap(134, 134, 134)
                 .addComponent(volverBoton)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(agregarBoton)
                 .addContainerGap(98, Short.MAX_VALUE))
         );
 
@@ -74,6 +79,13 @@ public class Inventario extends javax.swing.JFrame {
         interfAdmin.setLocation(this.getLocation());
         interfAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
+
+    private void agregarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBotonActionPerformed
+        CrearProducto interfCrear = new CrearProducto();
+        interfCrear.setLocation(this.getLocation());
+        interfCrear.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_agregarBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,7 +123,7 @@ public class Inventario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton agregarBoton;
     private javax.swing.JButton volverBoton;
     // End of variables declaration//GEN-END:variables
 }

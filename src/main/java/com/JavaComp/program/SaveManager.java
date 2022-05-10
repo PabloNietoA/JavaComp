@@ -29,7 +29,7 @@ public class SaveManager {
         
     }
     public static ArrayList downloadSave(String saveDir){
-        ArrayList<Cliente> i = new ArrayList();
+        ArrayList i = new ArrayList();
         try{
             FileInputStream iStream = new FileInputStream(saveDir);
             ObjectInputStream oiStream = new ObjectInputStream(iStream);

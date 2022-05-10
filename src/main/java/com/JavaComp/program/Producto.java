@@ -1,20 +1,21 @@
 package com.JavaComp.program;
 
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Producto {
+public class Producto implements Serializable {
     private String titulo;
     private String caracteristicas;
     private String categoria;
     private double pvp;
-    private BufferedImage imagen;
+    private String imagen;
     private int stock;
     private LocalDate fechaEntrada;
     private ArrayList<Opinion> opiniones;
 
-    public Producto(String titulo, String caracteristicas, String categoria, double pvp, BufferedImage imagen, int stock, LocalDate fechaEntrada) {
+    public Producto(String titulo, String caracteristicas, String categoria, double pvp, String imagen, int stock, LocalDate fechaEntrada) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
         this.categoria = categoria;
@@ -40,7 +41,7 @@ public class Producto {
         this.caracteristicas = caracteristicas;
     }
 
-    public String getCategori­a() {
+    public String getCategoria() {
         return categoria;
     }
 
@@ -56,11 +57,11 @@ public class Producto {
         this.pvp = pvp;
     }
 
-    public BufferedImage getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(BufferedImage imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }  
 
