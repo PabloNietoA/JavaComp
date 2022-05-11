@@ -126,7 +126,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="finalizarBoton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Finalizar y crear cuenta"/>
+        <Property name="text" type="java.lang.String" value="Confirmar Tarjeta"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="finalizarBotonActionPerformed"/>

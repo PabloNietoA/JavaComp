@@ -4,9 +4,11 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.*;
+
 /**
  *
- * @author Karín
+ * @author Karï¿½n
  */
 public class ModificarDatosParticular extends javax.swing.JFrame {
 
@@ -15,6 +17,16 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
      */
     public ModificarDatosParticular() {
         initComponents();
+        Particular clientePart = (Particular) MainClass.clienteActual;
+        dniField.setText(clientePart.getDni());
+        nombreField.setText(MainClass.clienteActual.getNombre());
+        correoField.setText(MainClass.clienteActual.getCorreo());
+        telefonoField.setText(MainClass.clienteActual.getTelefono());
+        calleField.setText(MainClass.clienteActual.getDireccion().getCalle());
+        numeroField.setText(MainClass.clienteActual.getDireccion().getNumero());
+        cpField.setText(MainClass.clienteActual.getDireccion().getCp());
+        ciudadField.setText(MainClass.clienteActual.getDireccion().getCiudad());
+        
     }
 
     /**
@@ -27,71 +39,71 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel9 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jButton1 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        dni = new javax.swing.JLabel();
+        dniField = new javax.swing.JFormattedTextField();
+        nombre = new javax.swing.JLabel();
+        nombreField = new javax.swing.JTextField();
+        correo = new javax.swing.JLabel();
+        correoField = new javax.swing.JTextField();
+        telefono = new javax.swing.JLabel();
+        telefonoField = new javax.swing.JFormattedTextField();
+        direccion = new javax.swing.JLabel();
+        calle = new javax.swing.JLabel();
+        calleField = new javax.swing.JTextField();
+        numero = new javax.swing.JLabel();
+        numeroField = new javax.swing.JTextField();
+        cp = new javax.swing.JLabel();
+        cpField = new javax.swing.JTextField();
+        ciudad = new javax.swing.JLabel();
+        ciudadField = new javax.swing.JTextField();
+        confirmarBoton = new javax.swing.JButton();
+        cancelarBoton = new javax.swing.JButton();
 
         jLabel9.setText("jLabel9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setText("DNI:");
-
-        jLabel5.setText("Nombre:");
-
-        jLabel6.setText("Correo electrónico:");
-
-        jLabel8.setText("Teléfono:");
+        dni.setText("DNI:");
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
+            dniField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########U")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
+        nombre.setText("Nombre:");
+
+        correo.setText("Correo electrÃ³nico:");
+
+        telefono.setText("TelÃ©fono:");
+
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
+            telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jButton1.setText("Confirmar y modificar tarjeta de crédito");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        direccion.setText("DirecciÃ³n");
+
+        calle.setText("Calle:");
+
+        numero.setText("NÃºmero:");
+
+        cp.setText("CÃ³digo postal:");
+
+        ciudad.setText("Ciudad:");
+
+        confirmarBoton.setText("Confirmar y modificar tarjeta de crÃ©dito");
+        confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                confirmarBotonActionPerformed(evt);
             }
         });
 
-        jLabel12.setText("Calle:");
-
-        jLabel14.setText("Número:");
-
-        jLabel16.setText("Código postal:");
-
-        jLabel18.setText("Ciudad:");
-
-        jLabel17.setText("Dirección");
-
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancelarBoton.setText("Cancelar");
+        cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelarBotonActionPerformed(evt);
             }
         });
 
@@ -106,35 +118,35 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(dni)
+                                    .addComponent(nombre)
+                                    .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-                                    .addComponent(jFormattedTextField2)))
-                            .addComponent(jLabel17)
+                                    .addComponent(nombreField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(correoField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(dniField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                                    .addComponent(telefonoField)))
+                            .addComponent(direccion)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel18))
+                                    .addComponent(numero)
+                                    .addComponent(calle)
+                                    .addComponent(cp)
+                                    .addComponent(ciudad))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-                                    .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextField14)))))
+                                    .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                                    .addComponent(numeroField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ciudadField)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(cancelarBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(confirmarBoton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -142,62 +154,71 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dni)
+                    .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombre)
+                    .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(correo)
+                    .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefono)
+                    .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
+                .addComponent(direccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(calle)
+                    .addComponent(calleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(numeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numero))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
+                    .addComponent(cpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cp))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(ciudad)
+                    .addComponent(ciudadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(confirmarBoton)
+                    .addComponent(cancelarBoton))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
         this.setVisible(false);
         InterfCliente interfCliente = new InterfCliente();
         interfCliente.setLocation(this.getLocation());
         interfCliente.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelarBotonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         this.setVisible(false);
-        TarjetaInterfaz tarjetaInterfaz = new TarjetaInterfaz();
-        tarjetaInterfaz.setLocation(this.getLocation());
-        tarjetaInterfaz.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if (!dniField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
+                && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
+                && !cpField.getText().isBlank()){
+            Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
+                    MainClass.clienteActual.getClave(), new Direccion(calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText()),
+                    telefonoField.getText(), dniField.getText());
+            TarjetaInterfaz interf = new TarjetaInterfaz();
+            interf.client = particular;
+            interf.prevFrame = this;
+            interf.setLocation(this.getLocation());
+            interf.setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_confirmarBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,25 +257,25 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel calle;
+    private javax.swing.JTextField calleField;
+    private javax.swing.JButton cancelarBoton;
+    private javax.swing.JLabel ciudad;
+    private javax.swing.JTextField ciudadField;
+    private javax.swing.JButton confirmarBoton;
+    private javax.swing.JLabel correo;
+    private javax.swing.JTextField correoField;
+    private javax.swing.JLabel cp;
+    private javax.swing.JTextField cpField;
+    private javax.swing.JLabel direccion;
+    private javax.swing.JLabel dni;
+    private javax.swing.JFormattedTextField dniField;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JTextField nombreField;
+    private javax.swing.JLabel numero;
+    private javax.swing.JTextField numeroField;
+    private javax.swing.JLabel telefono;
+    private javax.swing.JFormattedTextField telefonoField;
     // End of variables declaration//GEN-END:variables
 }

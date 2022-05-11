@@ -9,6 +9,7 @@ public class Cliente implements Serializable{
     private Direccion direccion;
     private TarjetaCredito tarjeta;
     private String telefono;
+    public boolean isParticular;
 
     public Cliente(String nombre, String correo, String clave, Direccion direccion, String telefono) {
         this.nombre = nombre;

@@ -16,6 +16,7 @@ public class MainClass {
     
     public static ArrayList<Cliente> clientes = new ArrayList();
     public static ArrayList<Producto> productos = new ArrayList();
+    public static Cliente clienteActual = null;
     public static void main(String[] args) {
         clientes = SaveManager.downloadSave("saves/saveClientes.dat");
         productos = SaveManager.downloadSave("saves/saveProductos.dat");

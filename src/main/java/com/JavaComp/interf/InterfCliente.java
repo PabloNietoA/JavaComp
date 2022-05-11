@@ -4,9 +4,11 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.MainClass;
+
 /**
  *
- * @author Karín
+ * @author Karï¿½n
  */
 public class InterfCliente extends javax.swing.JFrame {
 
@@ -26,14 +28,14 @@ public class InterfCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        editBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Editar datos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        editBoton.setText("Editar datos");
+        editBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                editBotonActionPerformed(evt);
             }
         });
 
@@ -43,23 +45,34 @@ public class InterfCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(294, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(editBoton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
+                .addComponent(editBoton)
                 .addContainerGap(264, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void editBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBotonActionPerformed
+        if (MainClass.clienteActual.isParticular) {
+            ModificarDatosParticular interfModificar = new ModificarDatosParticular();
+            interfModificar.setLocation(this.getLocation());
+            interfModificar.setVisible(true);
+            
+        }
+        else {
+            ModificarDatosEmpresa interfModificar = new ModificarDatosEmpresa();
+            interfModificar.setLocation(this.getLocation());
+            interfModificar.setVisible(true);
+            
+        }
+    }//GEN-LAST:event_editBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,6 +110,6 @@ public class InterfCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton editBoton;
     // End of variables declaration//GEN-END:variables
 }

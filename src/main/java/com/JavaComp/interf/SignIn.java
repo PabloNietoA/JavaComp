@@ -156,11 +156,12 @@ public class SignIn extends javax.swing.JFrame {
             if (i <= (MainClass.clientes.size()-1)){
                 new InterfCliente().setVisible(true);
                 this.setVisible(false);
+                MainClass.clienteActual = MainClass.clientes.get(i);
             }
             else JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_signInBotonActionPerformed
-        // Regresa al men� principal
+    // Regresa al menu principal
     private void cancelBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBotonActionPerformed
 
         new MainMenu().setVisible(true);

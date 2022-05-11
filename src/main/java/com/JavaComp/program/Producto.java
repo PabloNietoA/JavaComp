@@ -1,6 +1,5 @@
 package com.JavaComp.program;
 
-import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;

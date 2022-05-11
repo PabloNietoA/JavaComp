@@ -17,6 +17,10 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
     public TarjetaInterfaz() {
         initComponents();
+        if(MainClass.clienteActual != null){
+            titularField.setText(MainClass.clienteActual.getTarjeta().getTitular());
+            codigoField.setText(MainClass.clienteActual.getTarjeta().getCodigo());
+        }
     }
 
     /**
@@ -55,7 +59,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
 
-        Codigo.setText("Número de la tarjeta:");
+        Codigo.setText("NÃºmero de la tarjeta:");
 
         Caducidad.setText("Fecha de caducidad:");
 
@@ -67,7 +71,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
         cancelarBoton.setText("Cancelar");
 
-        finalizarBoton.setText("Finalizar y crear cuenta");
+        finalizarBoton.setText("Confirmar Tarjeta");
         finalizarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finalizarBotonActionPerformed(evt);
@@ -139,20 +143,30 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_titularFieldActionPerformed
 
     private void finalizarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarBotonActionPerformed
-       //Se asegura de que todos los campos estén rellenos
+       //Se asegura de que todos los campos estï¿½n rellenos
         if(titularField.getText().isBlank()||codigoField.getText().isBlank()|| caducidadField.getModel().toString().isBlank()){
             JOptionPane.showMessageDialog(this,"AsegÃºrese de introducir todos los datos.");
         }
         else{
             //Crea el objeto de la tarjeta y lo aÃ±ade al cliente
-            System.out.printf("debug");
             tarjeta = new TarjetaCredito(titularField.getText(), codigoField.getText(),caducidadField.getDateFormat());
             client.setTarjeta(tarjeta);
             InterfCliente interf = new InterfCliente();
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
             this.setVisible(false);
-            MainClass.clientes.add(client);
+            if(MainClass.clienteActual == null) {
+                MainClass.clientes.add(client);
+                MainClass.clienteActual = client;
+            }
+            else{
+                int i = 0;
+                while (!(MainClass.clientes.get(i).equals(MainClass.clienteActual))){
+                    i++;
+                }
+                MainClass.clientes.set(i, client);
+                MainClass.clienteActual = client;
+            }
         }
     }//GEN-LAST:event_finalizarBotonActionPerformed
 
@@ -207,6 +221,7 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             }
         });
     }
+    
     
     public Cliente client;
     private TarjetaCredito tarjeta;

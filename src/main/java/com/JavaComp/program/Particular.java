@@ -8,6 +8,8 @@ public class Particular extends Cliente implements Serializable{
     public Particular(String nombre, String correo, String clave, Direccion direccion, String telefono, String dni) {
         super(nombre, correo, clave, direccion, telefono);
         this.dni = dni;
+        this.isParticular = true;
+        
     }
 
     public String getDni() {
