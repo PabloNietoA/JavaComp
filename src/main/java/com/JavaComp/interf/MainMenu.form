@@ -87,11 +87,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Kar&#xed;n\Desktop\Clases\1&#xba; de carrera\Programaci&#xf3;n\Proyectos Java\PL2_JavaComp\images\LogoJavaComp.png"/>
-        </Property>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>

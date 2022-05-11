@@ -54,7 +54,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Karín\\Desktop\\Clases\\1º de carrera\\Programación\\Proyectos Java\\PL2_JavaComp\\images\\LogoJavaComp.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Karï¿½n\\Desktop\\Clases\\1ï¿½ de carrera\\Programaciï¿½n\\Proyectos Java\\PL2_JavaComp\\images\\LogoJavaComp.png")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +91,6 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     //Redirige a la ventana del "Sign in"
     private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         SignIn signIn = new SignIn();
         signIn.setLocation(this.getLocation());
@@ -99,7 +98,6 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_signInBotonActionPerformed
 //Redirige a la ventana del "Sign up"
     private void signUpBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBotonActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         SignUp signUp = new SignUp();
         signUp.setLocation(this.getLocation());
