@@ -196,7 +196,7 @@
                           <Component id="particularRadioBoton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="empresaRadioBoton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" pref="25" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" pref="35" max="32767" attributes="0"/>
                       <Component id="toggleParticular" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">

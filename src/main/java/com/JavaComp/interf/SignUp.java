@@ -13,7 +13,7 @@ public class SignUp extends javax.swing.JFrame {
 
     public SignUp() {
         initComponents();
-        //Se ocultan los datos únicos de cada opción de cliente hasta que se selecciona alguno de los radio buttons
+        //Se ocultan los datos ï¿½nicos de cada opciï¿½n de cliente hasta que se selecciona alguno de los radio buttons
         toggleEmpresa.setVisible(false);
         toggleParticular.setVisible(false);
     }
@@ -201,17 +201,17 @@ public class SignUp extends javax.swing.JFrame {
 
         Clave.setText("Clave de acceso:");
 
-        Direccion.setText("Dirección:");
+        Direccion.setText("Direcciï¿½n:");
 
         jLabel1.setText("Calle:");
 
-        jLabel2.setText("Número:");
+        jLabel2.setText("Nï¿½mero:");
 
-        jLabel3.setText("Código postal:");
+        jLabel3.setText("Cï¿½digo postal:");
 
         jLabel4.setText("Ciudad:");
 
-        Telefono.setText("Teléfono:");
+        Telefono.setText("Telï¿½fono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -307,7 +307,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        confirmarBoton.setText("Confirmar y añadir la tarjeta de crédito");
+        confirmarBoton.setText("Confirmar y aï¿½adir la tarjeta de crï¿½dito");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
@@ -389,11 +389,11 @@ public class SignUp extends javax.swing.JFrame {
 
         //comprueba que todo estÃ¡ relleno para pasar a el siguiente panel
         //crea un objeto cliente para aÃ±adir a la ArrayList
-        if (empresaRadioBoton.isSelected()&&!cifField.getText().isEmpty()&&!webField.getText().isEmpty()
-                &&!nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
-                &&!claveField.getText().isEmpty()&&!calleField.getText().isEmpty()
-                &&!numeroField.getText().isEmpty()&&!cpField.getText().isEmpty()
-                &&!ciudadField.getText().isEmpty()&&!telefonoField.getText().isEmpty()){
+        if (empresaRadioBoton.isSelected()&&!cifField.getText().isBlank() && !webField.getText().isBlank()
+                && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
+                && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
+                && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
+                && !ciudadField.getText().isEmpty() && !telefonoField.getText().isEmpty()){
             //crea un cliente de tipo empresa
             Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
                     claveField.getText(), new Direccion(calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText()),
@@ -405,11 +405,11 @@ public class SignUp extends javax.swing.JFrame {
             interfaz.setVisible(true);
             this.setVisible(false);
         }
-        else if (particularRadioBoton.isSelected()&&!dniField.getText().isEmpty()&&
-                !nombreField.getText().isEmpty()&&!correoField.getText().isEmpty()
-                &&!claveField.getText().isEmpty()&&!!calleField.getText().isEmpty()
-                &&!numeroField.getText().isEmpty()&&!cpField.getText().isEmpty()
-                &&!ciudadField.getText().isEmpty()&&!telefonoField.getText().isEmpty()){
+        else if (particularRadioBoton.isSelected() && !dniField.getText().isEmpty()&&
+                !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
+                && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
+                && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
+                && !ciudadField.getText().isEmpty() && !telefonoField.getText().isEmpty()){
             //crea un cliente de tipo particular
             Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
                     claveField.getText(), new Direccion(calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText()),
