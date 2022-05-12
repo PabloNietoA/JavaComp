@@ -63,15 +63,15 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setText("Tï¿½tulo del producto:");
+        titulo.setText("Título del producto:");
 
-        caracteristicas.setText("Caracterï¿½sticas:");
+        caracteristicas.setText("Características:");
 
         caracteristicasPane.setViewportView(caracteristicasField);
 
-        categoria.setText("Categorï¿½a:");
+        categoria.setText("Categoría:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Mï¿½viles y telefonï¿½a", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -111,7 +111,13 @@ public class CrearProducto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(imagen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(path, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(fileChooser))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(caracteristicas, javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,14 +135,8 @@ public class CrearProducto extends javax.swing.JFrame {
                             .addComponent(tituloField)
                             .addComponent(categoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(stockSpinner)
-                            .addComponent(caracteristicasPane)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(imagen)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(path, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fileChooser)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(caracteristicasPane))))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,7 +205,8 @@ public class CrearProducto extends javax.swing.JFrame {
     //activa el file filter para seleccionar una imagen
     private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
         JFileChooser elegirImagen = new JFileChooser();
-        FileFilter filter = new FileNameExtensionFilter("PNG", "jpg");
+        elegirImagen.setAcceptAllFileFilterUsed(false);
+        FileFilter filter = new FileNameExtensionFilter("(JPG o PNG)", "PNG", "jpg");
         elegirImagen.setFileFilter(filter);
         elegirImagen.showDialog(imagen, "Elegir Imagen");
         path.setText(elegirImagen.getSelectedFile().getAbsolutePath());

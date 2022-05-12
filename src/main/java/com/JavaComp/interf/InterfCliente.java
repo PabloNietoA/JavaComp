@@ -17,6 +17,11 @@ public class InterfCliente extends javax.swing.JFrame {
      */
     public InterfCliente() {
         initComponents();
+        toggleComponentes.setVisible(false);
+        toggleOrdenadores.setVisible(false);
+        toggleTV.setVisible(false);
+        toggleVideojuegos.setVisible(false);
+        toggleMoviles.setVisible(false);
     }
 
     /**
@@ -28,38 +33,213 @@ public class InterfCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        editBoton = new javax.swing.JButton();
+        editarPerfilBoton = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        toggleComponentes = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        toggleOrdenadores = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        toggleTV = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        toggleVideojuegos = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        toggleMoviles = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        editBoton.setText("Editar datos");
-        editBoton.addActionListener(new java.awt.event.ActionListener() {
+        editarPerfilBoton.setText("Editar perfil");
+        editarPerfilBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editBotonActionPerformed(evt);
+                editarPerfilBotonActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Categoría");
+
+        jLabel2.setText("Cómo desea ordenar los productos");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por relevancia", "Por precio mayor", "Por precio menor" }));
+
+        jButton1.setText("Finalizar y pasar a compra");
+
+        jLabel3.setText("Componentes");
+
+        javax.swing.GroupLayout toggleComponentesLayout = new javax.swing.GroupLayout(toggleComponentes);
+        toggleComponentes.setLayout(toggleComponentesLayout);
+        toggleComponentesLayout.setHorizontalGroup(
+            toggleComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleComponentesLayout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        toggleComponentesLayout.setVerticalGroup(
+            toggleComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleComponentesLayout.createSequentialGroup()
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(22, 22, 22))
+        );
+
+        jLabel4.setText("Ordenadores");
+
+        javax.swing.GroupLayout toggleOrdenadoresLayout = new javax.swing.GroupLayout(toggleOrdenadores);
+        toggleOrdenadores.setLayout(toggleOrdenadoresLayout);
+        toggleOrdenadoresLayout.setHorizontalGroup(
+            toggleOrdenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleOrdenadoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
+        toggleOrdenadoresLayout.setVerticalGroup(
+            toggleOrdenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleOrdenadoresLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4))
+        );
+
+        jLabel5.setText("TV");
+
+        javax.swing.GroupLayout toggleTVLayout = new javax.swing.GroupLayout(toggleTV);
+        toggleTV.setLayout(toggleTVLayout);
+        toggleTVLayout.setHorizontalGroup(
+            toggleTVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleTVLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        toggleTVLayout.setVerticalGroup(
+            toggleTVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleTVLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(23, 23, 23))
+        );
+
+        jLabel6.setText("Videojuegos");
+
+        javax.swing.GroupLayout toggleVideojuegosLayout = new javax.swing.GroupLayout(toggleVideojuegos);
+        toggleVideojuegos.setLayout(toggleVideojuegosLayout);
+        toggleVideojuegosLayout.setHorizontalGroup(
+            toggleVideojuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleVideojuegosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        toggleVideojuegosLayout.setVerticalGroup(
+            toggleVideojuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleVideojuegosLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel6)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        jLabel7.setText("Móviles");
+
+        javax.swing.GroupLayout toggleMovilesLayout = new javax.swing.GroupLayout(toggleMoviles);
+        toggleMoviles.setLayout(toggleMovilesLayout);
+        toggleMovilesLayout.setHorizontalGroup(
+            toggleMovilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(toggleMovilesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+        toggleMovilesLayout.setVerticalGroup(
+            toggleMovilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleMovilesLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(294, Short.MAX_VALUE)
-                .addComponent(editBoton)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(toggleComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(toggleOrdenadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(toggleTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(toggleVideojuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(editarPerfilBoton)
+                                    .addComponent(jButton1)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(toggleMoviles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 29, Short.MAX_VALUE)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editBoton)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addComponent(editarPerfilBoton)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(toggleOrdenadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(toggleVideojuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toggleTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(toggleComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(toggleMoviles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editBotonActionPerformed
+    private void editarPerfilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerfilBotonActionPerformed
         if (MainClass.clienteActual.isParticular) {
             ModificarDatosParticular interfModificar = new ModificarDatosParticular();
             interfModificar.setLocation(this.getLocation());
@@ -72,7 +252,42 @@ public class InterfCliente extends javax.swing.JFrame {
             interfModificar.setVisible(true);
             
         }
-    }//GEN-LAST:event_editBotonActionPerformed
+    }//GEN-LAST:event_editarPerfilBotonActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        if (jComboBox1.getSelectedItem()=="Componentes"){
+        toggleComponentes.setVisible(true);
+        toggleOrdenadores.setVisible(false);
+        toggleTV.setVisible(false);
+        toggleVideojuegos.setVisible(false);
+        toggleMoviles.setVisible(false);
+        
+        
+        }else if (jComboBox1.getSelectedItem()=="Ordenadores"){
+        toggleComponentes.setVisible(false);
+        toggleOrdenadores.setVisible(true);
+        toggleTV.setVisible(false);
+        toggleVideojuegos.setVisible(false);
+        toggleMoviles.setVisible(false);
+        }else if (jComboBox1.getSelectedItem()=="TV, audio y foto"){
+        toggleComponentes.setVisible(false);
+        toggleOrdenadores.setVisible(false);
+        toggleTV.setVisible(true);
+        toggleVideojuegos.setVisible(false);
+        toggleMoviles.setVisible(false);
+        }else if (jComboBox1.getSelectedItem()=="Móviles y telefonía"){
+        toggleComponentes.setVisible(false);
+        toggleOrdenadores.setVisible(false);
+        toggleTV.setVisible(false);
+        toggleVideojuegos.setVisible(false);
+        toggleMoviles.setVisible(true);
+        } else if (jComboBox1.getSelectedItem()=="Consolas y videojuegos"){
+        toggleComponentes.setVisible(false);
+        toggleOrdenadores.setVisible(false);
+        toggleTV.setVisible(false);
+        toggleVideojuegos.setVisible(true);
+        toggleMoviles.setVisible(false);}
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +325,21 @@ public class InterfCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton editBoton;
+    private javax.swing.JButton editarPerfilBoton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel toggleComponentes;
+    private javax.swing.JPanel toggleMoviles;
+    private javax.swing.JPanel toggleOrdenadores;
+    private javax.swing.JPanel toggleTV;
+    private javax.swing.JPanel toggleVideojuegos;
     // End of variables declaration//GEN-END:variables
 }

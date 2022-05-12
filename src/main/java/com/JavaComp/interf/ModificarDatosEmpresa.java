@@ -60,6 +60,10 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         ciudadField = new javax.swing.JTextField();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
 
         jLabel9.setText("jLabel9");
 
@@ -83,9 +87,9 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
 
         nombre.setText("Nombre:");
 
-        correo.setText("Correo electrÃ³nico:");
+        correo.setText("Correo electrónico:");
 
-        telefono.setText("TelÃ©fono:");
+        telefono.setText("Teléfono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -93,17 +97,17 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        direccion.setText("DirecciÃ³n");
+        direccion.setText("Dirección");
 
         calle.setText("Calle:");
 
-        numero.setText("NÃºmero:");
+        numero.setText("Número:");
 
-        cp.setText("CÃ³digo postal:");
+        cp.setText("Código postal:");
 
         ciudad.setText("Ciudad:");
 
-        confirmarBoton.setText("Confirmar y modificar tarjeta de crÃ©dito");
+        confirmarBoton.setText("Confirmar y modificar tarjeta de crédito");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
@@ -117,50 +121,57 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Contraseña actual:");
+
+        jLabel2.setText("Nueva contraseña:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(cancelarBoton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(confirmarBoton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cif)
-                                    .addComponent(nombre)
-                                    .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                    .addComponent(telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nombreField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(correoField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cifField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-                                    .addComponent(telefonoField)))
-                            .addComponent(direccion)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(cif)
+                            .addComponent(nombre)
+                            .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(telefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(correoField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cifField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                            .addComponent(telefonoField)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(web)
+                        .addGap(127, 127, 127)
+                        .addComponent(webField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(numero)
                                     .addComponent(calle)
                                     .addComponent(cp)
-                                    .addComponent(ciudad))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-                                    .addComponent(numeroField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(ciudadField)))
+                                    .addComponent(ciudad)))
+                            .addComponent(jLabel2)
+                            .addComponent(direccion)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(web)
-                                .addGap(127, 127, 127)
-                                .addComponent(webField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)))))
+                                .addComponent(cancelarBoton)
+                                .addGap(3, 3, 3)
+                                .addComponent(confirmarBoton))
+                            .addComponent(cpField)
+                            .addComponent(numeroField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ciudadField)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -204,11 +215,23 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ciudad)
                     .addComponent(ciudadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmarBoton)
-                    .addComponent(cancelarBoton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmarBoton)
+                            .addComponent(cancelarBoton))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(47, Short.MAX_VALUE))))
         );
 
         pack();
@@ -289,7 +312,11 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     private javax.swing.JLabel cp;
     private javax.swing.JTextField cpField;
     private javax.swing.JLabel direccion;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreField;
     private javax.swing.JLabel numero;
