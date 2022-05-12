@@ -7,7 +7,6 @@ package com.JavaComp.interf;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
-import java.awt.Dialog;
 
 public class SignUp extends javax.swing.JFrame {
 
@@ -371,50 +370,13 @@ public class SignUp extends javax.swing.JFrame {
     }//GEN-LAST:event_dniFieldActionPerformed
 
     //confirma los datos y procede a la pestaña de introducir tarjeta
-    //crea un objeto cliente para más tarde meterlo en la lista
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        /*
-        if (Empresa.isSelected()){
-            Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), new Direccion("as","asd","asdf","asdf"), interfaz.tarjeta,
-                    telefonoField.getText(), cifField.getText(), webField.getText());
-            MainClass.clientes.add(empresa);
-        } else{
-            Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
-                    claveField.getText(), new Direccion("","","",""), interfaz.tarjeta,
-                    telefonoField.getText(), dniField.getText());
-            MainClass.clientes.add(particular);
-        }
-        */
-
         //comprueba que todo está relleno para pasar a el siguiente panel
-        //crea un objeto cliente para añadir a la ArrayList
-        if (empresaRadioBoton.isSelected()&&!cifField.getText().isBlank() && !webField.getText().isBlank()
+        if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank())
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
                 && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
                 && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
                 && !ciudadField.getText().isEmpty() && !telefonoField.getText().isEmpty()){
-            //crea un cliente de tipo empresa
-            Empresa empresa = new Empresa(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), new Direccion(calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText()),
-                    telefonoField.getText(), cifField.getText(), webField.getText());
-            interfaz.client = empresa;
-            //aparece la ventana de tarjeta
-            interfaz.setLocation(this.getLocation());
-            interfaz.prevFrame = this;
-            interfaz.setVisible(true);
-            this.setVisible(false);
-        }
-        else if (particularRadioBoton.isSelected() && !dniField.getText().isEmpty()&&
-                !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
-                && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
-                && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
-                && !ciudadField.getText().isEmpty() && !telefonoField.getText().isEmpty()){
-            //crea un cliente de tipo particular
-            Particular particular = new Particular(nombreField.getText(), correoField.getText(), 
-                    claveField.getText(), new Direccion(calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText()),
-                    telefonoField.getText(), dniField.getText());
-            interfaz.client = particular;
             //aparece la ventana de tarjeta
             interfaz.setLocation(this.getLocation());
             interfaz.prevFrame = this;
@@ -426,9 +388,18 @@ public class SignUp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
+    //crea un cliente con los datos de tarjeta introducidos
+    public void CrearCliente(String titular, String codigo, String fecha){
+        if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
+                    claveField.getText(), telefonoField.getText(), dniField.getText(), titular, codigo, fecha,
+                    calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
+        else Empresa.CrearEmpresa(nombreField.getText(), correoField.getText(),
+                    claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titular, codigo, fecha,
+                    calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
+    }
+    
     //vuelve al menu principal
     private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
-        // TODO add your handling code here:
         this.setVisible(false);
         MainMenu main = new MainMenu();
         main.setLocation(this.getLocation());
@@ -474,6 +445,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
+    
     
     private TarjetaInterfaz interfaz = new TarjetaInterfaz();
     // Variables declaration - do not modify//GEN-BEGIN:variables

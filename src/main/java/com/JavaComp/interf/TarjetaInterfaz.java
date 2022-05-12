@@ -144,21 +144,21 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
     private void finalizarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarBotonActionPerformed
        //Se asegura de que todos los campos est�n rellenos
-        if(titularField.getText().isBlank()||codigoField.getText().isBlank()|| caducidadField.getModel().toString().isBlank()){
+        if(titularField.getText().isBlank() || codigoField.getText().isBlank() || caducidadField.getModel().toString().isBlank()){
             JOptionPane.showMessageDialog(this,"Asegúrese de introducir todos los datos.");
         }
         else{
             //Crea el objeto de la tarjeta y lo añade al cliente
-            tarjeta = new TarjetaCredito(titularField.getText(), codigoField.getText(),caducidadField.getDateFormat());
-            client.setTarjeta(tarjeta);
             InterfCliente interf = new InterfCliente();
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
             this.setVisible(false);
             if(MainClass.clienteActual == null) {
-                MainClass.clientes.add(client);
-                MainClass.clienteActual = client;
+                prevFrame.CrearCliente(titularField.getText(), codigoField.getText(), caducidadField.getDateFormat());
             }
+            //**************************
+            //esta parte hay que cambiarla
+            //**************************
             else{
                 int i = 0;
                 while (!(MainClass.clientes.get(i).equals(MainClass.clienteActual))){
@@ -223,9 +223,10 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     }
     
     
+    public boolean tarjetaCreada;
     public Cliente client;
-    private TarjetaCredito tarjeta;
-    public javax.swing.JFrame prevFrame;
+    private TarjetaCredito tarjeta = null;
+    public SignUp prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Caducidad;
     private javax.swing.JLabel Codigo;

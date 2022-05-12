@@ -223,6 +223,9 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         this.setVisible(false);
+        //*********************************
+        //TODA ESTA PARTE HAY QUE CAMBIARLA
+        //*********************************
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank()){
@@ -230,8 +233,6 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                     MainClass.clienteActual.getClave(), new Direccion(calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText()),
                     telefonoField.getText(), cifField.getText(), webField.getText());
             TarjetaInterfaz interf = new TarjetaInterfaz();
-            interf.client = particular;
-            interf.prevFrame = this;
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
             this.setVisible(false);

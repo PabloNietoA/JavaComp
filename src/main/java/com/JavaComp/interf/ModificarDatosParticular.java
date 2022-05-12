@@ -205,6 +205,9 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         this.setVisible(false);
+        //*********************************
+        //TODA ESTA PARTE HAY QUE CAMBIARLA
+        //*********************************
         if (!dniField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank()){
@@ -213,7 +216,6 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                     telefonoField.getText(), dniField.getText());
             TarjetaInterfaz interf = new TarjetaInterfaz();
             interf.client = particular;
-            interf.prevFrame = this;
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
             this.setVisible(false);
