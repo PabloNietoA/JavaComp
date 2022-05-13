@@ -59,16 +59,16 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Mï¿½viles y telefonï¿½a", "TV, audio y foto", "Consolas y videojuegos", " " }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Categoría");
+        jLabel1.setText("Categorï¿½a");
 
-        jLabel2.setText("Cómo desea ordenar los productos");
+        jLabel2.setText("Cï¿½mo desea ordenar los productos");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por relevancia", "Por precio mayor", "Por precio menor" }));
 
@@ -148,7 +148,7 @@ public class InterfCliente extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jLabel7.setText("Móviles");
+        jLabel7.setText("Mï¿½viles");
 
         javax.swing.GroupLayout toggleMovilesLayout = new javax.swing.GroupLayout(toggleMoviles);
         toggleMoviles.setLayout(toggleMovilesLayout);
@@ -244,12 +244,14 @@ public class InterfCliente extends javax.swing.JFrame {
             ModificarDatosParticular interfModificar = new ModificarDatosParticular();
             interfModificar.setLocation(this.getLocation());
             interfModificar.setVisible(true);
+            this.setVisible(false);
             
         }
         else {
             ModificarDatosEmpresa interfModificar = new ModificarDatosEmpresa();
             interfModificar.setLocation(this.getLocation());
             interfModificar.setVisible(true);
+            this.setVisible(false);
             
         }
     }//GEN-LAST:event_editarPerfilBotonActionPerformed
@@ -275,7 +277,7 @@ public class InterfCliente extends javax.swing.JFrame {
         toggleTV.setVisible(true);
         toggleVideojuegos.setVisible(false);
         toggleMoviles.setVisible(false);
-        }else if (jComboBox1.getSelectedItem()=="Móviles y telefonía"){
+        }else if (jComboBox1.getSelectedItem()=="Mï¿½viles y telefonï¿½a"){
         toggleComponentes.setVisible(false);
         toggleOrdenadores.setVisible(false);
         toggleTV.setVisible(false);

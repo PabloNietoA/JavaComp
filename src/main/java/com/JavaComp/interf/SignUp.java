@@ -39,23 +39,30 @@ public class SignUp extends javax.swing.JFrame {
         dniField = new javax.swing.JFormattedTextField();
         particularRadioBoton = new javax.swing.JRadioButton();
         empresaRadioBoton = new javax.swing.JRadioButton();
-        Nombre = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
         nombreField = new javax.swing.JTextField();
-        Correo = new javax.swing.JLabel();
+        correo = new javax.swing.JLabel();
         correoField = new javax.swing.JTextField();
-        Clave = new javax.swing.JLabel();
+        clave = new javax.swing.JLabel();
         claveField = new javax.swing.JPasswordField();
-        Direccion = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        Telefono = new javax.swing.JLabel();
+        telefono = new javax.swing.JLabel();
         telefonoField = new javax.swing.JFormattedTextField();
-        cpField = new javax.swing.JFormattedTextField();
-        ciudadField = new javax.swing.JTextField();
-        numeroField = new javax.swing.JTextField();
+        DIRECCION = new javax.swing.JLabel();
+        calle = new javax.swing.JLabel();
         calleField = new javax.swing.JTextField();
+        numero = new javax.swing.JLabel();
+        numeroField = new javax.swing.JTextField();
+        cp = new javax.swing.JLabel();
+        cpField = new javax.swing.JFormattedTextField();
+        ciudad = new javax.swing.JLabel();
+        ciudadField = new javax.swing.JTextField();
+        TARJETA = new javax.swing.JLabel();
+        titular = new javax.swing.JLabel();
+        titularField = new javax.swing.JTextField();
+        codigo = new javax.swing.JLabel();
+        codigoField = new javax.swing.JFormattedTextField();
+        caducidad = new javax.swing.JLabel();
+        caducidadDate = new org.jdatepicker.JDatePicker();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
 
@@ -180,7 +187,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(particularRadioBoton)
                     .addComponent(empresaRadioBoton))
-                .addGap(18, 25, Short.MAX_VALUE)
+                .addGap(18, 35, Short.MAX_VALUE)
                 .addComponent(toggleParticular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleLayout.createSequentialGroup()
@@ -188,7 +195,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(toggleEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        Nombre.setText("Nombre:");
+        nombre.setText("Nombre:");
 
         nombreField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,21 +203,11 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
-        Correo.setText("Correo:");
+        correo.setText("Correo:");
 
-        Clave.setText("Clave de acceso:");
+        clave.setText("Clave de acceso:");
 
-        Direccion.setText("Direcci�n:");
-
-        jLabel1.setText("Calle:");
-
-        jLabel2.setText("N�mero:");
-
-        jLabel3.setText("C�digo postal:");
-
-        jLabel4.setText("Ciudad:");
-
-        Telefono.setText("Tel�fono:");
+        telefono.setText("Teléfono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -218,11 +215,35 @@ public class SignUp extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        DIRECCION.setText("Dirección:");
+
+        calle.setText("Calle:");
+
+        numero.setText("Número:");
+
+        cp.setText("Código postal:");
+
         try {
             cpField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+
+        ciudad.setText("Ciudad:");
+
+        TARJETA.setText("Tarjeta:");
+
+        titular.setText("Titular:");
+
+        codigo.setText("Codigo:");
+
+        try {
+            codigoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### #### #### ####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        caducidad.setText("Fecha de caducidad:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -234,34 +255,42 @@ public class SignUp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Clave)
-                            .addComponent(Correo)
-                            .addComponent(Nombre))
+                            .addComponent(clave)
+                            .addComponent(correo)
+                            .addComponent(nombre))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(correoField)
                             .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(telefono)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(DIRECCION)
+                            .addComponent(TARJETA))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(cp)
+                            .addComponent(numero)
+                            .addComponent(calle)
+                            .addComponent(ciudad)
+                            .addComponent(titular)
+                            .addComponent(codigo)
+                            .addComponent(caducidad))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(caducidadDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(ciudadField)
                             .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(numeroField)
-                            .addComponent(calleField)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Direccion)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Telefono)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(calleField)
+                            .addComponent(titularField)
+                            .addComponent(codigoField))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -272,41 +301,55 @@ public class SignUp extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nombreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nombre))
+                    .addComponent(nombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Correo))
+                    .addComponent(correo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Clave, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(clave, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(claveField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Telefono)
+                    .addComponent(telefono)
                     .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Direccion)
+                .addComponent(DIRECCION)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(calle)
                     .addComponent(calleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(numero)
                     .addComponent(numeroField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(cp)
                     .addComponent(cpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(ciudad)
                     .addComponent(ciudadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TARJETA)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titular)
+                    .addComponent(titularField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(codigo)
+                    .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(caducidad))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        confirmarBoton.setText("Confirmar y a�adir la tarjeta de cr�dito");
+        confirmarBoton.setText("Confirmar y añadir la tarjeta de crédito");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
@@ -324,7 +367,7 @@ public class SignUp extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,7 +382,7 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelarBoton)
                     .addComponent(confirmarBoton))
@@ -369,34 +412,31 @@ public class SignUp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_dniFieldActionPerformed
 
-    //confirma los datos y procede a la pestaña de introducir tarjeta
+    //confirma que se han introducido datos y crea el cliente
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        //comprueba que todo está relleno para pasar a el siguiente panel
+        //comprueba que todo está relleno para crear el cliente
         if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank())
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
                 && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
                 && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
                 && !ciudadField.getText().isEmpty() && !telefonoField.getText().isEmpty()){
-            //aparece la ventana de tarjeta
-            interfaz.setLocation(this.getLocation());
-            interfaz.prevFrame = this;
-            interfaz.setVisible(true);
+            if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
+                    claveField.getText(), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
+            else Empresa.CrearEmpresa(nombreField.getText(), correoField.getText(),
+                    claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
+            InterfCliente interfCliente = new InterfCliente();
+            interfCliente.setLocation(this.getLocation());
             this.setVisible(false);
+            interfCliente.setVisible(true);
+            
+            
         }
         else{
             JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos están rellenos");
         }
     }//GEN-LAST:event_confirmarBotonActionPerformed
-    
-    //crea un cliente con los datos de tarjeta introducidos
-    public void CrearCliente(String titular, String codigo, String fecha){
-        if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), telefonoField.getText(), dniField.getText(), titular, codigo, fecha,
-                    calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
-        else Empresa.CrearEmpresa(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titular, codigo, fecha,
-                    calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
-    }
     
     //vuelve al menu principal
     private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
@@ -445,38 +485,42 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    private TarjetaInterfaz interfaz = new TarjetaInterfaz();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
     private javax.swing.JLabel CIF;
-    private javax.swing.JLabel Clave;
-    private javax.swing.JLabel Correo;
+    private javax.swing.JLabel DIRECCION;
     private javax.swing.JLabel DNI;
-    private javax.swing.JLabel Direccion;
-    private javax.swing.JLabel Nombre;
-    private javax.swing.JLabel Telefono;
+    private javax.swing.JLabel TARJETA;
     private javax.swing.JLabel Web;
+    private javax.swing.JLabel caducidad;
+    private org.jdatepicker.JDatePicker caducidadDate;
+    private javax.swing.JLabel calle;
     private javax.swing.JTextField calleField;
     private javax.swing.JButton cancelarBoton;
     private javax.swing.JTextField cifField;
+    private javax.swing.JLabel ciudad;
     private javax.swing.JTextField ciudadField;
+    private javax.swing.JLabel clave;
     private javax.swing.JPasswordField claveField;
+    private javax.swing.JLabel codigo;
+    private javax.swing.JFormattedTextField codigoField;
     private javax.swing.JButton confirmarBoton;
+    private javax.swing.JLabel correo;
     private javax.swing.JTextField correoField;
+    private javax.swing.JLabel cp;
     private javax.swing.JFormattedTextField cpField;
     private javax.swing.JFormattedTextField dniField;
     private javax.swing.JRadioButton empresaRadioBoton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreField;
+    private javax.swing.JLabel numero;
     private javax.swing.JTextField numeroField;
     private javax.swing.JRadioButton particularRadioBoton;
+    private javax.swing.JLabel telefono;
     private javax.swing.JFormattedTextField telefonoField;
+    private javax.swing.JLabel titular;
+    private javax.swing.JTextField titularField;
     private javax.swing.JLayeredPane toggle;
     private javax.swing.JPanel toggleEmpresa;
     private javax.swing.JPanel toggleParticular;

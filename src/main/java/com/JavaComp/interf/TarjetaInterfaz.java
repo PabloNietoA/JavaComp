@@ -153,20 +153,17 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
             this.setVisible(false);
-            if(MainClass.clienteActual == null) {
-                prevFrame.CrearCliente(titularField.getText(), codigoField.getText(), caducidadField.getDateFormat());
-            }
-            //**************************
-            //esta parte hay que cambiarla
-            //**************************
-            else{
+            if(!(MainClass.clienteActual == null)) {
                 int i = 0;
                 while (!(MainClass.clientes.get(i).equals(MainClass.clienteActual))){
                     i++;
                 }
-                MainClass.clientes.set(i, client);
-                MainClass.clienteActual = client;
+                //MainClass.clientes.set(i, client);
+                //MainClass.clienteActual = client;
             }
+            //**************************
+            //esta parte hay que cambiarla
+            //**************************
         }
     }//GEN-LAST:event_finalizarBotonActionPerformed
 
@@ -224,9 +221,8 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
     
     
     public boolean tarjetaCreada;
-    public Cliente client;
     private TarjetaCredito tarjeta = null;
-    public SignUp prevFrame;
+    public SignUp prevSignUp;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Caducidad;
     private javax.swing.JLabel Codigo;

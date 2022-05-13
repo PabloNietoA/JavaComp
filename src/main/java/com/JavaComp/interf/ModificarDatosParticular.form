@@ -10,6 +10,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -48,53 +49,66 @@
                           <Component id="telefonoField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="direccion" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="claveActual" max="32767" attributes="0"/>
+                          <Component id="claveNueva" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="claveActualField" max="32767" attributes="0"/>
+                          <Component id="claveNuevaField" pref="313" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="numero" min="-2" max="-2" attributes="0"/>
-                          <Component id="calle" min="-2" max="-2" attributes="0"/>
-                          <Component id="cp" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ciudad" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="cancelarBoton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="numero" min="-2" max="-2" attributes="0"/>
+                                  <Component id="calle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cp" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ciudad" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="cancelarBoton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="calleField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="ciudadField" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="cpField" max="32767" attributes="0"/>
+                                          <Component id="numeroField" pref="227" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="titular" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="codigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="caducidad" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="calleField" min="-2" pref="313" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="numeroField" min="-2" pref="313" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="cpField" min="-2" pref="313" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="ciudadField" min="-2" pref="313" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="caducidadDate" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="titularField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="codigoField" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLabel1" max="32767" attributes="0"/>
-                          <Component id="jLabel2" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="DIRECCION" min="-2" max="-2" attributes="0"/>
+                          <Component id="TARJETA" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField1" max="32767" attributes="0"/>
-                          <Component id="jTextField2" pref="313" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -125,7 +139,7 @@
                   <Component id="telefonoField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="direccion" min="-2" max="-2" attributes="0"/>
+              <Component id="DIRECCION" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="calle" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -146,17 +160,34 @@
                   <Component id="ciudad" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ciudadField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="TARJETA" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="titular" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="titularField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="codigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="codigoField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="caducidadDate" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="caducidad" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveActualField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveActual" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveNuevaField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveNueva" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="8" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cancelarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="confirmarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -205,7 +236,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="direccion">
+    <Component class="javax.swing.JLabel" name="DIRECCION">
       <Properties>
         <Property name="text" type="java.lang.String" value="Direcci&#xf3;n"/>
       </Properties>
@@ -222,14 +253,24 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="numeroField">
+    <Component class="javax.swing.JFormattedTextField" name="numeroField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0" subtype="-1" type="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cp">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo postal:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cpField">
+    <Component class="javax.swing.JFormattedTextField" name="cpField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="#####" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ciudad">
       <Properties>
@@ -237,6 +278,54 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ciudadField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="TARJETA">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tarjeta:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="titular">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Titular:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="titularField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="codigo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Codigo:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="codigoField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="#### #### #### ####" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="caducidad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fecha de caducidad:"/>
+      </Properties>
+    </Component>
+    <Component class="org.jdatepicker.JDatePicker" name="caducidadDate">
+    </Component>
+    <Component class="javax.swing.JLabel" name="claveActual">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a actual:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="claveActualField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="claveNueva">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Nueva contrase&#xf1;a:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="claveNuevaField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="claveNuevaFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="confirmarBoton">
       <Properties>
@@ -253,23 +342,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarBotonActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Contrase&#xf1;a actual:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nueva contrase&#xf1;a:"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
