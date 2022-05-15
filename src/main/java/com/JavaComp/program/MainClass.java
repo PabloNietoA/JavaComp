@@ -6,6 +6,7 @@ package com.JavaComp.program;
 
 import java.util.ArrayList;
 import com.JavaComp.interf.*;
+import java.awt.Dimension;
 
 /**
  *
@@ -35,7 +36,6 @@ public class MainClass {
                 }
             }
         }));
-        
     }
     
 }

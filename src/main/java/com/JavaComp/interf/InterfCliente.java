@@ -5,6 +5,8 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.MainClass;
+import com.JavaComp.program.Producto;
+import java.awt.Dimension;
 
 /**
  *
@@ -17,11 +19,11 @@ public class InterfCliente extends javax.swing.JFrame {
      */
     public InterfCliente() {
         initComponents();
-        toggleComponentes.setVisible(false);
+        /*toggleComponentes.setVisible(false);
         toggleOrdenadores.setVisible(false);
         toggleTV.setVisible(false);
         toggleVideojuegos.setVisible(false);
-        toggleMoviles.setVisible(false);
+        toggleMoviles.setVisible(false);*/
     }
 
     /**
@@ -33,22 +35,30 @@ public class InterfCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        utilCalendarModel1 = new org.jdatepicker.UtilCalendarModel();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jCheckBox1 = new javax.swing.JCheckBox();
         editarPerfilBoton = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        toggleComponentes = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        toggleOrdenadores = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        toggleTV = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        toggleVideojuegos = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        toggleMoviles = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+
+        jPasswordField1.setText("jPasswordField1");
+
+        jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,113 +69,63 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "M�viles y telefon�a", "TV, audio y foto", "Consolas y videojuegos", " " }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV", "audio y foto", "Consolas y videojuegos" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Categor�a");
+        jLabel1.setText("Categoría");
 
-        jLabel2.setText("C�mo desea ordenar los productos");
+        jLabel2.setText("Ordenar por");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por relevancia", "Por precio mayor", "Por precio menor" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "relevancia", "mayor precio", "menor precio" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Finalizar y pasar a compra");
+        jButton1.setText("Finalizar y pasar a pago");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jLabel3.setText("Componentes");
+        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
 
-        javax.swing.GroupLayout toggleComponentesLayout = new javax.swing.GroupLayout(toggleComponentes);
-        toggleComponentes.setLayout(toggleComponentesLayout);
-        toggleComponentesLayout.setHorizontalGroup(
-            toggleComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleComponentesLayout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        toggleComponentesLayout.setVerticalGroup(
-            toggleComponentesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleComponentesLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(22, 22, 22))
-        );
+        jCheckBox2.setText("jCheckBox2");
+        jPanel1.add(jCheckBox2);
 
-        jLabel4.setText("Ordenadores");
+        jCheckBox3.setText("jCheckBox3");
+        jPanel1.add(jCheckBox3);
 
-        javax.swing.GroupLayout toggleOrdenadoresLayout = new javax.swing.GroupLayout(toggleOrdenadores);
-        toggleOrdenadores.setLayout(toggleOrdenadoresLayout);
-        toggleOrdenadoresLayout.setHorizontalGroup(
-            toggleOrdenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleOrdenadoresLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-        toggleOrdenadoresLayout.setVerticalGroup(
-            toggleOrdenadoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleOrdenadoresLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4))
-        );
+        jCheckBox4.setText("jCheckBox4\tjpanel\txd");
+        jPanel1.add(jCheckBox4);
 
-        jLabel5.setText("TV");
+        jCheckBox5.setText("jCheckBox5");
+        jPanel1.add(jCheckBox5);
 
-        javax.swing.GroupLayout toggleTVLayout = new javax.swing.GroupLayout(toggleTV);
-        toggleTV.setLayout(toggleTVLayout);
-        toggleTVLayout.setHorizontalGroup(
-            toggleTVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleTVLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        toggleTVLayout.setVerticalGroup(
-            toggleTVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleTVLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(23, 23, 23))
-        );
+        jCheckBox6.setText("jCheckBox6");
+        jPanel1.add(jCheckBox6);
 
-        jLabel6.setText("Videojuegos");
+        jCheckBox7.setText("jCheckBox7");
+        jPanel1.add(jCheckBox7);
 
-        javax.swing.GroupLayout toggleVideojuegosLayout = new javax.swing.GroupLayout(toggleVideojuegos);
-        toggleVideojuegos.setLayout(toggleVideojuegosLayout);
-        toggleVideojuegosLayout.setHorizontalGroup(
-            toggleVideojuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleVideojuegosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        toggleVideojuegosLayout.setVerticalGroup(
-            toggleVideojuegosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleVideojuegosLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel6)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        jScrollPane1.setViewportView(jPanel1);
 
-        jLabel7.setText("M�viles");
+        jButton2.setText("Carro");
 
-        javax.swing.GroupLayout toggleMovilesLayout = new javax.swing.GroupLayout(toggleMoviles);
-        toggleMoviles.setLayout(toggleMovilesLayout);
-        toggleMovilesLayout.setHorizontalGroup(
-            toggleMovilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(toggleMovilesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
-        toggleMovilesLayout.setVerticalGroup(
-            toggleMovilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleMovilesLayout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jLabel7)
-                .addContainerGap())
-        );
+        jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("Buscar...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,64 +134,48 @@ public class InterfCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(toggleComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(toggleOrdenadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(toggleTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(toggleVideojuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(editarPerfilBoton)
-                                    .addComponent(jButton1)))))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editarPerfilBoton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jTextField1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(109, 109, 109)
-                                .addComponent(toggleMoviles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 29, Short.MAX_VALUE)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(editarPerfilBoton)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(editarPerfilBoton)
+                    .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(toggleOrdenadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(toggleVideojuegos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toggleTV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(toggleComponentes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(toggleMoviles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                    .addComponent(jButton3)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -257,7 +201,7 @@ public class InterfCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_editarPerfilBotonActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if (jComboBox1.getSelectedItem()=="Componentes"){
+        /*if (jComboBox1.getSelectedItem()=="Componentes"){
         toggleComponentes.setVisible(true);
         toggleOrdenadores.setVisible(false);
         toggleTV.setVisible(false);
@@ -288,8 +232,26 @@ public class InterfCliente extends javax.swing.JFrame {
         toggleOrdenadores.setVisible(false);
         toggleTV.setVisible(false);
         toggleVideojuegos.setVisible(true);
-        toggleMoviles.setVisible(false);}
+        toggleMoviles.setVisible(false);}*/
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Producto.showList(MainClass.productos, jPanel1);
+        Dimension size = this.getSize();
+        pack();
+        this.setSize(size);
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -329,19 +291,23 @@ public class InterfCliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton editarPerfilBoton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel toggleComponentes;
-    private javax.swing.JPanel toggleMoviles;
-    private javax.swing.JPanel toggleOrdenadores;
-    private javax.swing.JPanel toggleTV;
-    private javax.swing.JPanel toggleVideojuegos;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private org.jdatepicker.UtilCalendarModel utilCalendarModel1;
     // End of variables declaration//GEN-END:variables
 }

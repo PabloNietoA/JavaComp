@@ -3,6 +3,7 @@ package com.JavaComp.program;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 public class Producto implements Serializable {
     private String titulo;
@@ -23,7 +24,18 @@ public class Producto implements Serializable {
         this.stock = stock;
         this.fechaEntrada = fechaEntrada;
     }
-
+    
+    public static void showList(ArrayList<Producto> lista, JPanel panel){
+        for (int i = 0; i < lista.size(); i++){
+            System.out.print("paso por" + i);
+            javax.swing.JCheckBox newProd = new javax.swing.JCheckBox();
+            String showTxt = lista.get(i).getTitulo() + " ;  " + lista.get(i).getCaracteristicas() + " ;  " + lista.get(i).getPvp() + "€";
+            newProd.setText(showTxt);
+            newProd.setVisible(true);
+            panel.add(newProd);
+        }
+    }
+    
     public String getTitulo() {
         return titulo;
     }
