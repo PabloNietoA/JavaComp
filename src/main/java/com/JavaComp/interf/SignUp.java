@@ -485,6 +485,8 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
+    
+    public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
     private javax.swing.JLabel CIF;

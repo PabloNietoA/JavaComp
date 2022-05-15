@@ -149,23 +149,20 @@ public class SignIn extends javax.swing.JFrame {
                 }
             }
             if(!found) JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);*/
-            int i = 0;
-            while ( i < MainClass.clientes.size() && !(MainClass.clientes.get(i).getCorreo().equals(corr) && MainClass.clientes.get(i).getClave().equals(cont)) && i < (MainClass.clientes.size())){
-                System.out.print(i);
-                i++;
-            }
-            if (i < (MainClass.clientes.size())){
-                new InterfCliente().setVisible(true);
+            boolean logged = Cliente.LoggearCliente(corr, cont);
+            if (logged){
+                InterfCliente interfClient = new InterfCliente();
+                interfClient.setLocation(this.getLocation());
+                interfClient.setVisible(true);
                 this.setVisible(false);
-                MainClass.clienteActual = MainClass.clientes.get(i);
             }
             else JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_signInBotonActionPerformed
     // Regresa al menu principal
     private void cancelBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBotonActionPerformed
-
-        new MainMenu().setVisible(true);
+        prevFrame.setLocation(this.getLocation());
+        prevFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cancelBotonActionPerformed
 
@@ -211,7 +208,7 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
     }
-
+    public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBoton;
     private javax.swing.JLabel clave;

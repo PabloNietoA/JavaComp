@@ -1,5 +1,6 @@
 package com.JavaComp.program;
 
+import com.JavaComp.interf.InterfCliente;
 import java.io.Serializable;
 
 public abstract class Cliente implements Serializable{
@@ -30,7 +31,25 @@ public abstract class Cliente implements Serializable{
     public String getCorreo() {
         return correo;
     }
-
+    
+    public static int EncontrarCliente(String correo, String clave){
+        int i = 0;
+        while ( i < MainClass.clientes.size() && !(MainClass.clientes.get(i).getCorreo().equals(correo) && MainClass.clientes.get(i).getClave().equals(clave)) && i < (MainClass.clientes.size())){
+                i++;
+            }
+        return i;
+    }
+    
+    public static boolean LoggearCliente(String correo, String clave){
+        int i = EncontrarCliente(correo, clave);
+        boolean isLogged = false;
+        if (i < (MainClass.clientes.size())){
+                MainClass.clienteActual = MainClass.clientes.get(i);
+                isLogged = true;
+            }
+        return isLogged;
+    }
+    
     public void setCorreo(String correo) {
         this.correo = correo;
     }

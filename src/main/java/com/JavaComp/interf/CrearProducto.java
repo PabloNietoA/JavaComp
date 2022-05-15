@@ -63,15 +63,15 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setText("Título del producto:");
+        titulo.setText("TÃ­tulo del producto:");
 
-        caracteristicas.setText("Características:");
+        caracteristicas.setText("CaracterÃ­sticas:");
 
         caracteristicasPane.setViewportView(caracteristicasField);
 
-        categoria.setText("Categoría:");
+        categoria.setText("CategorÃ­a:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "MÃ³viles y telefonÃ­a", "TV, audio y foto", "Consola y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -136,7 +136,7 @@ public class CrearProducto extends javax.swing.JFrame {
                             .addComponent(categoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(stockSpinner)
                             .addComponent(caracteristicasPane))))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

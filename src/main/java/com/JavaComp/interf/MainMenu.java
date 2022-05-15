@@ -93,6 +93,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
         this.setVisible(false);
         SignIn signIn = new SignIn();
+        signIn.prevFrame = this;
         signIn.setLocation(this.getLocation());
         signIn.setVisible(true);
     }//GEN-LAST:event_signInBotonActionPerformed
@@ -100,6 +101,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void signUpBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBotonActionPerformed
         this.setVisible(false);
         SignUp signUp = new SignUp();
+        signUp.prevFrame = this;
         signUp.setLocation(this.getLocation());
         signUp.setVisible(true);
     }//GEN-LAST:event_signUpBotonActionPerformed
