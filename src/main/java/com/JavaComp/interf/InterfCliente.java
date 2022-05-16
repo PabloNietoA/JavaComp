@@ -39,28 +39,29 @@ public class InterfCliente extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jCheckBox1 = new javax.swing.JCheckBox();
         editarPerfilBoton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        categoriaBox = new javax.swing.JComboBox<>();
+        categoria = new javax.swing.JLabel();
+        ordenarPor = new javax.swing.JLabel();
+        ordenarBox = new javax.swing.JComboBox<>();
+        finalizar = new javax.swing.JButton();
+        busquedaScroll = new javax.swing.JScrollPane();
+        busquedaPanel = new javax.swing.JPanel();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jCheckBox4 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         jCheckBox6 = new javax.swing.JCheckBox();
         jCheckBox7 = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        carroBoton = new javax.swing.JButton();
+        buscarBoton = new javax.swing.JButton();
+        buscarField = new javax.swing.JTextField();
 
         jPasswordField1.setText("jPasswordField1");
 
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         editarPerfilBoton.setText("Editar perfil");
         editarPerfilBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -69,63 +70,76 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV", "audio y foto", "Consolas y videojuegos" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV", "audio y foto", "Consolas y videojuegos" }));
+        categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                categoriaBoxActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Categoría");
+        categoria.setText("Categoría");
 
-        jLabel2.setText("Ordenar por");
+        ordenarPor.setText("Ordenar por");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "relevancia", "mayor precio", "menor precio" }));
-        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+        ordenarBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "relevancia", "mayor precio", "menor precio" }));
+        ordenarBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox2ActionPerformed(evt);
+                ordenarBoxActionPerformed(evt);
             }
         });
 
-        jButton1.setText("Finalizar y pasar a pago");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        finalizar.setText("Finalizar y pasar a pago");
+        finalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                finalizarActionPerformed(evt);
             }
         });
 
-        jPanel1.setLayout(new javax.swing.BoxLayout(jPanel1, javax.swing.BoxLayout.Y_AXIS));
+        busquedaPanel.setLayout(new javax.swing.BoxLayout(busquedaPanel, javax.swing.BoxLayout.Y_AXIS));
 
         jCheckBox2.setText("jCheckBox2");
-        jPanel1.add(jCheckBox2);
+        busquedaPanel.add(jCheckBox2);
 
         jCheckBox3.setText("jCheckBox3");
-        jPanel1.add(jCheckBox3);
+        busquedaPanel.add(jCheckBox3);
 
         jCheckBox4.setText("jCheckBox4\tjpanel\txd");
-        jPanel1.add(jCheckBox4);
+        busquedaPanel.add(jCheckBox4);
 
         jCheckBox5.setText("jCheckBox5");
-        jPanel1.add(jCheckBox5);
+        busquedaPanel.add(jCheckBox5);
 
         jCheckBox6.setText("jCheckBox6");
-        jPanel1.add(jCheckBox6);
+        busquedaPanel.add(jCheckBox6);
 
         jCheckBox7.setText("jCheckBox7");
-        jPanel1.add(jCheckBox7);
+        busquedaPanel.add(jCheckBox7);
 
-        jScrollPane1.setViewportView(jPanel1);
+        busquedaScroll.setViewportView(busquedaPanel);
 
-        jButton2.setText("Carro");
-
-        jButton3.setText("Buscar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        carroBoton.setText("Carro");
+        carroBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                carroBotonActionPerformed(evt);
             }
         });
 
-        jTextField1.setText("Buscar...");
+        buscarBoton.setText("Buscar");
+        buscarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarBotonActionPerformed(evt);
+            }
+        });
+
+        buscarField.setText("Buscar...");
+        buscarField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                buscarFieldFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                buscarFieldFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,26 +148,26 @@ public class InterfCliente extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(busquedaScroll)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(finalizar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(carroBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(editarPerfilBoton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTextField1)
+                        .addComponent(buscarField, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                        .addComponent(buscarBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(categoria))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ordenarPor)
+                            .addComponent(ordenarBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -162,21 +176,21 @@ public class InterfCliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editarPerfilBoton)
-                    .addComponent(jButton2))
+                    .addComponent(carroBoton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
+                    .addComponent(ordenarPor)
+                    .addComponent(categoria))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ordenarBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarBoton)
+                    .addComponent(buscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(finalizar)
                 .addContainerGap())
         );
 
@@ -200,7 +214,7 @@ public class InterfCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editarPerfilBotonActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
         /*if (jComboBox1.getSelectedItem()=="Componentes"){
         toggleComponentes.setVisible(true);
         toggleOrdenadores.setVisible(false);
@@ -233,25 +247,35 @@ public class InterfCliente extends javax.swing.JFrame {
         toggleTV.setVisible(false);
         toggleVideojuegos.setVisible(true);
         toggleMoviles.setVisible(false);}*/
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_categoriaBoxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_finalizarActionPerformed
 
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+    private void ordenarBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_ordenarBoxActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
         // TODO add your handling code here:
-        Producto.showList(MainClass.productos, jPanel1);
-        Dimension size = this.getSize();
-        pack();
-        this.setSize(size);
+        Producto.showList(MainClass.productos, busquedaPanel);
         
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_buscarBotonActionPerformed
+
+    private void carroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carroBotonActionPerformed
+        busquedaPanel.removeAll();
+        Producto.showList(MainClass.productos, busquedaPanel);
+    }//GEN-LAST:event_carroBotonActionPerformed
+
+    private void buscarFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buscarFieldFocusGained
+        if (buscarField.getText().equals("Buscar...")) buscarField.setText("");
+    }//GEN-LAST:event_buscarFieldFocusGained
+
+    private void buscarFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buscarFieldFocusLost
+        if (buscarField.getText().isBlank()) buscarField.setText("Buscar...");
+    }//GEN-LAST:event_buscarFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -289,10 +313,15 @@ public class InterfCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buscarBoton;
+    private javax.swing.JTextField buscarField;
+    private javax.swing.JPanel busquedaPanel;
+    private javax.swing.JScrollPane busquedaScroll;
+    private javax.swing.JButton carroBoton;
+    private javax.swing.JLabel categoria;
+    private javax.swing.JComboBox<String> categoriaBox;
     private javax.swing.JButton editarPerfilBoton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton finalizar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
@@ -300,14 +329,9 @@ public class InterfCliente extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JCheckBox jCheckBox6;
     private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> ordenarBox;
+    private javax.swing.JLabel ordenarPor;
     private org.jdatepicker.UtilCalendarModel utilCalendarModel1;
     // End of variables declaration//GEN-END:variables
 }

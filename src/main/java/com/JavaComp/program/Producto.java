@@ -27,13 +27,14 @@ public class Producto implements Serializable {
     
     public static void showList(ArrayList<Producto> lista, JPanel panel){
         for (int i = 0; i < lista.size(); i++){
-            System.out.print("paso por" + i);
             javax.swing.JCheckBox newProd = new javax.swing.JCheckBox();
             String showTxt = lista.get(i).getTitulo() + " ;  " + lista.get(i).getCaracteristicas() + " ;  " + lista.get(i).getPvp() + "€";
             newProd.setText(showTxt);
             newProd.setVisible(true);
             panel.add(newProd);
         }
+        panel.repaint();
+        panel.revalidate();
     }
     
     public String getTitulo() {
