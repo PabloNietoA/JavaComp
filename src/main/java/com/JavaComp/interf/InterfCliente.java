@@ -6,6 +6,7 @@ package com.JavaComp.interf;
 
 import com.JavaComp.program.DataManager;
 import com.JavaComp.program.MainClass;
+import com.JavaComp.program.Particular;
 import com.JavaComp.program.Producto;
 import java.awt.Dimension;
 
@@ -197,7 +198,8 @@ public class InterfCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editarPerfilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerfilBotonActionPerformed
-        if (DataManager.getClienteActual().isParticular()) {
+        System.out.print(DataManager.getClienteActual() instanceof Particular);
+        if (DataManager.getClienteActual() instanceof Particular) {
             ModificarDatosParticular interfModificar = new ModificarDatosParticular();
             interfModificar.setLocation(this.getLocation());
             interfModificar.setVisible(true);

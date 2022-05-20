@@ -12,7 +12,7 @@ public class SignUp extends javax.swing.JFrame {
 
     public SignUp() {
         initComponents();
-        //Se ocultan los datos �nicos de cada opci�n de cliente hasta que se selecciona alguno de los radio buttons
+        //Se ocultan los datos unicos de cada opcion de cliente hasta que se selecciona alguno de los radio buttons
         toggleEmpresa.setVisible(false);
         toggleParticular.setVisible(false);
     }
@@ -415,7 +415,11 @@ public class SignUp extends javax.swing.JFrame {
     //confirma que se han introducido datos y crea el cliente
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         //comprueba que todo está relleno para crear el cliente
-        if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank())
+        boolean correoEsisten = false;
+        for (Cliente cliente:DataManager.getClientes()){
+            if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
+        }
+        if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank() && !correoEsisten)
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
                 && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
                 && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
@@ -433,9 +437,8 @@ public class SignUp extends javax.swing.JFrame {
             
             
         }
-        else{
-            JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos están rellenos");
-        }
+        else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo introducido ya existe");
+        else JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos están rellenos");
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
     //vuelve al menu principal
