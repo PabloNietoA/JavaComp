@@ -17,9 +17,9 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
 
     public TarjetaInterfaz() {
         initComponents();
-        if(MainClass.clienteActual != null){
-            titularField.setText(MainClass.clienteActual.getTarjeta().getTitular());
-            codigoField.setText(MainClass.clienteActual.getTarjeta().getCodigo());
+        if(DataManager.getClienteActual() != null){
+            titularField.setText(DataManager.getClienteActual().getTarjeta().getTitular());
+            codigoField.setText(DataManager.getClienteActual().getTarjeta().getCodigo());
         }
     }
 
@@ -153,9 +153,9 @@ public class TarjetaInterfaz extends javax.swing.JFrame {
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
             this.setVisible(false);
-            if(!(MainClass.clienteActual == null)) {
+            if(!(DataManager.getClienteActual() == null)) {
                 int i = 0;
-                while (!(MainClass.clientes.get(i).equals(MainClass.clienteActual))){
+                while (!(DataManager.getClientes().get(i).equals(DataManager.getClienteActual()))){
                     i++;
                 }
                 //MainClass.clientes.set(i, client);

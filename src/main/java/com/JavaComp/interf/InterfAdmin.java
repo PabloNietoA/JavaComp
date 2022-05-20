@@ -4,6 +4,7 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.DataManager;
 import com.JavaComp.program.MainClass;
 
 /**
@@ -92,7 +93,7 @@ public class InterfAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_usuariosBotonActionPerformed
 
     private void inventarioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventarioBotonActionPerformed
-        for (int i = 0; i < MainClass.productos.size(); i++) System.out.print(MainClass.productos.get(i).getTitulo());
+        for (int i = 0; i < DataManager.getProductos().size(); i++) System.out.print(DataManager.getProductos().get(i).getTitulo());
         this.setVisible(false);
         Inventario inventario = new Inventario();
         inventario.setLocation(this.getLocation());

@@ -4,12 +4,14 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.DataManager;
 import com.JavaComp.program.MainClass;
 import com.JavaComp.program.Producto;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -195,8 +197,9 @@ public class CrearProducto extends javax.swing.JFrame {
             
             //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
             Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), "saves/savedIcons" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
-            MainClass.productos.add(prod);
-            System.out.print(MainClass.productos.size());
+            ArrayList<Producto> productos = DataManager.getProductos();
+            productos.add(prod);
+            DataManager.setProductos(productos);
             new InterfAdmin().setVisible(true);
         }
         else JOptionPane.showMessageDialog(this, "Introduzca todos los datos", "Error", JOptionPane.WARNING_MESSAGE);

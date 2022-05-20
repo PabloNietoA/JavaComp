@@ -4,6 +4,7 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.DataManager;
 import com.JavaComp.program.MainClass;
 import com.JavaComp.program.Producto;
 import java.awt.Dimension;
@@ -94,8 +95,6 @@ public class InterfCliente extends javax.swing.JFrame {
                 finalizarActionPerformed(evt);
             }
         });
-
-        busquedaPanel.setLayout(new javax.swing.BoxLayout(busquedaPanel, javax.swing.BoxLayout.Y_AXIS));
 
         jCheckBox2.setText("jCheckBox2");
         busquedaPanel.add(jCheckBox2);
@@ -198,7 +197,7 @@ public class InterfCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void editarPerfilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerfilBotonActionPerformed
-        if (MainClass.clienteActual.isParticular) {
+        if (DataManager.getClienteActual().isParticular()) {
             ModificarDatosParticular interfModificar = new ModificarDatosParticular();
             interfModificar.setLocation(this.getLocation());
             interfModificar.setVisible(true);
@@ -259,14 +258,14 @@ public class InterfCliente extends javax.swing.JFrame {
 
     private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
         // TODO add your handling code here:
-        Producto.showList(MainClass.productos, busquedaPanel);
+        Producto.showList(DataManager.getProductos(), busquedaPanel);
         
         
     }//GEN-LAST:event_buscarBotonActionPerformed
 
     private void carroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carroBotonActionPerformed
         busquedaPanel.removeAll();
-        Producto.showList(MainClass.productos, busquedaPanel);
+        Producto.showList(DataManager.getProductos(), busquedaPanel);
     }//GEN-LAST:event_carroBotonActionPerformed
 
     private void buscarFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buscarFieldFocusGained

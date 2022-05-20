@@ -1,5 +1,6 @@
 package com.JavaComp.program;
 
+import com.JavaComp.interf.DisplayProducto;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -27,14 +28,24 @@ public class Producto implements Serializable {
     
     public static void showList(ArrayList<Producto> lista, JPanel panel){
         for (int i = 0; i < lista.size(); i++){
-            javax.swing.JCheckBox newProd = new javax.swing.JCheckBox();
+            /*javax.swing.JCheckBox newProd = new javax.swing.JCheckBox();
             String showTxt = lista.get(i).getTitulo() + " ;  " + lista.get(i).getCaracteristicas() + " ;  " + lista.get(i).getPvp() + "€";
             newProd.setText(showTxt);
             newProd.setVisible(true);
-            panel.add(newProd);
+            panel.add(newProd);*/
+            DisplayProducto display = crearPanel(lista.get(i));
+            display.setVisible(true);
+            panel.add(display);
+            
         }
         panel.repaint();
         panel.revalidate();
+    }
+    public static DisplayProducto crearPanel(Producto producto){
+        DisplayProducto display = new DisplayProducto();
+        display.prod = producto;
+        display.setParameters();
+        return display;
     }
     
     public String getTitulo() {

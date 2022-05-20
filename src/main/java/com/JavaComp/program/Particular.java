@@ -1,6 +1,7 @@
 package com.JavaComp.program;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Particular extends Cliente implements Serializable{
     private String dni;
@@ -8,7 +9,7 @@ public class Particular extends Cliente implements Serializable{
     public Particular(String nombre, String correo, String clave, Direccion direccion, String telefono, String dni) {
         super(nombre, correo, clave, direccion, telefono);
         this.dni = dni;
-        this.isParticular = true;
+        this.setIsParticular(true);
         
     }
     
@@ -20,8 +21,10 @@ public class Particular extends Cliente implements Serializable{
         Particular cliente = new Particular(nombre, correo, clave, dir, telefono, dni);
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
-        MainClass.clientes.add(cliente);
-        MainClass.clienteActual = cliente;
+        ArrayList<Cliente> clientes = DataManager.getClientes();
+        clientes.add(cliente);
+        DataManager.setClientes(clientes);
+        DataManager.setClienteActual(cliente);
     }
 
     public static void ModificarParticular(String nombre, String correo, String clave,
@@ -33,11 +36,13 @@ public class Particular extends Cliente implements Serializable{
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
         int i = 0;
-        while (!(MainClass.clientes.get(i).equals(MainClass.clienteActual))){
+        while (!(DataManager.getClientes().get(i).equals(DataManager.getClienteActual()))){
             i++;
         }
-        MainClass.clientes.set(i, cliente);
-        MainClass.clienteActual = cliente;
+        ArrayList<Cliente> clientes = DataManager.getClientes(); 
+        clientes.set(i,cliente);
+        DataManager.setClientes(clientes);
+        DataManager.setClienteActual(cliente);
     }
     
     public String getDni() {

@@ -18,18 +18,18 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
      */
     public ModificarDatosEmpresa() {
         initComponents();
-        Empresa clienteEmp = (Empresa) MainClass.clienteActual;
+        Empresa clienteEmp = (Empresa) DataManager.getClienteActual();
         cifField.setText(clienteEmp.getCif());
         webField.setText(clienteEmp.getWeb());
-        nombreField.setText(MainClass.clienteActual.getNombre());
-        correoField.setText(MainClass.clienteActual.getCorreo());
-        telefonoField.setText(MainClass.clienteActual.getTelefono());
-        calleField.setText(MainClass.clienteActual.getDireccion().getCalle());
-        numeroField.setText(MainClass.clienteActual.getDireccion().getNumero());
-        cpField.setText(MainClass.clienteActual.getDireccion().getCp());
-        ciudadField.setText(MainClass.clienteActual.getDireccion().getCiudad());
-        titularField.setText(MainClass.clienteActual.getTarjeta().getTitular());
-        codigoField.setText(MainClass.clienteActual.getTarjeta().getCodigo());
+        nombreField.setText(clienteEmp.getNombre());
+        correoField.setText(clienteEmp.getCorreo());
+        telefonoField.setText(clienteEmp.getTelefono());
+        calleField.setText(clienteEmp.getDireccion().getCalle());
+        numeroField.setText(clienteEmp.getDireccion().getNumero());
+        cpField.setText(clienteEmp.getDireccion().getCp());
+        ciudadField.setText(clienteEmp.getDireccion().getCiudad());
+        titularField.setText(clienteEmp.getTarjeta().getTitular());
+        codigoField.setText(clienteEmp.getTarjeta().getCodigo());
     }
 
     /**
@@ -303,7 +303,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
                 !caducidadDate.getModel().toString().isBlank() && !claveActual.getText().isBlank() && !claveNueva.getText().isBlank()){
-            if(claveActualField.getText().equals(MainClass.clienteActual.getClave())){
+            if(claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
                     claveNueva.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
                     titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),

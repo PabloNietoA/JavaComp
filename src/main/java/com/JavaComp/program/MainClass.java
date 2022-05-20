@@ -15,27 +15,23 @@ import java.awt.Dimension;
 
 public class MainClass {
     
-    public static ArrayList<Cliente> clientes = new ArrayList();
-    public static ArrayList<Producto> productos = new ArrayList();
-    public static Cliente clienteActual = null;
     public static void main(String[] args) {
-        clientes = SaveManager.downloadSave("saves/saveClientes.dat");
-        productos = SaveManager.downloadSave("saves/saveProductos.dat");
-        for (int i=0; i<clientes.size();i++){
-            System.out.print(clientes.get(i).getCorreo() + " ; " + clientes.get(i).getClave() + "\n");
+        DataManager.setClientes(DataManager.downloadSave("saves/saveClientes.dat"));
+        DataManager.setProductos(DataManager.downloadSave("saves/saveProductos.dat"));
+        for (int i=0; i<DataManager.getClientes().size();i++){
+            System.out.print(DataManager.getClientes().get(i).getCorreo() + " ; " + DataManager.getClientes().get(i).getClave() + "\n");
         }
         MainMenu main = new MainMenu();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                SaveManager.uploadSave(clientes, "saves/saveClientes.dat");
-                SaveManager.uploadSave(productos, "saves/saveProductos.dat");
-                for (int i=0; i<clientes.size();i++){
-                    System.out.print(clientes.get(i).getCorreo() + " : " + clientes.get(i).getClave() +"\n");
+                DataManager.uploadSave(DataManager.getClientes(), "saves/saveClientes.dat");
+                DataManager.uploadSave(DataManager.getProductos(), "saves/saveProductos.dat");
+                for (int i=0; i<DataManager.getClientes().size();i++){
+                    System.out.print(DataManager.getClientes().get(i).getCorreo() + " : " + DataManager.getClientes().get(i).getClave() +"\n");
                 }
             }
         }));
     }
-    
 }

@@ -7,11 +7,19 @@ package com.JavaComp.program;
 import java.io.*;
 import java.util.ArrayList;
 
-/**
- *
- * @author Slend
- */
-public class SaveManager {
+public class DataManager {
+    
+    private static Cliente clienteActual = null;
+    private static ArrayList<Cliente> clientes = new ArrayList();
+
+    public static Cliente getClienteActual() {
+        return clienteActual;
+    }
+
+    public static void setClienteActual(Cliente clienteActual) {
+        DataManager.clienteActual = clienteActual;
+    }
+    private static ArrayList<Producto> productos = new ArrayList();
     
     public static void uploadSave(ArrayList i, String saveDir){
         try{
@@ -43,5 +51,21 @@ public class SaveManager {
             System.out.println("Error: " + e.getMessage());
         }
         return i;
+    }
+
+    public static ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public static void setClientes(ArrayList<Cliente> clientes) {
+        DataManager.clientes = clientes;
+    }
+
+    public static ArrayList<Producto> getProductos() {
+        return productos;
+    }
+
+    public static void setProductos(ArrayList<Producto> productos) {
+        DataManager.productos = productos;
     }
 }

@@ -1,6 +1,7 @@
 package com.JavaComp.program;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Empresa extends Cliente implements Serializable{
         private String cif;
@@ -10,7 +11,7 @@ public class Empresa extends Cliente implements Serializable{
         super(nombre, correo, clave, direccion, telefono);
         this.cif = cif;
         this.web = web;
-        this.isParticular = false;
+        this.setIsParticular(false);
     }
     
     public static void CrearEmpresa(String nombre, String correo, String clave,
@@ -21,8 +22,10 @@ public class Empresa extends Cliente implements Serializable{
         Empresa cliente = new Empresa(nombre, correo, clave, dir, telefono, cif, web);
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
-        MainClass.clientes.add(cliente);
-        MainClass.clienteActual = cliente;
+        ArrayList<Cliente> clientes = DataManager.getClientes();
+        clientes.add(cliente);
+        DataManager.setClientes(clientes);
+        DataManager.setClienteActual(cliente);
     }
     
     public static void ModificarEmpresa(String nombre, String correo, String clave,
@@ -34,11 +37,13 @@ public class Empresa extends Cliente implements Serializable{
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
         int i = 0;
-        while (!(MainClass.clientes.get(i).equals(MainClass.clienteActual))){
+        while (!(DataManager.getClientes().get(i).equals(DataManager.getClienteActual()))){
             i++;
         }
-        MainClass.clientes.set(i, cliente);
-        MainClass.clienteActual = cliente;
+        ArrayList<Cliente> clientes = DataManager.getClientes();
+        clientes.set(i , cliente);
+        DataManager.setClientes(clientes);
+        DataManager.setClienteActual(cliente);
     }
 
     public String getCif() {

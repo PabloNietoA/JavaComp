@@ -10,7 +10,7 @@ public abstract class Cliente implements Serializable{
     private Direccion direccion;
     private TarjetaCredito tarjeta;
     private String telefono;
-    public boolean isParticular;
+    private boolean isParticular;
 
     public Cliente(String nombre, String correo, String clave, Direccion direccion, String telefono) {
         this.nombre = nombre;
@@ -34,7 +34,8 @@ public abstract class Cliente implements Serializable{
     
     public static int EncontrarCliente(String correo, String clave){
         int i = 0;
-        while ( i < MainClass.clientes.size() && !(MainClass.clientes.get(i).getCorreo().equals(correo) && MainClass.clientes.get(i).getClave().equals(clave)) && i < (MainClass.clientes.size())){
+        while ( i < DataManager.getClientes().size() && !(DataManager.getClientes().get(i).getCorreo().equals(correo)
+                && DataManager.getClientes().get(i).getClave().equals(clave)) && i < (DataManager.getClientes().size())){
                 i++;
             }
         return i;
@@ -43,8 +44,8 @@ public abstract class Cliente implements Serializable{
     public static boolean LoggearCliente(String correo, String clave){
         int i = EncontrarCliente(correo, clave);
         boolean isLogged = false;
-        if (i < (MainClass.clientes.size())){
-                MainClass.clienteActual = MainClass.clientes.get(i);
+        if (i < (DataManager.getClientes().size())){
+                DataManager.setClienteActual(DataManager.getClientes().get(i));
                 isLogged = true;
             }
         return isLogged;
@@ -85,5 +86,11 @@ public abstract class Cliente implements Serializable{
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-   
+    
+    public boolean isParticular(){
+        return isParticular;
+    }
+    public void setIsParticular(boolean isParticular){
+        this.isParticular = isParticular();
+    }
 }
