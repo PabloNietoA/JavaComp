@@ -65,15 +65,15 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setText("TÃ­tulo del producto:");
+        titulo.setText("Título del producto:");
 
-        caracteristicas.setText("CaracterÃ­sticas:");
+        caracteristicas.setText("Características:");
 
         caracteristicasPane.setViewportView(caracteristicasField);
 
-        categoria.setText("CategorÃ­a:");
+        categoria.setText("Categoría:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "MÃ³viles y telefonÃ­a", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -99,6 +99,11 @@ public class CrearProducto extends javax.swing.JFrame {
         });
 
         volverBoton.setText("Volver");
+        volverBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverBotonActionPerformed(evt);
+            }
+        });
 
         confirmarBoton.setText("Crear Producto");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -214,6 +219,13 @@ public class CrearProducto extends javax.swing.JFrame {
         elegirImagen.showDialog(imagen, "Elegir Imagen");
         path.setText(elegirImagen.getSelectedFile().getAbsolutePath());
     }//GEN-LAST:event_fileChooserActionPerformed
+
+    private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
+       this.setVisible(false);
+        InterfAdmin interfAdmin = new InterfAdmin();
+        interfAdmin.setLocation(this.getLocation());
+        interfAdmin.setVisible(true);
+    }//GEN-LAST:event_volverBotonActionPerformed
 
     /**
      * @param args the command line arguments

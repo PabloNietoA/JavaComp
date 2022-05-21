@@ -86,7 +86,7 @@ public class InterfAdmin extends javax.swing.JFrame {
 
     private void usuariosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosBotonActionPerformed
         this.setVisible(false);
-        Usuarios usuarios = new Usuarios();
+        ConsultarUsuarios usuarios = new ConsultarUsuarios();
         usuarios.setLocation(this.getLocation());
         usuarios.setVisible(true);
         

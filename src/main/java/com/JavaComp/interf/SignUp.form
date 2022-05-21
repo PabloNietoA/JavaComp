@@ -471,7 +471,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="confirmarBoton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar y a&#xf1;adir la tarjeta de cr&#xe9;dito"/>
+        <Property name="text" type="java.lang.String" value="Confirmar y crear cuenta"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarBotonActionPerformed"/>

@@ -207,7 +207,7 @@ public class SignUp extends javax.swing.JFrame {
 
         clave.setText("Clave de acceso:");
 
-        telefono.setText("TelÃ©fono:");
+        telefono.setText("Teléfono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -215,13 +215,13 @@ public class SignUp extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        DIRECCION.setText("DirecciÃ³n:");
+        DIRECCION.setText("Dirección:");
 
         calle.setText("Calle:");
 
-        numero.setText("NÃºmero:");
+        numero.setText("Número:");
 
-        cp.setText("CÃ³digo postal:");
+        cp.setText("Código postal:");
 
         try {
             cpField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
@@ -349,7 +349,7 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        confirmarBoton.setText("Confirmar y aÃ±adir la tarjeta de crÃ©dito");
+        confirmarBoton.setText("Confirmar y crear cuenta");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
