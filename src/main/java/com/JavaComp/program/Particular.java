@@ -8,9 +8,7 @@ public class Particular extends Cliente implements Serializable{
     
     public Particular(String nombre, String correo, String clave, Direccion direccion, String telefono, String dni) {
         super(nombre, correo, clave, direccion, telefono);
-        this.dni = dni;
-        this.setIsParticular(true);
-        
+        this.dni=dni;        
     }
     
     public static void CrearParticular(String nombre, String correo, String clave,
@@ -19,6 +17,7 @@ public class Particular extends Cliente implements Serializable{
             String cpDir, String ciudadDir){
         Direccion dir = new Direccion(calleDir, numDir, cpDir, ciudadDir);
         Particular cliente = new Particular(nombre, correo, clave, dir, telefono, dni);
+        
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
         ArrayList<Cliente> clientes = DataManager.getClientes();

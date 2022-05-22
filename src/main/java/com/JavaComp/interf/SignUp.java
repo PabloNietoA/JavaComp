@@ -47,7 +47,7 @@ public class SignUp extends javax.swing.JFrame {
         claveField = new javax.swing.JPasswordField();
         telefono = new javax.swing.JLabel();
         telefonoField = new javax.swing.JFormattedTextField();
-        DIRECCION = new javax.swing.JLabel();
+        direccionJBoton = new javax.swing.JLabel();
         calle = new javax.swing.JLabel();
         calleField = new javax.swing.JTextField();
         numero = new javax.swing.JLabel();
@@ -215,7 +215,7 @@ public class SignUp extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        DIRECCION.setText("Dirección:");
+        direccionJBoton.setText("Dirección:");
 
         calle.setText("Calle:");
 
@@ -269,7 +269,7 @@ public class SignUp extends javax.swing.JFrame {
                         .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DIRECCION)
+                            .addComponent(direccionJBoton)
                             .addComponent(TARJETA))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -315,7 +315,7 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(telefono)
                     .addComponent(telefonoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(DIRECCION)
+                .addComponent(direccionJBoton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(calle)
@@ -415,7 +415,7 @@ public class SignUp extends javax.swing.JFrame {
     //confirma que se han introducido datos y crea el cliente
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         //comprueba que todo estÃ¡ relleno para crear el cliente
-        boolean correoEsisten = false;
+   boolean correoEsisten = false;
         for (Cliente cliente:DataManager.getClientes()){
             if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
         }
@@ -434,11 +434,11 @@ public class SignUp extends javax.swing.JFrame {
             interfCliente.setLocation(this.getLocation());
             this.setVisible(false);
             interfCliente.setVisible(true);
-            
-            
+
+
         }
         else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo introducido ya existe");
-        else JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos estÃ¡n rellenos");
+        else JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos están rellenos");
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
     //vuelve al menu principal
@@ -493,7 +493,6 @@ public class SignUp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
     private javax.swing.JLabel CIF;
-    private javax.swing.JLabel DIRECCION;
     private javax.swing.JLabel DNI;
     private javax.swing.JLabel TARJETA;
     private javax.swing.JLabel Web;
@@ -514,6 +513,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JTextField correoField;
     private javax.swing.JLabel cp;
     private javax.swing.JFormattedTextField cpField;
+    private javax.swing.JLabel direccionJBoton;
     private javax.swing.JFormattedTextField dniField;
     private javax.swing.JRadioButton empresaRadioBoton;
     private javax.swing.JPanel jPanel1;

@@ -1,22 +1,29 @@
 package com.JavaComp.interf;
+import java.io.Serializable;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
-/**
- *
- * @author Karín
- */
+import com.JavaComp.program.*;
+
 public class ConsultarUsuarios extends javax.swing.JFrame {
     
 
     
     public ConsultarUsuarios() {
-        initComponents();
+        initComponents(); 
+        agregarFilaATabla();
     
     }
     public void agregarFilaATabla(){
             DefaultTableModel modelo =(DefaultTableModel) jTable1.getModel();
-            ArrayList<Cliente> usuarios = ListaUsuarios();
+            ArrayList<Cliente> clientes = DataManager.getClientes();
             Object datoFila []=new Object[10];
+            for(int i = 0; i<clientes.size(); i++){
+            
+                datoFila[4] = clientes.get(i).getNombre();
+                datoFila[5] = clientes.get(i).getCorreo();
+                datoFila[8] = clientes.get(i).getTelefono();
+                modelo.addRow(datoFila);
+            }
             }
 
     /**
