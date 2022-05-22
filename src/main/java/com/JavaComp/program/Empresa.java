@@ -11,7 +11,7 @@ public class Empresa extends Cliente implements Serializable{
         super(nombre, correo, clave, direccion, telefono);
         this.cif = cif;
         this.web = web;
-        this.setIsParticular(false);
+        
     }
     
     public static void CrearEmpresa(String nombre, String correo, String clave,

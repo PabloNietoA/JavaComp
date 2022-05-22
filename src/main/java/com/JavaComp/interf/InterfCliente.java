@@ -5,7 +5,7 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.*;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Karï¿½n
@@ -48,6 +48,7 @@ public class InterfCliente extends javax.swing.JFrame {
         carroBoton = new javax.swing.JButton();
         buscarBoton = new javax.swing.JButton();
         buscarField = new javax.swing.JTextField();
+        cerrarSesionBoton = new javax.swing.JButton();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -63,14 +64,14 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "MÃ³viles y telefonÃ­a", "TV", "audio y foto", "Consolas y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV", "audio y foto", "Consolas y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
             }
         });
 
-        categoria.setText("CategorÃ­a");
+        categoria.setText("Categoría");
 
         ordenarPor.setText("Ordenar por");
 
@@ -136,6 +137,13 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
+        cerrarSesionBoton.setText("Cerrar sesión");
+        cerrarSesionBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarSesionBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,7 +153,8 @@ public class InterfCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cerrarSesionBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(finalizar))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(carroBoton)
@@ -185,7 +194,9 @@ public class InterfCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(finalizar)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(finalizar)
+                    .addComponent(cerrarSesionBoton))
                 .addContainerGap())
         );
 
@@ -276,6 +287,19 @@ public class InterfCliente extends javax.swing.JFrame {
         if (buscarField.getText().isBlank()) buscarField.setText("Buscar...");
     }//GEN-LAST:event_buscarFieldFocusLost
 
+    private void cerrarSesionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBotonActionPerformed
+        String[] opciones = new String[2];
+        opciones[0]="Sí";
+        opciones[1]="No";
+        int respuesta = JOptionPane.showOptionDialog(this, "¿Estás seguro de que quieres cerrar sesión?", "Confirmar cierre de sesión", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, null);
+        if (respuesta==0){
+            this.setVisible(false);
+            MainMenu menuPrincipal = new MainMenu();
+            menuPrincipal.setLocation(this.getLocation());
+            menuPrincipal.setVisible(true);
+        }
+    }//GEN-LAST:event_cerrarSesionBotonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,6 +343,7 @@ public class InterfCliente extends javax.swing.JFrame {
     private javax.swing.JButton carroBoton;
     private javax.swing.JLabel categoria;
     private javax.swing.JComboBox<String> categoriaBox;
+    private javax.swing.JButton cerrarSesionBoton;
     private javax.swing.JButton editarPerfilBoton;
     private javax.swing.JButton finalizar;
     private javax.swing.JCheckBox jCheckBox1;

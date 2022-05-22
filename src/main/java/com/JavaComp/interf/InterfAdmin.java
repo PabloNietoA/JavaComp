@@ -32,6 +32,7 @@ public class InterfAdmin extends javax.swing.JFrame {
         usuariosBoton = new javax.swing.JButton();
         ventasBoton = new javax.swing.JButton();
         inventarioBoton = new javax.swing.JButton();
+        cerrarSesionBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -57,17 +58,28 @@ public class InterfAdmin extends javax.swing.JFrame {
             }
         });
 
+        cerrarSesionBoton.setText("Cerrar sesión");
+        cerrarSesionBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cerrarSesionBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(inventarioBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
                     .addComponent(usuariosBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ventasBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(cerrarSesionBoton)
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -78,7 +90,9 @@ public class InterfAdmin extends javax.swing.JFrame {
                 .addComponent(inventarioBoton)
                 .addGap(18, 18, 18)
                 .addComponent(ventasBoton)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(cerrarSesionBoton)
+                .addContainerGap())
         );
 
         pack();
@@ -102,9 +116,17 @@ public class InterfAdmin extends javax.swing.JFrame {
 
     private void ventasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasBotonActionPerformed
         this.setVisible(false);
-        Ventas ventas = new Ventas();
+        ConsultarVentas ventas = new ConsultarVentas();
         ventas.setLocation(this.getLocation());
+        ventas.setVisible(true);
     }//GEN-LAST:event_ventasBotonActionPerformed
+
+    private void cerrarSesionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBotonActionPerformed
+        this.setVisible(false);
+        MainMenu menuPrincipal = new MainMenu();
+        menuPrincipal.setLocation(this.getLocation());
+        menuPrincipal.setVisible(true);
+    }//GEN-LAST:event_cerrarSesionBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +164,7 @@ public class InterfAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cerrarSesionBoton;
     private javax.swing.JButton inventarioBoton;
     private javax.swing.JButton usuariosBoton;
     private javax.swing.JButton ventasBoton;

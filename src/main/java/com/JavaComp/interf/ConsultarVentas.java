@@ -26,23 +26,28 @@ public class ConsultarVentas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        volverBoton = new javax.swing.JButton();
+        imprimirBoton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ventasTabla = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        volverBoton.setText("Volver");
+        volverBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                volverBotonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Imprimir");
+        imprimirBoton.setText("Imprimir");
+        imprimirBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imprimirBotonActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ventasTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -50,7 +55,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
                 "ID de venta", "Cliente", "Fecha de venta", "Productos comprados", "Importe total"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ventasTabla);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,9 +66,9 @@ public class ConsultarVentas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(imprimirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -73,17 +78,29 @@ public class ConsultarVentas extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(volverBoton)
+                    .addComponent(imprimirBoton))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
+       this.setVisible(false);
+       InterfAdmin interfazAdmin = new InterfAdmin();
+       interfazAdmin.setLocation(this.getLocation());
+       interfazAdmin.setVisible(true);
+    }//GEN-LAST:event_volverBotonActionPerformed
+
+    private void imprimirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirBotonActionPerformed
+        try{
+            ventasTabla.print();
+        }
+        catch(Exception e){
+                e.printStackTrace();
+        };
+    }//GEN-LAST:event_imprimirBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,9 +138,9 @@ public class ConsultarVentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton imprimirBoton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable ventasTabla;
+    private javax.swing.JButton volverBoton;
     // End of variables declaration//GEN-END:variables
 }

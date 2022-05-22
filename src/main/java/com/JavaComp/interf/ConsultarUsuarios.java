@@ -14,7 +14,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
     
     }
     public void agregarFilaATabla(){
-            DefaultTableModel modelo =(DefaultTableModel) jTable1.getModel();
+            DefaultTableModel modelo =(DefaultTableModel) usuariosTabla.getModel();
             ArrayList<Cliente> clientes = DataManager.getClientes();
             Object datoFila []=new Object[8];
             for(int i = 0; i<clientes.size(); i++){
@@ -51,10 +51,10 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
     private void initComponents() {
 
         volverBoton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        imprimirBoton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        usuariosTabla = new javax.swing.JTable();
+        consultarVentasBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -66,27 +66,27 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Imprimir");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        imprimirBoton.setText("Imprimir");
+        imprimirBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                imprimirBotonActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        usuariosTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Telï¿½fono", "Nï¿½mero pedidos"
+                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Teléfono", "Número pedidos"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(usuariosTabla);
 
-        jButton2.setText("Consultar pedidos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        consultarVentasBoton.setText("Consultar pedidos");
+        consultarVentasBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                consultarVentasBotonActionPerformed(evt);
             }
         });
 
@@ -101,9 +101,9 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(consultarVentasBoton)
                         .addGap(236, 236, 236)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(imprimirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
@@ -114,8 +114,8 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2))
+                        .addComponent(imprimirBoton)
+                        .addComponent(consultarVentasBoton))
                     .addComponent(volverBoton))
                 .addContainerGap())
         );
@@ -130,18 +130,21 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
         interfAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void consultarVentasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarVentasBotonActionPerformed
+        this.setVisible(false);
+        ConsultarVentas ventas = new ConsultarVentas();
+        ventas.setLocation(this.getLocation());
+        ventas.setVisible(true);
+    }//GEN-LAST:event_consultarVentasBotonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void imprimirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirBotonActionPerformed
         try{
-            jTable1.print();
+            usuariosTabla.print();
         }
         catch(Exception e){
                 e.printStackTrace();
         };
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_imprimirBotonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,10 +182,10 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton consultarVentasBoton;
+    private javax.swing.JButton imprimirBoton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable usuariosTabla;
     private javax.swing.JButton volverBoton;
     // End of variables declaration//GEN-END:variables
 }
