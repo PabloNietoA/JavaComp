@@ -16,12 +16,27 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
     public void agregarFilaATabla(){
             DefaultTableModel modelo =(DefaultTableModel) jTable1.getModel();
             ArrayList<Cliente> clientes = DataManager.getClientes();
-            Object datoFila []=new Object[10];
+            Object datoFila []=new Object[8];
             for(int i = 0; i<clientes.size(); i++){
             
                 datoFila[4] = clientes.get(i).getNombre();
                 datoFila[5] = clientes.get(i).getCorreo();
-                datoFila[8] = clientes.get(i).getTelefono();
+                datoFila[6] = clientes.get(i).getTelefono();
+                datoFila[7] = clientes.get(i).getNumPedidos();
+                if (clientes.get(i) instanceof Particular){
+                Particular particular = (Particular) clientes.get(i);
+                datoFila[0] = "Si";
+                datoFila[1] = "-";
+                datoFila[2] = particular.getDni();
+                datoFila[3] ="-";
+                }
+                else{
+                Empresa empresa = (Empresa) clientes.get(i);
+                datoFila[0] ="-";
+                datoFila[1]="Si";
+                datoFila[2]= empresa.getCif();
+                datoFila[3]= empresa.getWeb();
+                }
                 modelo.addRow(datoFila);
             }
             }
@@ -39,6 +54,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
@@ -51,41 +67,55 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
         });
 
         jButton1.setText("Imprimir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Particular", "Empresa", "DNI", "CIF", "Web", "Nombre", "Correo", "Direccion", "Tarjeta de crédito", "Teléfono"
+                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Teléfono", "Número pedidos"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
+
+        jButton2.setText("Consultar pedidos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 625, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(190, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(236, 236, 236)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton1)
+                        .addComponent(jButton2))
                     .addComponent(volverBoton))
                 .addContainerGap())
         );
@@ -99,6 +129,19 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
         interfAdmin.setLocation(this.getLocation());
         interfAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            jTable1.print();
+        }
+        catch(Exception e){
+                e.printStackTrace();
+        };
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,6 +180,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton volverBoton;
