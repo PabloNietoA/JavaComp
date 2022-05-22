@@ -17,11 +17,6 @@ public class InterfCliente extends javax.swing.JFrame {
      */
     public InterfCliente() {
         initComponents();
-        /*toggleComponentes.setVisible(false);
-        toggleOrdenadores.setVisible(false);
-        toggleTV.setVisible(false);
-        toggleVideojuegos.setVisible(false);
-        toggleMoviles.setVisible(false);*/
     }
 
     /**
@@ -94,6 +89,8 @@ public class InterfCliente extends javax.swing.JFrame {
         });
 
         busquedaScroll.setMaximumSize(new java.awt.Dimension(300, 32767));
+
+        busquedaPanel.setLayout(new javax.swing.BoxLayout(busquedaPanel, javax.swing.BoxLayout.PAGE_AXIS));
 
         jCheckBox2.setText("jCheckBox2");
         busquedaPanel.add(jCheckBox2);
@@ -194,9 +191,11 @@ public class InterfCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Lleva a la pestaña de editar perfil
     private void editarPerfilBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarPerfilBotonActionPerformed
-        System.out.print(DataManager.getClienteActual() instanceof Particular);
+        
+        //Dependiendo de si es Particular o Empresa lleva a un frame distinto
         if (DataManager.getClienteActual() instanceof Particular) {
             ModificarDatosParticular interfModificar = new ModificarDatosParticular();
             interfModificar.setLocation(this.getLocation());
@@ -212,7 +211,8 @@ public class InterfCliente extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_editarPerfilBotonActionPerformed
-
+    
+    //Seleccion de categoria
     private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
         /*if (jComboBox1.getSelectedItem()=="Componentes"){
         toggleComponentes.setVisible(true);
