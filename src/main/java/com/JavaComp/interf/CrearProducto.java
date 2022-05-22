@@ -65,15 +65,15 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setText("Título del producto:");
+        titulo.setText("Tï¿½tulo del producto:");
 
-        caracteristicas.setText("Características:");
+        caracteristicas.setText("Caracterï¿½sticas:");
 
         caracteristicasPane.setViewportView(caracteristicasField);
 
-        categoria.setText("Categoría:");
+        categoria.setText("Categorï¿½a:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Mï¿½viles y telefonï¿½a", "TV, audio y foto", "Consola y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -201,7 +201,7 @@ public class CrearProducto extends javax.swing.JFrame {
             System.out.print("saves/savedIcons/" + tituloField.getText() +".jpg");
             
             //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
-            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), "saves/savedIcons" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
+            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), "saves/savedIcons/" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
             ArrayList<Producto> productos = DataManager.getProductos();
             productos.add(prod);
             DataManager.setProductos(productos);

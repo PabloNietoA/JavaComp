@@ -1,6 +1,5 @@
 package com.JavaComp.program;
 
-import com.JavaComp.interf.InterfCliente;
 import java.io.Serializable;
 
 public abstract class Cliente implements Serializable{

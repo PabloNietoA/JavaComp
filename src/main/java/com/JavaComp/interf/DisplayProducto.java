@@ -5,7 +5,11 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.Producto;
-import javax.swing.Icon;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -22,12 +26,36 @@ public class DisplayProducto extends javax.swing.JPanel {
     }
     
     public void setParameters(){
-        Precio.setText((Double.toString(prod.getPvp())));
-        imagenLabel.setIcon(new ImageIcon(prod.getImagen()));
-        tituloCheck.setText(prod.getTitulo());
         
+        Precio.setText((Double.toString(prod.getPvp())) + "€");
+        Precio.setVisible(true);
+        imagenLabel.setText("");
+        imagenLabel.setVisible(true);
+        tituloLabel.setText(prod.getTitulo());
+        tituloLabel.setVisible(true);
+            
+        System.out.print(prod.getImagen());
+        ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
+        Image image = imageIcon.getImage(); // transform it 
+        Image newimg = image.getScaledInstance(163, 104,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);
+        imagenLabel.setIcon(imageIcon);
+        
+        repaint();
+        revalidate();
     }
+    static Image fitImage(javax.swing.JLabel label, Image image) {
 
+        int newWidth = label.getWidth();
+        int newHeight = label.getHeight();
+
+        if (newWidth < 1 || newHeight < 1) {
+            return null;
+        }
+
+        Image resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
+        return resizedImage;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,17 +67,22 @@ public class DisplayProducto extends javax.swing.JPanel {
 
         imagenLabel = new javax.swing.JLabel();
         verBoton = new javax.swing.JToggleButton();
-        tituloCheck = new javax.swing.JCheckBox();
         Precio = new javax.swing.JLabel();
+        tituloLabel = new javax.swing.JLabel();
 
         imagenLabel.setText("Imagen");
 
         verBoton.setText("Ver");
-
-        tituloCheck.setText("Titulo");
+        verBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verBotonActionPerformed(evt);
+            }
+        });
 
         Precio.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Precio.setText("Precio");
+
+        tituloLabel.setText("Titulo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,16 +91,14 @@ public class DisplayProducto extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(imagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tituloCheck, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tituloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(verBoton)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(verBoton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -79,16 +110,20 @@ public class DisplayProducto extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verBoton)
-                    .addComponent(tituloCheck))
+                    .addComponent(tituloLabel))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void verBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBotonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_verBotonActionPerformed
+    
     public Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Precio;
     private javax.swing.JLabel imagenLabel;
-    private javax.swing.JCheckBox tituloCheck;
+    private javax.swing.JLabel tituloLabel;
     private javax.swing.JToggleButton verBoton;
     // End of variables declaration//GEN-END:variables
 }
