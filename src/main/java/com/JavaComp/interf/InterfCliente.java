@@ -4,11 +4,7 @@
  */
 package com.JavaComp.interf;
 
-import com.JavaComp.program.DataManager;
-import com.JavaComp.program.MainClass;
-import com.JavaComp.program.Particular;
-import com.JavaComp.program.Producto;
-import java.awt.Dimension;
+import com.JavaComp.program.*;
 
 /**
  *

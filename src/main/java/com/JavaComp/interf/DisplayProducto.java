@@ -25,8 +25,6 @@ public class DisplayProducto extends javax.swing.JPanel {
         Precio.setText((Double.toString(prod.getPvp())));
         imagenLabel.setIcon(new ImageIcon(prod.getImagen()));
         tituloCheck.setText(prod.getTitulo());
-        repaint();
-        revalidate();
         
     }
 
