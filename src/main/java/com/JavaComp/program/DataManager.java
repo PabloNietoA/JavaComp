@@ -4,22 +4,48 @@
  */
 package com.JavaComp.program;
 
+import com.JavaComp.interf.DisplayProducto;
+import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 public class DataManager {
     
     private static Cliente clienteActual = null;
     private static ArrayList<Cliente> clientes = new ArrayList();
+    private static ArrayList<Producto> productos = new ArrayList();
 
     public static Cliente getClienteActual() {
         return clienteActual;
     }
-
+    
+    public static ArrayList filtrarCategoria(String categoria){
+        ArrayList listaFiltrada = new ArrayList();
+        for(Producto prod : productos){
+            System.out.print(prod.getCategoria());
+            if (prod.getCategoria().equals(categoria)){
+                listaFiltrada.add(prod);
+            }
+        }
+        return listaFiltrada;
+    }
+    
+    public static void displayList(ArrayList<Producto> lista, JPanel panel){
+        panel.removeAll();
+        for (int i = 0; i < lista.size(); i++){
+            DisplayProducto display = crearPanel(lista.get(i));
+            display.setVisible(true);
+            panel.add(display);
+            
+        }
+        panel.repaint();
+        panel.revalidate();
+    }
+    
     public static void setClienteActual(Cliente clienteActual) {
         DataManager.clienteActual = clienteActual;
     }
-    private static ArrayList<Producto> productos = new ArrayList();
     
     public static void uploadSave(ArrayList i, String saveDir){
         try{

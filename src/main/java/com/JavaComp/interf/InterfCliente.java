@@ -64,14 +64,14 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV", "audio y foto", "Consolas y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Mï¿½viles y telefonï¿½a", "TV", "audio y foto", "Consolas y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
             }
         });
 
-        categoria.setText("Categoría");
+        categoria.setText("Categorï¿½a");
 
         ordenarPor.setText("Ordenar por");
 
@@ -137,7 +137,7 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        cerrarSesionBoton.setText("Cerrar sesión");
+        cerrarSesionBoton.setText("Cerrar sesiï¿½n");
         cerrarSesionBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cerrarSesionBotonActionPerformed(evt);
@@ -225,38 +225,21 @@ public class InterfCliente extends javax.swing.JFrame {
     
     //Seleccion de categoria
     private void categoriaBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBoxActionPerformed
-        /*if (jComboBox1.getSelectedItem()=="Componentes"){
-        toggleComponentes.setVisible(true);
-        toggleOrdenadores.setVisible(false);
-        toggleTV.setVisible(false);
-        toggleVideojuegos.setVisible(false);
-        toggleMoviles.setVisible(false);
-        
-        
-        }else if (jComboBox1.getSelectedItem()=="Ordenadores"){
-        toggleComponentes.setVisible(false);
-        toggleOrdenadores.setVisible(true);
-        toggleTV.setVisible(false);
-        toggleVideojuegos.setVisible(false);
-        toggleMoviles.setVisible(false);
-        }else if (jComboBox1.getSelectedItem()=="TV, audio y foto"){
-        toggleComponentes.setVisible(false);
-        toggleOrdenadores.setVisible(false);
-        toggleTV.setVisible(true);
-        toggleVideojuegos.setVisible(false);
-        toggleMoviles.setVisible(false);
-        }else if (jComboBox1.getSelectedItem()=="Mï¿½viles y telefonï¿½a"){
-        toggleComponentes.setVisible(false);
-        toggleOrdenadores.setVisible(false);
-        toggleTV.setVisible(false);
-        toggleVideojuegos.setVisible(false);
-        toggleMoviles.setVisible(true);
-        } else if (jComboBox1.getSelectedItem()=="Consolas y videojuegos"){
-        toggleComponentes.setVisible(false);
-        toggleOrdenadores.setVisible(false);
-        toggleTV.setVisible(false);
-        toggleVideojuegos.setVisible(true);
-        toggleMoviles.setVisible(false);}*/
+        if (categoriaBox.getSelectedItem() == "Componentes"){
+            DataManager.displayList(DataManager.filtrarCategoria("Componentes"), busquedaPanel);
+        }
+        else if (categoriaBox.getSelectedItem() == "Ordenadores"){
+            DataManager.displayList(DataManager.filtrarCategoria("Ordenadores"), busquedaPanel);
+        }
+        else if (categoriaBox.getSelectedItem() == "TV, audio y foto"){
+            DataManager.displayList(DataManager.filtrarCategoria("TV, audio y foto"), busquedaPanel);
+        }
+        else if (categoriaBox.getSelectedItem()=="MÃ³viles y telefonÃ­a"){
+            DataManager.displayList(DataManager.filtrarCategoria("MÃ³viles y telefonÃ­a"), busquedaPanel);
+        }
+        else if (categoriaBox.getSelectedItem()=="Consolas y videojuegos"){
+            DataManager.displayList(DataManager.filtrarCategoria("Consolas y videojuegos"), busquedaPanel);
+        }
     }//GEN-LAST:event_categoriaBoxActionPerformed
 
     private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
@@ -269,14 +252,10 @@ public class InterfCliente extends javax.swing.JFrame {
 
     private void buscarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBotonActionPerformed
         // TODO add your handling code here:
-        Producto.showList(DataManager.getProductos(), busquedaPanel);
-        
-        
     }//GEN-LAST:event_buscarBotonActionPerformed
 
     private void carroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carroBotonActionPerformed
-        busquedaPanel.removeAll();
-        Producto.showList(DataManager.getProductos(), busquedaPanel);
+        
     }//GEN-LAST:event_carroBotonActionPerformed
 
     private void buscarFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buscarFieldFocusGained
@@ -289,9 +268,9 @@ public class InterfCliente extends javax.swing.JFrame {
 
     private void cerrarSesionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBotonActionPerformed
         String[] opciones = new String[2];
-        opciones[0]="Sí";
+        opciones[0]="Sï¿½";
         opciones[1]="No";
-        int respuesta = JOptionPane.showOptionDialog(this, "¿Estás seguro de que quieres cerrar sesión?", "Confirmar cierre de sesión", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, null);
+        int respuesta = JOptionPane.showOptionDialog(this, "ï¿½Estï¿½s seguro de que quieres cerrar sesiï¿½n?", "Confirmar cierre de sesiï¿½n", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, null);
         if (respuesta==0){
             this.setVisible(false);
             MainMenu menuPrincipal = new MainMenu();

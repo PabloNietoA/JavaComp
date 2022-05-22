@@ -19,6 +19,10 @@ public class MainClass {
         for (int i=0; i<DataManager.getClientes().size();i++){
             System.out.print(DataManager.getClientes().get(i).getCorreo() + " ; " + DataManager.getClientes().get(i).getClave() + "\n");
         }
+        for (int i=0; i<DataManager.getProductos().size();i++){
+            System.out.print(DataManager.getProductos().get(i).getTitulo() + " . " + DataManager.getProductos().get(i).getPvp() + "\n");
+        }
+
         MainMenu main = new MainMenu();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
