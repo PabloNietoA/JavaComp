@@ -438,7 +438,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="TARJETA">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tarjeta:"/>
+            <Property name="text" type="java.lang.String" value="Tarjeta de cr&#xe9;dito:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="titular">
@@ -450,7 +450,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="codigo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Codigo:"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="codigoField">

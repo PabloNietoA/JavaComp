@@ -7,8 +7,8 @@ public class Empresa extends Cliente implements Serializable{
         private String cif;
         private String web;
 
-    public Empresa(String nombre, String correo, String clave, Direccion direccion, String telefono, String cif, String web) {
-        super(nombre, correo, clave, direccion, telefono);
+    public Empresa(String nombre, String correo, String clave, Direccion direccion, String telefono, int numPedidos, String cif, String web) {
+        super(nombre, correo, clave, direccion, telefono, numPedidos);
         this.cif = cif;
         this.web = web;
         
@@ -18,8 +18,9 @@ public class Empresa extends Cliente implements Serializable{
             String telefono, String cif, String web, String titularTarj, 
             String codTarj, String fechTarj, String calleDir, String numDir, 
             String cpDir, String ciudadDir){
+        int numPedidos = 0;
         Direccion dir = new Direccion(calleDir, numDir, cpDir, ciudadDir);
-        Empresa cliente = new Empresa(nombre, correo, clave, dir, telefono, cif, web);
+        Empresa cliente = new Empresa(nombre, correo, clave, dir, telefono, numPedidos, cif, web);
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
         ArrayList<Cliente> clientes = DataManager.getClientes();
@@ -32,8 +33,9 @@ public class Empresa extends Cliente implements Serializable{
             String telefono, String cif, String web, String titularTarj, 
             String codTarj, String fechTarj, String calleDir, String numDir, 
             String cpDir, String ciudadDir){
+        int numPedidos = DataManager.getClienteActual().getNumPedidos();
         Direccion dir = new Direccion(calleDir, numDir, cpDir, ciudadDir);
-        Empresa cliente = new Empresa(nombre, correo, clave, dir, telefono, cif, web);
+        Empresa cliente = new Empresa(nombre, correo, clave, dir, telefono, numPedidos, cif, web);
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
         int i = 0;

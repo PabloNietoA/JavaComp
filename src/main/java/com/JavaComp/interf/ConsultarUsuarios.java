@@ -22,7 +22,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
                 datoFila[4] = clientes.get(i).getNombre();
                 datoFila[5] = clientes.get(i).getCorreo();
                 datoFila[6] = clientes.get(i).getTelefono();
-                //datoFila[7] = clientes.get(i).getNumPedidos();
+                datoFila[7] = clientes.get(i).getNumPedidos();
                 if (clientes.get(i) instanceof Particular){
                 Particular particular = (Particular) clientes.get(i);
                 datoFila[0] = "Si";
@@ -78,7 +78,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Teléfono", "Número pedidos"
+                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Telï¿½fono", "Nï¿½mero pedidos"
             }
         ));
         jScrollPane1.setViewportView(usuariosTabla);

@@ -10,13 +10,15 @@ public abstract class Cliente implements Serializable{
     private TarjetaCredito tarjeta;
     private String telefono;
     private boolean isParticular;
+    private int numPedidos;
 
-    public Cliente(String nombre, String correo, String clave, Direccion direccion, String telefono) {
+    public Cliente(String nombre, String correo, String clave, Direccion direccion, String telefono, int numPedidos) {
         this.nombre = nombre;
         this.correo = correo;
         this.clave = clave;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.numPedidos = numPedidos;
     }
     
     public String getNombre() {
@@ -91,5 +93,13 @@ public abstract class Cliente implements Serializable{
     }
     public void setIsParticular(boolean isParticular){
         this.isParticular = isParticular();
+    }
+    
+    public int getNumPedidos() {
+        return numPedidos;
+    }
+    
+    public void setNumPedidos(int numPedidos){
+    this.numPedidos= numPedidos;
     }
 }

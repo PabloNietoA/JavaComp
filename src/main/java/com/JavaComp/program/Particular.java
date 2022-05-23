@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Particular extends Cliente implements Serializable{
     private String dni;
     
-    public Particular(String nombre, String correo, String clave, Direccion direccion, String telefono, String dni) {
-        super(nombre, correo, clave, direccion, telefono);
+    public Particular(String nombre, String correo, String clave, Direccion direccion, String telefono, int numPedidos, String dni) {
+        super(nombre, correo, clave, direccion, telefono, numPedidos);
         this.dni=dni;        
     }
     
@@ -15,8 +15,9 @@ public class Particular extends Cliente implements Serializable{
             String telefono, String dni, String titularTarj, String codTarj, 
             String fechTarj, String calleDir, String numDir, 
             String cpDir, String ciudadDir){
+        int numPedidos =  0;
         Direccion dir = new Direccion(calleDir, numDir, cpDir, ciudadDir);
-        Particular cliente = new Particular(nombre, correo, clave, dir, telefono, dni);
+        Particular cliente = new Particular(nombre, correo, clave, dir, telefono, numPedidos, dni);
         
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
@@ -30,8 +31,9 @@ public class Particular extends Cliente implements Serializable{
             String telefono, String dni, String titularTarj, String codTarj, 
             String fechTarj, String calleDir, String numDir, 
             String cpDir, String ciudadDir){
+        int numPedidos =  DataManager.getClienteActual().getNumPedidos();
         Direccion dir = new Direccion(calleDir, numDir, cpDir, ciudadDir);
-        Particular cliente = new Particular(nombre, correo, clave, dir, telefono, dni);
+        Particular cliente = new Particular(nombre, correo, clave, dir, telefono, numPedidos, dni);
         TarjetaCredito tarjeta = new TarjetaCredito(titularTarj, codTarj, fechTarj);
         cliente.setTarjeta(tarjeta);
         int i = 0;

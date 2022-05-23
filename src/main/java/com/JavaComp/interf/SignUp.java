@@ -207,7 +207,7 @@ public class SignUp extends javax.swing.JFrame {
 
         clave.setText("Clave de acceso:");
 
-        telefono.setText("Teléfono:");
+        telefono.setText("TelÃ©fono:");
 
         try {
             telefonoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########")));
@@ -215,13 +215,13 @@ public class SignUp extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        direccionJBoton.setText("Dirección:");
+        direccionJBoton.setText("DirecciÃ³n:");
 
         calle.setText("Calle:");
 
-        numero.setText("Número:");
+        numero.setText("NÃºmero:");
 
-        cp.setText("Código postal:");
+        cp.setText("CÃ³digo postal:");
 
         try {
             cpField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
@@ -231,11 +231,11 @@ public class SignUp extends javax.swing.JFrame {
 
         ciudad.setText("Ciudad:");
 
-        TARJETA.setText("Tarjeta:");
+        TARJETA.setText("Tarjeta de crÃ©dito:");
 
         titular.setText("Titular:");
 
-        codigo.setText("Codigo:");
+        codigo.setText("CÃ³digo:");
 
         try {
             codigoField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#### #### #### ####")));
@@ -438,7 +438,7 @@ public class SignUp extends javax.swing.JFrame {
 
         }
         else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo introducido ya existe");
-        else JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos están rellenos");
+        else JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos estï¿½n rellenos");
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
     //vuelve al menu principal
