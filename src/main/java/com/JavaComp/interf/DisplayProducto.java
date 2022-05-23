@@ -55,6 +55,8 @@ public class DisplayProducto extends javax.swing.JPanel {
         Precio = new javax.swing.JLabel();
         tituloLabel = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         imagenLabel.setText("Imagen");
 
         verBoton.setText("Ver");

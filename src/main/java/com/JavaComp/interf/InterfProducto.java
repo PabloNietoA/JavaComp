@@ -96,6 +96,8 @@ public class InterfProducto extends javax.swing.JFrame {
         descripcionArea.setWrapStyleWord(true);
         descripcionScroll.setViewportView(descripcionArea);
 
+        numCarrito.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
         confirmarBoton.setText("Añadir al carrito");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

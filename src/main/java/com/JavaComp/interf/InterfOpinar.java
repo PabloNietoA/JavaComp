@@ -116,7 +116,7 @@ public class InterfOpinar extends javax.swing.JFrame {
         Opinion opinion = new Opinion((int) ratingSpinner.getValue(), opinionArea.getText(), LocalDate.now());
         ArrayList opiniones = prod.getOpiniones();
         int i = 0;
-        while(!DataManager.getProductos().get(i).equals(prod) || i < (DataManager.getProductos().size()-1)) i++;
+        while(!DataManager.getProductos().get(i).equals(prod)) i++;
         
         opiniones.add(opinion);
         prod.setOpiniones(opiniones);
