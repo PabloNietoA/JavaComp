@@ -27,7 +27,7 @@ public class Producto implements Serializable {
     
     public static DisplayProducto crearPanel(Producto producto){
         DisplayProducto display = new DisplayProducto();
-        display.prod = producto;
+        display.setProd(producto);
         display.setParameters();
         return display;
     }

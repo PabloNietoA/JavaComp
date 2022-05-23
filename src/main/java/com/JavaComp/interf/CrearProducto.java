@@ -5,7 +5,6 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.DataManager;
-import com.JavaComp.program.MainClass;
 import com.JavaComp.program.Producto;
 import java.awt.image.BufferedImage;
 import java.io.File;

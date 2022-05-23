@@ -33,8 +33,7 @@ public class DisplayProducto extends javax.swing.JPanel {
         imagenLabel.setVisible(true);
         tituloLabel.setText(prod.getTitulo());
         tituloLabel.setVisible(true);
-            
-        System.out.print(prod.getImagen());
+        
         ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(163, 104,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -117,9 +116,17 @@ public class DisplayProducto extends javax.swing.JPanel {
 
     private void verBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBotonActionPerformed
         // TODO add your handling code here:
+        InterfProducto interf = new InterfProducto();
+        interf.setProd(prod);
+        interf.setInterfaz();
+        interf.setVisible(true);
     }//GEN-LAST:event_verBotonActionPerformed
     
-    public Producto prod;
+    public void setProd(Producto prod) {
+        this.prod = prod;
+    }
+    
+    private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Precio;
     private javax.swing.JLabel imagenLabel;

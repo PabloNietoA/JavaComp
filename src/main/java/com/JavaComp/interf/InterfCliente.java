@@ -64,14 +64,14 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "M�viles y telefon�a", "TV", "audio y foto", "Consolas y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV audio y foto", "Consolas y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
             }
         });
 
-        categoria.setText("Categor�a");
+        categoria.setText("Categoría");
 
         ordenarPor.setText("Ordenar por");
 
@@ -137,7 +137,7 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        cerrarSesionBoton.setText("Cerrar sesi�n");
+        cerrarSesionBoton.setText("Cerrar sesión");
         cerrarSesionBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cerrarSesionBotonActionPerformed(evt);
@@ -232,7 +232,7 @@ public class InterfCliente extends javax.swing.JFrame {
             DataManager.displayList(DataManager.filtrarCategoria("Ordenadores"), busquedaPanel);
         }
         else if (categoriaBox.getSelectedItem() == "TV, audio y foto"){
-            DataManager.displayList(DataManager.filtrarCategoria("TV, audio y foto"), busquedaPanel);
+            DataManager.displayList(DataManager.filtrarCategoria("TV audio y foto"), busquedaPanel);
         }
         else if (categoriaBox.getSelectedItem()=="Móviles y telefonía"){
             DataManager.displayList(DataManager.filtrarCategoria("Móviles y telefonía"), busquedaPanel);

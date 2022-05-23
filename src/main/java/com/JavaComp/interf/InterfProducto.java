@@ -4,6 +4,11 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.Opinion;
+import com.JavaComp.program.Producto;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Slend
@@ -16,7 +21,34 @@ public class InterfProducto extends javax.swing.JFrame {
     public InterfProducto() {
         initComponents();
     }
-
+    
+    public void setInterfaz(){
+        tituloLabel.setText(prod.getTitulo());
+        stockLabel.setText("Unidades restantes: " + prod.getStock());
+        precioLabel.setText(prod.getPvp() + "€");
+        String opiniones = "";
+        int rating = 0;
+        if (prod.getOpiniones() != null){
+            for (Opinion op : prod.getOpiniones()){
+            opiniones = opiniones + "** " + op.getFecha() + "\t" + op.getCalif() + "☆" + " **" + "\n";
+            opiniones = opiniones + op.getComentario() + "\n\n";
+            rating += op.getCalif();
+            }
+            rating = rating / prod.getOpiniones().size();
+        }
+        ratingsLabel.setText(rating + "☆");
+        opinionesArea.setText(opiniones);
+        descripcionArea.setText(prod.getCaracteristicas());
+        fechaLabel.setText(prod.getFechaEntrada().toString());
+        
+        ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
+        Image image = imageIcon.getImage(); // transform it 
+        Image newimg = image.getScaledInstance(176, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);
+        imagenLabel.setText("");
+        imagenLabel.setIcon(imageIcon);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,49 +58,70 @@ public class InterfProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jSpinner1 = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tituloLabel = new javax.swing.JLabel();
+        precioLabel = new javax.swing.JLabel();
+        descripcionScroll = new javax.swing.JScrollPane();
+        descripcionArea = new javax.swing.JTextArea();
+        numCarrito = new javax.swing.JSpinner();
+        confirmarBoton = new javax.swing.JButton();
+        cancelarBoton = new javax.swing.JButton();
+        imagenLabel = new javax.swing.JLabel();
+        stockLabel = new javax.swing.JLabel();
+        ratingsLabel = new javax.swing.JLabel();
+        opinionesScroll = new javax.swing.JScrollPane();
+        opinionesArea = new javax.swing.JTextArea();
+        opinarBoton = new javax.swing.JButton();
+        fechaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Titulo");
+        tituloLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tituloLabel.setText("Titulo");
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel2.setText("Precio");
+        precioLabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        precioLabel.setText("Precio");
 
-        jScrollPane1.setBorder(null);
+        descripcionScroll.setBorder(null);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Descripcion");
-        jTextArea1.setToolTipText("");
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        descripcionArea.setEditable(false);
+        descripcionArea.setColumns(20);
+        descripcionArea.setLineWrap(true);
+        descripcionArea.setRows(5);
+        descripcionArea.setText("Descripcion");
+        descripcionArea.setToolTipText("");
+        descripcionArea.setWrapStyleWord(true);
+        descripcionScroll.setViewportView(descripcionArea);
 
-        jButton1.setText("Añadir al carrito");
+        confirmarBoton.setText("Añadir al carrito");
 
-        jButton2.setText("Cancelar");
+        cancelarBoton.setText("Cancelar");
 
-        jLabel3.setText("Imagen");
+        imagenLabel.setText("Imagen");
 
-        jButton3.setText("Opiniones");
+        stockLabel.setText("Unidades restantes:");
 
-        jLabel4.setText("Unidades restantes:");
+        ratingsLabel.setText("Ratings");
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("jTextField1");
+        opinionesScroll.setBorder(null);
+
+        opinionesArea.setEditable(false);
+        opinionesArea.setColumns(20);
+        opinionesArea.setLineWrap(true);
+        opinionesArea.setRows(5);
+        opinionesArea.setText("Opiniones");
+        opinionesArea.setWrapStyleWord(true);
+        opinionesScroll.setViewportView(opinionesArea);
+
+        opinarBoton.setText("Opinar");
+        opinarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opinarBotonActionPerformed(evt);
+            }
+        });
+
+        fechaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fechaLabel.setText("Fecha");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,26 +131,31 @@ public class InterfProducto extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cancelarBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(opinarBoton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(numCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(confirmarBoton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tituloLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                            .addComponent(imagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(descripcionScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(opinionesScroll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(ratingsLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(fechaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1))))
+                                .addComponent(stockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(precioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -105,25 +163,35 @@ public class InterfProducto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
+                    .addComponent(tituloLabel)
+                    .addComponent(stockLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(precioLabel)
+                    .addComponent(ratingsLabel)
+                    .addComponent(fechaLabel))
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                    .addComponent(descripcionScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(opinionesScroll)
+                    .addComponent(imagenLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(numCarrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(confirmarBoton)
+                    .addComponent(cancelarBoton)
+                    .addComponent(opinarBoton))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void opinarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opinarBotonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opinarBotonActionPerformed
+
+    public void setProd(Producto prod) {
+        this.prod = prod;
+    }
 
     /**
      * @param args the command line arguments
@@ -159,18 +227,21 @@ public class InterfProducto extends javax.swing.JFrame {
             }
         });
     }
-
+    private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton cancelarBoton;
+    private javax.swing.JButton confirmarBoton;
+    private javax.swing.JTextArea descripcionArea;
+    private javax.swing.JScrollPane descripcionScroll;
+    private javax.swing.JLabel fechaLabel;
+    private javax.swing.JLabel imagenLabel;
+    private javax.swing.JSpinner numCarrito;
+    private javax.swing.JButton opinarBoton;
+    private javax.swing.JTextArea opinionesArea;
+    private javax.swing.JScrollPane opinionesScroll;
+    private javax.swing.JLabel precioLabel;
+    private javax.swing.JLabel ratingsLabel;
+    private javax.swing.JLabel stockLabel;
+    private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables
 }
