@@ -29,7 +29,6 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         ciudadField.setText(clientePart.getDireccion().getCiudad());
         titularField.setText(clientePart.getTarjeta().getTitular());
         codigoField.setText(clientePart.getTarjeta().getCodigo());
-        
     }
 
     /**
@@ -300,10 +299,10 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         if (!dniField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
-                !caducidadDate.getModel().toString().isBlank() && !claveActual.getText().isBlank() && !claveNueva.getText().isBlank()){
+                !caducidadDate.getModel().toString().isBlank()){
             if(claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
-                    claveNuevaField.getText(), telefonoField.getText(), dniField.getText(),
+                    claveActualField.getText(), telefonoField.getText(), dniField.getText(),
                     titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                 this.setVisible(false);
@@ -313,7 +312,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
             }
             else if (claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
-                    claveActualField.getText(), telefonoField.getText(), dniField.getText(),
+                    claveNuevaField.getText(), telefonoField.getText(), dniField.getText(),
                     titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                 this.setVisible(false);
