@@ -302,8 +302,18 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
-                !caducidadDate.getModel().toString().isBlank() && !claveActual.getText().isBlank() && !claveNueva.getText().isBlank()){
-            if(claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
+                !caducidadDate.getModel().toString().isBlank()){
+            if (claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
+                Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
+                    claveActual.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
+                    titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
+                    this.setVisible(false);
+                    InterfCliente interfCliente = new InterfCliente();
+                    interfCliente.setLocation(this.getLocation());
+                    interfCliente.setVisible(true);
+            }
+            else if(claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
                     claveNueva.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
                     titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
