@@ -44,12 +44,9 @@ public class CrearProducto extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         tituloField = new javax.swing.JTextField();
         caracteristicas = new javax.swing.JLabel();
-        caracteristicasPane = new javax.swing.JScrollPane();
-        caracteristicasField = new javax.swing.JTextPane();
         categoria = new javax.swing.JLabel();
         categoriaBox = new javax.swing.JComboBox<>();
         pvp = new javax.swing.JLabel();
-        pvpSpinner = new javax.swing.JSpinner();
         stock = new javax.swing.JLabel();
         stockSpinner = new javax.swing.JSpinner();
         imagen = new javax.swing.JLabel();
@@ -57,6 +54,9 @@ public class CrearProducto extends javax.swing.JFrame {
         fileChooser = new javax.swing.JButton();
         volverBoton = new javax.swing.JButton();
         confirmarBoton = new javax.swing.JButton();
+        precioField = new javax.swing.JFormattedTextField();
+        caracteristicasScroll = new javax.swing.JScrollPane();
+        caracteristicasField = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -64,15 +64,13 @@ public class CrearProducto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        titulo.setText("T�tulo del producto:");
+        titulo.setText("Título del producto:");
 
-        caracteristicas.setText("Caracter�sticas:");
+        caracteristicas.setText("Características:");
 
-        caracteristicasPane.setViewportView(caracteristicasField);
+        categoria.setText("Categoría:");
 
-        categoria.setText("Categor�a:");
-
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "M�viles y telefon�a", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -111,6 +109,20 @@ public class CrearProducto extends javax.swing.JFrame {
             }
         });
 
+        precioField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        precioField.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        precioField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                precioFieldActionPerformed(evt);
+            }
+        });
+
+        caracteristicasField.setColumns(20);
+        caracteristicasField.setLineWrap(true);
+        caracteristicasField.setRows(5);
+        caracteristicasField.setWrapStyleWord(true);
+        caracteristicasScroll.setViewportView(caracteristicasField);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,17 +143,21 @@ public class CrearProducto extends javax.swing.JFrame {
                             .addComponent(categoria, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pvp, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(120, 120, 120)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pvpSpinner, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(120, 120, 120)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(volverBoton)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(confirmarBoton))
+                                    .addComponent(tituloField)
+                                    .addComponent(categoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(stockSpinner)
+                                    .addComponent(precioField)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(volverBoton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(confirmarBoton))
-                            .addComponent(tituloField)
-                            .addComponent(categoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(stockSpinner)
-                            .addComponent(caracteristicasPane))))
+                                .addComponent(caracteristicasScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,21 +167,18 @@ public class CrearProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titulo)
                     .addComponent(tituloField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(caracteristicas)
+                    .addComponent(caracteristicasScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(caracteristicas)
-                        .addGap(89, 89, 89))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(caracteristicasPane)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(categoriaBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pvp)
-                    .addComponent(pvpSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(precioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stock)
@@ -190,7 +203,7 @@ public class CrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_categoriaBoxActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && (int) pvpSpinner.getValue() != 0 && !path.getText().equals("<Seleccione Imagen>")){
+        if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && !precioField.getText().isEmpty() && !path.getText().equals("<Seleccione Imagen>")){
             BufferedImage image = null;
             try {image = ImageIO.read(new File(path.getText()));}
             catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
@@ -200,7 +213,7 @@ public class CrearProducto extends javax.swing.JFrame {
             System.out.print("saves/savedIcons/" + tituloField.getText() +".jpg");
             
             //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
-            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (int) pvpSpinner.getValue(), "saves/savedIcons/" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
+            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (double) precioField.getValue(), "saves/savedIcons/" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
             ArrayList<Producto> productos = DataManager.getProductos();
             productos.add(prod);
             DataManager.setProductos(productos);
@@ -225,6 +238,10 @@ public class CrearProducto extends javax.swing.JFrame {
         interfAdmin.setLocation(this.getLocation());
         interfAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
+
+    private void precioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_precioFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,8 +280,8 @@ public class CrearProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel caracteristicas;
-    private javax.swing.JTextPane caracteristicasField;
-    private javax.swing.JScrollPane caracteristicasPane;
+    private javax.swing.JTextArea caracteristicasField;
+    private javax.swing.JScrollPane caracteristicasScroll;
     private javax.swing.JLabel categoria;
     private javax.swing.JComboBox<String> categoriaBox;
     private javax.swing.JButton confirmarBoton;
@@ -273,8 +290,8 @@ public class CrearProducto extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel path;
+    private javax.swing.JFormattedTextField precioField;
     private javax.swing.JLabel pvp;
-    private javax.swing.JSpinner pvpSpinner;
     private javax.swing.JLabel stock;
     private javax.swing.JSpinner stockSpinner;
     private javax.swing.JLabel titulo;

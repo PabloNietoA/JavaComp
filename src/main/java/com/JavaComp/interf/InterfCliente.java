@@ -255,7 +255,10 @@ public class InterfCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarBotonActionPerformed
 
     private void carroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carroBotonActionPerformed
-        
+        InterfCarro interf = new InterfCarro(this);
+        interf.setLocation(this.getLocation());
+        interf.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_carroBotonActionPerformed
 
     private void buscarFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_buscarFieldFocusGained
@@ -268,9 +271,9 @@ public class InterfCliente extends javax.swing.JFrame {
 
     private void cerrarSesionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBotonActionPerformed
         String[] opciones = new String[2];
-        opciones[0]="S�";
+        opciones[0]="Sí";
         opciones[1]="No";
-        int respuesta = JOptionPane.showOptionDialog(this, "�Est�s seguro de que quieres cerrar sesi�n?", "Confirmar cierre de sesi�n", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, null);
+        int respuesta = JOptionPane.showOptionDialog(this, "¿Estás seguro de que quieres cerrar sesión?", "Confirmar cierre de sesión", 0, JOptionPane.INFORMATION_MESSAGE, null, opciones, null);
         if (respuesta==0){
             this.setVisible(false);
             MainMenu menuPrincipal = new MainMenu();

@@ -4,6 +4,7 @@
  */
 package com.JavaComp.program;
 
+import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
 import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
@@ -15,9 +16,20 @@ public class DataManager {
     private static Cliente clienteActual = null;
     private static ArrayList<Cliente> clientes = new ArrayList();
     private static ArrayList<Producto> productos = new ArrayList();
+    private static ArrayList<Producto> carritoActual = new ArrayList();
 
     public static Cliente getClienteActual() {
         return clienteActual;
+    }
+    
+    public static void meterAlCarro(Producto prod){
+        carritoActual.add(prod);
+    }
+    
+    public static void quitarDeCarro(Producto prod){
+        int i = 0;
+        while(!carritoActual.get(i).equals(prod)) i++;
+        carritoActual.remove(i);
     }
     
     public static ArrayList filtrarCategoria(String categoria){
@@ -35,6 +47,18 @@ public class DataManager {
         panel.removeAll();
         for (int i = 0; i < lista.size(); i++){
             DisplayProducto display = crearPanel(lista.get(i));
+            display.setVisible(true);
+            panel.add(display);
+            
+        }
+        panel.repaint();
+        panel.revalidate();
+    }
+    
+    public static void displayCarrito(JPanel panel){
+        panel.removeAll();
+        for (int i = 0; i < carritoActual.size(); i++){
+            DisplayProdCarro display = Producto.crearPanelCarro(carritoActual.get(i));
             display.setVisible(true);
             panel.add(display);
             
@@ -77,6 +101,14 @@ public class DataManager {
             System.out.println("Error: " + e.getMessage());
         }
         return i;
+    }
+
+    public static ArrayList<Producto> getCarritoActual() {
+        return carritoActual;
+    }
+
+    public static void setCarritoActual(ArrayList<Producto> carrito) {
+        DataManager.carritoActual = carrito;
     }
 
     public static ArrayList<Cliente> getClientes() {

@@ -1,5 +1,6 @@
 package com.JavaComp.program;
 
+import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -23,12 +24,29 @@ public class Producto implements Serializable {
         this.imagen = imagen;
         this.stock = stock;
         this.fechaEntrada = fechaEntrada;
+        opiniones = new ArrayList();
+    }
+    public Producto(Producto prod){
+        this.titulo = prod.getTitulo();
+        this.caracteristicas = prod.getCaracteristicas();
+        this.categoria = prod.getCategoria();
+        this.pvp = prod.getPvp();
+        this.imagen = prod.getImagen();
+        this.stock = prod.getStock();
+        this.fechaEntrada = prod.getFechaEntrada();
+        this.opiniones = prod.getOpiniones();
+        
     }
     
     public static DisplayProducto crearPanel(Producto producto){
         DisplayProducto display = new DisplayProducto();
         display.setProd(producto);
         display.setParameters();
+        return display;
+    }
+    
+    public static DisplayProdCarro crearPanelCarro(Producto producto){
+        DisplayProdCarro display = new DisplayProdCarro(producto);
         return display;
     }
     

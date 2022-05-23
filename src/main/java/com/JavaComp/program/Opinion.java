@@ -1,8 +1,9 @@
 package com.JavaComp.program;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Opinion {
+public class Opinion implements Serializable {
     private int calif;
     private String comentario;
     private LocalDate fecha;

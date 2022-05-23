@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -58,18 +58,25 @@
                           <Component id="pvp" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="stock" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="pvpSpinner" alignment="1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="volverBoton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="volverBoton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="tituloField" max="32767" attributes="0"/>
+                                  <Component id="categoriaBox" max="32767" attributes="0"/>
+                                  <Component id="stockSpinner" max="32767" attributes="0"/>
+                                  <Component id="precioField" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="tituloField" max="32767" attributes="0"/>
-                          <Component id="categoriaBox" max="32767" attributes="0"/>
-                          <Component id="stockSpinner" max="32767" attributes="0"/>
-                          <Component id="caracteristicasPane" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="caracteristicasScroll" min="-2" pref="188" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -85,17 +92,12 @@
                   <Component id="titulo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tituloField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="caracteristicas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="caracteristicasPane" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="caracteristicas" min="-2" max="-2" attributes="0"/>
+                  <Component id="caracteristicasScroll" min="-2" pref="93" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="categoria" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="categoriaBox" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -103,7 +105,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="pvp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="pvpSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="precioField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -139,17 +141,6 @@
         <Property name="text" type="java.lang.String" value="Caracter&#xed;sticas:"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="caracteristicasPane">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextPane" name="caracteristicasField">
-        </Component>
-      </SubComponents>
-    </Container>
     <Component class="javax.swing.JLabel" name="categoria">
       <Properties>
         <Property name="text" type="java.lang.String" value="Categor&#xed;a:"/>
@@ -178,8 +169,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Precio de venta:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="pvpSpinner">
     </Component>
     <Component class="javax.swing.JLabel" name="stock">
       <Properties>
@@ -227,5 +216,33 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarBotonActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JFormattedTextField" name="precioField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format format="#0.00" subtype="-1" type="0"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="11"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioFieldActionPerformed"/>
+      </Events>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="caracteristicasScroll">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="caracteristicasField">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="wrapStyleWord" type="boolean" value="true"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

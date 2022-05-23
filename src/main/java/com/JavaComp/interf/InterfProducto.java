@@ -4,10 +4,12 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.DataManager;
 import com.JavaComp.program.Opinion;
 import com.JavaComp.program.Producto;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -28,7 +30,7 @@ public class InterfProducto extends javax.swing.JFrame {
         precioLabel.setText(prod.getPvp() + "€");
         String opiniones = "";
         int rating = 0;
-        if (prod.getOpiniones() != null){
+        if (!prod.getOpiniones().isEmpty()){
             for (Opinion op : prod.getOpiniones()){
             opiniones = opiniones + "** " + op.getFecha() + "\t" + op.getCalif() + "☆" + " **" + "\n";
             opiniones = opiniones + op.getComentario() + "\n\n";
@@ -73,7 +75,8 @@ public class InterfProducto extends javax.swing.JFrame {
         opinarBoton = new javax.swing.JButton();
         fechaLabel = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setAlwaysOnTop(true);
         setResizable(false);
 
         tituloLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -94,8 +97,18 @@ public class InterfProducto extends javax.swing.JFrame {
         descripcionScroll.setViewportView(descripcionArea);
 
         confirmarBoton.setText("Añadir al carrito");
+        confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarBotonActionPerformed(evt);
+            }
+        });
 
         cancelarBoton.setText("Cancelar");
+        cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarBotonActionPerformed(evt);
+            }
+        });
 
         imagenLabel.setText("Imagen");
 
@@ -187,7 +200,29 @@ public class InterfProducto extends javax.swing.JFrame {
 
     private void opinarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opinarBotonActionPerformed
         // TODO add your handling code here:
+        InterfOpinar interf = new InterfOpinar(this, prod);
+        interf.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_opinarBotonActionPerformed
+
+    private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        dispose();
+    }//GEN-LAST:event_cancelarBotonActionPerformed
+
+    private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
+        // TODO add your handling code here:
+        if ((int)numCarrito.getValue() == 0) JOptionPane.showMessageDialog(this, "Escoja una cantidad mayor de producto", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        else if ((int) numCarrito.getValue() > prod.getStock()) JOptionPane.showMessageDialog(this, "Cantidad en stock insuficiente", "Error", JOptionPane.WARNING_MESSAGE);
+        else{
+            Producto prodFinal = new Producto(prod);
+            prodFinal.setStock((int) numCarrito.getValue());
+            DataManager.meterAlCarro(prodFinal);
+            this.setVisible(false);
+            this.dispose();
+        }
+    }//GEN-LAST:event_confirmarBotonActionPerformed
 
     public void setProd(Producto prod) {
         this.prod = prod;
@@ -223,11 +258,11 @@ public class InterfProducto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfProducto().setVisible(true);
             }
         });
     }
     private Producto prod;
+    private InterfCliente prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarBoton;
     private javax.swing.JButton confirmarBoton;

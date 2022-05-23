@@ -7,9 +7,6 @@ package com.JavaComp.interf;
 import com.JavaComp.program.Producto;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -39,21 +36,10 @@ public class DisplayProducto extends javax.swing.JPanel {
         Image newimg = image.getScaledInstance(163, 104,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);
         imagenLabel.setIcon(imageIcon);
+        imagenLabel.setText("");
         
         repaint();
         revalidate();
-    }
-    static Image fitImage(javax.swing.JLabel label, Image image) {
-
-        int newWidth = label.getWidth();
-        int newHeight = label.getHeight();
-
-        if (newWidth < 1 || newHeight < 1) {
-            return null;
-        }
-
-        Image resizedImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
-        return resizedImage;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -117,6 +103,7 @@ public class DisplayProducto extends javax.swing.JPanel {
     private void verBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verBotonActionPerformed
         // TODO add your handling code here:
         InterfProducto interf = new InterfProducto();
+        interf.setLocationRelativeTo(null);
         interf.setProd(prod);
         interf.setInterfaz();
         interf.setVisible(true);
@@ -125,7 +112,6 @@ public class DisplayProducto extends javax.swing.JPanel {
     public void setProd(Producto prod) {
         this.prod = prod;
     }
-    
     private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Precio;
