@@ -29,7 +29,7 @@ public class InterfProducto extends javax.swing.JFrame {
         stockLabel.setText("Unidades restantes: " + prod.getStock());
         precioLabel.setText(prod.getPvp() + "€");
         String opiniones = "";
-        int rating = 0;
+        float rating = 0;
         if (!prod.getOpiniones().isEmpty()){
             for (Opinion op : prod.getOpiniones()){
             opiniones = opiniones + "** " + op.getFecha() + "\t" + op.getCalif() + "☆" + " **" + "\n";
@@ -38,7 +38,7 @@ public class InterfProducto extends javax.swing.JFrame {
             }
             rating = rating / prod.getOpiniones().size();
         }
-        ratingsLabel.setText(rating + "☆");
+        ratingsLabel.setText(String.format("%.1f", rating) + "☆");
         opinionesArea.setText(opiniones);
         descripcionArea.setText(prod.getCaracteristicas());
         fechaLabel.setText(prod.getFechaEntrada().toString());
@@ -203,6 +203,7 @@ public class InterfProducto extends javax.swing.JFrame {
     private void opinarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opinarBotonActionPerformed
         // TODO add your handling code here:
         InterfOpinar interf = new InterfOpinar(this, prod);
+        interf.setLocationRelativeTo(null);
         interf.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_opinarBotonActionPerformed

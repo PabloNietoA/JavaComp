@@ -9,6 +9,8 @@ import com.JavaComp.interf.DisplayProducto;
 import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.JPanel;
 
 public class DataManager {
@@ -22,6 +24,64 @@ public class DataManager {
         return clienteActual;
     }
     
+    public static ArrayList busquedaProducto(String busqueda){
+        ArrayList<Producto> filtrado = new ArrayList();
+        for (Producto prod: productos){
+            boolean encontrado = false;
+            if (prod.getCaracteristicas().contains(busqueda) || prod.getTitulo().contains(busqueda) || prod.getCategoria().contains(busqueda)){
+                filtrado.add(prod);
+                encontrado = true;
+            }
+            else{
+                for(Opinion op: prod.getOpiniones()){
+                    if(op.getComentario().contains(busqueda) && !encontrado){
+                        filtrado.add(prod);
+                        encontrado = false;
+                    }
+                }
+            }
+        }
+        return filtrado;
+    }
+    
+    public static void sortPrecio(boolean reverse, ArrayList<Producto> array){
+        if(!reverse){
+            array.sort(new Comparator<Producto>() {
+                @Override
+                public int compare(Producto p1, Producto p2) {
+                    return Double.compare(p1.getPvp(), p2.getPvp());
+                }
+            }.reversed());
+        }
+        else {
+            array.sort(new Comparator<Producto>() {
+                @Override
+                public int compare(Producto p1, Producto p2) {
+                    return Double.compare(p1.getPvp(), p2.getPvp());
+                }
+            });
+        }
+        
+    }
+    
+    public static void sortTitulo(ArrayList<Producto> array){
+        array.sort(new Comparator<Producto>(){
+            @Override
+            public int compare(Producto p1, Producto p2){
+                return p1.getTitulo().compareTo(p2.getTitulo());
+            }
+        });
+    }
+    
+    public static void sortRelevancia(ArrayList<Producto> array) {
+        array.sort(new Comparator<Producto>(){
+            @Override
+            public int compare(Producto p1, Producto p2){
+                return Float.compare(p1.getMidRating(), p2.getMidRating());
+            }
+        }.reversed());
+    }
+    
     public static void meterAlCarro(Producto prod){
         carritoActual.add(prod);
     }
@@ -32,15 +92,17 @@ public class DataManager {
         carritoActual.remove(i);
     }
     
-    public static ArrayList filtrarCategoria(String categoria){
+    public static ArrayList filtrarCategoria(String categoria, ArrayList<Producto> array){
         ArrayList listaFiltrada = new ArrayList();
-        for(Producto prod : productos){
-            System.out.print(prod.getCategoria());
-            if (prod.getCategoria().equals(categoria)){
-                listaFiltrada.add(prod);
+        if(!categoria.equals("Todos")){
+            for(Producto prod : array){
+                if (prod.getCategoria().equals(categoria)){
+                    listaFiltrada.add(prod);
+                }
             }
+            return listaFiltrada;
         }
-        return listaFiltrada;
+        else return array;
     }
     
     public static void displayList(ArrayList<Producto> lista, JPanel panel){

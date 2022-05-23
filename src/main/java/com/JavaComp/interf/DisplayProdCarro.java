@@ -22,7 +22,7 @@ public class DisplayProdCarro extends javax.swing.JPanel {
         initComponents();
         this.prod = prod;
         cantidadLabel.setText("Cantidad: " + prod.getStock() + " uds");
-        precioLabel.setText("Precio: " + (prod.getPvp()*prod.getStock()) + "€ (" + prod.getPvp() + "€/ud)");
+        precioLabel.setText("Precio: " + String.format("%.2f",(prod.getPvp()*prod.getStock())) + "€ (" + prod.getPvp() + "€/ud)");
         ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(76, 72,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -45,6 +45,7 @@ public class DisplayProdCarro extends javax.swing.JPanel {
         tituloLabel = new javax.swing.JLabel();
         cantidadLabel = new javax.swing.JLabel();
         precioLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         imagenLabel.setText("Imagen");
 
@@ -54,6 +55,8 @@ public class DisplayProdCarro extends javax.swing.JPanel {
         cantidadLabel.setText("Cantidad:");
 
         precioLabel.setText("Precio:");
+
+        jButton1.setText("Retirar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,7 +70,8 @@ public class DisplayProdCarro extends javax.swing.JPanel {
                     .addComponent(cantidadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tituloLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
                     .addComponent(precioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -77,7 +81,9 @@ public class DisplayProdCarro extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tituloLabel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tituloLabel)
+                            .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(precioLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -90,6 +96,7 @@ public class DisplayProdCarro extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cantidadLabel;
     private javax.swing.JLabel imagenLabel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel precioLabel;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables

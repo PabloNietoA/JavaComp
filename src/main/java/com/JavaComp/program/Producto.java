@@ -38,6 +38,17 @@ public class Producto implements Serializable {
         
     }
     
+    public float getMidRating(){
+        float i = 0;
+        if (!getOpiniones().isEmpty()){
+            for(Opinion op : this.getOpiniones()){
+                i += op.getCalif();
+            }
+            i /= getOpiniones().size();
+        }
+        return i;
+    }
+    
     public static DisplayProducto crearPanel(Producto producto){
         DisplayProducto display = new DisplayProducto();
         display.setProd(producto);

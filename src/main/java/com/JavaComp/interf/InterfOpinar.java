@@ -68,6 +68,11 @@ public class InterfOpinar extends javax.swing.JFrame {
         explicacionLabel.setText("Por favor denos su opinión sobre el poducto:");
 
         canclelarButon.setText("Cancelar");
+        canclelarButon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                canclelarButonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -129,6 +134,13 @@ public class InterfOpinar extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_confirmarBotonActionPerformed
+
+    private void canclelarButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_canclelarButonActionPerformed
+        // TODO add your handling code here:
+        prevFrame.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_canclelarButonActionPerformed
 
     /**
      * @param args the command line arguments

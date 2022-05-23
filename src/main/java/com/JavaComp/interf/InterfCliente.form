@@ -116,12 +116,13 @@
     <Component class="javax.swing.JComboBox" name="categoriaBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="5">
-            <StringItem index="0" value="Componentes"/>
-            <StringItem index="1" value="Ordenadores"/>
-            <StringItem index="2" value="M&#xf3;viles y telefon&#xed;a"/>
-            <StringItem index="3" value="TV audio y foto"/>
-            <StringItem index="4" value="Consolas y videojuegos"/>
+          <StringArray count="6">
+            <StringItem index="0" value="Todos"/>
+            <StringItem index="1" value="Componentes"/>
+            <StringItem index="2" value="Ordenadores"/>
+            <StringItem index="3" value="M&#xf3;viles y telefon&#xed;a"/>
+            <StringItem index="4" value="TV audio y foto"/>
+            <StringItem index="5" value="Consolas y videojuegos"/>
           </StringArray>
         </Property>
       </Properties>
