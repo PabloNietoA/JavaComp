@@ -32,6 +32,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         codigoField.setText(clienteEmp.getTarjeta().getCodigo());
     }
 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,11 +70,11 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         caducidad = new javax.swing.JLabel();
         caducidadDate = new org.jdatepicker.JDatePicker();
         claveActual = new javax.swing.JLabel();
-        claveActualField = new javax.swing.JTextField();
         claveNueva = new javax.swing.JLabel();
-        claveNuevaField = new javax.swing.JTextField();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
+        claveNuevaField = new javax.swing.JPasswordField();
+        claveActualField = new javax.swing.JPasswordField();
 
         jLabel9.setText("jLabel9");
 
@@ -134,11 +135,17 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
 
         caducidad.setText("Fecha de caducidad:");
 
+        caducidadDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                caducidadDateActionPerformed(evt);
+            }
+        });
+
         claveActual.setText("Contraseña actual:");
 
         claveNueva.setText("Nueva contraseña:");
 
-        confirmarBoton.setText("Confirmar y modificar");
+        confirmarBoton.setText("Confirmar");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
@@ -171,29 +178,30 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                             .addComponent(claveNueva)
                             .addComponent(DIRECCION)
                             .addComponent(claveActual))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(cancelarBoton)
-                                .addGap(3, 3, 3)
-                                .addComponent(confirmarBoton))
-                            .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ciudadField)
-                            .addComponent(claveActualField)
-                            .addComponent(claveNuevaField)
-                            .addComponent(numeroField)
-                            .addComponent(cpField)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ciudadField)
+                                    .addComponent(numeroField)
+                                    .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                                    .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(claveNuevaField)
+                                    .addComponent(claveActualField)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(titular)
                             .addComponent(codigo)
                             .addComponent(caducidad))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(caducidadDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(titularField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(codigoField)))
+                            .addComponent(caducidadDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                            .addComponent(codigoField)
+                            .addComponent(titularField, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -213,7 +221,12 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                             .addComponent(correoField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cifField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
                             .addComponent(telefonoField)
-                            .addComponent(webField))))
+                            .addComponent(webField)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(cancelarBoton)
+                        .addGap(18, 18, 18)
+                        .addComponent(confirmarBoton)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -315,7 +328,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
             }
             else if(claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
-                    claveNueva.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
+                    claveNuevaField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
                     titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                     this.setVisible(false);
@@ -377,9 +390,9 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     private javax.swing.JLabel ciudad;
     private javax.swing.JTextField ciudadField;
     private javax.swing.JLabel claveActual;
-    private javax.swing.JTextField claveActualField;
+    private javax.swing.JPasswordField claveActualField;
     private javax.swing.JLabel claveNueva;
-    private javax.swing.JTextField claveNuevaField;
+    private javax.swing.JPasswordField claveNuevaField;
     private javax.swing.JLabel codigo;
     private javax.swing.JFormattedTextField codigoField;
     private javax.swing.JButton confirmarBoton;

@@ -51,7 +51,7 @@ public class InterfOpinar extends javax.swing.JFrame {
         opinionArea.setWrapStyleWord(true);
         opinionScroll.setViewportView(opinionArea);
 
-        confirmarBoton.setText("Confirmar");
+        confirmarBoton.setText("Publicar opinión");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);

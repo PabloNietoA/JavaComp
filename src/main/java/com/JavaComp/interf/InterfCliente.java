@@ -38,7 +38,6 @@ public class InterfCliente extends javax.swing.JFrame {
         categoria = new javax.swing.JLabel();
         ordenarPor = new javax.swing.JLabel();
         ordenarBox = new javax.swing.JComboBox<>();
-        finalizar = new javax.swing.JButton();
         busquedaScroll = new javax.swing.JScrollPane();
         busquedaPanel = new javax.swing.JPanel();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -84,13 +83,6 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        finalizar.setText("Finalizar y pasar a pago");
-        finalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                finalizarActionPerformed(evt);
-            }
-        });
-
         busquedaScroll.setMaximumSize(new java.awt.Dimension(300, 32767));
 
         busquedaPanel.setLayout(new javax.swing.BoxLayout(busquedaPanel, javax.swing.BoxLayout.PAGE_AXIS));
@@ -115,7 +107,7 @@ public class InterfCliente extends javax.swing.JFrame {
 
         busquedaScroll.setViewportView(busquedaPanel);
 
-        carroBoton.setText("Carro");
+        carroBoton.setText("Carro y pasar a pago");
         carroBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 carroBotonActionPerformed(evt);
@@ -157,10 +149,9 @@ public class InterfCliente extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(cerrarSesionBoton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(finalizar))
+                        .addComponent(carroBoton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(carroBoton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(editarPerfilBoton))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(buscarField)
@@ -180,9 +171,7 @@ public class InterfCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editarPerfilBoton)
-                    .addComponent(carroBoton))
+                .addComponent(editarPerfilBoton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ordenarPor)
@@ -197,8 +186,8 @@ public class InterfCliente extends javax.swing.JFrame {
                 .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(finalizar)
-                    .addComponent(cerrarSesionBoton))
+                    .addComponent(cerrarSesionBoton)
+                    .addComponent(carroBoton))
                 .addContainerGap())
         );
 
@@ -293,10 +282,6 @@ public class InterfCliente extends javax.swing.JFrame {
         }
     }
     
-    private void finalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_finalizarActionPerformed
-
     private void ordenarBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordenarBoxActionPerformed
         // TODO add your handling code here:
         filtrarCategoria((String) categoriaBox.getSelectedItem(), (String) ordenarBox.getSelectedItem());
@@ -380,7 +365,6 @@ public class InterfCliente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> categoriaBox;
     private javax.swing.JButton cerrarSesionBoton;
     private javax.swing.JButton editarPerfilBoton;
-    private javax.swing.JButton finalizar;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;

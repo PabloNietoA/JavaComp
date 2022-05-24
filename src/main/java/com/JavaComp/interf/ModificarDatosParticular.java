@@ -30,7 +30,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         titularField.setText(clientePart.getTarjeta().getTitular());
         codigoField.setText(clientePart.getTarjeta().getCodigo());
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,11 +66,11 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         caducidad = new javax.swing.JLabel();
         caducidadDate = new org.jdatepicker.JDatePicker();
         claveActual = new javax.swing.JLabel();
-        claveActualField = new javax.swing.JTextField();
         claveNueva = new javax.swing.JLabel();
-        claveNuevaField = new javax.swing.JTextField();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
+        claveActualField = new javax.swing.JPasswordField();
+        claveNuevaField = new javax.swing.JPasswordField();
 
         jLabel9.setText("jLabel9");
 
@@ -133,13 +133,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
 
         claveNueva.setText("Nueva contraseña:");
 
-        claveNuevaField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                claveNuevaFieldActionPerformed(evt);
-            }
-        });
-
-        confirmarBoton.setText("Confirmar y modificar tarjeta de crédito");
+        confirmarBoton.setText("Confirmar");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
@@ -173,14 +167,6 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                             .addComponent(dniField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
                             .addComponent(telefonoField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(claveActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(claveNueva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(claveActualField)
-                            .addComponent(claveNuevaField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -189,34 +175,40 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                                     .addComponent(calle)
                                     .addComponent(cp)
                                     .addComponent(ciudad))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cancelarBoton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(confirmarBoton))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(ciudadField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(cpField)
-                                            .addComponent(numeroField, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)))))
+                                        .addComponent(cancelarBoton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(confirmarBoton))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(ciudadField, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(cpField)
+                                        .addComponent(numeroField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                                        .addComponent(calleField, javax.swing.GroupLayout.Alignment.TRAILING))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(titular)
                                     .addComponent(codigo)
                                     .addComponent(caducidad))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(caducidadDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(titularField, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(titularField)
+                                    .addComponent(codigoField)
+                                    .addComponent(caducidadDate, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DIRECCION)
                             .addComponent(TARJETA))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(claveActual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(claveNueva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(claveActualField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                            .addComponent(claveNuevaField))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -271,13 +263,13 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                     .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(caducidad))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(claveActual))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(claveActual)
+                    .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(claveNueva))
+                    .addComponent(claveNueva)
+                    .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelarBoton)
@@ -324,10 +316,6 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         }
         else JOptionPane.showMessageDialog(this, "Asegurese de introducir todos los datos");
     }//GEN-LAST:event_confirmarBotonActionPerformed
-
-    private void claveNuevaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_claveNuevaFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_claveNuevaFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,9 +364,9 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
     private javax.swing.JLabel ciudad;
     private javax.swing.JTextField ciudadField;
     private javax.swing.JLabel claveActual;
-    private javax.swing.JTextField claveActualField;
+    private javax.swing.JPasswordField claveActualField;
     private javax.swing.JLabel claveNueva;
-    private javax.swing.JTextField claveNuevaField;
+    private javax.swing.JPasswordField claveNuevaField;
     private javax.swing.JLabel codigo;
     private javax.swing.JFormattedTextField codigoField;
     private javax.swing.JButton confirmarBoton;

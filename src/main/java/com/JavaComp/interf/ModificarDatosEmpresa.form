@@ -49,19 +49,23 @@
                           <Component id="DIRECCION" min="-2" max="-2" attributes="0"/>
                           <Component id="claveActual" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="143" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="cancelarBoton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="ciudadField" max="32767" attributes="0"/>
+                                  <Component id="numeroField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cpField" pref="313" max="32767" attributes="0"/>
+                                  <Component id="calleField" alignment="1" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <Component id="calleField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="ciudadField" max="32767" attributes="0"/>
-                          <Component id="claveActualField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="claveNuevaField" max="32767" attributes="0"/>
-                          <Component id="numeroField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cpField" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="claveNuevaField" max="32767" attributes="0"/>
+                                  <Component id="claveActualField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -71,11 +75,11 @@
                           <Component id="codigo" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="caducidad" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="caducidadDate" alignment="1" pref="226" max="32767" attributes="0"/>
-                          <Component id="titularField" alignment="1" max="32767" attributes="0"/>
+                          <Component id="caducidadDate" alignment="1" pref="313" max="32767" attributes="0"/>
                           <Component id="codigoField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="titularField" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -104,6 +108,12 @@
                           <Component id="telefonoField" max="32767" attributes="0"/>
                           <Component id="webField" max="32767" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="cancelarBoton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -319,24 +329,23 @@
       </Properties>
     </Component>
     <Component class="org.jdatepicker.JDatePicker" name="caducidadDate">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="caducidadDateActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="claveActual">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a actual:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="claveActualField">
-    </Component>
     <Component class="javax.swing.JLabel" name="claveNueva">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nueva contrase&#xf1;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="claveNuevaField">
-    </Component>
     <Component class="javax.swing.JButton" name="confirmarBoton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar y modificar"/>
+        <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarBotonActionPerformed"/>
@@ -349,6 +358,10 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarBotonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="claveNuevaField">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="claveActualField">
     </Component>
   </SubComponents>
 </Form>

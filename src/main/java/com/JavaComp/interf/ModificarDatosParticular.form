@@ -50,17 +50,6 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="claveActual" max="32767" attributes="0"/>
-                          <Component id="claveNueva" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="claveActualField" max="32767" attributes="0"/>
-                          <Component id="claveNuevaField" pref="313" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
@@ -70,21 +59,18 @@
                                   <Component id="cp" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="ciudad" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Component id="cancelarBoton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="calleField" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="ciudadField" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="cpField" max="32767" attributes="0"/>
-                                          <Component id="numeroField" pref="227" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="ciudadField" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="cpField" max="32767" attributes="0"/>
+                                      <Component id="numeroField" pref="313" max="32767" attributes="0"/>
+                                      <Component id="calleField" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -95,10 +81,10 @@
                                   <Component id="caducidad" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="caducidadDate" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="titularField" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="codigoField" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="titularField" max="32767" attributes="0"/>
+                                  <Component id="codigoField" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="caducidadDate" alignment="1" pref="313" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -109,6 +95,17 @@
                           <Component id="TARJETA" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="claveActual" max="32767" attributes="0"/>
+                          <Component id="claveNueva" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="claveActualField" pref="313" max="32767" attributes="0"/>
+                          <Component id="claveNuevaField" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -178,14 +175,14 @@
                   <Component id="caducidad" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="claveActualField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="claveActual" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="claveActual" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveActualField" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="claveNuevaField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="claveNueva" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveNuevaField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="17" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -315,21 +312,14 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a actual:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="claveActualField">
-    </Component>
     <Component class="javax.swing.JLabel" name="claveNueva">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nueva contrase&#xf1;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="claveNuevaField">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="claveNuevaFieldActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="confirmarBoton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Confirmar y modificar tarjeta de cr&#xe9;dito"/>
+        <Property name="text" type="java.lang.String" value="Confirmar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmarBotonActionPerformed"/>
@@ -342,6 +332,10 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelarBotonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="claveActualField">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="claveNuevaField">
     </Component>
   </SubComponents>
 </Form>
