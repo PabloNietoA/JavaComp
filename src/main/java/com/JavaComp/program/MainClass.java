@@ -14,8 +14,8 @@ import com.JavaComp.interf.*;
 public class MainClass {
     
     public static void main(String[] args) {
-        DataManager.setClientes(DataManager.downloadSave("saves/saveClientes.dat"));
-        DataManager.setProductos(DataManager.downloadSave("saves/saveProductos.dat"));
+        DataManager.setClientes(DataManager.downloadSave("src/main/resources/saves/saveClientes.dat"));
+        DataManager.setProductos(DataManager.downloadSave("src/main/resources/saves/saveProductos.dat"));
         for (int i=0; i<DataManager.getClientes().size();i++){
             System.out.print(DataManager.getClientes().get(i).getCorreo() + " ; " + DataManager.getClientes().get(i).getClave() + "\n");
         }
@@ -28,8 +28,8 @@ public class MainClass {
         main.setVisible(true);
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
-                DataManager.uploadSave(DataManager.getClientes(), "saves/saveClientes.dat");
-                DataManager.uploadSave(DataManager.getProductos(), "saves/saveProductos.dat");
+                DataManager.uploadSave(DataManager.getClientes(), "src/main/resources/saves/saveClientes.dat");
+                DataManager.uploadSave(DataManager.getProductos(), "src/main/resources/saves/saveProductos.dat");
                 for (int i=0; i<DataManager.getClientes().size();i++){
                     System.out.print(DataManager.getClientes().get(i).getCorreo() + " : " + DataManager.getClientes().get(i).getClave() +"\n");
                 }

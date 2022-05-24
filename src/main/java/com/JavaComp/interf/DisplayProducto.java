@@ -6,6 +6,7 @@ package com.JavaComp.interf;
 
 import com.JavaComp.program.Producto;
 import java.awt.*;
+import java.io.File;
 import javax.swing.ImageIcon;
 
 /**
@@ -31,6 +32,8 @@ public class DisplayProducto extends javax.swing.JPanel {
         tituloLabel.setVisible(true);
         caracteristicasArea.setText(prod.getCaracteristicas());
         
+        System.out.print(new File(prod.getImagen()).exists() + "\n");
+        System.out.print(prod.getImagen() + "\n");
         ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(163, 146,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -96,8 +99,8 @@ public class DisplayProducto extends javax.swing.JPanel {
                         .addComponent(caracteristicasScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tituloLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tituloLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(verBoton)))

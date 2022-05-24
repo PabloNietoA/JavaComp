@@ -207,13 +207,13 @@ public class CrearProducto extends javax.swing.JFrame {
             BufferedImage image = null;
             try {image = ImageIO.read(new File(path.getText()));}
             catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
-            File outputImage = new File("saves/savedIcons/" + tituloField.getText() +".jpg");
+            File outputImage = new File("src/main/resources/saves/savedIcons/" + tituloField.getText() +".jpg");
             try {ImageIO.write(image,"jpg", outputImage);}
             catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
-            System.out.print("saves/savedIcons/" + tituloField.getText() +".jpg");
+            System.out.print("src/main/resources/saves/savedIcons/" + tituloField.getText() +".jpg");
             
             //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
-            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), (double) precioField.getValue(), "saves/savedIcons/" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
+            Producto prod = new Producto(tituloField.getText(), caracteristicasField.getText(), categoriaBox.getSelectedItem().toString(), Double.parseDouble(precioField.getValue().toString()) , "src/main/resources/saves/savedIcons/" + tituloField.getText() + ".jpg",(int) stockSpinner.getValue(), LocalDate.now());
             ArrayList<Producto> productos = DataManager.getProductos();
             productos.add(prod);
             DataManager.setProductos(productos);
@@ -226,7 +226,7 @@ public class CrearProducto extends javax.swing.JFrame {
     private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
         JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setAcceptAllFileFilterUsed(false);
-        FileFilter filter = new FileNameExtensionFilter("(JPG o PNG)", "PNG", "jpg");
+        FileFilter filter = new FileNameExtensionFilter("(JPG o PNG)", "jpg");
         elegirImagen.setFileFilter(filter);
         elegirImagen.showDialog(imagen, "Elegir Imagen");
         path.setText(elegirImagen.getSelectedFile().getAbsolutePath());

@@ -68,13 +68,13 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         codigo = new javax.swing.JLabel();
         codigoField = new javax.swing.JFormattedTextField();
         caducidad = new javax.swing.JLabel();
-        caducidadDate = new org.jdatepicker.JDatePicker();
         claveActual = new javax.swing.JLabel();
         claveNueva = new javax.swing.JLabel();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
         claveNuevaField = new javax.swing.JPasswordField();
         claveActualField = new javax.swing.JPasswordField();
+        caducidadDate = new org.jdatepicker.JDatePicker();
 
         jLabel9.setText("jLabel9");
 
@@ -135,12 +135,6 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
 
         caducidad.setText("Fecha de caducidad:");
 
-        caducidadDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                caducidadDateActionPerformed(evt);
-            }
-        });
-
         claveActual.setText("Contraseña actual:");
 
         claveNueva.setText("Nueva contraseña:");
@@ -199,9 +193,9 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                             .addComponent(caducidad))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(caducidadDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
-                            .addComponent(codigoField)
-                            .addComponent(titularField, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(codigoField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                            .addComponent(titularField, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(caducidadDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -284,20 +278,21 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                     .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caducidad))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(claveActual)
-                    .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(claveNueva)
-                    .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(confirmarBoton)
-                    .addComponent(cancelarBoton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(caducidad)
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(claveActual)
+                            .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(claveNueva)
+                            .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(confirmarBoton)
+                            .addComponent(cancelarBoton)))
+                    .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
