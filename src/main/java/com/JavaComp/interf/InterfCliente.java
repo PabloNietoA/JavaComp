@@ -22,7 +22,7 @@ public class InterfCliente extends javax.swing.JFrame {
         initComponents();
         ArrayList<Producto> array = (ArrayList) DataManager.getProductos().clone();
         
-        ImageIcon imageIcon = new ImageIcon("src/main/resources/images/LogoJavaComp.jpg"); // load the image to a imageIcon
+        ImageIcon imageIcon = new ImageIcon("src/main/resources/images/LogoJavaComp.png"); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(45, 45,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);
@@ -70,6 +70,7 @@ public class InterfCliente extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 0, 51));
         setResizable(false);
 
         editarPerfilBoton.setText("Editar perfil");
@@ -210,7 +211,7 @@ public class InterfCliente extends javax.swing.JFrame {
                     .addComponent(buscarBoton)
                     .addComponent(buscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cerrarSesionBoton)

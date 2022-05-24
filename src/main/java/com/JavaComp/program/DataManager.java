@@ -6,6 +6,7 @@ package com.JavaComp.program;
 
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
+import com.JavaComp.interf.InterfCarro;
 import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
 import java.util.ArrayList;
@@ -117,10 +118,11 @@ public class DataManager {
         panel.revalidate();
     }
     
-    public static void displayCarrito(JPanel panel){
+    public static void displayCarrito(JPanel panel, InterfCarro interfaz){
         panel.removeAll();
         for (int i = 0; i < carritoActual.size(); i++){
             DisplayProdCarro display = Producto.crearPanelCarro(carritoActual.get(i));
+            display.setParent(interfaz);
             display.setVisible(true);
             panel.add(display);
             

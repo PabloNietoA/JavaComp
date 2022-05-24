@@ -8,6 +8,7 @@ import com.JavaComp.program.DataManager;
 import com.JavaComp.program.Opinion;
 import com.JavaComp.program.Producto;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -219,11 +220,39 @@ public class InterfProducto extends javax.swing.JFrame {
         if ((int)numCarrito.getValue() == 0) JOptionPane.showMessageDialog(this, "Escoja una cantidad mayor de producto", "Advertencia", JOptionPane.WARNING_MESSAGE);
         else if ((int) numCarrito.getValue() > prod.getStock()) JOptionPane.showMessageDialog(this, "Cantidad en stock insuficiente", "Error", JOptionPane.WARNING_MESSAGE);
         else{
-            Producto prodFinal = new Producto(prod);
-            prodFinal.setStock((int) numCarrito.getValue());
-            DataManager.meterAlCarro(prodFinal);
-            this.setVisible(false);
-            this.dispose();
+            boolean alreadyExist = false;
+            for (Producto p:DataManager.getCarritoActual())
+                if (p.getTitulo().equals(prod.getTitulo())) alreadyExist = true;
+            if (!alreadyExist){
+                Producto prodFinal = new Producto(prod);
+                prodFinal.setStock((int) numCarrito.getValue());
+                DataManager.meterAlCarro(prodFinal);
+                this.setVisible(false);
+                this.dispose();
+            }
+            else{
+                 int eleccion = JOptionPane.showConfirmDialog(this, "El producto que desea añadir al carrito ya ha sido añadido, ¿le gustaría sustituirlo?", "El producto ya existe.", JOptionPane.YES_NO_OPTION);
+                 switch (eleccion){
+                    case 0:
+                        System.out.println("Yes");
+                        for (int i = 0; i < DataManager.getCarritoActual().size(); i++)
+                            if (DataManager.getCarritoActual().get(i).getTitulo().equals(prod.getTitulo())){
+                                Producto prodFinal = new Producto(prod);
+                                prodFinal.setStock((int) numCarrito.getValue());
+                                ArrayList array = DataManager.getCarritoActual();
+                                array.remove(i);
+                                array.add(prodFinal);
+                                
+                            }
+                        this.setVisible(false);
+                        this.dispose();
+                        break;
+                    case 1:
+                        this.setVisible(false);
+                        this.dispose();
+                        break;
+                 }
+            }
         }
     }//GEN-LAST:event_confirmarBotonActionPerformed
 

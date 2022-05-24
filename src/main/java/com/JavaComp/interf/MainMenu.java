@@ -31,47 +31,68 @@ public class MainMenu extends javax.swing.JFrame {
         Title = new javax.swing.JLabel();
         signInBoton = new javax.swing.JButton();
         signUpBoton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
-        setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
+        setIconImage(new ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
-        Title.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        Title.setFont(new java.awt.Font("Sitka Display", 1, 48)); // NOI18N
+        Title.setForeground(new java.awt.Color(189, 119, 22));
         Title.setText("Tienda JavaComp");
 
+        signInBoton.setBackground(new java.awt.Color(255, 191, 29));
+        signInBoton.setForeground(new java.awt.Color(0, 0, 0));
         signInBoton.setText("Sign In");
+        signInBoton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         signInBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInBotonActionPerformed(evt);
             }
         });
 
+        signUpBoton.setBackground(new java.awt.Color(255, 191, 29));
+        signUpBoton.setForeground(new java.awt.Color(0, 0, 0));
         signUpBoton.setText("Sign Up");
+        signUpBoton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         signUpBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpBotonActionPerformed(evt);
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Kar�n\\Desktop\\Clases\\1� de carrera\\Programaci�n\\Proyectos Java\\PL2_JavaComp\\images\\LogoJavaComp.png")); // NOI18N
+        jLabel2.setIcon(new ImageIcon("src/main/resources/images/LogoJavaComp.png"));
+
+        jLabel1.setFont(new java.awt.Font("Sitka Display", 0, 24)); // NOI18N
+        jLabel1.setText("Consigue tus productos al mejor precio");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(signUpBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(signInBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(Title)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(82, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(0, 76, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(signUpBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(signInBoton)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(169, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Title))
-                .addContainerGap(169, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,11 +101,13 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signInBoton)
                     .addComponent(signUpBoton))
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Title)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,6 +167,7 @@ public class MainMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Title;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton signInBoton;
     private javax.swing.JButton signUpBoton;
     // End of variables declaration//GEN-END:variables

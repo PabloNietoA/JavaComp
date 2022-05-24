@@ -4,18 +4,22 @@
  */
 package com.JavaComp.interf;
 
+import com.JavaComp.program.DataManager;
 import com.JavaComp.program.Producto;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
- *
- * @author Slend
+ * Esta es la case que enseña los productos que existen en el carro dentro de InterfCarro
+ * 
+ * @author Pablo
+ * @author Karin
  */
 public class DisplayProdCarro extends javax.swing.JPanel {
 
     /**
-     * Creates new form DisplayProdCarro
+     * Inicializa los diferentes campos para que coincidan con los datos del producto prod
      * @param prod
      */
     public DisplayProdCarro(Producto prod) {
@@ -45,7 +49,7 @@ public class DisplayProdCarro extends javax.swing.JPanel {
         tituloLabel = new javax.swing.JLabel();
         cantidadLabel = new javax.swing.JLabel();
         precioLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        retirarBoton = new javax.swing.JButton();
 
         imagenLabel.setText("Imagen");
 
@@ -56,7 +60,12 @@ public class DisplayProdCarro extends javax.swing.JPanel {
 
         precioLabel.setText("Precio:");
 
-        jButton1.setText("Retirar");
+        retirarBoton.setText("Retirar");
+        retirarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retirarBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -71,7 +80,7 @@ public class DisplayProdCarro extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tituloLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1))
+                        .addComponent(retirarBoton))
                     .addComponent(precioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -83,7 +92,7 @@ public class DisplayProdCarro extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(tituloLabel)
-                            .addComponent(jButton1))
+                            .addComponent(retirarBoton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(precioLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,12 +101,37 @@ public class DisplayProdCarro extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void retirarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retirarBotonActionPerformed
+        ArrayList<Producto> array = DataManager.getCarritoActual();
+        array.remove(prod);
+        DataManager.setCarritoActual(array);
+        parent.reload();
+    }//GEN-LAST:event_retirarBotonActionPerformed
+
+    /**
+     * parent es el jframe que contiene este jpanel
+     * @param parent
+     */
+    public void setParent(InterfCarro parent) {
+        this.parent = parent;
+    }
+
+    /**
+     * prod es el producto que este display está mostrando
+     * @param prod
+     */
+    public void setProd(Producto prod) {
+        this.prod = prod;
+    }
+    
+    private InterfCarro parent;
     private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cantidadLabel;
     private javax.swing.JLabel imagenLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel precioLabel;
+    private javax.swing.JButton retirarBoton;
     private javax.swing.JLabel tituloLabel;
     // End of variables declaration//GEN-END:variables
 }

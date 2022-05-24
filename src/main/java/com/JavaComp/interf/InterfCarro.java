@@ -14,13 +14,18 @@ public class InterfCarro extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfCarro
+     * @param prevFrame
      */
     public InterfCarro(javax.swing.JFrame prevFrame) {
         initComponents();
         this.prevFrame = prevFrame;
-        DataManager.displayCarrito(carroPanel);
+        reload();
     }
-
+    
+    public void reload(){
+        DataManager.displayCarrito(carroPanel, this);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +51,11 @@ public class InterfCarro extends javax.swing.JFrame {
         finalizarBoton.setText("Finalizar compra");
 
         volverBoton.setText("Volver");
+        volverBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverBotonActionPerformed(evt);
+            }
+        });
 
         explicacionLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         explicacionLabel.setText("Vas a comprar los siguientes artículos:");
@@ -89,6 +99,13 @@ public class InterfCarro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
+        // TODO add your handling code here:
+        prevFrame.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_volverBotonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -122,7 +139,7 @@ public class InterfCarro extends javax.swing.JFrame {
             }
         });
     }
-    private javax.swing.JFrame prevFrame;
+    private final javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane carritoScroll;
     private javax.swing.JPanel carroPanel;
