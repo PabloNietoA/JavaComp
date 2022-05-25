@@ -63,7 +63,6 @@ public class DisplayProducto extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         imagenLabel.setText("Imagen");
-        imagenLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
 
         verBoton.setText("Ver");
         verBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -78,15 +77,13 @@ public class DisplayProducto extends javax.swing.JPanel {
         tituloLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         tituloLabel.setText("Titulo");
 
-        caracteristicasScroll.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 4));
+        caracteristicasScroll.setBorder(null);
 
         caracteristicasArea.setEditable(false);
-        caracteristicasArea.setBackground(new java.awt.Color(255, 191, 29));
         caracteristicasArea.setColumns(20);
         caracteristicasArea.setLineWrap(true);
         caracteristicasArea.setRows(5);
         caracteristicasArea.setWrapStyleWord(true);
-        caracteristicasArea.setBorder(null);
         caracteristicasScroll.setViewportView(caracteristicasArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
