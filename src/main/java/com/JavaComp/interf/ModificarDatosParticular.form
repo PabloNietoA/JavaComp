@@ -83,8 +83,8 @@
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="titularField" max="32767" attributes="0"/>
-                                  <Component id="codigoField" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="caducidadDate" alignment="1" pref="313" max="32767" attributes="0"/>
+                                  <Component id="codigoField" alignment="1" pref="313" max="32767" attributes="0"/>
+                                  <Component id="fCaducidadField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -170,11 +170,11 @@
                   <Component id="codigoField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="caducidadDate" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="caducidad" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="caducidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fCaducidadField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="claveActual" min="-2" max="-2" attributes="0"/>
                   <Component id="claveActualField" min="-2" max="-2" attributes="0"/>
@@ -184,7 +184,7 @@
                   <Component id="claveNueva" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="claveNuevaField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cancelarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="confirmarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -305,8 +305,6 @@
         <Property name="text" type="java.lang.String" value="Fecha de caducidad:"/>
       </Properties>
     </Component>
-    <Component class="org.jdatepicker.JDatePicker" name="caducidadDate">
-    </Component>
     <Component class="javax.swing.JLabel" name="claveActual">
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a actual:"/>
@@ -336,6 +334,13 @@
     <Component class="javax.swing.JPasswordField" name="claveActualField">
     </Component>
     <Component class="javax.swing.JPasswordField" name="claveNuevaField">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="fCaducidadField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##/####" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -29,6 +29,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         ciudadField.setText(clientePart.getDireccion().getCiudad());
         titularField.setText(clientePart.getTarjeta().getTitular());
         codigoField.setText(clientePart.getTarjeta().getCodigo());
+        fCaducidadField.setText(clientePart.getTarjeta().getCaducidad());
     }
     
     /**
@@ -64,13 +65,13 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
         codigo = new javax.swing.JLabel();
         codigoField = new javax.swing.JFormattedTextField();
         caducidad = new javax.swing.JLabel();
-        caducidadDate = new org.jdatepicker.JDatePicker();
         claveActual = new javax.swing.JLabel();
         claveNueva = new javax.swing.JLabel();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
         claveActualField = new javax.swing.JPasswordField();
         claveNuevaField = new javax.swing.JPasswordField();
+        fCaducidadField = new javax.swing.JFormattedTextField();
 
         jLabel9.setText("jLabel9");
 
@@ -147,6 +148,12 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
             }
         });
 
+        try {
+            fCaducidadField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -194,8 +201,8 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(titularField)
-                                    .addComponent(codigoField)
-                                    .addComponent(caducidadDate, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)))))
+                                    .addComponent(codigoField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
+                                    .addComponent(fCaducidadField, javax.swing.GroupLayout.Alignment.LEADING)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(DIRECCION)
@@ -259,10 +266,10 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                     .addComponent(codigo)
                     .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caducidad))
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caducidad)
+                    .addComponent(fCaducidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(claveActual)
                     .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -270,7 +277,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(claveNueva)
                     .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelarBoton)
                     .addComponent(confirmarBoton))
@@ -288,14 +295,24 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarBotonActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
+             
+             boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+             if (arr[0]){
+                fCaducidadField.setText("");
+                JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
+                        }
+             if (arr[1]){
+                fCaducidadField.setText("");
+                JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");}
+        
         if (!dniField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
-                !caducidadDate.getModel().toString().isBlank()){
+                !fCaducidadField.getText().isBlank()){
             if(claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
                     claveActualField.getText(), telefonoField.getText(), dniField.getText(),
-                    titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                 this.setVisible(false);
                 InterfCliente interfCliente = new InterfCliente();
@@ -305,7 +322,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
             else if (claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
                     claveNuevaField.getText(), telefonoField.getText(), dniField.getText(),
-                    titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                 this.setVisible(false);
                 InterfCliente interfCliente = new InterfCliente();
@@ -357,7 +374,6 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
     private javax.swing.JLabel DIRECCION;
     private javax.swing.JLabel TARJETA;
     private javax.swing.JLabel caducidad;
-    private org.jdatepicker.JDatePicker caducidadDate;
     private javax.swing.JLabel calle;
     private javax.swing.JTextField calleField;
     private javax.swing.JButton cancelarBoton;
@@ -376,6 +392,7 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField cpField;
     private javax.swing.JLabel dni;
     private javax.swing.JFormattedTextField dniField;
+    private javax.swing.JFormattedTextField fCaducidadField;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreField;

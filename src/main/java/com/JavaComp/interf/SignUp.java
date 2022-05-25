@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.JavaComp.interf;
-
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 public class SignUp extends javax.swing.JFrame {
 
@@ -16,6 +18,7 @@ public class SignUp extends javax.swing.JFrame {
         toggleEmpresa.setVisible(false);
         toggleParticular.setVisible(false);
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +65,7 @@ public class SignUp extends javax.swing.JFrame {
         codigo = new javax.swing.JLabel();
         codigoField = new javax.swing.JFormattedTextField();
         caducidad = new javax.swing.JLabel();
-        caducidadDate = new org.jdatepicker.JDatePicker();
+        fCaducidadField = new javax.swing.JFormattedTextField();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
 
@@ -245,6 +248,17 @@ public class SignUp extends javax.swing.JFrame {
 
         caducidad.setText("Fecha de caducidad:");
 
+        try {
+            fCaducidadField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        fCaducidadField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fCaducidadFieldActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -284,13 +298,13 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(caducidad))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(caducidadDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                             .addComponent(ciudadField)
                             .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(numeroField)
                             .addComponent(calleField)
                             .addComponent(titularField)
-                            .addComponent(codigoField))))
+                            .addComponent(codigoField)
+                            .addComponent(fCaducidadField))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -343,10 +357,10 @@ public class SignUp extends javax.swing.JFrame {
                     .addComponent(codigo)
                     .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(caducidad))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caducidad)
+                    .addComponent(fCaducidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         confirmarBoton.setText("Confirmar y crear cuenta");
@@ -382,7 +396,7 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelarBoton)
                     .addComponent(confirmarBoton))
@@ -414,21 +428,32 @@ public class SignUp extends javax.swing.JFrame {
 
     //confirma que se han introducido datos y crea el cliente
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        //comprueba que todo está relleno para crear el cliente
+        //comprueba que la fecha de caducidad de la tarjeta sea válida
+            boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+           
+             if (arr[0]){
+             fCaducidadField.setText("");
+             JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
+                     }
+             if (arr[1]){
+             fCaducidadField.setText("");
+             JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");}
+        
+    //comprueba que todo está relleno para crear el cliente
    boolean correoEsisten = false;
         for (Cliente cliente:DataManager.getClientes()){
             if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
         }
         if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank() && !correoEsisten)
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
-                && !claveField.getText().isEmpty() && !calleField.getText().isEmpty()
+                && !claveField.getText().isEmpty() && !telefonoField.getText().isEmpty() && !calleField.getText().isEmpty()
                 && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
-                && !ciudadField.getText().isEmpty() && !telefonoField.getText().isEmpty()){
+                && !ciudadField.getText().isEmpty() && !titularField.getText().isEmpty() && !codigoField.getText().isEmpty() &&!fCaducidadField.getText().isEmpty()){
             if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    claveField.getText(), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
             else Empresa.CrearEmpresa(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
             InterfCliente interfCliente = new InterfCliente();
             interfCliente.setLocation(this.getLocation());
@@ -438,7 +463,7 @@ public class SignUp extends javax.swing.JFrame {
 
         }
         else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo introducido ya existe");
-        else JOptionPane.showMessageDialog(this,"Asegurese de que todos los campos est�n rellenos");
+        else JOptionPane.showMessageDialog(this,"Asegúrese de que todos los campos estén rellenos");
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
     //vuelve al menu principal
@@ -452,6 +477,10 @@ public class SignUp extends javax.swing.JFrame {
     private void cifFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cifFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cifFieldActionPerformed
+
+    private void fCaducidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCaducidadFieldActionPerformed
+
+    }//GEN-LAST:event_fCaducidadFieldActionPerformed
 
 
     /**
@@ -488,7 +517,8 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
-    
+
+     
     public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;
@@ -497,7 +527,6 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel TARJETA;
     private javax.swing.JLabel Web;
     private javax.swing.JLabel caducidad;
-    private org.jdatepicker.JDatePicker caducidadDate;
     private javax.swing.JLabel calle;
     private javax.swing.JTextField calleField;
     private javax.swing.JButton cancelarBoton;
@@ -516,6 +545,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel direccionJBoton;
     private javax.swing.JFormattedTextField dniField;
     private javax.swing.JRadioButton empresaRadioBoton;
+    private javax.swing.JFormattedTextField fCaducidadField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreField;

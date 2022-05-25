@@ -30,6 +30,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         ciudadField.setText(clienteEmp.getDireccion().getCiudad());
         titularField.setText(clienteEmp.getTarjeta().getTitular());
         codigoField.setText(clienteEmp.getTarjeta().getCodigo());
+        fCaducidadField.setText(clienteEmp.getTarjeta().getCaducidad());
     }
 
 
@@ -74,7 +75,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         cancelarBoton = new javax.swing.JButton();
         claveNuevaField = new javax.swing.JPasswordField();
         claveActualField = new javax.swing.JPasswordField();
-        caducidadDate = new org.jdatepicker.JDatePicker();
+        fCaducidadField = new javax.swing.JFormattedTextField();
 
         jLabel9.setText("jLabel9");
 
@@ -153,6 +154,12 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
             }
         });
 
+        try {
+            fCaducidadField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -195,7 +202,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(codigoField, javax.swing.GroupLayout.DEFAULT_SIZE, 313, Short.MAX_VALUE)
                             .addComponent(titularField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(caducidadDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(fCaducidadField)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -277,22 +284,21 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                     .addComponent(codigo)
                     .addComponent(codigoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(caducidad)
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(claveActual)
-                            .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(claveNueva)
-                            .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(confirmarBoton)
-                            .addComponent(cancelarBoton)))
-                    .addComponent(caducidadDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(caducidad)
+                    .addComponent(fCaducidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(claveActual)
+                    .addComponent(claveActualField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(claveNueva)
+                    .addComponent(claveNuevaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmarBoton)
+                    .addComponent(cancelarBoton))
                 .addContainerGap())
         );
 
@@ -307,14 +313,23 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarBotonActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
+        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+           
+        if (arr[0]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
+                     }
+        if (arr[1]){
+            fCaducidadField.setText("");
+             JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");}
+        
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
-                && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
-                !caducidadDate.getModel().toString().isBlank()){
+                && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() && !fCaducidadField.getText().isBlank()){
             if (claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
                     claveActual.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
-                    titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                     this.setVisible(false);
                     InterfCliente interfCliente = new InterfCliente();
@@ -324,7 +339,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
             else if(claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
                     claveNuevaField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
-                    titularField.getText(), codigoField.getText(), caducidadDate.getDateFormat(),
+                    titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                     this.setVisible(false);
                     InterfCliente interfCliente = new InterfCliente();
@@ -376,7 +391,6 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     private javax.swing.JLabel DIRECCION;
     private javax.swing.JLabel TARJETA;
     private javax.swing.JLabel caducidad;
-    private org.jdatepicker.JDatePicker caducidadDate;
     private javax.swing.JLabel calle;
     private javax.swing.JTextField calleField;
     private javax.swing.JButton cancelarBoton;
@@ -395,6 +409,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     private javax.swing.JTextField correoField;
     private javax.swing.JLabel cp;
     private javax.swing.JFormattedTextField cpField;
+    private javax.swing.JFormattedTextField fCaducidadField;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreField;

@@ -79,7 +79,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="codigoField" alignment="0" pref="313" max="32767" attributes="0"/>
                           <Component id="titularField" alignment="1" max="32767" attributes="0"/>
-                          <Component id="caducidadDate" alignment="0" max="32767" attributes="0"/>
+                          <Component id="fCaducidadField" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -186,26 +186,24 @@
                   <Component id="codigoField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="caducidad" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="claveActual" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="claveActualField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="claveNueva" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="claveNuevaField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="confirmarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cancelarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="caducidadDate" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="caducidad" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fCaducidadField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="claveActual" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveActualField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="claveNueva" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="claveNuevaField" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="confirmarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cancelarBoton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -360,7 +358,12 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="claveActualField">
     </Component>
-    <Component class="org.jdatepicker.JDatePicker" name="caducidadDate">
+    <Component class="javax.swing.JFormattedTextField" name="fCaducidadField">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+          <Format format="##/####" subtype="-1" type="5"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
