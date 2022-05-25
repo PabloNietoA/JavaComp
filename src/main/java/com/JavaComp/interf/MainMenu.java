@@ -62,7 +62,7 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new ImageIcon("src/main/resources/images/LogoJavaComp.png"));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/LogoJavaComp.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Sitka Display", 0, 24)); // NOI18N
         jLabel1.setText("Consigue tus productos al mejor precio");
@@ -101,13 +101,13 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signInBoton)
                     .addComponent(signUpBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
