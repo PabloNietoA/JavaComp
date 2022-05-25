@@ -4,6 +4,7 @@
  */
 package com.JavaComp.program;
 
+import com.JavaComp.interf.DisplayInventario;
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
 import com.JavaComp.interf.InterfCarro;
@@ -25,17 +26,25 @@ public class DataManager {
         return clienteActual;
     }
     
+    /**
+     * filtra el ArrayList productos por la clave de busqueda busqueda y devuelve un ArrayList
+     * con todos los productos que tengan esos terminos.
+     * @param busqueda
+     * @return El ArrayList productos filtrado por la clave busqueda
+     */
     public static ArrayList busquedaProducto(String busqueda){
         ArrayList<Producto> filtrado = new ArrayList();
         for (Producto prod: productos){
             boolean encontrado = false;
-            if (prod.getCaracteristicas().contains(busqueda) || prod.getTitulo().contains(busqueda) || prod.getCategoria().contains(busqueda)){
+            if (prod.getCaracteristicas().toLowerCase().contains(busqueda.toLowerCase())
+                    || prod.getTitulo().toLowerCase().contains(busqueda.toLowerCase())
+                    || prod.getCategoria().toLowerCase().contains(busqueda.toLowerCase())){
                 filtrado.add(prod);
                 encontrado = true;
             }
             else{
                 for(Opinion op: prod.getOpiniones()){
-                    if(op.getComentario().contains(busqueda) && !encontrado){
+                    if(op.getComentario().toLowerCase().contains(busqueda.toLowerCase()) && !encontrado){
                         filtrado.add(prod);
                         encontrado = false;
                     }
@@ -45,6 +54,11 @@ public class DataManager {
         return filtrado;
     }
     
+    /**
+     * Ordena un ArrayList de productos por precio
+     * @param reverse if true ordena a la inversa
+     * @param array el arraylist a ordenar
+     */
     public static void sortPrecio(boolean reverse, ArrayList<Producto> array){
         if(!reverse){
             array.sort(new Comparator<Producto>() {
@@ -65,6 +79,10 @@ public class DataManager {
         
     }
     
+    /**
+     * Ordena un ArrayList de productos por titulo
+     * @param array el arraylist a ordenar
+     */
     public static void sortTitulo(ArrayList<Producto> array){
         array.sort(new Comparator<Producto>(){
             @Override
@@ -73,6 +91,7 @@ public class DataManager {
             }
         });
     }
+    
     
     public static void sortRelevancia(ArrayList<Producto> array) {
         array.sort(new Comparator<Producto>(){
@@ -118,6 +137,30 @@ public class DataManager {
         panel.revalidate();
     }
     
+    /**
+     * Crea un DisplayInventario por cada producto en la ArrayList lista y los mete en el JPanel panel
+     * Adicionalmente vacia panel y lo repinta
+     * @param lista
+     * @param panel
+     */
+    public static void displayInventario(ArrayList<Producto> lista, JPanel panel){
+        panel.removeAll();
+        for (int i = 0; i < lista.size(); i++){
+            DisplayInventario display = Producto.crearPanelInventario(lista.get(i));
+            display.setVisible(true);
+            panel.add(display);
+            
+        }
+        panel.repaint();
+        panel.revalidate();
+    }
+    
+    /**
+     * Crea un DisplayProdCarro por cada producto existente en carritoActual
+     * Adicionalmente asigna el parámetro parent del DisplayProdCarro a el IntefCarro que lo contiene
+     * @param panel
+     * @param interfaz
+     */
     public static void displayCarrito(JPanel panel, InterfCarro interfaz){
         panel.removeAll();
         for (int i = 0; i < carritoActual.size(); i++){
@@ -135,6 +178,12 @@ public class DataManager {
         DataManager.clienteActual = clienteActual;
     }
     
+    /**
+     * Guarda los datos del ArrayList i en un archivo con la dirección saveDir
+     * El archivo se guarda en un archivo binario
+     * @param i
+     * @param saveDir
+     */
     public static void uploadSave(ArrayList i, String saveDir){
         try{
             FileOutputStream oStream = new FileOutputStream(saveDir);
@@ -150,6 +199,12 @@ public class DataManager {
         }
         
     }
+    
+    /**
+     * Crea un ArrayList existente en el archivo de la dirección saveDir
+     * @param saveDir
+     * @return Arraylist guardado en el archivo con dirección saveDir
+     */
     public static ArrayList downloadSave(String saveDir){
         ArrayList i = new ArrayList();
         try{

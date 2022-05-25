@@ -16,7 +16,8 @@ import javax.swing.JOptionPane;
 public class InterfCliente extends javax.swing.JFrame {
 
     /**
-     * Creates new form InterfCliente
+     * Crea un InterfCliente y le asigna todos los atributos además de cargar la
+     * lista de productos ordenada por título y por relevancia.
      */
     public InterfCliente() {
         initComponents();
@@ -80,7 +81,7 @@ public class InterfCliente extends javax.swing.JFrame {
             }
         });
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Componentes", "Ordenadores", "Móviles y telefonía", "TV audio y foto", "Consolas y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -247,66 +248,68 @@ public class InterfCliente extends javax.swing.JFrame {
         filtrarCategoria((String) categoriaBox.getSelectedItem(), (String) ordenarBox.getSelectedItem());
     }//GEN-LAST:event_categoriaBoxActionPerformed
     
-    //filtra la busqueda por termino de busqueda y categoria
+    //Filtra la lista de DisplayProducto por categoria y la ordena por el sort que elijamos
     private void filtrarCategoria(String categoria, String sort){
-        if(sort.equals("relevancia")){
-            System.out.print("relevancia");
-            if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
-                ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
-                DataManager.sortTitulo(filtro);
-                DataManager.sortRelevancia(filtro);
-                if (!filtro.isEmpty()){
+        switch (sort) {
+            case "relevancia":
+                System.out.print("relevancia");
+                if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
+                    ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
+                    DataManager.sortTitulo(filtro);
+                    DataManager.sortRelevancia(filtro);
+                    if (!filtro.isEmpty()){
+                        DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
+                    }
+                    else JOptionPane.showMessageDialog(this, "No se ha encontrado nada con los criterios de búsqueda", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                else if (!DataManager.filtrarCategoria(categoria, DataManager.getProductos()).isEmpty()){
+                    
+                    ArrayList<Producto> filtro = (ArrayList) DataManager.getProductos().clone();
+                    DataManager.sortTitulo(filtro);
+                    DataManager.sortRelevancia(filtro);
                     DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
                 }
-                else JOptionPane.showMessageDialog(this, "No se ha encontrado nada con los criterios de búsqueda", "Error", JOptionPane.WARNING_MESSAGE);
-            }
-            else if (!DataManager.filtrarCategoria(categoria, DataManager.getProductos()).isEmpty()){
-                
-                ArrayList<Producto> filtro = (ArrayList) DataManager.getProductos().clone();
-                DataManager.sortTitulo(filtro);
-                DataManager.sortRelevancia(filtro);
-                DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
-            }
-            else JOptionPane.showMessageDialog(this, "No existe ningún producto en esta categoría", "Error", JOptionPane.WARNING_MESSAGE);
-        }
-        else if (sort.equals("mayor precio")){
-            if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
-                
-                ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
-                DataManager.sortTitulo(filtro);
-                DataManager.sortPrecio(false, filtro);
-                
-                if (!filtro.isEmpty()){
+                else JOptionPane.showMessageDialog(this, "No existe ningún producto en esta categoría", "Error", JOptionPane.WARNING_MESSAGE);
+                break;
+            case "mayor precio":
+                if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
+                    
+                    ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
+                    DataManager.sortTitulo(filtro);
+                    DataManager.sortPrecio(false, filtro);
+                    
+                    if (!filtro.isEmpty()){
+                        DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
+                    }
+                    else JOptionPane.showMessageDialog(this, "No se ha encontrado nada con los criterios de búsqueda", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                else if (!DataManager.filtrarCategoria(categoria, DataManager.getProductos()).isEmpty()){
+                    
+                    ArrayList<Producto> filtro = (ArrayList) DataManager.getProductos().clone();
+                    DataManager.sortTitulo(filtro);
+                    DataManager.sortPrecio(false, filtro);
                     DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
                 }
-                else JOptionPane.showMessageDialog(this, "No se ha encontrado nada con los criterios de búsqueda", "Error", JOptionPane.WARNING_MESSAGE);
-            }
-            else if (!DataManager.filtrarCategoria(categoria, DataManager.getProductos()).isEmpty()){
-                
-                ArrayList<Producto> filtro = (ArrayList) DataManager.getProductos().clone();
-                DataManager.sortTitulo(filtro);
-                DataManager.sortPrecio(false, filtro);
-                DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
-            }
-            else JOptionPane.showMessageDialog(this, "No existe ningún producto en esta categoría", "Error", JOptionPane.WARNING_MESSAGE);
-        }
-        else if (sort.equals("menor precio")){
-            if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
-                ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
-                DataManager.sortTitulo(filtro);
-                DataManager.sortRelevancia(filtro);
-                if (!filtro.isEmpty()){
+                else JOptionPane.showMessageDialog(this, "No existe ningún producto en esta categoría", "Error", JOptionPane.WARNING_MESSAGE);
+                break;
+            case "menor precio":
+                if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
+                    ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
+                    DataManager.sortTitulo(filtro);
+                    DataManager.sortRelevancia(filtro);
+                    if (!filtro.isEmpty()){
+                        DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
+                    }
+                    else JOptionPane.showMessageDialog(this, "No se ha encontrado nada con los criterios de búsqueda", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+                else if (!DataManager.filtrarCategoria(categoria, DataManager.getProductos()).isEmpty()){
+                    ArrayList<Producto> filtro = (ArrayList) DataManager.getProductos().clone();
+                    DataManager.sortTitulo(filtro);
+                    DataManager.sortPrecio(true, filtro);
                     DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
                 }
-                else JOptionPane.showMessageDialog(this, "No se ha encontrado nada con los criterios de búsqueda", "Error", JOptionPane.WARNING_MESSAGE);
-            }
-            else if (!DataManager.filtrarCategoria(categoria, DataManager.getProductos()).isEmpty()){
-                ArrayList<Producto> filtro = (ArrayList) DataManager.getProductos().clone();
-                DataManager.sortTitulo(filtro);
-                DataManager.sortPrecio(true, filtro);
-                DataManager.displayList(DataManager.filtrarCategoria(categoria, filtro), busquedaPanel);
-            }
-            else JOptionPane.showMessageDialog(this, "No existe ningún producto en esta categoría", "Error", JOptionPane.WARNING_MESSAGE);
+                else JOptionPane.showMessageDialog(this, "No existe ningún producto en esta categoría", "Error", JOptionPane.WARNING_MESSAGE);
+                break;
         }
     }
     

@@ -1,5 +1,6 @@
 package com.JavaComp.program;
 
+import com.JavaComp.interf.DisplayInventario;
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
 import java.io.Serializable;
@@ -16,6 +17,16 @@ public class Producto implements Serializable {
     private LocalDate fechaEntrada;
     private ArrayList<Opinion> opiniones;
 
+    /**
+     * Construye un producto a partir de sus parámetros base
+     * @param titulo
+     * @param caracteristicas
+     * @param categoria
+     * @param pvp
+     * @param imagen
+     * @param stock
+     * @param fechaEntrada
+     */
     public Producto(String titulo, String caracteristicas, String categoria, double pvp, String imagen, int stock, LocalDate fechaEntrada) {
         this.titulo = titulo;
         this.caracteristicas = caracteristicas;
@@ -26,6 +37,11 @@ public class Producto implements Serializable {
         this.fechaEntrada = fechaEntrada;
         opiniones = new ArrayList();
     }
+    
+    /**
+     * Construye un producto a partir de un producto anterior
+     * @param prod
+     */
     public Producto(Producto prod){
         this.titulo = prod.getTitulo();
         this.caracteristicas = prod.getCaracteristicas();
@@ -38,6 +54,10 @@ public class Producto implements Serializable {
         
     }
     
+    /**
+     * Obtiene la media de los ratings de las opiniones del producto
+     * @return float
+     */
     public float getMidRating(){
         float i = 0;
         if (!getOpiniones().isEmpty()){
@@ -49,6 +69,11 @@ public class Producto implements Serializable {
         return i;
     }
     
+    /**
+     * Construye un panel DisplayProducto con los datos del produto producto
+     * @param producto
+     * @return El panel DisplayProducto con todos los datos introducidos y listo para usar
+     */
     public static DisplayProducto crearPanel(Producto producto){
         DisplayProducto display = new DisplayProducto();
         display.setProd(producto);
@@ -56,6 +81,21 @@ public class Producto implements Serializable {
         return display;
     }
     
+    /**
+     * Construye un panel DisplayInventario con los datos del producto producto
+     * @param producto
+     * @return El panel DisplayInventario con todos los datos introducidos y listo para usar
+     */
+    public static DisplayInventario crearPanelInventario(Producto producto){
+        DisplayInventario display = new DisplayInventario(producto);
+        return display;
+    }
+    
+    /**
+     * Construye un panel DisplayProdCarro con los datos del producto producto
+     * @param producto
+     * @return El panel DisplayProdCarro con todos los datos introducidos y listo para usar
+     */
     public static DisplayProdCarro crearPanelCarro(Producto producto){
         DisplayProdCarro display = new DisplayProdCarro(producto);
         return display;

@@ -134,21 +134,12 @@ public class SignIn extends javax.swing.JFrame {
         String corr = correoField.getText();
         String cont = claveField.getText();
         
-        if (corr.equals("admin@javacomp.com") && cont.equals("admin")){
+        if (corr.equals("") && cont.equals("")){
             InterfAdmin interf = new InterfAdmin();
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
         }
         else{
-            /*boolean found = false;
-            for(int i=0; i < MainClass.clientes.size(); i++){
-                if(corr.equals(MainClass.clientes.get(i).getCorreo())){
-                    new InterfCliente().setVisible(true);
-                    found = true;
-                    this.setVisible(false);
-                }
-            }
-            if(!found) JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);*/
             boolean logged = Cliente.LoggearCliente(corr, cont);
             if (logged){
                 InterfCliente interfClient = new InterfCliente();
