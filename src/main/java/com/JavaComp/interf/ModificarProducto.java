@@ -9,7 +9,6 @@ import com.JavaComp.program.Producto;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
@@ -246,15 +245,22 @@ public class ModificarProducto extends javax.swing.JFrame {
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank()
-                && !precioField.getText().isEmpty() && !path.getText().equals("<Seleccione imagen para modificar>")){
-            BufferedImage image = null;
-            try {image = ImageIO.read(new File(path.getText()));}
-            catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
-            File outputImage = new File("src/main/resources/saves/savedIcons/" + tituloField.getText() +".jpg");
-            try {ImageIO.write(image,"jpg", outputImage);}
-            catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
+                && !precioField.getText().isEmpty()){
+            if (!path.getText().equals("<Seleccione imagen para modificar>")){
+                BufferedImage image = null;
+                try {image = ImageIO.read(new File(path.getText()));}
+                catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
+                File outputImage = new File("src/main/resources/saves/savedIcons/" + tituloField.getText() +".jpg");
+                try {ImageIO.write(image,"jpg", outputImage);}
+                catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
+                prod.setImagen("src/main/resources/saves/savedIcons/" + tituloField.getText() +".jpg");
+            }
             
-            //al creador de productos le queda introducir la imagen !! cambiar en cuanto pueda
+            prod.setCaracteristicas(caracteristicasField.getText());
+            prod.setPvp(Double.parseDouble(precioField.getValue().toString()));
+            
+            if((int) stockSpinner.getValue() != 0) prod.setStock((int) stockSpinner.getValue());
+            else JOptionPane.showMessageDialog(this, "El stock del producto no puede ser 0", "Error", JOptionPane.WARNING_MESSAGE);
             
             ArrayList<Producto> productos = DataManager.getProductos();
             productos.set(index, prod);
