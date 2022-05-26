@@ -5,6 +5,7 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.DataManager;
+import com.JavaComp.program.Pedido;
 
 /**
  *
@@ -49,6 +50,11 @@ public class InterfCarro extends javax.swing.JFrame {
         carritoScroll.setViewportView(carroPanel);
 
         finalizarBoton.setText("Finalizar compra");
+        finalizarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                finalizarBotonActionPerformed(evt);
+            }
+        });
 
         volverBoton.setText("Volver");
         volverBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +111,12 @@ public class InterfCarro extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_volverBotonActionPerformed
+
+    private void finalizarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizarBotonActionPerformed
+        // TODO add your handling code here:
+        Pedido compra = new Pedido(DataManager.getClienteActual(), DataManager.getCarritoActual());
+        compra.toText();
+    }//GEN-LAST:event_finalizarBotonActionPerformed
 
     /**
      * @param args the command line arguments
