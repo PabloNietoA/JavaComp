@@ -217,7 +217,11 @@ public class CrearProducto extends javax.swing.JFrame {
             ArrayList<Producto> productos = DataManager.getProductos();
             productos.add(prod);
             DataManager.setProductos(productos);
-            new InterfAdmin().setVisible(true);
+            Inventario inv = new Inventario();
+            inv.setLocation(this.getLocation());
+            inv.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
         }
         else JOptionPane.showMessageDialog(this, "Introduzca todos los datos", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_confirmarBotonActionPerformed

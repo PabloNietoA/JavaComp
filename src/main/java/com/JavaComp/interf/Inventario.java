@@ -5,6 +5,7 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.DataManager;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Inventario extends javax.swing.JFrame {
      */
     public Inventario() {
         initComponents();
-        DataManager.displayInventario(DataManager.getProductos(), inventarioPanel);
+        DataManager.displayInventario(DataManager.getProductos(), inventarioPanel, this);
     }
 
     /**
@@ -135,6 +136,10 @@ public class Inventario extends javax.swing.JFrame {
         });
     }
 
+    public JPanel getInventarioPanel() {
+        return inventarioPanel;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton agregarBoton;
     private javax.swing.JPanel inventarioPanel;

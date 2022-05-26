@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -68,8 +69,12 @@ public class ModificarProducto extends javax.swing.JFrame {
                 
         }
         categoriaBox.setSelectedIndex(i);
-        String[] stringArray = Double.toString(prod.getPvp()).split(".");
+        System.out.println("\n    " + Double.toString(prod.getPvp()));
+        String[] stringArray = Double.toString(prod.getPvp()).split("\\.");
+        System.out.println(Arrays.toString(stringArray));
+        
         String setText = stringArray[0] + "," + stringArray[1];
+        System.out.println(setText);
         precioField.setText(setText);
         stockSpinner.setValue((Object) prod.getStock());
         
@@ -107,7 +112,7 @@ public class ModificarProducto extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         titulo.setText("Título del producto:");
 
@@ -186,8 +191,9 @@ public class ModificarProducto extends javax.swing.JFrame {
                             .addComponent(caracteristicas, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(titulo)
                             .addComponent(categoria, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pvp, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(stock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(pvp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -257,7 +263,9 @@ public class ModificarProducto extends javax.swing.JFrame {
             }
             
             prod.setCaracteristicas(caracteristicasField.getText());
-            prod.setPvp(Double.parseDouble(precioField.getValue().toString()));
+            if (precioChanged)
+                prod.setPvp(Double.parseDouble(precioField.getValue().toString()));
+            prod.setCategoria(categoriaBox.getSelectedItem().toString());
             
             if((int) stockSpinner.getValue() != 0) prod.setStock((int) stockSpinner.getValue());
             else JOptionPane.showMessageDialog(this, "El stock del producto no puede ser 0", "Error", JOptionPane.WARNING_MESSAGE);
@@ -265,7 +273,11 @@ public class ModificarProducto extends javax.swing.JFrame {
             ArrayList<Producto> productos = DataManager.getProductos();
             productos.set(index, prod);
             DataManager.setProductos(productos);
-            new InterfAdmin().setVisible(true);
+            Inventario inventario = new Inventario();
+            inventario.setLocation(this.getLocation());
+            inventario.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
         }
         else JOptionPane.showMessageDialog(this, "Introduzca todos los datos", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_confirmarBotonActionPerformed
@@ -281,14 +293,16 @@ public class ModificarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_fileChooserActionPerformed
 
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
-       this.setVisible(false);
-        InterfAdmin interfAdmin = new InterfAdmin();
-        interfAdmin.setLocation(this.getLocation());
-        interfAdmin.setVisible(true);
+        this.setVisible(false);
+        Inventario interf = new Inventario();
+        interf.setLocation(this.getLocation());
+        interf.setVisible(true);
+        dispose();
     }//GEN-LAST:event_volverBotonActionPerformed
 
     private void precioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioFieldActionPerformed
         // TODO add your handling code here:
+        precioChanged = true;
     }//GEN-LAST:event_precioFieldActionPerformed
 
     /**
@@ -326,6 +340,7 @@ public class ModificarProducto extends javax.swing.JFrame {
         });
     }
     
+    private boolean precioChanged = false;
     private int index;
     private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables

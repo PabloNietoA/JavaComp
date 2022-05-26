@@ -138,6 +138,8 @@ public class SignIn extends javax.swing.JFrame {
             InterfAdmin interf = new InterfAdmin();
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
+            this.setVisible(false);
+            this.dispose();
         }
         else{
             boolean logged = Cliente.LoggearCliente(corr, cont);

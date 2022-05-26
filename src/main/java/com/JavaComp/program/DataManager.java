@@ -8,6 +8,7 @@ import com.JavaComp.interf.DisplayInventario;
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
 import com.JavaComp.interf.InterfCarro;
+import com.JavaComp.interf.Inventario;
 import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
 import java.util.ArrayList;
@@ -140,13 +141,14 @@ public class DataManager {
     /**
      * Crea un DisplayInventario por cada producto en la ArrayList lista y los mete en el JPanel panel
      * Adicionalmente vacia panel y lo repinta
-     * @param lista
-     * @param panel
+     * @param lista el ArrayList con la lista de productos que se van a mostrar
+     * @param panel el panel que va a contener a los displays
+     * @param parent el frame superior que contiene todos los componentes
      */
-    public static void displayInventario(ArrayList<Producto> lista, JPanel panel){
+    public static void displayInventario(ArrayList<Producto> lista, JPanel panel , Inventario parent){
         panel.removeAll();
         for (int i = 0; i < lista.size(); i++){
-            DisplayInventario display = Producto.crearPanelInventario(lista.get(i));
+            DisplayInventario display = Producto.crearPanelInventario(lista.get(i), parent);
             display.setVisible(true);
             panel.add(display);
             

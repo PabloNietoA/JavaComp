@@ -3,6 +3,7 @@ package com.JavaComp.program;
 import com.JavaComp.interf.DisplayInventario;
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
+import com.JavaComp.interf.Inventario;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -83,11 +84,12 @@ public class Producto implements Serializable {
     
     /**
      * Construye un panel DisplayInventario con los datos del producto producto
-     * @param producto
+     * @param producto el producto que se va a representar
+     * @param parent el JFrame que contiene al DisplayInventario
      * @return El panel DisplayInventario con todos los datos introducidos y listo para usar
      */
-    public static DisplayInventario crearPanelInventario(Producto producto){
-        DisplayInventario display = new DisplayInventario(producto);
+    public static DisplayInventario crearPanelInventario(Producto producto, Inventario parent){
+        DisplayInventario display = new DisplayInventario(producto, parent);
         return display;
     }
     

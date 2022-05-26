@@ -4,7 +4,7 @@
  */
 package com.JavaComp.interf;
 
-import com.JavaComp.program.Opinion;
+import com.JavaComp.program.DataManager;
 import com.JavaComp.program.Producto;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -17,11 +17,13 @@ public class DisplayInventario extends javax.swing.JPanel {
 
     /**
      * Inicializa el display para mostrar todos los datos del producto prod
-     * @param prod
+     * @param prod el producto a representar
+     * @param parent el frame que contiene al display
      */
-    public DisplayInventario(Producto prod) {
+    public DisplayInventario(Producto prod, Inventario parent) {
         initComponents();
         this.prod = prod;
+        this.parent = parent;
         
         ratingLabel.setText("Rating: " + prod.getMidRating());
         
@@ -69,6 +71,11 @@ public class DisplayInventario extends javax.swing.JPanel {
         });
 
         eliminarBoton.setText("Eliminar");
+        eliminarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarBotonActionPerformed(evt);
+            }
+        });
 
         imagenLabel.setText("Imagen");
 
@@ -139,11 +146,12 @@ public class DisplayInventario extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(tituloLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(precioLabel)
-                            .addComponent(stockLabel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(fechaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ratingLabel))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(precioLabel)
+                                .addComponent(stockLabel)
+                                .addComponent(ratingLabel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(descripcionScroll)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -156,10 +164,19 @@ public class DisplayInventario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void modificarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarBotonActionPerformed
-        
-        
+        ModificarProducto interf = new ModificarProducto(prod);
+        interf.setVisible(true);
+        parent.setVisible(false);
+        parent.dispose();
     }//GEN-LAST:event_modificarBotonActionPerformed
 
+    private void eliminarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarBotonActionPerformed
+        // TODO add your handling code here:
+        DataManager.getProductos().remove(prod);
+        DataManager.displayInventario(DataManager.getProductos(), parent.getInventarioPanel(), parent);
+    }//GEN-LAST:event_eliminarBotonActionPerformed
+
+    private Inventario parent;
     private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel categoriaLabel;
