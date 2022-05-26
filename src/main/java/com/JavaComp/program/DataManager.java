@@ -12,7 +12,6 @@ import com.JavaComp.interf.Inventario;
 import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import javax.swing.JPanel;
 
@@ -22,6 +21,7 @@ public class DataManager {
     private static ArrayList<Cliente> clientes = new ArrayList();
     private static ArrayList<Producto> productos = new ArrayList();
     private static ArrayList<Producto> carritoActual = new ArrayList();
+    private static ArrayList<Pedido> pedidos = new ArrayList();
 
     public static Cliente getClienteActual() {
         return clienteActual;
@@ -246,5 +246,13 @@ public class DataManager {
 
     public static void setProductos(ArrayList<Producto> productos) {
         DataManager.productos = productos;
+    }
+
+    public static ArrayList<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public static void setPedidos(ArrayList<Pedido> pedidos) {
+        DataManager.pedidos = pedidos;
     }
 }

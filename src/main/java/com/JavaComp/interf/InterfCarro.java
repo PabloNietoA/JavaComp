@@ -6,6 +6,7 @@ package com.JavaComp.interf;
 
 import com.JavaComp.program.DataManager;
 import com.JavaComp.program.Pedido;
+import java.util.ArrayList;
 
 /**
  *
@@ -116,6 +117,14 @@ public class InterfCarro extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pedido compra = new Pedido(DataManager.getClienteActual(), DataManager.getCarritoActual());
         compra.toText();
+        if(!compra.comprar(this)){
+            DataManager.setCarritoActual(new ArrayList());
+            this.setVisible(false);
+            InterfCliente interf = new InterfCliente();
+            interf.setLocationRelativeTo(null);
+            interf.setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_finalizarBotonActionPerformed
 
     /**

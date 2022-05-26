@@ -67,6 +67,41 @@ public class Pedido implements Serializable {
         
     }
     
+    /**
+     * Finaliza la compra y te a la interfaz de cliente para seguir comprando
+     * @param parent frame en el que salen centrados los popup
+     * @return devuelve si ha habido un error
+     */
+    public boolean comprar(javax.swing.JFrame parent){
+        ArrayList<Producto> productos = DataManager.getProductos();
+        boolean error = false;
+        if (carrito.isEmpty()) {
+            error = true;
+            javax.swing.JOptionPane.showMessageDialog(parent,
+                    "Debe añadir al menos un producto al carrito para progresar.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
+        }
+        for (Producto p : productos){
+            for (Producto c : carrito){
+                if (p.getTitulo().equals(c.getTitulo()) && p.getStock()>=c.getStock()){
+                    p.setStock(p.getStock()-c.getStock());
+                }
+                else {
+                    error = true;
+                    javax.swing.JOptionPane.showMessageDialog(parent, "El producto \"" + c.getTitulo() 
+                            + "\" está fuera de stock o ha dejado de existir.", "Error de Stock", javax.swing.JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        }
+        if (!error){
+            DataManager.getPedidos().add(this);
+            cliente.setNumPedidos(cliente.getNumPedidos()+1);
+            javax.swing.ImageIcon icon = new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png");
+            javax.swing.JOptionPane.showMessageDialog(parent, "Compra realizada con éxito. \n Gracias por comprar en JavaComp",
+                    "Compra realizada con éxito", javax.swing.JOptionPane.INFORMATION_MESSAGE, icon);
+        }
+        return error;
+    }
+    
     public ArrayList<Producto> getCarrito() {
         return carrito;
     }
