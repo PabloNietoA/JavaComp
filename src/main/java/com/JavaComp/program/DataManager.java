@@ -7,10 +7,12 @@ package com.JavaComp.program;
 import com.JavaComp.interf.DisplayInventario;
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
+import com.JavaComp.interf.DisplayVenta;
 import com.JavaComp.interf.InterfCarro;
 import com.JavaComp.interf.Inventario;
 import static com.JavaComp.program.Producto.crearPanel;
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import javax.swing.JPanel;
@@ -93,7 +95,10 @@ public class DataManager {
         });
     }
     
-    
+    /**
+     * Ordena el array por relevancia (por mayor puntuacion de opinion media)
+     * @param array el array que se va a ordenar
+     */
     public static void sortRelevancia(ArrayList<Producto> array) {
         array.sort(new Comparator<Producto>(){
             @Override
@@ -103,16 +108,30 @@ public class DataManager {
         }.reversed());
     }
     
+    /**
+     * Mete un producto al carrito
+     * @param prod el producto que se va a añadir
+     */
     public static void meterAlCarro(Producto prod){
         carritoActual.add(prod);
     }
     
+    /**
+     * Quita un producto del carrito
+     * @param prod el producto que se va a quitar
+     */
     public static void quitarDeCarro(Producto prod){
         int i = 0;
         while(!carritoActual.get(i).equals(prod)) i++;
         carritoActual.remove(i);
     }
     
+    /**
+     * Filtra un ArrayList de productos por categoría
+     * @param categoria la categoría por la que se va a filtrar
+     * @param array el array que se va a filtrar
+     * @return El arraylist ya filtrado
+     */
     public static ArrayList filtrarCategoria(String categoria, ArrayList<Producto> array){
         ArrayList listaFiltrada = new ArrayList();
         if(!categoria.equals("Todos")){
@@ -126,10 +145,49 @@ public class DataManager {
         else return array;
     }
     
+    /**
+     * Filtra un array de pedidos, dejando los que se han a partir de una fecha
+     * @param fecha la fecha por la que se va a filtrar
+     * @param array el array de pedidos que se va a filtrar
+     * @return El array filtrado por fecha
+     */
+    public static ArrayList filtrarFecha(LocalDate fecha, ArrayList<Pedido> array){
+        ArrayList<Pedido> newArray = new ArrayList();
+        for (Pedido ped : array){
+            if (ped.getFechaPedido().isBefore(fecha)){
+                newArray.add(ped);
+            }
+        }
+        return newArray;
+    }
+    
+    /**
+     * Crea un DisplayProducto por cada producto en el array y los muestra en el panel
+     * @param lista el array con los productos
+     * @param panel el panel en el que se muestran los productos
+     */
     public static void displayList(ArrayList<Producto> lista, JPanel panel){
         panel.removeAll();
-        for (int i = 0; i < lista.size(); i++){
-            DisplayProducto display = crearPanel(lista.get(i));
+        for (Producto prod : lista){
+            if (prod.getStock() > 0){
+                DisplayProducto display = crearPanel(prod);
+                display.setVisible(true);
+                panel.add(display);
+            }
+        }
+        panel.repaint();
+        panel.revalidate();
+    }
+    
+    /**
+     *Crea un DisplayVenta por cada pedido en el array y los muestra en el panel
+     * @param lista la lista de pedidos
+     * @param panel el panel en el que se van a mostrar los displays
+     */
+    public static void displayVenta(ArrayList<Pedido> lista, JPanel panel){
+        panel.removeAll();
+        for (Pedido ped : lista){
+            DisplayVenta display = new DisplayVenta(ped);
             display.setVisible(true);
             panel.add(display);
             
@@ -204,7 +262,7 @@ public class DataManager {
     
     /**
      * Crea un ArrayList existente en el archivo de la dirección saveDir
-     * @param saveDir
+     * @param saveDir directorio del que se va a extraer el guardadoz
      * @return Arraylist guardado en el archivo con dirección saveDir
      */
     public static ArrayList downloadSave(String saveDir){

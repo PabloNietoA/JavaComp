@@ -13,19 +13,14 @@ Tarjeta: **** **** **** 2038
 
 ** DATOS DE PRODUCTOS **
 
-PROD:
-Categoría: Componentes
-Precio: 492.0€ (123.0/ud.)
-
 PRODUCTO:
 Categoría: Móviles y telefonía
-Precio: 12.0€ (12.0/ud.)
+Precio: 48.0€ (12.0/ud.)
 
 ** RECUENTO DE GASTOS **
-Prod: 492.0€
-Producto: 12.0€
+Producto: 48.0€
 Envío: 5€
 ---------------------------
-Total: 514.0€
+Total: 53.0€
 
 GRACIAS POR COMPRAR EN JAVACOMP

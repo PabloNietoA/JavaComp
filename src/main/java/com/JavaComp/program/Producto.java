@@ -3,6 +3,7 @@ package com.JavaComp.program;
 import com.JavaComp.interf.DisplayInventario;
 import com.JavaComp.interf.DisplayProdCarro;
 import com.JavaComp.interf.DisplayProducto;
+import com.JavaComp.interf.DisplayVenta;
 import com.JavaComp.interf.Inventario;
 import java.io.Serializable;
 import java.time.LocalDate;

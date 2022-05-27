@@ -32,6 +32,16 @@ public class Pedido implements Serializable {
     }
     
     /**
+     * Clona un pedido
+     * @param pedido el pedido que se va a clonar
+     */
+    public Pedido(Pedido pedido){
+        this.cliente = pedido.getCliente();
+        this.carrito = pedido.getCarrito();
+        this.fechaPedido = pedido.getFechaPedido();
+    }
+    
+    /**
      * Crea un recibo de texto con los datos del pedido
      */
     public void toText(){
@@ -80,16 +90,19 @@ public class Pedido implements Serializable {
             javax.swing.JOptionPane.showMessageDialog(parent,
                     "Debe añadir al menos un producto al carrito para progresar.", "Error", javax.swing.JOptionPane.WARNING_MESSAGE);
         }
-        for (Producto p : productos){
-            for (Producto c : carrito){
+        for (Producto c : carrito){
+            boolean existe = false;
+            for (Producto p : productos){
                 if (p.getTitulo().equals(c.getTitulo()) && p.getStock()>=c.getStock()){
                     p.setStock(p.getStock()-c.getStock());
+                    existe = true;
+                    break;
                 }
-                else {
-                    error = true;
-                    javax.swing.JOptionPane.showMessageDialog(parent, "El producto \"" + c.getTitulo() 
-                            + "\" está fuera de stock o ha dejado de existir.", "Error de Stock", javax.swing.JOptionPane.WARNING_MESSAGE);
-                }
+            }
+            if (!existe){
+                error = true;
+                javax.swing.JOptionPane.showMessageDialog(parent, "El producto \"" + c.getTitulo() 
+                        + "\" está fuera de stock o ha dejado de existir.", "Error de Stock", javax.swing.JOptionPane.WARNING_MESSAGE);
             }
         }
         if (!error){
