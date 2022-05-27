@@ -134,7 +134,7 @@ public class SignIn extends javax.swing.JFrame {
         String corr = correoField.getText();
         String cont = claveField.getText();
         
-        if (corr.equals("") && cont.equals("")){
+        if (corr.equals("admin@javacomp.com") && cont.equals("admin")){
             InterfAdmin interf = new InterfAdmin();
             interf.setLocation(this.getLocation());
             interf.setVisible(true);
