@@ -78,7 +78,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Tel�fono", "N�mero pedidos"
+                "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Teléfono", "Número pedidos"
             }
         ));
         jScrollPane1.setViewportView(usuariosTabla);

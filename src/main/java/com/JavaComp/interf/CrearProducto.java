@@ -81,6 +81,9 @@ public class CrearProducto extends javax.swing.JFrame {
 
         stock.setText("Stock:");
 
+        stockSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        stockSpinner.setRequestFocusEnabled(false);
+
         imagen.setText("Imagen:");
 
         path.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -143,27 +146,26 @@ public class CrearProducto extends javax.swing.JFrame {
                             .addComponent(categoria, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pvp, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(caracteristicasScroll, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(volverBoton)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(confirmarBoton))
-                                    .addComponent(tituloField)
                                     .addComponent(categoriaBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(stockSpinner)
-                                    .addComponent(precioField)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(caracteristicasScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(precioField))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(tituloField))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(titulo)
                     .addComponent(tituloField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -238,9 +240,9 @@ public class CrearProducto extends javax.swing.JFrame {
 
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
        this.setVisible(false);
-        InterfAdmin interfAdmin = new InterfAdmin();
-        interfAdmin.setLocation(this.getLocation());
-        interfAdmin.setVisible(true);
+        Inventario consultarInventario = new Inventario();
+        consultarInventario.setLocation(this.getLocation());
+        consultarInventario.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
 
     private void precioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioFieldActionPerformed

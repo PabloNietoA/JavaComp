@@ -58,25 +58,23 @@
                           <Component id="pvp" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="stock" alignment="0" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="caracteristicasScroll" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="volverBoton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="confirmarBoton" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="tituloField" max="32767" attributes="0"/>
                                   <Component id="categoriaBox" max="32767" attributes="0"/>
                                   <Component id="stockSpinner" max="32767" attributes="0"/>
                                   <Component id="precioField" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="caracteristicasScroll" min="-2" pref="188" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="tituloField" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -87,7 +85,7 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="titulo" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tituloField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -176,6 +174,12 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="stockSpinner">
+      <Properties>
+        <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+          <SpinnerModel initial="1" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
+        </Property>
+        <Property name="requestFocusEnabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="imagen">
       <Properties>

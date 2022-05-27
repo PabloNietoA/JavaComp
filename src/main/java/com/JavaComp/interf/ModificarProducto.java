@@ -131,6 +131,8 @@ public class ModificarProducto extends javax.swing.JFrame {
 
         stock.setText("Stock:");
 
+        stockSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
         imagen.setText("Imagen:");
 
         path.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
