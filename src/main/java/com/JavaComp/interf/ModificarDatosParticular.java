@@ -296,19 +296,14 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
              
-             boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
-             if (arr[0]){
-                fCaducidadField.setText("");
-                JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
-                        }
-             if (arr[1]){
-                fCaducidadField.setText("");
-                JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");}
-        
+        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        boolean correoEsisten = false;
+        for (Cliente cliente:DataManager.getClientes())
+            if (cliente.getCorreo().equals(correoField.getText()) && !DataManager.getClienteActual().getCorreo().equals(correoField.getText())) correoEsisten = true;
         if (!dniField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
-                !fCaducidadField.getText().isBlank()){
+                !fCaducidadField.getText().isBlank() && !arr[0] && !arr[1] && !correoEsisten){
             if(claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
                     claveActualField.getText(), telefonoField.getText(), dniField.getText(),
@@ -330,6 +325,15 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                 interfCliente.setVisible(true);
             }
             else JOptionPane.showMessageDialog(this,"La contraseña actual no coincide.");
+        }
+        else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo que ha introducido ya está registrado.", "Error", JOptionPane.WARNING_MESSAGE);
+        else if (arr[1]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");
+        }
+        else if (arr[0]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
         }
         else JOptionPane.showMessageDialog(this, "Asegurese de introducir todos los datos");
     }//GEN-LAST:event_confirmarBotonActionPerformed

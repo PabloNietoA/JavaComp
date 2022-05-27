@@ -36,7 +36,7 @@ public class DisplayInventario extends javax.swing.JPanel {
         
         ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
-        Image newimg = image.getScaledInstance(160, 160,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        Image newimg = image.getScaledInstance(155, 155,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
         imageIcon = new ImageIcon(newimg);
         imagenLabel.setText("");
         imagenLabel.setIcon(imageIcon);
@@ -171,9 +171,16 @@ public class DisplayInventario extends javax.swing.JPanel {
     }//GEN-LAST:event_modificarBotonActionPerformed
 
     private void eliminarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarBotonActionPerformed
-        // TODO add your handling code here:
-        DataManager.getProductos().remove(prod);
-        DataManager.displayInventario(DataManager.getProductos(), parent.getInventarioPanel(), parent);
+        int opcion = javax.swing.JOptionPane.showConfirmDialog(parent, 
+                "¿Está seguro de que desea eliminar el producto \"" + prod.getTitulo() 
+                + "\" permanentemente?", "Confirmar eliminación", 
+                javax.swing.JOptionPane.OK_CANCEL_OPTION,javax.swing.JOptionPane.QUESTION_MESSAGE);
+        switch (opcion){
+            case 0:
+                DataManager.getProductos().remove(prod);
+                DataManager.displayInventario(DataManager.getProductos(), parent.getInventarioPanel(), parent);
+                break;
+        }
     }//GEN-LAST:event_eliminarBotonActionPerformed
 
     private Inventario parent;

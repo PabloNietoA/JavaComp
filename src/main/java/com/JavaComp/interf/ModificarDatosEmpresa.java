@@ -85,7 +85,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         cif.setText("CIF:");
 
         try {
-            cifField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("U########")));
+            cifField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("U-########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -313,22 +313,18 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarBotonActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
-           
-        if (arr[0]){
-            fCaducidadField.setText("");
-            JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
-                     }
-        if (arr[1]){
-            fCaducidadField.setText("");
-             JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");}
         
+        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        boolean correoEsisten = false;
+        for (Cliente cliente:DataManager.getClientes())
+            if (cliente.getCorreo().equals(correoField.getText()) && !DataManager.getClienteActual().getCorreo().equals(correoField.getText())) correoEsisten = true;
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
-                && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() && !fCaducidadField.getText().isBlank()){
+                && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() 
+                && !fCaducidadField.getText().isBlank() && !correoEsisten){
             if (claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
-                    claveActual.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
+                    claveActualField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
                     titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                     this.setVisible(false);
@@ -347,6 +343,15 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                     interfCliente.setVisible(true);
             }
             else JOptionPane.showMessageDialog(this,"La contraseña actual no coincide.");
+        }
+        else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo que ha introducido ya está registrado.", "Error", JOptionPane.WARNING_MESSAGE);
+        else if (arr[1]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");
+        }
+        else if (arr[0]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
         }
         else JOptionPane.showMessageDialog(this, "Asegurese de introducir todos los datos");
     }//GEN-LAST:event_confirmarBotonActionPerformed

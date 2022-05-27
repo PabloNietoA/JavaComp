@@ -346,6 +346,7 @@ public class InterfCliente extends javax.swing.JFrame {
         if (respuesta==0){
             this.setVisible(false);
             MainMenu menuPrincipal = new MainMenu();
+            DataManager.setCarritoActual(new ArrayList());
             menuPrincipal.setLocation(this.getLocation());
             menuPrincipal.setVisible(true);
         }

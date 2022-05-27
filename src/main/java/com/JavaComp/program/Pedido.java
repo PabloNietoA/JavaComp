@@ -59,7 +59,8 @@ public class Pedido implements Serializable {
                     + cliente.getTarjeta().getCodigo().substring(15) + "\n\n** DATOS DE PRODUCTOS **\n\n";
             for (Producto p : carrito){
                 recibo += p.getTitulo().toUpperCase() + ":\nCategoría: " + p.getCategoria() + "\nPrecio: " 
-                        + Double.toString(p.getPvp()*p.getStock()) + "€ (" + p.getPvp() + "/ud.)\n\n";
+                        + Double.toString(p.getPvp()*p.getStock()) + "€ (" + p.getPvp() + "/ud.)" + 
+                        "\nCantidad: " + p.getStock() + "\nCategoría: " + p.getCategoria() + "\n\n";
             }
             recibo += "** RECUENTO DE GASTOS **\n";
             for (Producto p : carrito)

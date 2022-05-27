@@ -6,8 +6,6 @@ package com.JavaComp.interf;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 
 public class SignUp extends javax.swing.JFrame {
@@ -34,7 +32,7 @@ public class SignUp extends javax.swing.JFrame {
         toggle = new javax.swing.JLayeredPane();
         toggleEmpresa = new javax.swing.JPanel();
         CIF = new javax.swing.JLabel();
-        cifField = new javax.swing.JTextField();
+        cifField = new javax.swing.JFormattedTextField();
         Web = new javax.swing.JLabel();
         webField = new javax.swing.JTextField();
         toggleParticular = new javax.swing.JPanel();
@@ -54,7 +52,6 @@ public class SignUp extends javax.swing.JFrame {
         calle = new javax.swing.JLabel();
         calleField = new javax.swing.JTextField();
         numero = new javax.swing.JLabel();
-        numeroField = new javax.swing.JTextField();
         cp = new javax.swing.JLabel();
         cpField = new javax.swing.JFormattedTextField();
         ciudad = new javax.swing.JLabel();
@@ -66,6 +63,7 @@ public class SignUp extends javax.swing.JFrame {
         codigoField = new javax.swing.JFormattedTextField();
         caducidad = new javax.swing.JLabel();
         fCaducidadField = new javax.swing.JFormattedTextField();
+        numeroField = new javax.swing.JFormattedTextField();
         confirmarBoton = new javax.swing.JButton();
         cancelarBoton = new javax.swing.JButton();
 
@@ -78,11 +76,11 @@ public class SignUp extends javax.swing.JFrame {
 
         CIF.setText("CIF:");
 
-        cifField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cifFieldActionPerformed(evt);
-            }
-        });
+        try {
+            cifField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("U-########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         Web.setText("Web:");
 
@@ -92,12 +90,12 @@ public class SignUp extends javax.swing.JFrame {
             toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, toggleEmpresaLayout.createSequentialGroup()
                 .addGroup(toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CIF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Web, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                .addGroup(toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cifField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(webField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(Web, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CIF, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 344, Short.MAX_VALUE)
+                .addGroup(toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cifField)
+                    .addComponent(webField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
         );
         toggleEmpresaLayout.setVerticalGroup(
             toggleEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +131,7 @@ public class SignUp extends javax.swing.JFrame {
             .addGroup(toggleParticularLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(DNI)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                 .addComponent(dniField, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -171,13 +169,13 @@ public class SignUp extends javax.swing.JFrame {
         toggle.setLayout(toggleLayout);
         toggleLayout.setHorizontalGroup(
             toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(toggleParticular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(toggleLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(particularRadioBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                 .addComponent(empresaRadioBoton)
                 .addGap(37, 37, 37))
+            .addComponent(toggleParticular, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(toggleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(toggleLayout.createSequentialGroup()
                     .addContainerGap()
@@ -259,6 +257,8 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
 
+        numeroField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -272,7 +272,7 @@ public class SignUp extends javax.swing.JFrame {
                             .addComponent(clave)
                             .addComponent(correo)
                             .addComponent(nombre))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 294, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nombreField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
                             .addComponent(correoField)
@@ -300,11 +300,11 @@ public class SignUp extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ciudadField)
                             .addComponent(cpField, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)
-                            .addComponent(numeroField)
                             .addComponent(calleField)
                             .addComponent(titularField)
                             .addComponent(codigoField)
-                            .addComponent(fCaducidadField))))
+                            .addComponent(fCaducidadField)
+                            .addComponent(numeroField))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -429,21 +429,11 @@ public class SignUp extends javax.swing.JFrame {
     //confirma que se han introducido datos y crea el cliente
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         //comprueba que la fecha de caducidad de la tarjeta sea válida
-            boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
-           
-             if (arr[0]){
-             fCaducidadField.setText("");
-             JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
-                     }
-             if (arr[1]){
-             fCaducidadField.setText("");
-             JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");}
-        
-    //comprueba que todo está relleno para crear el cliente
-   boolean correoEsisten = false;
-        for (Cliente cliente:DataManager.getClientes()){
+        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        //comprueba que todo está relleno para crear el cliente
+        boolean correoEsisten = false;
+        for (Cliente cliente:DataManager.getClientes())
             if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
-        }
         if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank() && !correoEsisten)
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
                 && !claveField.getText().isEmpty() && !telefonoField.getText().isEmpty() && !calleField.getText().isEmpty()
@@ -459,10 +449,16 @@ public class SignUp extends javax.swing.JFrame {
             interfCliente.setLocation(this.getLocation());
             this.setVisible(false);
             interfCliente.setVisible(true);
-
-
         }
         else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo introducido ya existe");
+        else if (arr[1]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");
+        }
+        else if (arr[0]){
+            fCaducidadField.setText("");
+            JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
+        }
         else JOptionPane.showMessageDialog(this,"Asegúrese de que todos los campos estén rellenos");
     }//GEN-LAST:event_confirmarBotonActionPerformed
     
@@ -473,10 +469,6 @@ public class SignUp extends javax.swing.JFrame {
         main.setLocation(this.getLocation());
         main.setVisible(true);
     }//GEN-LAST:event_cancelarBotonActionPerformed
-
-    private void cifFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cifFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cifFieldActionPerformed
 
     private void fCaducidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCaducidadFieldActionPerformed
 
@@ -530,7 +522,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel calle;
     private javax.swing.JTextField calleField;
     private javax.swing.JButton cancelarBoton;
-    private javax.swing.JTextField cifField;
+    private javax.swing.JFormattedTextField cifField;
     private javax.swing.JLabel ciudad;
     private javax.swing.JTextField ciudadField;
     private javax.swing.JLabel clave;
@@ -550,7 +542,7 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel nombre;
     private javax.swing.JTextField nombreField;
     private javax.swing.JLabel numero;
-    private javax.swing.JTextField numeroField;
+    private javax.swing.JFormattedTextField numeroField;
     private javax.swing.JRadioButton particularRadioBoton;
     private javax.swing.JLabel telefono;
     private javax.swing.JFormattedTextField telefonoField;

@@ -120,7 +120,7 @@ public class ModificarProducto extends javax.swing.JFrame {
 
         categoria.setText("Categoría:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -265,9 +265,14 @@ public class ModificarProducto extends javax.swing.JFrame {
             }
             
             prod.setCaracteristicas(caracteristicasField.getText());
-            if (precioChanged)
+            try{
                 prod.setPvp(Double.parseDouble(precioField.getValue().toString()));
+            }
+            catch (Exception e){
+                prod.setPvp(prod.getPvp());
+            }
             prod.setCategoria(categoriaBox.getSelectedItem().toString());
+            prod.setTitulo(tituloField.getText());
             
             if((int) stockSpinner.getValue() != 0) prod.setStock((int) stockSpinner.getValue());
             else JOptionPane.showMessageDialog(this, "El stock del producto no puede ser 0", "Error", JOptionPane.WARNING_MESSAGE);
@@ -304,7 +309,6 @@ public class ModificarProducto extends javax.swing.JFrame {
 
     private void precioFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioFieldActionPerformed
         // TODO add your handling code here:
-        precioChanged = true;
     }//GEN-LAST:event_precioFieldActionPerformed
 
     /**
@@ -341,8 +345,7 @@ public class ModificarProducto extends javax.swing.JFrame {
             }
         });
     }
-    
-    private boolean precioChanged = false;
+
     private int index;
     private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables

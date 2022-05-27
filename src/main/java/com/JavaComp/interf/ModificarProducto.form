@@ -149,7 +149,7 @@
             <StringItem index="1" value="Ordenadores"/>
             <StringItem index="2" value="M&#xf3;viles y telefon&#xed;a"/>
             <StringItem index="3" value="TV, audio y foto"/>
-            <StringItem index="4" value="Consola y videojuegos"/>
+            <StringItem index="4" value="Consolas y videojuegos"/>
           </StringArray>
         </Property>
       </Properties>

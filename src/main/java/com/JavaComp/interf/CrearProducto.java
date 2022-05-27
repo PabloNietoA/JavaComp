@@ -70,7 +70,7 @@ public class CrearProducto extends javax.swing.JFrame {
 
         categoria.setText("Categoría:");
 
-        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consola y videojuegos" }));
+        categoriaBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Componentes", "Ordenadores", "Móviles y telefonía", "TV, audio y foto", "Consolas y videojuegos" }));
         categoriaBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaBoxActionPerformed(evt);
@@ -205,7 +205,12 @@ public class CrearProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_categoriaBoxActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
-        if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && !precioField.getText().isEmpty() && !path.getText().equals("<Seleccione Imagen>")){
+        boolean productoEsisten = false;
+        for (Producto p : DataManager.getProductos()){
+            if (p.getTitulo().equals(tituloField.getText()))
+                productoEsisten = true;
+        }
+        if (!productoEsisten && !tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && !precioField.getText().isEmpty() && !path.getText().equals("<Seleccione Imagen>")){
             BufferedImage image = null;
             try {image = ImageIO.read(new File(path.getText()));}
             catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
@@ -225,6 +230,7 @@ public class CrearProducto extends javax.swing.JFrame {
             this.setVisible(false);
             this.dispose();
         }
+        else if (productoEsisten) JOptionPane.showMessageDialog(this, "El producto introducido ya existe.", "Error", JOptionPane.WARNING_MESSAGE);
         else JOptionPane.showMessageDialog(this, "Introduzca todos los datos", "Error", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_confirmarBotonActionPerformed
     

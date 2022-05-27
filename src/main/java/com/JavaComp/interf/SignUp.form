@@ -77,7 +77,7 @@
                               <Component id="correo" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="nombre" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="154" max="32767" attributes="0"/>
+                          <EmptySpace pref="294" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="nombreField" pref="115" max="32767" attributes="0"/>
                               <Component id="correoField" alignment="0" max="32767" attributes="0"/>
@@ -111,11 +111,11 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="ciudadField" max="32767" attributes="0"/>
                               <Component id="cpField" pref="115" max="32767" attributes="0"/>
-                              <Component id="numeroField" max="32767" attributes="0"/>
                               <Component id="calleField" max="32767" attributes="0"/>
                               <Component id="titularField" max="32767" attributes="0"/>
                               <Component id="codigoField" max="32767" attributes="0"/>
                               <Component id="fCaducidadField" max="32767" attributes="0"/>
+                              <Component id="numeroField" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -198,14 +198,14 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="toggleParticular" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="particularRadioBoton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="324" max="32767" attributes="0"/>
                       <Component id="empresaRadioBoton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="toggleParticular" alignment="1" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -245,13 +245,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="CIF" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="Web" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="CIF" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="192" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="cifField" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
-                              <Component id="webField" alignment="1" min="-2" pref="115" max="-2" attributes="0"/>
+                          <EmptySpace pref="344" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cifField" max="32767" attributes="0"/>
+                              <Component id="webField" pref="115" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -278,10 +278,12 @@
                     <Property name="text" type="java.lang.String" value="CIF:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="cifField">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cifFieldActionPerformed"/>
-                  </Events>
+                <Component class="javax.swing.JFormattedTextField" name="cifField">
+                  <Properties>
+                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                      <Format format="U-########" subtype="-1" type="5"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="Web">
                   <Properties>
@@ -300,7 +302,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="DNI" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="220" max="32767" attributes="0"/>
+                          <EmptySpace pref="358" max="32767" attributes="0"/>
                           <Component id="dniField" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -415,8 +417,6 @@
             <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="numeroField">
-        </Component>
         <Component class="javax.swing.JLabel" name="cp">
           <Properties>
             <Property name="text" type="java.lang.String" value="C&#xf3;digo postal:"/>
@@ -474,6 +474,13 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fCaducidadFieldActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JFormattedTextField" name="numeroField">
+          <Properties>
+            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+              <Format format="#0" subtype="-1" type="0"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

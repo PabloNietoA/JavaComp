@@ -128,9 +128,12 @@ public class InterfOpinar extends javax.swing.JFrame {
         ArrayList productos = DataManager.getProductos();
         productos.set(i, prod);
         DataManager.setProductos(productos);
-        prevFrame.setLocation(this.getLocation());
-        prevFrame.setProd(prod);
-        prevFrame.setVisible(true);
+        InterfProducto interfaz = new InterfProducto();
+        interfaz.setProd(prod);
+        interfaz.setInterfaz();
+        prevFrame.dispose();
+        interfaz.setLocationRelativeTo(null);
+        interfaz.setVisible(true);
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_confirmarBotonActionPerformed
