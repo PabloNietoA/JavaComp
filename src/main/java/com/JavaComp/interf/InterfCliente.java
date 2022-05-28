@@ -74,7 +74,7 @@ public class InterfCliente extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 0, 51));
         setResizable(false);
 
-        editarPerfilBoton.setText("Editar perfil");
+        editarPerfilBoton.setText("Modificar datos");
         editarPerfilBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarPerfilBotonActionPerformed(evt);

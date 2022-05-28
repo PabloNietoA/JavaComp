@@ -106,7 +106,7 @@ public class InterfProducto extends javax.swing.JFrame {
             }
         });
 
-        cancelarBoton.setText("Cancelar");
+        cancelarBoton.setText("Volver");
         cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBotonActionPerformed(evt);
