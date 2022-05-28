@@ -60,7 +60,10 @@ public class DisplayProdCarro extends javax.swing.JPanel {
 
         precioLabel.setText("Precio:");
 
+        retirarBoton.setBackground(new java.awt.Color(255, 191, 29));
+        retirarBoton.setForeground(new java.awt.Color(51, 51, 51));
         retirarBoton.setText("Retirar");
+        retirarBoton.setFocusPainted(false);
         retirarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 retirarBotonActionPerformed(evt);

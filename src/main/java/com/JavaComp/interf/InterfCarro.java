@@ -52,14 +52,22 @@ public class InterfCarro extends javax.swing.JFrame {
         carroPanel.setLayout(new javax.swing.BoxLayout(carroPanel, javax.swing.BoxLayout.PAGE_AXIS));
         carritoScroll.setViewportView(carroPanel);
 
+        finalizarBoton.setBackground(new java.awt.Color(242, 180, 27));
+        finalizarBoton.setForeground(new java.awt.Color(51, 51, 51));
         finalizarBoton.setText("Finalizar compra");
+        finalizarBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+        finalizarBoton.setFocusPainted(false);
         finalizarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 finalizarBotonActionPerformed(evt);
             }
         });
 
+        volverBoton.setBackground(new java.awt.Color(242, 180, 27));
+        volverBoton.setForeground(new java.awt.Color(51, 51, 51));
         volverBoton.setText("Volver");
+        volverBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+        volverBoton.setFocusPainted(false);
         volverBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 volverBotonActionPerformed(evt);
@@ -79,13 +87,10 @@ public class InterfCarro extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(explicacionLabel)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(finalizarBoton))))
+                                .addComponent(finalizarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(explicacionLabel)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(carritoScroll)))

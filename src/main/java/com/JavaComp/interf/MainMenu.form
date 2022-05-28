@@ -107,6 +107,7 @@
             <LineBorder thickness="3"/>
           </Border>
         </Property>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signInBotonActionPerformed"/>
@@ -129,6 +130,7 @@
             <LineBorder thickness="3"/>
           </Border>
         </Property>
+        <Property name="focusPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="signUpBotonActionPerformed"/>

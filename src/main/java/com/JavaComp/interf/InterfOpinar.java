@@ -47,13 +47,18 @@ public class InterfOpinar extends javax.swing.JFrame {
         setTitle("JavaComp");
         setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
+        opinionScroll.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
+
         opinionArea.setColumns(20);
         opinionArea.setLineWrap(true);
         opinionArea.setRows(5);
         opinionArea.setWrapStyleWord(true);
         opinionScroll.setViewportView(opinionArea);
 
+        confirmarBoton.setBackground(new java.awt.Color(255, 191, 29));
+        confirmarBoton.setForeground(new java.awt.Color(51, 51, 51));
         confirmarBoton.setText("Publicar opinión");
+        confirmarBoton.setFocusPainted(false);
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
@@ -69,7 +74,10 @@ public class InterfOpinar extends javax.swing.JFrame {
 
         explicacionLabel.setText("Por favor denos su opinión sobre el poducto:");
 
+        canclelarButon.setBackground(new java.awt.Color(255, 191, 29));
+        canclelarButon.setForeground(new java.awt.Color(51, 51, 51));
         canclelarButon.setText("Cancelar");
+        canclelarButon.setFocusPainted(false);
         canclelarButon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 canclelarButonActionPerformed(evt);
@@ -83,7 +91,7 @@ public class InterfOpinar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(opinionScroll)
+                    .addComponent(opinionScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(canclelarButon)
@@ -92,7 +100,7 @@ public class InterfOpinar extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(explicacionLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ratingSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ratingSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

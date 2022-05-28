@@ -47,6 +47,7 @@ public class MainMenu extends javax.swing.JFrame {
         signInBoton.setForeground(new java.awt.Color(0, 0, 0));
         signInBoton.setText("Sign In");
         signInBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        signInBoton.setFocusPainted(false);
         signInBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInBotonActionPerformed(evt);
@@ -58,6 +59,7 @@ public class MainMenu extends javax.swing.JFrame {
         signUpBoton.setForeground(new java.awt.Color(0, 0, 0));
         signUpBoton.setText("Sign Up");
         signUpBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        signUpBoton.setFocusPainted(false);
         signUpBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpBotonActionPerformed(evt);

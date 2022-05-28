@@ -54,37 +54,43 @@ public class DisplayProducto extends javax.swing.JPanel {
     private void initComponents() {
 
         imagenLabel = new javax.swing.JLabel();
-        verBoton = new javax.swing.JToggleButton();
         Precio = new javax.swing.JLabel();
         tituloLabel = new javax.swing.JLabel();
         caracteristicasScroll = new javax.swing.JScrollPane();
         caracteristicasArea = new javax.swing.JTextArea();
+        verBoton = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
 
         imagenLabel.setText("Imagen");
-
-        verBoton.setText("Ver");
-        verBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verBotonActionPerformed(evt);
-            }
-        });
+        imagenLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         Precio.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         Precio.setText("Precio");
 
-        tituloLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tituloLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         tituloLabel.setText("Titulo");
 
         caracteristicasScroll.setBorder(null);
+        caracteristicasScroll.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         caracteristicasArea.setEditable(false);
+        caracteristicasArea.setBackground(new java.awt.Color(255, 220, 181));
         caracteristicasArea.setColumns(20);
         caracteristicasArea.setLineWrap(true);
         caracteristicasArea.setRows(5);
         caracteristicasArea.setWrapStyleWord(true);
         caracteristicasScroll.setViewportView(caracteristicasArea);
+
+        verBoton.setBackground(new java.awt.Color(255, 191, 29));
+        verBoton.setForeground(new java.awt.Color(51, 51, 51));
+        verBoton.setText("Ver");
+        verBoton.setFocusPainted(false);
+        verBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,11 +104,11 @@ public class DisplayProducto extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(caracteristicasScroll))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tituloLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tituloLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
+                        .addGap(117, 117, 117)
                         .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(verBoton)))
+                        .addComponent(verBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -114,10 +120,10 @@ public class DisplayProducto extends javax.swing.JPanel {
                     .addComponent(imagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Precio)
                     .addComponent(verBoton)
-                    .addComponent(tituloLabel)
-                    .addComponent(Precio))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(tituloLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -140,6 +146,6 @@ public class DisplayProducto extends javax.swing.JPanel {
     private javax.swing.JScrollPane caracteristicasScroll;
     private javax.swing.JLabel imagenLabel;
     private javax.swing.JLabel tituloLabel;
-    private javax.swing.JToggleButton verBoton;
+    private javax.swing.JButton verBoton;
     // End of variables declaration//GEN-END:variables
 }

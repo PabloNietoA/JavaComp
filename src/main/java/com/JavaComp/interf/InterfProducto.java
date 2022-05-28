@@ -88,8 +88,10 @@ public class InterfProducto extends javax.swing.JFrame {
         precioLabel.setText("Precio");
 
         descripcionScroll.setBorder(null);
+        descripcionScroll.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         descripcionArea.setEditable(false);
+        descripcionArea.setBackground(new java.awt.Color(255, 220, 181));
         descripcionArea.setColumns(20);
         descripcionArea.setLineWrap(true);
         descripcionArea.setRows(5);
@@ -100,14 +102,20 @@ public class InterfProducto extends javax.swing.JFrame {
 
         numCarrito.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
+        confirmarBoton.setBackground(new java.awt.Color(242, 180, 27));
+        confirmarBoton.setForeground(new java.awt.Color(51, 51, 51));
         confirmarBoton.setText("Añadir al carrito");
+        confirmarBoton.setFocusPainted(false);
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
             }
         });
 
+        cancelarBoton.setBackground(new java.awt.Color(242, 180, 27));
+        cancelarBoton.setForeground(new java.awt.Color(51, 51, 51));
         cancelarBoton.setText("Volver");
+        cancelarBoton.setFocusPainted(false);
         cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBotonActionPerformed(evt);
@@ -115,14 +123,17 @@ public class InterfProducto extends javax.swing.JFrame {
         });
 
         imagenLabel.setText("Imagen");
+        imagenLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         stockLabel.setText("Unidades restantes:");
 
         ratingsLabel.setText("Ratings");
 
         opinionesScroll.setBorder(null);
+        opinionesScroll.setViewportBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
 
         opinionesArea.setEditable(false);
+        opinionesArea.setBackground(new java.awt.Color(255, 220, 181));
         opinionesArea.setColumns(20);
         opinionesArea.setLineWrap(true);
         opinionesArea.setRows(5);
@@ -130,7 +141,10 @@ public class InterfProducto extends javax.swing.JFrame {
         opinionesArea.setWrapStyleWord(true);
         opinionesScroll.setViewportView(opinionesArea);
 
+        opinarBoton.setBackground(new java.awt.Color(242, 180, 27));
+        opinarBoton.setForeground(new java.awt.Color(51, 51, 51));
         opinarBoton.setText("Opinar");
+        opinarBoton.setFocusPainted(false);
         opinarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opinarBotonActionPerformed(evt);

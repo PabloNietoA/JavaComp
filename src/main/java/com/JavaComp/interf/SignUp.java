@@ -364,14 +364,20 @@ public class SignUp extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        confirmarBoton.setBackground(new java.awt.Color(255, 191, 29));
+        confirmarBoton.setForeground(new java.awt.Color(51, 51, 51));
         confirmarBoton.setText("Confirmar y crear cuenta");
+        confirmarBoton.setFocusPainted(false);
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarBotonActionPerformed(evt);
             }
         });
 
+        cancelarBoton.setBackground(new java.awt.Color(255, 191, 29));
+        cancelarBoton.setForeground(new java.awt.Color(51, 51, 51));
         cancelarBoton.setText("Cancelar");
+        cancelarBoton.setFocusPainted(false);
         cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelarBotonActionPerformed(evt);

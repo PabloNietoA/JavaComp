@@ -136,6 +136,8 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
 
         claveNueva.setText("Nueva contraseña:");
 
+        confirmarBoton.setBackground(new java.awt.Color(255, 191, 29));
+        confirmarBoton.setForeground(new java.awt.Color(51, 51, 51));
         confirmarBoton.setText("Confirmar");
         confirmarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +145,8 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
             }
         });
 
+        cancelarBoton.setBackground(new java.awt.Color(255, 191, 29));
+        cancelarBoton.setForeground(new java.awt.Color(51, 51, 51));
         cancelarBoton.setText("Cancelar");
         cancelarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
