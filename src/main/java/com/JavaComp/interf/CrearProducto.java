@@ -246,10 +246,11 @@ public class CrearProducto extends javax.swing.JFrame {
     private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
         JFileChooser elegirImagen = new JFileChooser();
         elegirImagen.setAcceptAllFileFilterUsed(false);
-        FileFilter filter = new FileNameExtensionFilter("(JPG o PNG)", "jpg");
+        FileFilter filter = new FileNameExtensionFilter("JPG", "jpg");
         elegirImagen.setFileFilter(filter);
         elegirImagen.showDialog(imagen, "Elegir Imagen");
-        path.setText(elegirImagen.getSelectedFile().getAbsolutePath());
+        if(elegirImagen.getSelectedFile() != null)
+            path.setText(elegirImagen.getSelectedFile().getAbsolutePath());
     }//GEN-LAST:event_fileChooserActionPerformed
 
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed

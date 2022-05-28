@@ -37,23 +37,29 @@ public class DataManager {
      */
     public static ArrayList busquedaProducto(String busqueda){
         ArrayList<Producto> filtrado = new ArrayList();
-        for (Producto prod: productos){
-            boolean encontrado = false;
-            if (prod.getCaracteristicas().toLowerCase().contains(busqueda.toLowerCase())
-                    || prod.getTitulo().toLowerCase().contains(busqueda.toLowerCase())
-                    || prod.getCategoria().toLowerCase().contains(busqueda.toLowerCase())){
-                filtrado.add(prod);
-                encontrado = true;
-            }
-            else{
-                for(Opinion op: prod.getOpiniones()){
-                    if(op.getComentario().toLowerCase().contains(busqueda.toLowerCase()) && !encontrado){
+        String[] arr = busqueda.split(" ");
+        for (String i: arr){
+            for (Producto prod: productos){
+                if (!filtrado.contains(prod)){
+                    boolean encontrado = false;
+                    if (prod.getCaracteristicas().toLowerCase().contains(i.toLowerCase())
+                            || prod.getTitulo().toLowerCase().contains(i.toLowerCase())
+                            || prod.getCategoria().toLowerCase().contains(i.toLowerCase())){
                         filtrado.add(prod);
-                        encontrado = false;
+                        encontrado = true;
+                    }
+                    else{
+                        for(Opinion op: prod.getOpiniones()){
+                            if(op.getComentario().toLowerCase().contains(i.toLowerCase()) && !encontrado){
+                                filtrado.add(prod);
+                                encontrado = true;
+                            }
+                        }
                     }
                 }
             }
         }
+        
         return filtrado;
     }
     

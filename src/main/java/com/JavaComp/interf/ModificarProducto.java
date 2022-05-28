@@ -16,23 +16,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
-/*
-*
-*
-*
-*
-*
-* ESTA SIN TERMINAR
-* POR FAVOR QUE ALGUIEN LO TERMINE
-*
-*
-*
-*
-*/
 
 /**
  *
- * @author Kar�n
+ * @author Pablo
+ * @author Karín
  */
 public class ModificarProducto extends javax.swing.JFrame {
 
@@ -298,7 +286,8 @@ public class ModificarProducto extends javax.swing.JFrame {
         FileFilter filter = new FileNameExtensionFilter("(JPG o PNG)", "jpg");
         elegirImagen.setFileFilter(filter);
         elegirImagen.showDialog(imagen, "Elegir Imagen");
-        path.setText(elegirImagen.getSelectedFile().getAbsolutePath());
+        if(elegirImagen.getSelectedFile() != null)
+            path.setText(elegirImagen.getSelectedFile().getAbsolutePath());
     }//GEN-LAST:event_fileChooserActionPerformed
 
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
