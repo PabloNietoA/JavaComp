@@ -1,5 +1,4 @@
 package com.JavaComp.interf;
-import java.io.Serializable;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
 import com.JavaComp.program.*;
@@ -13,7 +12,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
         agregarFilaATabla();
     
     }
-    public void agregarFilaATabla(){
+    private void agregarFilaATabla(){
             DefaultTableModel modelo =(DefaultTableModel) usuariosTabla.getModel();
             ArrayList<Cliente> clientes = DataManager.getClientes();
             Object datoFila []=new Object[8];

@@ -37,6 +37,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
         filtroFecha = new org.jdatepicker.JDatePicker();
         jLabel1 = new javax.swing.JLabel();
         mostratTodoBoton = new javax.swing.JButton();
+        selectorBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,12 +57,19 @@ public class ConsultarVentas extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Ver ventas antes de:");
+        jLabel1.setText("Ver ventas");
 
         mostratTodoBoton.setText("Mostrar Todo");
         mostratTodoBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mostratTodoBotonActionPerformed(evt);
+            }
+        });
+
+        selectorBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "antes de", "después de" }));
+        selectorBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selectorBoxActionPerformed(evt);
             }
         });
 
@@ -75,8 +83,10 @@ public class ConsultarVentas extends javax.swing.JFrame {
                     .addComponent(pedidosScroll)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selectorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filtroFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -92,7 +102,8 @@ public class ConsultarVentas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(volverBoton)
-                        .addComponent(jLabel1))
+                        .addComponent(jLabel1)
+                        .addComponent(selectorBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(filtroFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mostratTodoBoton))
                 .addContainerGap())
@@ -116,7 +127,10 @@ public class ConsultarVentas extends javax.swing.JFrame {
         //Convierte el Date en LocalDate
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         //Filtra por fecha los pedidos con el LocalDate y los muestra
-        DataManager.displayVenta(DataManager.filtrarFecha(localDate, DataManager.getPedidos()), pedidosPanel);
+        if (selectorBox.getSelectedItem().equals("después de"))
+            DataManager.displayVenta(DataManager.filtrarFecha(true, localDate, DataManager.getPedidos()), pedidosPanel);
+        else if (selectorBox.getSelectedItem().equals("antes de"))
+            DataManager.displayVenta(DataManager.filtrarFecha(false, localDate, DataManager.getPedidos()), pedidosPanel);
         
     }//GEN-LAST:event_filtroFechaActionPerformed
 
@@ -125,6 +139,20 @@ public class ConsultarVentas extends javax.swing.JFrame {
         DataManager.displayVenta(DataManager.getPedidos(), pedidosPanel);
         filtroFecha.getFormattedTextField().setText("");
     }//GEN-LAST:event_mostratTodoBotonActionPerformed
+
+    private void selectorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorBoxActionPerformed
+        //Convierte el output de filtroFecha en un GregorianCalendar
+        java.util.GregorianCalendar calendar = (java.util.GregorianCalendar) filtroFecha.getModel().getValue();
+        //Convierte el GregorianCalendar en tipo Date
+        java.util.Date date = java.util.Date.from(calendar.toZonedDateTime().toInstant());
+        //Convierte el Date en LocalDate
+        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+        //Filtra por fecha los pedidos con el LocalDate y los muestra
+        if (selectorBox.getSelectedItem().equals("después de"))
+            DataManager.displayVenta(DataManager.filtrarFecha(true, localDate, DataManager.getPedidos()), pedidosPanel);
+        else if (selectorBox.getSelectedItem().equals("antes de"))
+            DataManager.displayVenta(DataManager.filtrarFecha(false, localDate, DataManager.getPedidos()), pedidosPanel);
+    }//GEN-LAST:event_selectorBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +195,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
     private javax.swing.JButton mostratTodoBoton;
     private javax.swing.JPanel pedidosPanel;
     private javax.swing.JScrollPane pedidosScroll;
+    private javax.swing.JComboBox<String> selectorBox;
     private javax.swing.JButton volverBoton;
     // End of variables declaration//GEN-END:variables
 }

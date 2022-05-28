@@ -147,15 +147,24 @@ public class DataManager {
     
     /**
      * Filtra un array de pedidos, dejando los que se han a partir de una fecha
+     * @param isAfter true si filtras fechas posteriores a la fecha estipulada
      * @param fecha la fecha por la que se va a filtrar
      * @param array el array de pedidos que se va a filtrar
      * @return El array filtrado por fecha
      */
-    public static ArrayList filtrarFecha(LocalDate fecha, ArrayList<Pedido> array){
+    public static ArrayList filtrarFecha(boolean isAfter, LocalDate fecha, ArrayList<Pedido> array){
         ArrayList<Pedido> newArray = new ArrayList();
-        for (Pedido ped : array){
-            if (ped.getFechaPedido().isBefore(fecha)){
-                newArray.add(ped);
+        if (isAfter)
+            for (Pedido ped : array){
+                if (ped.getFechaPedido().isAfter(fecha)){
+                    newArray.add(ped);
+                }
+            }
+        else {
+            for (Pedido ped : array){
+                if (ped.getFechaPedido().isBefore(fecha)){
+                    newArray.add(ped);
+                }
             }
         }
         return newArray;
