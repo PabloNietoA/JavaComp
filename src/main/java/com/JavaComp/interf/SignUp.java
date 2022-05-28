@@ -6,6 +6,7 @@ package com.JavaComp.interf;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
+import java.util.Arrays;
 
 
 public class SignUp extends javax.swing.JFrame {
@@ -69,7 +70,7 @@ public class SignUp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
-        setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
         setResizable(false);
 
         toggleEmpresa.setOpaque(false);
@@ -428,17 +429,28 @@ public class SignUp extends javax.swing.JFrame {
 
     //confirma que se han introducido datos y crea el cliente
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
+        boolean rellenoCaducidad = true;
         //comprueba que la fecha de caducidad de la tarjeta sea válida
-        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        boolean arr[] = new boolean[2];
+        try{
+            arr = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        }
+        catch (java.lang.NumberFormatException e){
+            arr[0] = true;
+            arr[1] = true;
+            rellenoCaducidad = false;
+        }
         //comprueba que todo está relleno para crear el cliente
         boolean correoEsisten = false;
         for (Cliente cliente:DataManager.getClientes())
             if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
-        if (((!cifField.getText().isBlank() && !webField.getText().isBlank()) || !dniField.getText().isBlank() && !correoEsisten)
+        if (!cifField.getText().isBlank() && !webField.getText().isBlank() || !dniField.getText().isBlank() && !correoEsisten
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
                 && !claveField.getText().isEmpty() && !telefonoField.getText().isEmpty() && !calleField.getText().isEmpty()
                 && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
-                && !ciudadField.getText().isEmpty() && !titularField.getText().isEmpty() && !codigoField.getText().isEmpty() &&!fCaducidadField.getText().isEmpty()){
+                && !ciudadField.getText().isEmpty() && !titularField.getText().isEmpty() 
+                && !codigoField.getText().isEmpty() &&!fCaducidadField.getText().isEmpty() && arr[1] && arr[0] && rellenoCaducidad)
+        {
             if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
                     claveField.getText(), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
@@ -446,16 +458,16 @@ public class SignUp extends javax.swing.JFrame {
                     claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
             InterfCliente interfCliente = new InterfCliente();
-            interfCliente.setLocation(this.getLocation());
+            interfCliente.setLocationRelativeTo(null);
             this.setVisible(false);
             interfCliente.setVisible(true);
         }
         else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo introducido ya existe");
-        else if (arr[1]){
+        else if (!arr[1]){
             fCaducidadField.setText("");
-            JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");
+            JOptionPane.showMessageDialog(this, "La fecha introducida no es válida, pruebe con meses entre 01 y 12");
         }
-        else if (arr[0]){
+        else if (!arr[0]){
             fCaducidadField.setText("");
             JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
         }
@@ -466,7 +478,7 @@ public class SignUp extends javax.swing.JFrame {
     private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
         this.setVisible(false);
         MainMenu main = new MainMenu();
-        main.setLocation(this.getLocation());
+        main.setLocationRelativeTo(null);
         main.setVisible(true);
     }//GEN-LAST:event_cancelarBotonActionPerformed
 

@@ -5,6 +5,7 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.*;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
@@ -80,6 +81,8 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
         jLabel9.setText("jLabel9");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
         setResizable(false);
 
         cif.setText("CIF:");
@@ -308,20 +311,29 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
     private void cancelarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarBotonActionPerformed
         this.setVisible(false);
         InterfCliente interfCliente = new InterfCliente();
-        interfCliente.setLocation(this.getLocation());
+        interfCliente.setLocationRelativeTo(null);
         interfCliente.setVisible(true);
     }//GEN-LAST:event_cancelarBotonActionPerformed
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         
-        boolean arr[] = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        boolean rellenoCaducidad = true;
+        boolean arr[] = new boolean[2];
+        try{
+            arr = TarjetaCredito.comprobarFechaTarjeta(fCaducidadField.getText());
+        }
+        catch (java.lang.NumberFormatException e){
+            arr[0] = true;
+            arr[1] = true;
+            rellenoCaducidad = false;
+        }
         boolean correoEsisten = false;
         for (Cliente cliente:DataManager.getClientes())
             if (cliente.getCorreo().equals(correoField.getText()) && !DataManager.getClienteActual().getCorreo().equals(correoField.getText())) correoEsisten = true;
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() 
-                && !fCaducidadField.getText().isBlank() && !correoEsisten){
+                && !fCaducidadField.getText().isBlank() && arr[0] && arr[1] && !correoEsisten && rellenoCaducidad){
             if (claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Empresa.ModificarEmpresa(nombreField.getText(), correoField.getText(),
                     claveActualField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(),
@@ -329,7 +341,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                     this.setVisible(false);
                     InterfCliente interfCliente = new InterfCliente();
-                    interfCliente.setLocation(this.getLocation());
+                    interfCliente.setLocationRelativeTo(null);
                     interfCliente.setVisible(true);
             }
             else if(claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
@@ -339,17 +351,17 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                     this.setVisible(false);
                     InterfCliente interfCliente = new InterfCliente();
-                    interfCliente.setLocation(this.getLocation());
+                    interfCliente.setLocationRelativeTo(null);
                     interfCliente.setVisible(true);
             }
             else JOptionPane.showMessageDialog(this,"La contraseña actual no coincide.");
         }
         else if (correoEsisten) JOptionPane.showMessageDialog(this, "El correo que ha introducido ya está registrado.", "Error", JOptionPane.WARNING_MESSAGE);
-        else if (arr[1]){
+        else if (!arr[1]){
             fCaducidadField.setText("");
-            JOptionPane.showMessageDialog(this, "Los meses válidos van del 01 al 12");
+            JOptionPane.showMessageDialog(this, "La fecha introducida no es válida, pruebe con meses entre 01 y 12");
         }
-        else if (arr[0]){
+        else if (!arr[0]){
             fCaducidadField.setText("");
             JOptionPane.showMessageDialog(this, "Asegúrese de que la tarjeta que ha introducido no está caducada");
         }

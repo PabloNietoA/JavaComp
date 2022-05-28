@@ -2,7 +2,6 @@ package com.JavaComp.program;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import javax.swing.JOptionPane;
 
 
 public class TarjetaCredito implements Serializable{
@@ -40,23 +39,28 @@ public class TarjetaCredito implements Serializable{
         this.caducidad = caducidad;
     }
     
-    public static boolean[] comprobarFechaTarjeta (String fecha){
-             boolean tarjetaCaducada=false;
-             boolean mesInvalido=false;
+    /**
+     * Verifica si una fecha de tipo mm/aaaa es correcta y vigente
+     * @param fecha el string con la fecha en formato mm/aaaa
+     * @return si la tarjeta es vigente en el array [0] devuelve true y si el mes es correcto en el array [1] devuelve true
+     */
+    public static boolean[] comprobarFechaTarjeta (String fecha) throws java.lang.NumberFormatException{
+             boolean tarjetaVigente=false;
+             boolean mesValido=false;
              String [] partes = fecha.split("/");
              int mes = Integer.parseInt(partes[0]);
              int anno = Integer.parseInt(partes[1]);
              LocalDate fechaActual = LocalDate.now();
-             if ((int)1>mes||mes>(int)12){
-                mesInvalido=true;
+             if (mes >= 1 && mes <= 12){
+                mesValido=true;
              }
     
-             if (anno<fechaActual.getYear()||(anno==fechaActual.getYear()&&mes<fechaActual.getMonthValue())){                 
-            tarjetaCaducada=true;
+             if (anno>fechaActual.getYear()||(anno==fechaActual.getYear() && mes>fechaActual.getMonthValue())){                 
+            tarjetaVigente=true;
              }
              boolean[] booleanArray = new boolean[2];
-             booleanArray[0] = tarjetaCaducada;
-             booleanArray[1] = mesInvalido;
+             booleanArray[0] = tarjetaVigente;
+             booleanArray[1] = mesValido;
              return (booleanArray);
     }
 }

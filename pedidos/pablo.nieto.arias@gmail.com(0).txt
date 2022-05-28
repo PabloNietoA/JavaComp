@@ -5,24 +5,24 @@ RECIBO DE COMPRA
 
 Nombre: Pablo Nieto Arias
 Correo: pablo.nieto.arias@gmail.com
-DirecciÛn: Miguel ¡ngel Asturias, 73
-	CÛdigo Postal: 28806
-	Ciudad: Alcal· de Henares
-TelÈfono: 693708272
+Direcci√≥n: Miguel √Ångel Asturias, 73
+	C√≥digo Postal: 28806
+	Ciudad: Alcal√° de Henares
+Tel√©fono: 693708272
 Tarjeta: **** **** **** 4567
 
 ** DATOS DE PRODUCTOS **
 
 WHATSAPP 2:
-CategorÌa: MÛviles y telefonÌa
-Precio: 20.0Ä (5.0/ud.)
-Cantidad: 4
-CategorÌa: MÛviles y telefonÌa
+Categor√≠a: M√≥viles y telefon√≠a
+Precio: 10.0‚Ç¨ (5.0/ud.)
+Cantidad: 2
+Categor√≠a: M√≥viles y telefon√≠a
 
 ** RECUENTO DE GASTOS **
-Whatsapp 2: 20.0Ä
-EnvÌo: 5Ä
+Whatsapp 2: 10.0‚Ç¨
+Env√≠o: 5‚Ç¨
 ---------------------------
-Total: 25.0Ä
+Total: 15.0‚Ç¨
 
 GRACIAS POR COMPRAR EN JAVACOMP

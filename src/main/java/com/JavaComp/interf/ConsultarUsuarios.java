@@ -57,6 +57,7 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
         volverBoton.setText("Volver");
         volverBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +80,15 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
             new String [] {
                 "Particular", "Empresa", "DNI/CIF", "Web", "Nombre", "Correo", "Teléfono", "Número pedidos"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(usuariosTabla);
 
         consultarVentasBoton.setText("Consultar pedidos");
@@ -125,14 +134,14 @@ public class ConsultarUsuarios extends javax.swing.JFrame {
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
         this.setVisible(false);
         InterfAdmin interfAdmin = new InterfAdmin();
-        interfAdmin.setLocation(this.getLocation());
+        interfAdmin.setLocationRelativeTo(null);
         interfAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
 
     private void consultarVentasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarVentasBotonActionPerformed
         this.setVisible(false);
         ConsultarVentas ventas = new ConsultarVentas();
-        ventas.setLocation(this.getLocation());
+        ventas.setLocationRelativeTo(null);
         ventas.setVisible(true);
     }//GEN-LAST:event_consultarVentasBotonActionPerformed
 

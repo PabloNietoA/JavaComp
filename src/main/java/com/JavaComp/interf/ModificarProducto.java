@@ -113,6 +113,9 @@ public class ModificarProducto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("JavaComp");
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
+        setResizable(false);
 
         titulo.setText("Título del producto:");
 
@@ -184,10 +187,10 @@ public class ModificarProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(imagen)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(path, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(path, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fileChooser))
+                        .addComponent(fileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(caracteristicas, javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +283,7 @@ public class ModificarProducto extends javax.swing.JFrame {
             productos.set(index, prod);
             DataManager.setProductos(productos);
             Inventario inventario = new Inventario();
-            inventario.setLocation(this.getLocation());
+            inventario.setLocationRelativeTo(null);
             inventario.setVisible(true);
             this.setVisible(false);
             this.dispose();
@@ -301,7 +304,7 @@ public class ModificarProducto extends javax.swing.JFrame {
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
         this.setVisible(false);
         Inventario interf = new Inventario();
-        interf.setLocation(this.getLocation());
+        interf.setLocationRelativeTo(null);
         interf.setVisible(true);
         dispose();
     }//GEN-LAST:event_volverBotonActionPerformed

@@ -19,6 +19,7 @@ public class Inventario extends javax.swing.JFrame {
     public Inventario() {
         initComponents();
         DataManager.displayInventario(DataManager.getProductos(), inventarioPanel, this);
+        inventarioScroll.getVerticalScrollBar().setUnitIncrement(16);
     }
 
     /**
@@ -40,6 +41,7 @@ public class Inventario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
         volverBoton.setText("Volver");
         volverBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +70,7 @@ public class Inventario extends javax.swing.JFrame {
                     .addComponent(inventarioScroll)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(volverBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 386, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 499, Short.MAX_VALUE)
                         .addComponent(agregarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -90,13 +92,13 @@ public class Inventario extends javax.swing.JFrame {
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
         this.setVisible(false);
         InterfAdmin interfAdmin = new InterfAdmin();
-        interfAdmin.setLocation(this.getLocation());
+        interfAdmin.setLocationRelativeTo(null);
         interfAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
 
     private void agregarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarBotonActionPerformed
         CrearProducto interfCrear = new CrearProducto();
-        interfCrear.setLocation(this.getLocation());
+        interfCrear.setLocationRelativeTo(null);
         interfCrear.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_agregarBotonActionPerformed

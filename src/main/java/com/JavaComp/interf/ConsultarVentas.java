@@ -20,6 +20,7 @@ public class ConsultarVentas extends javax.swing.JFrame {
     public ConsultarVentas() {
         initComponents();
         DataManager.displayVenta(DataManager.getPedidos(), pedidosPanel);
+        pedidosScroll.getVerticalScrollBar().setUnitIncrement(16);
     }
 
     /**
@@ -40,6 +41,8 @@ public class ConsultarVentas extends javax.swing.JFrame {
         selectorBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
         volverBoton.setText("Volver");
         volverBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -115,22 +118,24 @@ public class ConsultarVentas extends javax.swing.JFrame {
     private void volverBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverBotonActionPerformed
        this.setVisible(false);
        InterfAdmin interfazAdmin = new InterfAdmin();
-       interfazAdmin.setLocation(this.getLocation());
+       interfazAdmin.setLocationRelativeTo(null);
        interfazAdmin.setVisible(true);
     }//GEN-LAST:event_volverBotonActionPerformed
 
     private void filtroFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroFechaActionPerformed
-        //Convierte el output de filtroFecha en un GregorianCalendar
-        java.util.GregorianCalendar calendar = (java.util.GregorianCalendar) filtroFecha.getModel().getValue();
-        //Convierte el GregorianCalendar en tipo Date
-        java.util.Date date = java.util.Date.from(calendar.toZonedDateTime().toInstant());
-        //Convierte el Date en LocalDate
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        //Filtra por fecha los pedidos con el LocalDate y los muestra
-        if (selectorBox.getSelectedItem().equals("después de"))
-            DataManager.displayVenta(DataManager.filtrarFecha(true, localDate, DataManager.getPedidos()), pedidosPanel);
-        else if (selectorBox.getSelectedItem().equals("antes de"))
-            DataManager.displayVenta(DataManager.filtrarFecha(false, localDate, DataManager.getPedidos()), pedidosPanel);
+        if (filtroFecha.getModel().getValue() != null){
+            //Convierte el output de filtroFecha en un GregorianCalendar
+            java.util.GregorianCalendar calendar = (java.util.GregorianCalendar) filtroFecha.getModel().getValue();
+            //Convierte el GregorianCalendar en tipo Date
+            java.util.Date date = java.util.Date.from(calendar.toZonedDateTime().toInstant());
+            //Convierte el Date en LocalDate
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            //Filtra por fecha los pedidos con el LocalDate y los muestra
+            if (selectorBox.getSelectedItem().equals("después de"))
+                DataManager.displayVenta(DataManager.filtrarFecha(true, localDate, DataManager.getPedidos()), pedidosPanel);
+            else if (selectorBox.getSelectedItem().equals("antes de"))
+                DataManager.displayVenta(DataManager.filtrarFecha(false, localDate, DataManager.getPedidos()), pedidosPanel);
+        }
         
     }//GEN-LAST:event_filtroFechaActionPerformed
 
@@ -141,17 +146,19 @@ public class ConsultarVentas extends javax.swing.JFrame {
     }//GEN-LAST:event_mostratTodoBotonActionPerformed
 
     private void selectorBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectorBoxActionPerformed
-        //Convierte el output de filtroFecha en un GregorianCalendar
-        java.util.GregorianCalendar calendar = (java.util.GregorianCalendar) filtroFecha.getModel().getValue();
-        //Convierte el GregorianCalendar en tipo Date
-        java.util.Date date = java.util.Date.from(calendar.toZonedDateTime().toInstant());
-        //Convierte el Date en LocalDate
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        //Filtra por fecha los pedidos con el LocalDate y los muestra
-        if (selectorBox.getSelectedItem().equals("después de"))
-            DataManager.displayVenta(DataManager.filtrarFecha(true, localDate, DataManager.getPedidos()), pedidosPanel);
-        else if (selectorBox.getSelectedItem().equals("antes de"))
-            DataManager.displayVenta(DataManager.filtrarFecha(false, localDate, DataManager.getPedidos()), pedidosPanel);
+        if (filtroFecha.getModel().getValue() != null){
+            //Convierte el output de filtroFecha en un GregorianCalendar
+            java.util.GregorianCalendar calendar = (java.util.GregorianCalendar) filtroFecha.getModel().getValue();
+            //Convierte el GregorianCalendar en tipo Date
+            java.util.Date date = java.util.Date.from(calendar.toZonedDateTime().toInstant());
+            //Convierte el Date en LocalDate
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            //Filtra por fecha los pedidos con el LocalDate y los muestra
+            if (selectorBox.getSelectedItem().equals("después de"))
+                DataManager.displayVenta(DataManager.filtrarFecha(true, localDate, DataManager.getPedidos()), pedidosPanel);
+            else if (selectorBox.getSelectedItem().equals("antes de"))
+                DataManager.displayVenta(DataManager.filtrarFecha(false, localDate, DataManager.getPedidos()), pedidosPanel);
+        }
     }//GEN-LAST:event_selectorBoxActionPerformed
 
     /**

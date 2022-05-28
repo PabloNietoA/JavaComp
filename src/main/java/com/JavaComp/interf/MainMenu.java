@@ -36,16 +36,17 @@ public class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
-        setIconImage(new ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
         Title.setFont(new java.awt.Font("Sitka Display", 1, 48)); // NOI18N
         Title.setForeground(new java.awt.Color(189, 119, 22));
         Title.setText("Tienda JavaComp");
 
         signInBoton.setBackground(new java.awt.Color(255, 191, 29));
+        signInBoton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         signInBoton.setForeground(new java.awt.Color(0, 0, 0));
         signInBoton.setText("Sign In");
-        signInBoton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        signInBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         signInBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signInBotonActionPerformed(evt);
@@ -53,9 +54,10 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         signUpBoton.setBackground(new java.awt.Color(255, 191, 29));
+        signUpBoton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         signUpBoton.setForeground(new java.awt.Color(0, 0, 0));
         signUpBoton.setText("Sign Up");
-        signUpBoton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        signUpBoton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         signUpBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 signUpBotonActionPerformed(evt);
@@ -78,16 +80,16 @@ public class MainMenu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(signUpBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(signUpBoton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(signInBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Title)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(82, Short.MAX_VALUE)
+                        .addContainerGap(268, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(0, 76, Short.MAX_VALUE)))
+                        .addGap(0, 267, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -101,13 +103,13 @@ public class MainMenu extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(signInBoton)
                     .addComponent(signUpBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Title)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,7 +119,7 @@ public class MainMenu extends javax.swing.JFrame {
         this.setVisible(false);
         SignIn signIn = new SignIn();
         signIn.prevFrame = this;
-        signIn.setLocation(this.getLocation());
+        signIn.setLocationRelativeTo(null);
         signIn.setVisible(true);
     }//GEN-LAST:event_signInBotonActionPerformed
 //Redirige a la ventana del "Sign up"
@@ -125,7 +127,7 @@ public class MainMenu extends javax.swing.JFrame {
         this.setVisible(false);
         SignUp signUp = new SignUp();
         signUp.prevFrame = this;
-        signUp.setLocation(this.getLocation());
+        signUp.setLocationRelativeTo(null);
         signUp.setVisible(true);
     }//GEN-LAST:event_signUpBotonActionPerformed
 

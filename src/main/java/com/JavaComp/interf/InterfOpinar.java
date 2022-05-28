@@ -44,6 +44,8 @@ public class InterfOpinar extends javax.swing.JFrame {
         canclelarButon = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
         opinionArea.setColumns(20);
         opinionArea.setLineWrap(true);

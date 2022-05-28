@@ -30,16 +30,13 @@ public class InterfProducto extends javax.swing.JFrame {
         stockLabel.setText("Unidades restantes: " + prod.getStock());
         precioLabel.setText(prod.getPvp() + "€");
         String opiniones = "";
-        float rating = 0;
         if (!prod.getOpiniones().isEmpty()){
             for (Opinion op : prod.getOpiniones()){
             opiniones = opiniones + "** " + op.getFecha() + "\t" + op.getCalif() + "☆" + " **" + "\n";
             opiniones = opiniones + op.getComentario() + "\n\n";
-            rating += op.getCalif();
             }
-            rating = rating / prod.getOpiniones().size();
         }
-        ratingsLabel.setText(String.format("%.1f", rating) + "☆");
+        ratingsLabel.setText(String.format("%.1f", prod.getMidRating()) + "☆");
         opinionesArea.setText(opiniones);
         descripcionArea.setText(prod.getCaracteristicas());
         fechaLabel.setText(prod.getFechaEntrada().toString());
@@ -77,7 +74,11 @@ public class InterfProducto extends javax.swing.JFrame {
         fechaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("JavaComp");
         setAlwaysOnTop(true);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusCycleRoot(false);
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
         setResizable(false);
 
         tituloLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N

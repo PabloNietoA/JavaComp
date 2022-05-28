@@ -6,6 +6,7 @@ package com.JavaComp.interf;
 
 import javax.swing.ImageIcon;
 import com.JavaComp.program.*;
+import java.awt.Image;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,11 @@ public class SignIn extends javax.swing.JFrame {
      */
     public SignIn() {
         initComponents();
+        ImageIcon imageIcon = new ImageIcon("src/main/resources/images/LogoJavaComp.png"); // load the image to a imageIcon
+        Image image = imageIcon.getImage(); // transform it 
+        Image newimg = image.getScaledInstance(100, 100,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+        imageIcon = new ImageIcon(newimg);
+        iconImageLabel.setIcon(imageIcon);
     }
 
     /**
@@ -30,50 +36,17 @@ public class SignIn extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        signInBoton = new javax.swing.JButton();
-        cancelBoton = new javax.swing.JButton();
         correo = new javax.swing.JLabel();
         correoField = new javax.swing.JTextField();
         clave = new javax.swing.JLabel();
         claveField = new javax.swing.JPasswordField();
+        iconImageLabel = new javax.swing.JLabel();
+        cancelBoton = new javax.swing.JButton();
+        signInBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
-        setIconImage(new ImageIcon("images/LogoJavaComp.png").getImage());
-
-        signInBoton.setText("Sign In");
-        signInBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signInBotonActionPerformed(evt);
-            }
-        });
-
-        cancelBoton.setText("Cancel");
-        cancelBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBotonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(cancelBoton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(signInBoton))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(signInBoton)
-                    .addComponent(cancelBoton))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
 
         correo.setText("Correo:");
 
@@ -91,39 +64,64 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
 
+        cancelBoton.setText("Cancel");
+        cancelBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBotonActionPerformed(evt);
+            }
+        });
+
+        signInBoton.setText("Sign In");
+        signInBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                signInBotonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(correo, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(correo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(clave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(claveField, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE))))
-                .addContainerGap(174, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cancelBoton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(signInBoton))
+                            .addComponent(claveField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(iconImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(63, 63, 63)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(correoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(claveField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(clave))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelBoton)
+                    .addComponent(signInBoton))
+                .addContainerGap(30, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(iconImageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,7 +134,7 @@ public class SignIn extends javax.swing.JFrame {
         
         if (corr.equals("admin@javacomp.com") && cont.equals("admin")){
             InterfAdmin interf = new InterfAdmin();
-            interf.setLocation(this.getLocation());
+            interf.setLocationRelativeTo(null);
             interf.setVisible(true);
             this.setVisible(false);
             this.dispose();
@@ -145,7 +143,7 @@ public class SignIn extends javax.swing.JFrame {
             boolean logged = Cliente.LoggearCliente(corr, cont);
             if (logged){
                 InterfCliente interfClient = new InterfCliente();
-                interfClient.setLocation(this.getLocation());
+                interfClient.setLocationRelativeTo(null);
                 interfClient.setVisible(true);
                 this.setVisible(false);
             }
@@ -154,7 +152,7 @@ public class SignIn extends javax.swing.JFrame {
     }//GEN-LAST:event_signInBotonActionPerformed
     // Regresa al menu principal
     private void cancelBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBotonActionPerformed
-        prevFrame.setLocation(this.getLocation());
+        prevFrame.setLocationRelativeTo(null);
         prevFrame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cancelBotonActionPerformed
@@ -208,7 +206,7 @@ public class SignIn extends javax.swing.JFrame {
     private javax.swing.JPasswordField claveField;
     private javax.swing.JLabel correo;
     private javax.swing.JTextField correoField;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel iconImageLabel;
     private javax.swing.JButton signInBoton;
     // End of variables declaration//GEN-END:variables
 }

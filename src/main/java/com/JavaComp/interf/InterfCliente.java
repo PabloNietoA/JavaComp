@@ -29,6 +29,8 @@ public class InterfCliente extends javax.swing.JFrame {
         imageIcon = new ImageIcon(newimg);
         iconImageLabel.setIcon(imageIcon);
         
+        busquedaScroll.getVerticalScrollBar().setUnitIncrement(16);
+        
         DataManager.sortTitulo(array);
         DataManager.sortRelevancia(array);
         DataManager.displayList(array, busquedaPanel);
@@ -71,7 +73,9 @@ public class InterfCliente extends javax.swing.JFrame {
         jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("JavaComp");
         setBackground(new java.awt.Color(204, 0, 51));
+        setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
         setResizable(false);
 
         editarPerfilBoton.setText("Modificar datos");
@@ -172,7 +176,7 @@ public class InterfCliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(buscarField, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                .addComponent(buscarField, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buscarBoton))
                             .addGroup(layout.createSequentialGroup()
@@ -180,7 +184,7 @@ public class InterfCliente extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel2)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +216,7 @@ public class InterfCliente extends javax.swing.JFrame {
                     .addComponent(buscarBoton)
                     .addComponent(buscarField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                .addComponent(busquedaScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cerrarSesionBoton)
@@ -229,14 +233,14 @@ public class InterfCliente extends javax.swing.JFrame {
         //Dependiendo de si es Particular o Empresa lleva a un frame distinto
         if (DataManager.getClienteActual() instanceof Particular) {
             ModificarDatosParticular interfModificar = new ModificarDatosParticular();
-            interfModificar.setLocation(this.getLocation());
+            interfModificar.setLocationRelativeTo(null);
             interfModificar.setVisible(true);
             this.setVisible(false);
             
         }
         else {
             ModificarDatosEmpresa interfModificar = new ModificarDatosEmpresa();
-            interfModificar.setLocation(this.getLocation());
+            interfModificar.setLocationRelativeTo(null);
             interfModificar.setVisible(true);
             this.setVisible(false);
             
@@ -325,7 +329,7 @@ public class InterfCliente extends javax.swing.JFrame {
     
     private void carroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carroBotonActionPerformed
         InterfCarro interf = new InterfCarro(this);
-        interf.setLocation(this.getLocation());
+        interf.setLocationRelativeTo(null);
         interf.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_carroBotonActionPerformed
@@ -347,7 +351,7 @@ public class InterfCliente extends javax.swing.JFrame {
             this.setVisible(false);
             MainMenu menuPrincipal = new MainMenu();
             DataManager.setCarritoActual(new ArrayList());
-            menuPrincipal.setLocation(this.getLocation());
+            menuPrincipal.setLocationRelativeTo(null);
             menuPrincipal.setVisible(true);
         }
     }//GEN-LAST:event_cerrarSesionBotonActionPerformed

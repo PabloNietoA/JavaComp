@@ -25,13 +25,13 @@ public class DisplayInventario extends javax.swing.JPanel {
         this.prod = prod;
         this.parent = parent;
         
-        ratingLabel.setText("Rating: " + prod.getMidRating());
+        ratingLabel.setText("Rating: " + String.format("%.1f", prod.getMidRating()));
         
         stockLabel.setText("Stock: " + prod.getStock());
         fechaLabel.setText(prod.getFechaEntrada().toString());
         precioLabel.setText(Double.toString(prod.getPvp()) + "€");
         descripcionArea.setText(prod.getCaracteristicas());
-        categoriaLabel.setText("Categoria: " + prod.getCategoria());
+        categoriaLabel.setText("Categoría: " + prod.getCategoria());
         tituloLabel.setText(prod.getTitulo());
         
         ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
@@ -130,10 +130,9 @@ public class DisplayInventario extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(fechaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ratingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ratingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(stockLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(descripcionScroll))))
                 .addContainerGap())
         );
@@ -165,6 +164,7 @@ public class DisplayInventario extends javax.swing.JPanel {
 
     private void modificarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarBotonActionPerformed
         ModificarProducto interf = new ModificarProducto(prod);
+        interf.setLocationRelativeTo(null);
         interf.setVisible(true);
         parent.setVisible(false);
         parent.dispose();

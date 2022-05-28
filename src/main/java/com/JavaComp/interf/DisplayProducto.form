@@ -30,12 +30,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="imagenLabel" min="-2" pref="163" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                      <Component id="caracteristicasScroll" min="-2" pref="160" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="caracteristicasScroll" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="tituloLabel" max="32767" attributes="0"/>
+                      <Component id="tituloLabel" pref="473" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Precio" min="-2" pref="74" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -51,8 +50,8 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="caracteristicasScroll" pref="146" max="32767" attributes="0"/>
-                  <Component id="imagenLabel" max="32767" attributes="0"/>
+                  <Component id="caracteristicasScroll" pref="163" max="32767" attributes="0"/>
+                  <Component id="imagenLabel" pref="163" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
