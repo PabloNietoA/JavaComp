@@ -243,7 +243,7 @@ public class ModificarProducto extends javax.swing.JFrame {
 
     private void confirmarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarBotonActionPerformed
         if (!tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank()
-                && !precioField.getText().isEmpty()){
+                && !precioField.getText().isBlank()){
             if (!path.getText().equals("<Seleccione imagen para modificar>")){
                 BufferedImage image = null;
                 try {image = ImageIO.read(new File(path.getText()));}

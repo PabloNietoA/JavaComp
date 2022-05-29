@@ -449,11 +449,11 @@ public class SignUp extends javax.swing.JFrame {
         for (Cliente cliente:DataManager.getClientes())
             if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() || !dniField.getText().isBlank() && !correoEsisten
-                && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
-                && !String.valueOf(claveField.getPassword()).isEmpty() && !telefonoField.getText().isEmpty() && !calleField.getText().isEmpty()
-                && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
-                && !ciudadField.getText().isEmpty() && !titularField.getText().isEmpty() 
-                && !codigoField.getText().isEmpty() &&!fCaducidadField.getText().isEmpty() && arr[1] && arr[0] && rellenoCaducidad)
+                && !nombreField.getText().isBlank() && !correoField.getText().isBlank()
+                && !String.valueOf(claveField.getPassword()).isBlank() && !telefonoField.getText().isBlank() && !calleField.getText().isBlank()
+                && !numeroField.getText().isBlank() && !cpField.getText().isBlank()
+                && !ciudadField.getText().isBlank() && !titularField.getText().isBlank() 
+                && !codigoField.getText().isBlank() &&!fCaducidadField.getText().isBlank() && arr[1] && arr[0] && rellenoCaducidad)
         {
             if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
                     String.valueOf(claveField.getPassword()), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),

@@ -218,7 +218,7 @@ public class CrearProducto extends javax.swing.JFrame {
             if (p.getTitulo().equals(tituloField.getText()))
                 productoEsisten = true;
         }
-        if (!productoEsisten && !tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && !precioField.getText().isEmpty() && !path.getText().equals("<Seleccione Imagen>")){
+        if (!productoEsisten && !tituloField.getText().isBlank() && !caracteristicasField.getText().isBlank() && !precioField.getText().isBlank() && !path.getText().equals("<Seleccione Imagen>")){
             BufferedImage image = null;
             try {image = ImageIO.read(new File(path.getText()));}
             catch (IOException e) {System.out.print("Error de I/O: " + e.getMessage());}
