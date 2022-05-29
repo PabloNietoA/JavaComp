@@ -50,6 +50,7 @@ public class InterfCarro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
         setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
+        setResizable(false);
 
         carritoScroll.setBorder(null);
 

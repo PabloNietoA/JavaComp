@@ -38,6 +38,7 @@ public class MainMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("JavaComp");
         setIconImage(new javax.swing.ImageIcon("src/main/resources/images/LogoJavaComp.png").getImage());
+        setResizable(false);
 
         Title.setFont(new java.awt.Font("Sitka Display", 1, 48)); // NOI18N
         Title.setForeground(new java.awt.Color(189, 119, 22));

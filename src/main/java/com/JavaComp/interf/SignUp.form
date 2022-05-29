@@ -77,17 +77,17 @@
                               <Component id="correo" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="nombre" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="294" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="nombreField" pref="115" max="32767" attributes="0"/>
-                              <Component id="correoField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="claveField" alignment="0" pref="115" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="claveField" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="nombreField" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
+                              <Component id="correoField" alignment="1" min="-2" pref="230" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="telefono" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="telefonoField" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="telefonoField" min="-2" pref="230" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -109,13 +109,13 @@
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="ciudadField" max="32767" attributes="0"/>
-                              <Component id="cpField" pref="115" max="32767" attributes="0"/>
-                              <Component id="calleField" max="32767" attributes="0"/>
-                              <Component id="titularField" max="32767" attributes="0"/>
-                              <Component id="codigoField" max="32767" attributes="0"/>
-                              <Component id="fCaducidadField" max="32767" attributes="0"/>
-                              <Component id="numeroField" max="32767" attributes="0"/>
+                              <Component id="ciudadField" pref="230" max="32767" attributes="0"/>
+                              <Component id="cpField" pref="230" max="32767" attributes="0"/>
+                              <Component id="calleField" pref="230" max="32767" attributes="0"/>
+                              <Component id="titularField" pref="230" max="32767" attributes="0"/>
+                              <Component id="codigoField" pref="230" max="32767" attributes="0"/>
+                              <Component id="fCaducidadField" pref="230" max="32767" attributes="0"/>
+                              <Component id="numeroField" pref="230" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -201,7 +201,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="particularRadioBoton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="324" max="32767" attributes="0"/>
+                      <EmptySpace pref="402" max="32767" attributes="0"/>
                       <Component id="empresaRadioBoton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   </Group>
@@ -248,10 +248,10 @@
                               <Component id="Web" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="CIF" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="344" max="32767" attributes="0"/>
+                          <EmptySpace pref="307" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cifField" max="32767" attributes="0"/>
-                              <Component id="webField" pref="115" max="32767" attributes="0"/>
+                              <Component id="cifField" pref="230" max="32767" attributes="0"/>
+                              <Component id="webField" pref="230" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -302,8 +302,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="DNI" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="358" max="32767" attributes="0"/>
-                          <Component id="dniField" min="-2" pref="115" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="dniField" min="-2" pref="230" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
