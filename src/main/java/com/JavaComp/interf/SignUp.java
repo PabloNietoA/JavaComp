@@ -3,10 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.JavaComp.interf;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import com.JavaComp.program.*;
-import java.util.Arrays;
 
 
 public class SignUp extends javax.swing.JFrame {
@@ -452,16 +450,16 @@ public class SignUp extends javax.swing.JFrame {
             if (cliente.getCorreo().equals(correoField.getText())) correoEsisten = true;
         if (!cifField.getText().isBlank() && !webField.getText().isBlank() || !dniField.getText().isBlank() && !correoEsisten
                 && !nombreField.getText().isEmpty() && !correoField.getText().isEmpty()
-                && !claveField.getText().isEmpty() && !telefonoField.getText().isEmpty() && !calleField.getText().isEmpty()
+                && !String.valueOf(claveField.getPassword()).isEmpty() && !telefonoField.getText().isEmpty() && !calleField.getText().isEmpty()
                 && !numeroField.getText().isEmpty() && !cpField.getText().isEmpty()
                 && !ciudadField.getText().isEmpty() && !titularField.getText().isEmpty() 
                 && !codigoField.getText().isEmpty() &&!fCaducidadField.getText().isEmpty() && arr[1] && arr[0] && rellenoCaducidad)
         {
             if(particularRadioBoton.isSelected()) Particular.CrearParticular(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
+                    String.valueOf(claveField.getPassword()), telefonoField.getText(), dniField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
             else Empresa.CrearEmpresa(nombreField.getText(), correoField.getText(),
-                    claveField.getText(), telefonoField.getText(), cifField.getText(), webField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
+                    String.valueOf(claveField.getPassword()), telefonoField.getText(), cifField.getText(), webField.getText(), titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(),numeroField.getText(),cpField.getText(),ciudadField.getText());
             InterfCliente interfCliente = new InterfCliente();
             interfCliente.setLocationRelativeTo(null);

@@ -139,7 +139,7 @@ public class SignIn extends javax.swing.JFrame {
     private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
         // TODO add your handling code here:
         String corr = correoField.getText();
-        String cont = claveField.getText();
+        String cont = String.valueOf(claveField.getPassword());
         
         if (corr.equals("admin@javacomp.com") && cont.equals("admin")){
             InterfAdmin interf = new InterfAdmin();

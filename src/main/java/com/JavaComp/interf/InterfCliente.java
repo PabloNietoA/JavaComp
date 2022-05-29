@@ -280,7 +280,6 @@ public class InterfCliente extends javax.swing.JFrame {
     private void filtrarCategoria(String categoria, String sort){
         switch (sort) {
             case "relevancia":
-                System.out.print("relevancia");
                 if(!buscarField.getText().equals("Buscar...") && !buscarField.getText().isBlank()){
                     ArrayList filtro = DataManager.busquedaProducto(buscarField.getText());
                     DataManager.sortTitulo(filtro);

@@ -319,9 +319,9 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                 && !telefonoField.getText().isBlank() && !calleField.getText().isBlank() && !numeroField.getText().isBlank()
                 && !cpField.getText().isBlank() && !titularField.getText().isBlank() && !codigoField.getText().isBlank() &&
                 !fCaducidadField.getText().isBlank() && arr[0] && arr[1] && !correoEsisten && rellenoCaducidad){
-            if(claveActualField.getText().equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
+            if(String.valueOf(claveActualField.getPassword()).equals(DataManager.getClienteActual().getClave()) && claveNuevaField.getText().isBlank()){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
-                    claveActualField.getText(), telefonoField.getText(), dniField.getText(),
+                    String.valueOf(claveActualField.getPassword()), telefonoField.getText(), dniField.getText(),
                     titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                 this.setVisible(false);
@@ -329,9 +329,9 @@ public class ModificarDatosParticular extends javax.swing.JFrame {
                 interfCliente.setLocationRelativeTo(null);
                 interfCliente.setVisible(true);
             }
-            else if (claveActualField.getText().equals(DataManager.getClienteActual().getClave())){
+            else if (String.valueOf(claveActualField.getPassword()).equals(DataManager.getClienteActual().getClave())){
                 Particular.ModificarParticular(nombreField.getText(), correoField.getText(),
-                    claveNuevaField.getText(), telefonoField.getText(), dniField.getText(),
+                    String.valueOf(claveNuevaField.getPassword()), telefonoField.getText(), dniField.getText(),
                     titularField.getText(), codigoField.getText(), fCaducidadField.getText(),
                     calleField.getText(), numeroField.getText(), cpField.getText(), ciudadField.getText());
                 this.setVisible(false);

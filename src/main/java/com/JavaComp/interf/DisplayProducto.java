@@ -32,8 +32,6 @@ public class DisplayProducto extends javax.swing.JPanel {
         tituloLabel.setVisible(true);
         caracteristicasArea.setText(prod.getCaracteristicas());
         
-        System.out.print(new File(prod.getImagen()).exists() + "\n");
-        System.out.print(prod.getImagen() + "\n");
         ImageIcon imageIcon = new ImageIcon(prod.getImagen()); // load the image to a imageIcon
         Image image = imageIcon.getImage(); // transform it 
         Image newimg = image.getScaledInstance(163, 163,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
@@ -119,10 +117,11 @@ public class DisplayProducto extends javax.swing.JPanel {
                     .addComponent(caracteristicasScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                     .addComponent(imagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Precio)
-                    .addComponent(verBoton)
-                    .addComponent(tituloLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tituloLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Precio)
+                        .addComponent(verBoton)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
