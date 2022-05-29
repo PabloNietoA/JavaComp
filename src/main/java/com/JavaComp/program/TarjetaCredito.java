@@ -3,12 +3,22 @@ package com.JavaComp.program;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public class TarjetaCredito implements Serializable{
     private String titular;
     private String codigo;
     private String caducidad;
 
+    /**
+     * Instancia un objeto tarjeta de crédito
+     * @param titular el titular de la tarjeta
+     * @param codigo el código de la tarjeta
+     * @param caducidad la fecha de caducidad de la tarjeta en forma string mm/aaaa
+     */
     public TarjetaCredito(String titular, String codigo, String caducidad) {
         this.titular = titular;
         this.codigo = codigo;

@@ -5,12 +5,12 @@
 package com.JavaComp.interf;
 
 import com.JavaComp.program.*;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Kar�n
+ * @author Pablo
+ * @author Karín
  */
 public class ModificarDatosEmpresa extends javax.swing.JFrame {
 
@@ -408,6 +408,7 @@ public class ModificarDatosEmpresa extends javax.swing.JFrame {
             }
         });
     }
+    
     public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DIRECCION;

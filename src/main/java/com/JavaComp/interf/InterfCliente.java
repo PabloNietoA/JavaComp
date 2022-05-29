@@ -9,9 +9,11 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 /**
  *
- * @author Kar�n
+ * @author Pablo
+ * @author Karín
  */
 public class InterfCliente extends javax.swing.JFrame {
 
@@ -276,7 +278,7 @@ public class InterfCliente extends javax.swing.JFrame {
         filtrarCategoria((String) categoriaBox.getSelectedItem(), (String) ordenarBox.getSelectedItem());
     }//GEN-LAST:event_categoriaBoxActionPerformed
     
-    //Filtra la lista de DisplayProducto por categoria y la ordena por el sort que elijamos
+    //Filtra la lista de DisplayProducto por categoria y criterios de búsqueda y la ordena por el sort que elijamos
     private void filtrarCategoria(String categoria, String sort){
         switch (sort) {
             case "relevancia":

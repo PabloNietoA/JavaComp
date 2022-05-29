@@ -2,12 +2,24 @@ package com.JavaComp.program;
 
 import java.io.Serializable;
 
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public class Direccion implements Serializable {
     private String calle;
     private String numero;
     private String cp;
     private String ciudad;
 
+    /**
+     * Instancia un objeto Dirección con todos sus datos
+     * @param calle
+     * @param numero
+     * @param cp
+     * @param ciudad
+     */
     public Direccion(String calle, String numero, String cp, String ciudad) {
         this.calle = calle;
         this.numero = numero;

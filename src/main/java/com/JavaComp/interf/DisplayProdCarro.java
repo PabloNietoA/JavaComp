@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
- * Esta es la case que enseña los productos que existen en el carro dentro de InterfCarro
+ * Esta es la clase que enseña los productos que existen en el carro dentro de InterfCarro
  * 
  * @author Pablo
  * @author Karin

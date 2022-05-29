@@ -13,7 +13,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class Pedido implements Serializable {
     private ArrayList<Producto> carrito;
@@ -21,7 +22,7 @@ public class Pedido implements Serializable {
     private LocalDate fechaPedido;
 
     /**
-     * Crea el objeto pedido
+     * Instancia un objeto pedido
      * @param cliente el cliente que ha pagado el pedido
      * @param carrito el carrito asociado a la compra
      */
@@ -139,6 +140,4 @@ public class Pedido implements Serializable {
     public void setFechaPedido(LocalDate fechaPedido) {
         this.fechaPedido = fechaPedido;
     }
-    
-    
 }

@@ -9,7 +9,8 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Kar�n
+ * @author Pablo
+ * @author Karín
  */
 public class Inventario extends javax.swing.JFrame {
 
@@ -138,6 +139,10 @@ public class Inventario extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Devuelve el panel en el que se van a mostrar los displays de inventario
+     * @return el panel que contiene a los displays
+     */
     public JPanel getInventarioPanel() {
         return inventarioPanel;
     }

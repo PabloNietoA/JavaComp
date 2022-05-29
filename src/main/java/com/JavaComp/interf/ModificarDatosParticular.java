@@ -9,7 +9,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Kar�n
+ * @author Pablo
+ * @author Karín
  */
 public class ModificarDatosParticular extends javax.swing.JFrame {
 

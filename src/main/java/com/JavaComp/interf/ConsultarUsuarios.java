@@ -3,15 +3,22 @@ import javax.swing.table.DefaultTableModel;
 import java.util.*;
 import com.JavaComp.program.*;
 
+/**
+ *
+ * @author Karin
+ * @author Pablo
+ */
 public class ConsultarUsuarios extends javax.swing.JFrame {
     
-
-    
+    /**
+     * Crea una interfaz ConsultarUsuarios
+     */
     public ConsultarUsuarios() {
         initComponents(); 
         agregarFilaATabla();
     
     }
+    
     private void agregarFilaATabla(){
             DefaultTableModel modelo =(DefaultTableModel) usuariosTabla.getModel();
             ArrayList<Cliente> clientes = DataManager.getClientes();

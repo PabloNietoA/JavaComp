@@ -3,11 +3,22 @@ package com.JavaComp.program;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public class Opinion implements Serializable {
     private int calif;
     private String comentario;
     private LocalDate fecha;
 
+    /**
+     * Instancia un objeto de tipo opinión
+     * @param calif
+     * @param comentario
+     * @param fecha
+     */
     public Opinion(int calif, String comentario, LocalDate fecha) {
         this.calif = calif;
         this.comentario = comentario;

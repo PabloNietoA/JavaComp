@@ -11,7 +11,8 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class DisplayInventario extends javax.swing.JPanel {
 

@@ -8,7 +8,8 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class MainMenu extends javax.swing.JFrame {
 
@@ -116,7 +117,8 @@ public class MainMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //Redirige a la ventana del "Sign in"
+    
+//Redirige a la ventana del "Sign in"
     private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
         this.setVisible(false);
         SignIn signIn = new SignIn();
@@ -124,7 +126,8 @@ public class MainMenu extends javax.swing.JFrame {
         signIn.setLocationRelativeTo(null);
         signIn.setVisible(true);
     }//GEN-LAST:event_signInBotonActionPerformed
-//Redirige a la ventana del "Sign up"
+    
+    //Redirige a la ventana del "Sign up"
     private void signUpBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpBotonActionPerformed
         this.setVisible(false);
         SignUp signUp = new SignUp();

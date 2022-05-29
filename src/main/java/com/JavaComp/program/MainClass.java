@@ -8,12 +8,13 @@ import com.JavaComp.interf.*;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
-
 public class MainClass {
-    
     public static void main(String[] args) {
+        
+        //Descarga los datos de los archivos de guardado y los printea
         DataManager.setClientes(DataManager.downloadSave("src/main/resources/saves/saveClientes.dat"));
         DataManager.setProductos(DataManager.downloadSave("src/main/resources/saves/saveProductos.dat"));
         DataManager.setPedidos(DataManager.downloadSave("src/main/resources/saves/savePedidos.dat"));
@@ -24,9 +25,12 @@ public class MainClass {
             System.out.print(DataManager.getProductos().get(i).getTitulo() + " . " + DataManager.getProductos().get(i).getPvp() + "\n");
         }
 
+        //Istancia un menú
         MainMenu main = new MainMenu();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
+        
+        //Al cierre de la aplicación guarda todos los datos y printea la lista de clientes
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             public void run() {
                 DataManager.uploadSave(DataManager.getClientes(), "src/main/resources/saves/saveClientes.dat");
@@ -35,7 +39,6 @@ public class MainClass {
                 for (int i=0; i<DataManager.getClientes().size();i++){
                     System.out.print(DataManager.getClientes().get(i).getCorreo() + " : " + DataManager.getClientes().get(i).getClave() +"\n");
                 }
-                System.out.println(DataManager.getPedidos().size());
             }
         }));
     }

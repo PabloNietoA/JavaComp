@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class InterfProducto extends javax.swing.JFrame {
 
@@ -25,6 +26,9 @@ public class InterfProducto extends javax.swing.JFrame {
         initComponents();
     }
     
+    /**
+     * Acutaliza los campos para que contengan los datos del producto que se va a mostrar
+     */
     public void setInterfaz(){
         tituloLabel.setText(prod.getTitulo());
         stockLabel.setText("Unidades restantes: " + prod.getStock());
@@ -269,6 +273,10 @@ public class InterfProducto extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_confirmarBotonActionPerformed
 
+    /**
+     * Selecciona un producto para mostrarlo
+     * @param prod el producto que se va a mostrar
+     */
     public void setProd(Producto prod) {
         this.prod = prod;
     }
@@ -306,8 +314,8 @@ public class InterfProducto extends javax.swing.JFrame {
             }
         });
     }
+    
     private Producto prod;
-    private InterfCliente prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarBoton;
     private javax.swing.JButton confirmarBoton;

@@ -9,14 +9,16 @@ import com.JavaComp.program.*;
 
 public class SignUp extends javax.swing.JFrame {
 
+    /**
+     * Crea un frame de SignUp
+     */
     public SignUp() {
         initComponents();
         //Se ocultan los datos unicos de cada opcion de cliente hasta que se selecciona alguno de los radio buttons
         toggleEmpresa.setVisible(false);
         toggleParticular.setVisible(false);
     }
-   
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -489,8 +491,7 @@ public class SignUp extends javax.swing.JFrame {
     private void fCaducidadFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fCaducidadFieldActionPerformed
 
     }//GEN-LAST:event_fCaducidadFieldActionPerformed
-
-
+    
     /**
      * @param args the command line arguments
      */
@@ -525,8 +526,7 @@ public class SignUp extends javax.swing.JFrame {
             }
         });
     }
-
-     
+    
     public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Buttons;

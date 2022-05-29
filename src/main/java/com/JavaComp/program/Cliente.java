@@ -2,6 +2,11 @@ package com.JavaComp.program;
 
 import java.io.Serializable;
 
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public abstract class Cliente implements Serializable{
     private String nombre;
     private String correo;
@@ -12,6 +17,15 @@ public abstract class Cliente implements Serializable{
     private boolean isParticular;
     private int numPedidos;
 
+    /**
+     * Instancia un cliente con todos sus datos
+     * @param nombre
+     * @param correo
+     * @param clave
+     * @param direccion
+     * @param telefono
+     * @param numPedidos
+     */
     public Cliente(String nombre, String correo, String clave, Direccion direccion, String telefono, int numPedidos) {
         this.nombre = nombre;
         this.correo = correo;
@@ -33,6 +47,12 @@ public abstract class Cliente implements Serializable{
         return correo;
     }
     
+    /**
+     * Busca al cliente por correo y clave
+     * @param correo el correo que se va a comparar
+     * @param clave la clave que se va a comparar
+     * @return devuelve la posición del cliente en el arrayList Clientes de DataManager, si  no existe devuelve la longitud del arraylist
+     */
     public static int EncontrarCliente(String correo, String clave){
         int i = 0;
         while ( i < DataManager.getClientes().size() && !(DataManager.getClientes().get(i).getCorreo().equals(correo)
@@ -42,6 +62,12 @@ public abstract class Cliente implements Serializable{
         return i;
     }
     
+    /**
+     * Loggea al cliente en la aplicación y lo setea en datamanager como clienteActual
+     * @param correo correo del cliente que se va a loggear
+     * @param clave clave del cliente que se va a loggear
+     * @return true si el cliente existe y se ha loggeado con éxito
+     */
     public static boolean LoggearCliente(String correo, String clave){
         int i = EncontrarCliente(correo, clave);
         boolean isLogged = false;
@@ -91,6 +117,7 @@ public abstract class Cliente implements Serializable{
     public boolean isParticular(){
         return isParticular;
     }
+    
     public void setIsParticular(boolean isParticular){
         this.isParticular = isParticular();
     }

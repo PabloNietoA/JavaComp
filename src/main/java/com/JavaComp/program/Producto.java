@@ -8,6 +8,11 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public class Producto implements Serializable {
     private String titulo;
     private String caracteristicas;
@@ -19,7 +24,7 @@ public class Producto implements Serializable {
     private ArrayList<Opinion> opiniones;
 
     /**
-     * Construye un producto a partir de sus parámetros base
+     * Instancia un producto a partir de sus parámetros base
      * @param titulo
      * @param caracteristicas
      * @param categoria
@@ -40,8 +45,8 @@ public class Producto implements Serializable {
     }
     
     /**
-     * Construye un producto a partir de un producto anterior
-     * @param prod
+     * Clona un producto
+     * @param prod el producto que se va a clonar
      */
     public Producto(Producto prod){
         this.titulo = prod.getTitulo();
@@ -57,7 +62,7 @@ public class Producto implements Serializable {
     
     /**
      * Obtiene la media de los ratings de las opiniones del producto
-     * @return float
+     * @return la media de opiniones en float
      */
     public float getMidRating(){
         float i = 0;
@@ -72,7 +77,7 @@ public class Producto implements Serializable {
     
     /**
      * Construye un panel DisplayProducto con los datos del produto producto
-     * @param producto
+     * @param producto el producto que se va a mostrar en el panel
      * @return El panel DisplayProducto con todos los datos introducidos y listo para usar
      */
     public static DisplayProducto crearPanel(Producto producto){

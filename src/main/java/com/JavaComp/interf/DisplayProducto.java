@@ -6,12 +6,12 @@ package com.JavaComp.interf;
 
 import com.JavaComp.program.Producto;
 import java.awt.*;
-import java.io.File;
 import javax.swing.ImageIcon;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class DisplayProducto extends javax.swing.JPanel {
 
@@ -22,6 +22,9 @@ public class DisplayProducto extends javax.swing.JPanel {
         initComponents();
     }
     
+    /**
+     * Actualiza la ui para contener los parámetros del producto
+     */
     public void setParameters(){
         
         Precio.setText((Double.toString(prod.getPvp())) + "€");
@@ -42,6 +45,7 @@ public class DisplayProducto extends javax.swing.JPanel {
         repaint();
         revalidate();
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -134,9 +138,14 @@ public class DisplayProducto extends javax.swing.JPanel {
         interf.setVisible(true);
     }//GEN-LAST:event_verBotonActionPerformed
     
+    /**
+     * Selecciona un producto que se va a mostrar
+     * @param prod el producto que se va a mostrar
+     */
     public void setProd(Producto prod) {
         this.prod = prod;
     }
+    
     private Producto prod;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Precio;

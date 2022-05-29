@@ -9,7 +9,8 @@ import com.JavaComp.program.Producto;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class DisplayVenta extends javax.swing.JPanel {
 

@@ -18,8 +18,9 @@ import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
- *
- * @author Kar�n
+ * 
+ * @author Pablo
+ * @author Karín
  */
 public class CrearProducto extends javax.swing.JFrame {
 

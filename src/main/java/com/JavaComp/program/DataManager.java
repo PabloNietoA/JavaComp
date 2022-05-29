@@ -17,6 +17,11 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import javax.swing.JPanel;
 
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public class DataManager {
     
     private static Cliente clienteActual = null;

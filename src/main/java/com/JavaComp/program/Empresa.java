@@ -3,10 +3,26 @@ package com.JavaComp.program;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Pablo
+ * @author Karín
+ */
 public class Empresa extends Cliente implements Serializable{
         private String cif;
         private String web;
 
+    /**
+     * Instancia un cliente de tipo empresa con todos sus datos
+     * @param nombre
+     * @param correo
+     * @param clave
+     * @param direccion
+     * @param telefono
+     * @param numPedidos
+     * @param cif
+     * @param web
+     */
     public Empresa(String nombre, String correo, String clave, Direccion direccion, String telefono, int numPedidos, String cif, String web) {
         super(nombre, correo, clave, direccion, telefono, numPedidos);
         this.cif = cif;
@@ -14,6 +30,22 @@ public class Empresa extends Cliente implements Serializable{
         
     }
     
+    /**
+     * Crea una empresa con todos los datos y la añade a la lista de clientes de DataManager
+     * @param nombre
+     * @param correo
+     * @param clave
+     * @param telefono
+     * @param cif
+     * @param web
+     * @param titularTarj
+     * @param codTarj
+     * @param fechTarj
+     * @param calleDir
+     * @param numDir
+     * @param cpDir
+     * @param ciudadDir
+     */
     public static void CrearEmpresa(String nombre, String correo, String clave,
             String telefono, String cif, String web, String titularTarj, 
             String codTarj, String fechTarj, String calleDir, String numDir, 
@@ -29,6 +61,22 @@ public class Empresa extends Cliente implements Serializable{
         DataManager.setClienteActual(cliente);
     }
     
+    /**
+     * Modifica los datos de clienteActual y lo reemplaza en la lista de clientes de DataManager
+     * @param nombre
+     * @param correo
+     * @param clave
+     * @param telefono
+     * @param cif
+     * @param web
+     * @param titularTarj
+     * @param codTarj
+     * @param fechTarj
+     * @param calleDir
+     * @param numDir
+     * @param cpDir
+     * @param ciudadDir
+     */
     public static void ModificarEmpresa(String nombre, String correo, String clave,
             String telefono, String cif, String web, String titularTarj, 
             String codTarj, String fechTarj, String calleDir, String numDir, 

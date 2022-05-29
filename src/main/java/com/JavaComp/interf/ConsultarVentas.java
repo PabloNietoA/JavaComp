@@ -9,8 +9,9 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 
 /**
- *
- * @author Kar�n
+ * 
+ * @author Pablo
+ * @author Karín
  */
 public class ConsultarVentas extends javax.swing.JFrame {
 

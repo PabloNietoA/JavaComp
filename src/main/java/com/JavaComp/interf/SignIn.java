@@ -11,7 +11,8 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class SignIn extends javax.swing.JFrame {
 
@@ -135,6 +136,7 @@ public class SignIn extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
     //Comprueba que exista la cuenta con la que se quiera entrar: Si es de admin opciones de admin y si es de cliente opciones de cliente
     private void signInBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInBotonActionPerformed
         // TODO add your handling code here:
@@ -159,6 +161,7 @@ public class SignIn extends javax.swing.JFrame {
             else JOptionPane.showMessageDialog(this, "Correo o clave incorrectos", "Error", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_signInBotonActionPerformed
+    
     // Regresa al menu principal
     private void cancelBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBotonActionPerformed
         prevFrame.setLocationRelativeTo(null);
@@ -208,6 +211,7 @@ public class SignIn extends javax.swing.JFrame {
             }
         });
     }
+    
     public javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelBoton;

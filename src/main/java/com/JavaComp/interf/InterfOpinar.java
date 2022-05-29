@@ -12,14 +12,15 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class InterfOpinar extends javax.swing.JFrame {
 
     /**
      * Creates new form InterfOpinar
-     * @param frame
-     * @param prod
+     * @param frame el frame InterfProducto anterior
+     * @param prod el producto del que se está opinando
      */
     public InterfOpinar(InterfProducto frame, Producto prod) {
         initComponents();
@@ -188,6 +189,7 @@ public class InterfOpinar extends javax.swing.JFrame {
             }
         });
     }
+    
     private Producto prod;
     private InterfProducto prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables

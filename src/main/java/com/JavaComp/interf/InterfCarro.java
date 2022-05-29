@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Slend
+ * @author Pablo
+ * @author Karín
  */
 public class InterfCarro extends javax.swing.JFrame {
 
@@ -24,6 +25,9 @@ public class InterfCarro extends javax.swing.JFrame {
         reload();
     }
     
+    /**
+     * Recarga el display de productos del carro
+     */
     public void reload(){
         DataManager.displayCarrito(carroPanel, this);
     }
@@ -167,6 +171,7 @@ public class InterfCarro extends javax.swing.JFrame {
             }
         });
     }
+    
     private final javax.swing.JFrame prevFrame;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane carritoScroll;
